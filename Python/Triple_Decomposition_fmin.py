@@ -3,11 +3,11 @@ from scipy.optimize import fmin
 import numpy as np
 
 # Initial variables
-A = np.array([[0, 5, 4], 
-              [5, 0, -3], 
-              [-4, 3, 0]])
+A = np.array([[2, 4, 2], 
+              [-4, 8, -2], 
+              [2, 2, 4]])/8
 
-x0 = np.array([0, 10, 0])
+x0 = np.array([0, 0, 0])
 
 # Function
 def CreateQMatrix(params):

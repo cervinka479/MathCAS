@@ -3,9 +3,9 @@ import random
 import numpy as np
 
 # Initial variables
-A = np.array([[ random.random(), random.random(), random.random()],
-              [ random.random(), random.random(), random.random()],
-              [ random.random(), random.random(), random.random()]])
+A = np.array([[-5, 4, 4],
+              [-1, -8, 5],
+              [-4, 8, -3]])
 
 print(A)
 

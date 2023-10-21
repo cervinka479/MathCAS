@@ -2,24 +2,24 @@ import numpy as np
 import pyvista as pv
 import csv
 
-# Remake
+
 # Input variables
-A = np.array([[ -35, -74, -14],
-              [ 71,  38,  99],
-              [  54, -24, -73]])
+A = np.array([[-5, 4, 4],
+              [-1, -8, 5],
+              [-4, 8, -3]])
 
 α = 0
 β = 0
 γ = 0
 
 αMax = 180
-αStep = 5
+αStep = 2
 
 βMax = 180
-βStep = 5
+βStep = 2
 
 γMax = 90
-γStep = 5
+γStep = 2
 
 data = []
 

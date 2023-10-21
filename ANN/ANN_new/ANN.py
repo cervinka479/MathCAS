@@ -4,6 +4,7 @@ import torch.optim as optim
 import pandas as pd
 import numpy
 import DataPrep.normalizeDataset as Data
+import DataPrep.inverseNormalizeDataset as Data2
 import matplotlib.pyplot as plt
 
 
@@ -369,7 +370,7 @@ def UseTrainedModel3(hidden_size1 = 1000, hidden_size2 = 1000, hidden_size3 = 10
     loaded_model.eval()  # Set the model to evaluation mode
 
     # Prepare the test input data
-    test_input_tensor = torch.FloatTensor(Data.normalized_input_tensors)
+    test_input_tensor = torch.FloatTensor(Data.test_input)
 
     # Pass the test input data through the model
     with torch.no_grad():
@@ -379,7 +380,7 @@ def UseTrainedModel3(hidden_size1 = 1000, hidden_size2 = 1000, hidden_size3 = 10
     predictions_normalized = predictions_normalized.numpy()
 
     # Inverse normalize the predictions to obtain actual output values
-    predictions_actual = Data.output_scaler.inverse_transform(predictions_normalized)
+    predictions_actual = Data2.inverseNormalize(predictions_normalized, "NValsFile28K.csv")
 
     # Convert the predictions to a DataFrame
     predictions_df = pd.DataFrame(predictions_actual, columns=['Predicted_Ω'])
@@ -411,7 +412,7 @@ def UseTrainedModel3(hidden_size1 = 1000, hidden_size2 = 1000, hidden_size3 = 10
     print(predictions_actual[:10])
 
     # Convert actual_outputs and predictions_actual to PyTorch tensors
-    actual_outputs_tensor = torch.FloatTensor(Data.normalized_output_tensors)
+    actual_outputs_tensor = torch.FloatTensor(Data.test_output)
     predictions_actual_tensor = torch.FloatTensor(predictions_actual)
 
     # Calculate the mean of actual_outputs
