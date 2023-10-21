@@ -2,7 +2,7 @@ import numpy as np
 import pyvista as pv
 import csv
 
-
+# Remake
 # Input variables
 A = np.array([[ -35, -74, -14],
               [ 71,  38,  99],
