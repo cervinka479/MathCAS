@@ -92,4 +92,4 @@ def bruteforceBRF(matrix, Step=5, Output=False):
 
     print("Maximum F values:\n", np.array(maxValues))
 
-bruteforceBRF(A,Output=True)
+bruteforceBRF(A)
