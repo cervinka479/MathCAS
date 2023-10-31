@@ -1,0 +1,95 @@
+import numpy as np
+import pyvista as pv
+import csv
+
+
+# Input variables
+A = np.array([[-5, 4, 4],
+              [-1, -8, 5],
+              [-4, 8, -3]])
+
+def bruteforceBRF(matrix, Step=5, Output=False):
+
+    α = 0
+    β = 0
+    γ = 0
+
+    αMax = 180
+    αStep = Step
+
+    βMax = 180
+    βStep = Step
+
+    γMax = 90
+    γStep = Step
+
+    data = []
+
+    def GetFValue(α, β, γ):
+        
+        # Convert DEG to RAD
+        α = np.deg2rad(α)
+        β = np.deg2rad(β)
+        γ = np.deg2rad(γ)
+
+        # Creating matrix Q
+        Q = np.array([[np.cos(α)*np.cos(β)*np.cos(γ)-np.sin(α)*np.sin(γ), np.sin(α)*np.cos(β)*np.cos(γ)+np.cos(α)*np.sin(γ), -np.sin(β)*np.cos(γ)],
+                    [-np.cos(α)*np.cos(β)*np.sin(γ)-np.sin(α)*np.cos(γ), -np.sin(α)*np.cos(β)*np.sin(γ)+np.cos(α)*np.cos(γ), np.sin(β)*np.sin(γ)],
+                    [np.cos(α)*np.sin(β), np.sin(α)*np.sin(β), np.cos(β)]])
+
+        # Creating matrix A_
+        A_ = Q @ A @ Q.T
+
+        # Spliting matrix A_ to symmetric (S) and antisymmetric (Ω) parts
+        S = 0.5 * (A_ + A_.T)
+        Ω = 0.5 * (A_ - A_.T)
+
+        # Acquiring f value
+        f = np.abs(S[0, 1] * Ω[0, 1]) + np.abs(S[0, 2] * Ω[0, 2]) + np.abs(S[1, 2] * Ω[1, 2])
+        return f
+
+    maxValues = [[0, 0, 0, 0]]
+
+    for i in range(int(γMax/γStep)):
+        for j in range(int(βMax/βStep)):
+            for k in range(int(αMax/αStep)):
+                #print(p/m*100)
+                f_value = GetFValue(α, β, γ)
+                data.append([α, β, γ, f_value])
+                if f_value > maxValues[0][3]:
+                    maxValues = []
+                    maxValues.append([α, β, γ, f_value])
+                elif f_value == maxValues[0][3]:
+                    maxValues.append([α, β, γ, f_value])
+                
+                α = α+αStep
+            α = 0
+            β = β+βStep
+        α = 0
+        β = 0
+        γ = γ+γStep
+
+    data_arr = np.array(data)
+
+    # Extract coordinates and F values
+    coordinates = data_arr[:, :3]
+    f_values = data_arr[:, 3]
+
+    grid = pv.StructuredGrid()
+    grid.points = coordinates
+    grid.point_data["FValues"] = f_values
+
+    grid.dimensions = (int(αMax/αStep), int(βMax/βStep), int(γMax/γStep))
+    grid.spacing = (αStep, βStep, γStep)
+    grid.origin = (0, 0, 0)
+
+    if Output == True:
+        # Export the grid to VTK file
+        output_file = "output.vtk"
+        grid.save(output_file)
+
+        print("output.vtk export completed")
+
+    print("Maximum F values:\n", np.array(maxValues))
+
+bruteforceBRF(A,Output=True)
