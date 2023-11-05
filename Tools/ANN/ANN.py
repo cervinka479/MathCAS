@@ -1,6 +1,6 @@
-import torch.nn as nn
-
 def nnArch(io=[9,1], hl=[12]):
+    import torch.nn as nn
+    
     class NeuralNetwork(nn.Module):
         def __init__(self, hl):
             super(NeuralNetwork, self).__init__()
@@ -15,12 +15,12 @@ def nnArch(io=[9,1], hl=[12]):
             
             # Create output layer
             self.layers.append(nn.Linear(input_size, io[1]))
-
+        
         def forward(self, x):
             for layer in self.layers:
                 x = layer(x)
             return x
-
+    
     # Create the neural network instance
     model = NeuralNetwork(hl)
     print(model)
