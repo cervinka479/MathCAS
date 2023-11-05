@@ -7,26 +7,18 @@ import numpy
 #import DataPrep.inverseNormalizeDataset as Data2
 import matplotlib.pyplot as plt
 
-def ANN(hiddenLayers = [12]):
+def ANN(IO=[9,2],hiddenLayers=[12]):
     class NeuralNetwork(nn.Module):
-        def __init__(self, input_size, hidden_size, output_size):
+        def __init__(self, hidden_size):
             super(NeuralNetwork, self).__init__()
-            self.fc1 = nn.Linear(input_size, hidden_size)
+            self.fc1 = nn.Linear(IO[0], hidden_size)
             self.relu = nn.ReLU()
-            self.fc2 = nn.Linear(hidden_size, output_size)
-
-        def forward(self, x):
-            x = self.fc1(x)
-            x = self.relu(x)
-            x = self.fc2(x)
-            return x
-
-    # Define input, hidden, and output sizes
-    input_size = 9  # Number of input features (velocity-gradient tensor)
-    output_size = 1  # Number of output features (normalized S, Ω, shear tensor)
+            self.fc2 = nn.Linear(hidden_size, IO[1])
 
     # Create the neural network instance
-    model = NeuralNetwork(input_size, hiddenLayers[0], output_size)
+    model = NeuralNetwork(hiddenLayers[0])
 
     # Print the model architecture
     print(model)
+
+ANN(hiddenLayers=[16])
