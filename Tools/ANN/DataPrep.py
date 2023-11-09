@@ -42,15 +42,16 @@ def filter(path, compare=False):
     else:
         print("Filtered")
 
-def extract(path, deviatoric=False):
+def extract(path, i=[1,2], o=[3,3], deviatoric=False):
     import pandas as pd
 
     # Load the CSV dataset
     data = pd.read_csv(path)
 
     # Extract the input velocity-gradient tensors (matrix A) and output normalized tensors
-    input_tensors = data.iloc[:, 3:12].values # [:, 3:12]
-    output_tensors = data.iloc[:, 12:13].values# [:, 12:13]
+    input_tensors = data.iloc[:, i[0]-1:i[1]].values # [:, 3:12]
+    output_tensors = data.iloc[:, o[0]-1:o[1]].values# [:, 12:13]
+
 
     if deviatoric==True:
         # Make the input tensor deviatoric
@@ -72,6 +73,8 @@ def split(input_tensors, output_tensors):
         train_input, train_output, test_size=0.1, random_state=42
     )
 
+    return train_input, train_output, val_input, val_output, test_input, test_output
+
 def normalize(input_tensors, output_tensors):
     import numpy as np
     import pandas as pd
@@ -83,6 +86,8 @@ def normalize(input_tensors, output_tensors):
         NValuesList.append(max(np.abs(input_tensors[i,:])))
         input_tensors[i,:] = input_tensors[i,:]/NValuesList[i]
         output_tensors[i,:] = output_tensors[i,:]/NValuesList[i]
+
+    return input_tensors, output_tensors
 
 def inverseNormalize(input_tensors, predictions):
     import numpy as np
@@ -97,3 +102,4 @@ def inverseNormalize(input_tensors, predictions):
     return predictions
 
 #
+print(split(*extract("test.csv",i=[1,2],o=[3,3])))
