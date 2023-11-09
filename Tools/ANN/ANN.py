@@ -23,9 +23,9 @@ def nnArch(io=[9,1], hl=[12]):
     
     # Create the neural network instance
     model = NeuralNetwork(hl)
-    print(model)
     return model
 
+def nnTrain(model=nnArch()):
+    print(model)
 
-
-nnArch(hl=[16,10,8])
+nnTrain(model=nnArch(io=[5,3],hl=[16,16,12,10]))
