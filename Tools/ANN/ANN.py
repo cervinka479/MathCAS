@@ -1,3 +1,5 @@
+import torch
+
 def nnArch(io=[9,1], hl=[12]):
     import torch.nn as nn
     
@@ -25,7 +27,13 @@ def nnArch(io=[9,1], hl=[12]):
     model = NeuralNetwork(hl)
     return model
 
-def nnTrain(model=nnArch()):
+def nnTrain(model=nnArch(),optimizer="adam",learningRate=0.01,loss=torch.nn.MSELoss()):
     print(model)
 
-nnTrain(model=nnArch(io=[5,3],hl=[16,16,12,10]))
+    match optimizer:
+        case "sgd":
+            optimizer = torch.optim.SGD(model.parameters(), learningRate)
+        case "adam":
+            optimizer = torch.optim.Adam(model.parameters(), learningRate)
+
+nnTrain(model=nnArch(io=[5,3],hl=[16,16,12,10]))                 
