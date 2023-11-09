@@ -79,6 +79,9 @@ def normalize(input_tensors, output_tensors):
     import numpy as np
     import pandas as pd
     
+    input_tensors = np.float_(input_tensors)
+    output_tensors = np.float_(output_tensors)
+
     # Normalize the dataset
     NValuesList = []
 
@@ -93,6 +96,9 @@ def inverseNormalize(input_tensors, predictions):
     import numpy as np
     import pandas as pd
 
+    input_tensors = np.float_(input_tensors)
+    predictions = np.float_(predictions)
+
     NValuesList = []
 
     for i, row in enumerate(input_tensors):
@@ -102,4 +108,5 @@ def inverseNormalize(input_tensors, predictions):
     return predictions
 
 #
-print(split(*extract("test.csv",i=[1,2],o=[3,3])))
+#print(normalize(*extract("test.csv",i=[1,2],o=[3,3])))
+#print(inverseNormalize(extract("test.csv",i=[1,2],o=[3,3])[0],normalize(*extract("test.csv",i=[1,2],o=[3,3]))[1]))
