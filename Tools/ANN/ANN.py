@@ -27,9 +27,13 @@ def nnArch(io=[9,1], hl=[12]):
     model = NeuralNetwork(hl)
     return model
 
-def nnTrain(splitDataset=[["train_input"],["train_output"],["val_input"],["val_output"],["test_input"],["test_output"]], model=nnArch(),optimizer="adam",learningRate=0.01,criterion="mse", epochs=50):
+def nnTrain(splitDataset=[["train_input"],["train_output"],["val_input"],["val_output"],["test_input"],["test_output"]], model=nnArch(),optimizer="adam",learningRate=0.01,criterion="mse", epochs=50, save=""):
     import torch
     from torch.utils.data import DataLoader, TensorDataset
+
+    if splitDataset == [["train_input"],["train_output"],["val_input"],["val_output"],["test_input"],["test_output"]]:
+        print("E: Invalid dataset")
+        return
 
     # Unpack your dataset
     train_input, train_output, val_input, val_output, test_input, test_output = splitDataset
@@ -78,4 +82,19 @@ def nnTrain(splitDataset=[["train_input"],["train_output"],["val_input"],["val_o
             loss = criterion(outputs, targets)
             print(f'Final Loss: {loss.item()}')
 
-nnTrain(splitDataset=DataPrep.split(*DataPrep.extract("test.csv")),model=nnArch(io=[2,1]), epochs=200)
+    # Save trained model
+    if save != "":
+        torch.save(model.state_dict(), save+".pth")
+        print("saved model: "+save+".pth")
+
+def nnPredict(model="saved_model_name"):
+    if model == "saved_model_name":
+        print("E: Invalid model")
+        return
+    
+    print("it is working")
+
+
+#nnTrain(save="testModel", splitDataset=DataPrep.split(*DataPrep.extract("test.csv")),model=nnArch(io=[2,1]), epochs=200)
+
+nnPredict()
