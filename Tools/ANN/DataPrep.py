@@ -1,5 +1,5 @@
 # Writes an output file #
-def generateData(num_items, filename):
+def generateData(filename, num_items):
     import csv
     import random
 
@@ -7,8 +7,8 @@ def generateData(num_items, filename):
         writer = csv.writer(file)
         writer.writerow(["X", "Y", "result"])
         for _ in range(num_items):
-            x = random.randint(0, 99)
-            y = random.randint(0, 99)
+            x = random.randint(-9, 9)
+            y = random.randint(-9, 9)
             result = x + y
             writer.writerow([x, y, result])
 
@@ -128,6 +128,4 @@ def inverseNormalize(input_tensors, predictions):
 
     return predictions
 
-#generateData(1000, "dSum1000.csv")
-
-print(extract("dSum1000.csv", limit=20))
+#generateData("dSum1000+.csv", 1000)
