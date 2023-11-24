@@ -1,4 +1,20 @@
 # Writes an output file #
+def generateData(num_items, filename):
+    import csv
+    import random
+
+    with open(filename, 'w', newline='') as file:
+        writer = csv.writer(file)
+        writer.writerow(["X", "Y", "result"])
+        for _ in range(num_items):
+            x = random.randint(0, 99)
+            y = random.randint(0, 99)
+            result = x + y
+            writer.writerow([x, y, result])
+
+    print("Dataset generated: "+filename)
+
+# Writes an output file #
 def removeEndCommas(path):
     import pandas as pd
 
@@ -42,15 +58,20 @@ def filter(path, compare=False):
     else:
         print("Filtered")
 
-def extract(path, i=[1,2], o=[3,3], deviatoric=False):
+def extract(path, i=[1,2], o=[3,3], limit=0, deviatoric=False):
     import pandas as pd
 
     # Load the CSV dataset
     data = pd.read_csv(path)
 
-    # Extract the input velocity-gradient tensors (matrix A) and output normalized tensors
-    input_tensors = data.iloc[:, i[0]-1:i[1]].values # [:, 3:12]
-    output_tensors = data.iloc[:, o[0]-1:o[1]].values# [:, 12:13]
+    if limit == 0:
+        # Extract the input velocity-gradient tensors (matrix A) and output normalized tensors
+        input_tensors = data.iloc[:, i[0]-1:i[1]].values # [:, 3:12]
+        output_tensors = data.iloc[:, o[0]-1:o[1]].values# [:, 12:13]
+    else:
+        # Extract the input velocity-gradient tensors (matrix A) and output normalized tensors
+        input_tensors = data.iloc[:limit, i[0]-1:i[1]].values # [:, 3:12]
+        output_tensors = data.iloc[:limit, o[0]-1:o[1]].values# [:, 12:13]
 
 
     if deviatoric==True:
@@ -107,6 +128,6 @@ def inverseNormalize(input_tensors, predictions):
 
     return predictions
 
-#
-#print(normalize(*extract("test.csv",i=[1,2],o=[3,3])))
-#print(inverseNormalize(extract("test.csv",i=[1,2],o=[3,3])[0],normalize(*extract("test.csv",i=[1,2],o=[3,3]))[1]))
+#generateData(1000, "dSum1000.csv")
+
+print(extract("dSum1000.csv", limit=20))

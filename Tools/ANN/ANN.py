@@ -181,27 +181,37 @@ def nnPredict(loadModel, inputDataset, model=nnArch()):
 
     return predictions
 
+def nnTrainVisual():
+    import matplotlib.pyplot as plt
 
-#nnTrain(save="testModelFX", splitDataset=DataPrep.split(*DataPrep.extract("datasetFX.csv")),model=nnArch(io=[2,1]), epochs=200, learningRate=0.001)
+    # Train your model and get the losses
+    train_losses1, val_losses1 = nnTrainVal(splitDataset=DataPrep.split(*DataPrep.extract("datasetSum.csv")),model=nnArch(io=[2,1]), epochs=200, learningRate=0.01)
+    train_losses2, val_losses2 = nnTrainVal(splitDataset=DataPrep.split(*DataPrep.extract("datasetSum.csv")),model=nnArch(io=[2,1]), epochs=200, learningRate=0.001)
 
-#print(nnPredict(loadModel="testModelFX.pth", inputDataset=DataPrep.extract("datasetPredict.csv",i=[1,2],o=[1,1])[0],model=nnArch(io=[2,1])))
+    # Create a figure
+    plt.figure()
 
-import matplotlib.pyplot as plt
+    # Plot the training and validation losses for model 1
+    plt.plot(train_losses1, label='Training Loss - Model 1')
+    plt.plot(val_losses1, label='Validation Loss - Model 1')
 
-# Train your model and get the losses
-train_losses, val_losses = nnTrainVal(splitDataset=DataPrep.split(*DataPrep.extract("datasetSum.csv")),model=nnArch(io=[2,1]), epochs=200, learningRate=0.001)
+    # Plot the training and validation losses for model 2
+    plt.plot(train_losses2, label='Training Loss - Model 2')
+    plt.plot(val_losses2, label='Validation Loss - Model 2')
 
-# Create a figure
-plt.figure()
+    plt.title('Model Comparison')
+    plt.xlabel('Epoch')
+    plt.ylabel('Loss')
+    plt.legend()
 
-# Plot the training loss
-plt.plot(train_losses, label='Training Loss')
+    # Show the plot
+    plt.show()
 
-# Plot the validation loss
-plt.plot(val_losses, label='Validation Loss')
 
-# Add a legend
-plt.legend()
+#nnTrainVal(save="test1", splitDataset=DataPrep.split(*DataPrep.extract("datasetSum.csv")),model=nnArch(io=[2,1]), epochs=200, learningRate=0.001)
 
-# Show the plot
-plt.show()
+#print(nnPredict(loadModel="testModelSum.pth", inputDataset=DataPrep.extract("datasetPredict.csv",i=[1,2],o=[1,1])[0],model=nnArch(io=[2,1])))
+
+#nnTrainVal(splitDataset=DataPrep.split(*DataPrep.extract("datasetSum.csv")),model=nnArch(io=[2,1]), epochs=200, learningRate=0.0001)
+
+nnTrainVisual()
