@@ -1,0 +1,10 @@
+improving NN framework
+added visualization - model comparasion (dataset size, learning rate, batch size)
+XY sum (0 - 9) "good"
+XY sum (-9 - 9) "good"
+
+relations between training loss and validation loss
+
+spikes in validation loss caused by scale distortion
+
+questions about overfitting/overtraining? smaller architectures are more reistant (less parameters/weightss)

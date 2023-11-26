@@ -162,7 +162,6 @@ def lossComparasion():
     plt.show()
 
 
-#nnTrain(save="sumTest6", splitDataset=DataPrep.split(*DataPrep.extract("dSum1000+.csv",limit=150)),model=nnArch(io=[2,1]), epochs=50, learningRate=0.01, batch_size=1)
+#nnTrain(save="XY-5Test2", splitDataset=DataPrep.split(*DataPrep.extract("dXY-5_1000.csv",limit=150)),model=nnArch(io=[2,1]), epochs=100, learningRate=0.01, batch_size=4)
 
-print(nnPredict(loadModel="sumTest5.pth", inputDataset=DataPrep.extract("dPredict.csv",i=[1,2],o=[1,1])[0],model=nnArch(io=[2,1])))
-
+print(nnPredict(loadModel="XY-5Test2.pth", inputDataset=DataPrep.extract("dPredict.csv",i=[1,2],o=[1,1])[0],model=nnArch(io=[2,1])))

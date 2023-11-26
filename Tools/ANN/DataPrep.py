@@ -7,9 +7,9 @@ def generateData(filename, num_items):
         writer = csv.writer(file)
         writer.writerow(["X", "Y", "result"])
         for _ in range(num_items):
-            x = random.randint(-9, 9)
-            y = random.randint(-9, 9)
-            result = x + y
+            x = random.randint(0, 9)
+            y = random.randint(0, 9)
+            result = max(x+y-5, 0)
             writer.writerow([x, y, result])
 
     print("Dataset generated: "+filename)
@@ -128,4 +128,4 @@ def inverseNormalize(input_tensors, predictions):
 
     return predictions
 
-#generateData("dSum1000+.csv", 1000)
+#generateData("dXY-5_1000.csv", 1000)
