@@ -58,6 +58,7 @@ def nnTrain(splitDataset=[["train_input"],["train_output"],["val_input"],["val_o
 
     train_losses = []
     val_losses = []
+    minimal_val_loss = "x"
 
     # Training loop
     for epoch in range(epochs):
@@ -94,9 +95,14 @@ def nnTrain(splitDataset=[["train_input"],["train_output"],["val_input"],["val_o
 
         # Save trained model
         if save != "":
-            torch.save(model.state_dict(), save+".pth")
+            if minimal_val_loss == "x":
+                minimal_val_loss = val_loss
+            elif val_loss < minimal_val_loss:
+                torch.save(model.state_dict(), save+".pth")
+                minimal_val_loss = val_loss
 
     print("saved model: "+save+".pth")
+    print("minimal validation loss: "+str(minimal_val_loss))
     
     # Visualize the training process
     if visualize == True:
@@ -162,6 +168,6 @@ def lossComparasion():
     plt.show()
 
 
-#nnTrain(save="XY-5Test2", splitDataset=DataPrep.split(*DataPrep.extract("dXY-5_1000.csv",limit=150)),model=nnArch(io=[2,1]), epochs=100, learningRate=0.01, batch_size=4)
+nnTrain(save="X2Test4", splitDataset=DataPrep.split(*DataPrep.extract("dX2.csv",i=[1,1] ,limit=900)),model=nnArch(io=[1,1], hl=[12,8]), epochs=350, learningRate=0.01, batch_size=8)
 
-print(nnPredict(loadModel="XY-5Test2.pth", inputDataset=DataPrep.extract("dPredict.csv",i=[1,2],o=[1,1])[0],model=nnArch(io=[2,1])))
+#print(nnPredict(loadModel="X2Test3.pth", inputDataset=DataPrep.extract("dPredict.csv",i=[1,1],o=[1,1])[0],model=nnArch(io=[1,1],hl=[12,8])))
