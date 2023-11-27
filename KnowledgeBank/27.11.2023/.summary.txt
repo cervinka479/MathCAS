@@ -1,0 +1,6 @@
+Experimeting with function X^2
+Trying to make the neural network ignore the Y variable - failed
+
+model_infoX2 - lost
+
+Tuning hyperparameters (Dataset size, Architecture: number of neurons 8-24, number of hidden layers 1-2, batch size 4 & 8)
