@@ -4,3 +4,11 @@ Trying to make the neural network ignore the Y variable - failed
 model_infoX2 - lost
 
 Tuning hyperparameters (Dataset size, Architecture: number of neurons 8-24, number of hidden layers 1-2, batch size 4 & 8)
+
+
+
+side note:
+Adam is an adaptive learning rate method, which means it adjusts the learning rate for each weight individually.
+It’s been shown to work well with relatively large batch sizes.
+Common batch sizes for Adam are 16, 32, and 64.
+However, it’s also been observed that smaller batch sizes can sometimes result in higher accuracy.
