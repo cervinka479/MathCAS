@@ -1,0 +1,10 @@
+I visualized validation losses for 10 NN models with same architecture (e.g. sameArch.png, sameArch2.png)
+and the loss of model 6 had always significantly worse result.
+
+I ran this test a few more times and the spike allways appeared between 5th to 7th model
+
+(TestX models are results from the sameArch3 experiment)
+
+
+
+I added validation loss to the saved model file name - e.g. fileName_VL{3.756e03}.pth

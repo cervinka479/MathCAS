@@ -27,7 +27,7 @@ def nnArch(io=[9,1], hl=[12]):
     model = NeuralNetwork(hl)
     return model
 
-def nnTrain(splitDataset=[["train_input"],["train_output"],["val_input"],["val_output"],["test_input"],["test_output"]], model=nnArch(),optimizer="adam",learningRate=0.01,criterion="mse",batch_size=5, epochs=50, save="", visualize=True):
+def nnTrain(splitDataset=[["train_input"],["train_output"],["val_input"],["val_output"],["test_input"],["test_output"]], model=nnArch(),optimizer="adam",learningRate=0.01,criterion="mse",batch_size=4, epochs=50, save="", visualize=True):
     import torch
     from torch.utils.data import DataLoader, TensorDataset
 
@@ -98,18 +98,22 @@ def nnTrain(splitDataset=[["train_input"],["train_output"],["val_input"],["val_o
             if minimal_val_loss == "x":
                 minimal_val_loss = val_loss
             elif val_loss < minimal_val_loss:
-                torch.save(model.state_dict(), save+".pth")
+                bestModel = model.state_dict()
                 minimal_val_loss = val_loss
 
-    print("saved model: "+save+".pth")
     print("minimal validation loss: "+str(minimal_val_loss))
+    
+    if save != "":
+        savePath = save+"_VL{"+str("{:.3e}".format(minimal_val_loss))+"}.pth"
+        torch.save(bestModel, savePath)
+        print("saved model: "+savePath)
     
     # Visualize the training process
     if visualize == True:
         nnVisualize(train_losses, val_losses)
 
     #return train_losses, val_losses
-    return val_loss
+    return minimal_val_loss
 
 def nnPredict(loadModel, inputDataset, model=nnArch()):
     import torch
@@ -146,28 +150,30 @@ def nnVisualize(train_losses,val_losses):
     plt.show()
 
 # Loss realtion to dataset scale
-def lossComparasion():
+def valLossComparasion():
     import matplotlib.pyplot as plt
     import numpy as np
 
     # Create a figure
     plt.figure()
 
-    final_val_losses = []
-    for i in range(20):
-        final_val_losses.append(nnTrain(visualize=False, save="sumTest"+str(i+1), splitDataset=DataPrep.split(*DataPrep.extract("dSum1000.csv",limit=(i+1)*50)),model=nnArch(io=[2,1]), epochs=50, learningRate=0.01))
+    minimal_val_losses = []
+    for i in range(10):
+        minimal_val_losses.append(nnTrain(visualize=False, save="sumTest"+str(i+1), splitDataset=DataPrep.split(*DataPrep.extract("dXY-5_1000.csv",limit=200)),model=nnArch(io=[2,1], hl=[16]), epochs=150, learningRate=0.01))
 
     # Plot the validation losses for all models
-    plt.plot(final_val_losses, label='Final Validation Loss')
+    plt.plot(minimal_val_losses, label='Minimal Validation Loss')
 
-    plt.xlabel('Dataset Size x50')
-    plt.ylabel('Final Validation Loss')
+    plt.xlabel('Iteration index')
+    plt.ylabel('Minimal Validation Loss')
     plt.legend()
 
     # Show the plot
     plt.show()
 
 
-nnTrain(save="X2Test4", splitDataset=DataPrep.split(*DataPrep.extract("dX2.csv",i=[1,1] ,limit=900)),model=nnArch(io=[1,1], hl=[12,8]), epochs=350, learningRate=0.01, batch_size=8)
-
 #print(nnPredict(loadModel="X2Test3.pth", inputDataset=DataPrep.extract("dPredict.csv",i=[1,1],o=[1,1])[0],model=nnArch(io=[1,1],hl=[12,8])))
+
+valLossComparasion()
+
+#nnTrain(visualize=False, save="sumTest", splitDataset=DataPrep.split(*DataPrep.extract("dXY-5_1000.csv",limit=200)),model=nnArch(io=[2,1], hl=[16]), epochs=150, learningRate=0.01)
