@@ -158,8 +158,12 @@ def valLossComparasion():
     plt.figure()
 
     minimal_val_losses = []
-    for i in range(10):
-        minimal_val_losses.append(nnTrain(visualize=False, save="sumTest"+str(i+1), splitDataset=DataPrep.split(*DataPrep.extract("dXY-5_1000.csv",limit=200)),model=nnArch(io=[2,1], hl=[16]), epochs=150, learningRate=0.01))
+    for i in range(5):
+        minimal_val_losses.append(nnTrain(visualize=False, save="XY-5"+str(i+1), splitDataset=DataPrep.split(*DataPrep.extract("dXY-5_1000.csv",limit=200)),model=nnArch(io=[2,1], hl=[16]), epochs=400, learningRate=0.1))
+    for i in range(5):
+        minimal_val_losses.append(nnTrain(visualize=False, save="XY-5"+str(i+6), splitDataset=DataPrep.split(*DataPrep.extract("dXY-5_1000.csv",limit=200)),model=nnArch(io=[2,1], hl=[16]), epochs=400, learningRate=0.01))
+    for i in range(5):
+        minimal_val_losses.append(nnTrain(visualize=False, save="XY-5"+str(i+11), splitDataset=DataPrep.split(*DataPrep.extract("dXY-5_1000.csv",limit=200)),model=nnArch(io=[2,1], hl=[16]), epochs=400, learningRate=0.001))
 
     # Plot the validation losses for all models
     plt.plot(minimal_val_losses, label='Minimal Validation Loss')
@@ -172,8 +176,8 @@ def valLossComparasion():
     plt.show()
 
 
-#print(nnPredict(loadModel="X2Test3.pth", inputDataset=DataPrep.extract("dPredict.csv",i=[1,1],o=[1,1])[0],model=nnArch(io=[1,1],hl=[12,8])))
+print(nnPredict(loadModel="XY-57_VL{3.406e-06}.pth", inputDataset=DataPrep.extract("dPredict.csv",i=[1,2],o=[1,1])[0],model=nnArch(io=[2,1],hl=[16])))
 
-valLossComparasion()
+#valLossComparasion()
 
 #nnTrain(visualize=False, save="sumTest", splitDataset=DataPrep.split(*DataPrep.extract("dXY-5_1000.csv",limit=200)),model=nnArch(io=[2,1], hl=[16]), epochs=150, learningRate=0.01)

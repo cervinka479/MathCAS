@@ -8,3 +8,20 @@ I ran this test a few more times and the spike allways appeared between 5th to 7
 
 
 I added validation loss to the saved model file name - e.g. fileName_VL{3.756e03}.pth
+
+
+
+I tested training XY-5 model with different learning rates 0.1, 0.01, 0.001, 0.0001, 0.00001 three models each (the lowest validation losses at these learning rates: 0.1, 0.01, 0.001)     <<< this doesn't have to mean that they have the best performance >>>
+(learningRate_test)
+
+
+
+Another test,
+1.-5.   models with LR 0.1
+6.-10.  models with LR 0.01
+11.-15. models with LR 0.001       <<< more accurate predictions, but higher val loss >>>
+
+Example: Model "XY-511_VL{1.985e-04}.pth" is much more accurate than model "XY-55_VL{8.796e-09}.pth" which have lower validation loss.
+This can lead to potential problems with the identification of the best performing model.
+
+More information is needed.
