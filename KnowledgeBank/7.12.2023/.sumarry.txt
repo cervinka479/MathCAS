@@ -11,3 +11,5 @@ because the lowest validation loss is often caused due to randomness linked with
 
 
 
+added Training CLI
+options: show graph anytime after training, save any point from training, continue with the training
