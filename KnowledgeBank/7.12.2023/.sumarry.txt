@@ -1,0 +1,13 @@
+lrTest - learning rate 0.0001 and 0.00001
+
+slower training > need more epochs, takes more time
+higher risk of overtraining
+
+
+
+saving the model with the lowest validation loss in the training procedure si probably not the best idea
+because the lowest validation loss is often caused due to randomness linked with validation subset ==
+== It is not performing well (see "lrTest_info" performance)
+
+
+
