@@ -1,17 +1,12 @@
 # Writes an output file #
 def generateData(filename, num_items):
     import csv
-    import random
 
     with open(filename, 'w', newline='') as file:
         writer = csv.writer(file)
-        writer.writerow(["X", "Y", "result"])
+        writer.writerow(["Ux","Uy","Vx","omegaRES"])
         for _ in range(num_items):
-            x = random.randint(0, 9)
-            #y = random.randint(0, 9)
-            y=1
-            result = x*x
-            writer.writerow([x, y, result])
+            writer.writerow([*generate()])
 
     print("Dataset generated: "+filename)
 
@@ -129,4 +124,22 @@ def inverseNormalize(input_tensors, predictions):
 
     return predictions
 
-#generateData("X2.csv", 1000)
+def generate():
+    import random
+    import numpy as np
+
+    Ux = random.random()*2-1
+    Uy = random.random()*2-1
+    Vx = random.random()*2-1
+
+    s = np.sqrt(4*(Ux**2)+(Uy+Vx)**2)/2
+    ω = (Vx-Uy)/2
+
+    if np.abs(s) <= np.abs(ω):
+        ωRES = np.sign(ω)*(np.abs(ω)-np.abs(s))
+    else:
+        ωRES = 0
+
+    return Ux,Uy,Vx,ωRES
+
+#generateData("p.csv", 15)

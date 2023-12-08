@@ -1,0 +1,4 @@
+added prediction MSE > better comparing system
+
+new function for residual vorticity > omegaRES_info
+

@@ -145,22 +145,30 @@ def nnTrain(splitDataset=[["train_input"],["train_output"],["val_input"],["val_o
     #return train_losses, val_losses
     return minimal_val_loss
 
-def nnPredict(loadModel, inputDataset, model=nnArch()):
+def nnPredict(loadModel, testDataset, model=nnArch()):
     import torch
     from torch.utils.data import DataLoader, TensorDataset
+    import torch.nn.functional as F
     
     # Load the saved model
     model.load_state_dict(torch.load(loadModel))  # Load the saved parameters
     model.eval()  # Set the model to evaluation mode
 
+    features = testDataset[0]
+    labels = testDataset[1]
+
     # Convert your input data to a PyTorch tensor
-    inputDataset = torch.tensor(inputDataset, dtype=torch.float32)
+    features = torch.tensor(features, dtype=torch.float32)
+    labels = torch.tensor(labels, dtype=torch.float32)
 
     # Use the model to make predictions
     with torch.no_grad():
-        predictions = model(inputDataset)
+        predictions = model(features)
 
-    return predictions
+    mse = F.mse_loss(predictions, labels)
+    print("MSE: "+str("{:.3e}".format(mse.item())))
+
+    return predictions, mse
 
 def nnVisualize(train_losses,val_losses):
     import matplotlib.pyplot as plt
@@ -203,8 +211,8 @@ def valLossComparasion():
     plt.show()
 
 
-#print(nnPredict(loadModel="test2_VL{3.271e-01}.pth", inputDataset=DataPrep.extract("dPredict.csv",i=[1,2],o=[1,1])[0],model=nnArch(io=[2,1],hl=[16])))
+print(nnPredict(loadModel="2omegaRES2_VL{2.079e-04}.pth", testDataset=DataPrep.extract("p.csv",i=[1,3],o=[4,4]),model=nnArch(io=[3,1],hl=[16,16]))[0])
 
 #valLossComparasion()
 
-nnTrain(cli=True, splitDataset=DataPrep.split(*DataPrep.extract("dXY-5_1000.csv",limit=200)),model=nnArch(io=[2,1], hl=[16]), epochs=10, learningRate=0.01)
+#nnTrain(save="2omegaRES",splitDataset=DataPrep.split(*DataPrep.extract("omegaRES.csv",i=[1,3],o=[4,4],limit=800)),model=nnArch(io=[3,1], hl=[16,16]), epochs=200, learningRate=0.001)
