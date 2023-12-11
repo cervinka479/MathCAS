@@ -177,8 +177,8 @@ def nnVisualize(train_losses,val_losses):
     plt.figure()
 
     # Plot the training and validation losses for the model
-    plt.plot(train_losses, '-o', label='Training Loss')
-    plt.plot(val_losses, '-o', label='Validation Loss')
+    plt.plot(train_losses, '-', label='Training Loss')
+    plt.plot(val_losses, '-', label='Validation Loss')
 
     plt.xlabel('Epoch')
     plt.ylabel('Loss')
@@ -215,4 +215,4 @@ def valLossComparasion():
 
 #valLossComparasion()
 
-nnTrain(save="Test",splitDataset=DataPrep.split(*DataPrep.extract("omegaRES.csv",i=[1,3],o=[4,4],limit=1000)),model=nnArch(io=[3,1], hl=[16,16]), epochs=150, learningRate=0.0001, batch_size=4)
+nnTrain(save="Test",splitDataset=DataPrep.split(*DataPrep.extract("omegaRES.csv",i=[1,3],o=[4,4],limit=800)),model=nnArch(io=[3,1], hl=[16]), epochs=100, learningRate=0.001, batch_size=8)
