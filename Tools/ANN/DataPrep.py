@@ -1,5 +1,5 @@
 # Writes an output file #
-def generateData(filename, num_items):
+def generateDataset(filename, num_items):
     import csv
 
     with open(filename, 'w', newline='') as file:
@@ -92,35 +92,58 @@ def split(input_tensors, output_tensors):
 
     return train_input, train_output, val_input, val_output, test_input, test_output
 
-def normalize(input_tensors, output_tensors):
+def scale(input_tensors, output_tensors, method="fro"):
     import numpy as np
     import pandas as pd
-    
-    input_tensors = np.float_(input_tensors)
-    output_tensors = np.float_(output_tensors)
 
-    # Normalize the dataset
-    NValuesList = []
+    match method:
+        case "absmax":
+            input_tensors = np.float_(input_tensors)
+            output_tensors = np.float_(output_tensors)
 
-    for i, row in enumerate(input_tensors):
-        NValuesList.append(max(np.abs(input_tensors[i,:])))
-        input_tensors[i,:] = input_tensors[i,:]/NValuesList[i]
-        output_tensors[i,:] = output_tensors[i,:]/NValuesList[i]
+            # Normalize the dataset
+            NValuesList = []
 
+            for i, row in enumerate(input_tensors):
+                NValuesList.append(max(np.abs(input_tensors[i,:])))
+                input_tensors[i,:] = input_tensors[i,:]/NValuesList[i]
+                output_tensors[i,:] = output_tensors[i,:]/NValuesList[i]
+        
+        case "fro":
+            # Create a matrix from the data
+            matrix = np.array([input_tensors])
+
+            # Calculate the Frobenius norm
+            frobenius_norm = np.linalg.norm(matrix, 'fro')
+
+            input_tensors = input_tensors / frobenius_norm
+            output_tensors = output_tensors / frobenius_norm
+            
     return input_tensors, output_tensors
 
-def inverseNormalize(input_tensors, predictions):
+def inverseScale(input_tensors, predictions, method="fro"):
     import numpy as np
     import pandas as pd
 
-    input_tensors = np.float_(input_tensors)
-    predictions = np.float_(predictions)
+    match method:
+        case "absmax":
+            input_tensors = np.float_(input_tensors)
+            predictions = np.float_(predictions)
 
-    NValuesList = []
+            NValuesList = []
 
-    for i, row in enumerate(input_tensors):
-        NValuesList.append(max(np.abs(input_tensors[i,:])))
-        predictions[i,:] = predictions[i,:]*NValuesList[i]
+            for i, row in enumerate(input_tensors):
+                NValuesList.append(max(np.abs(input_tensors[i,:])))
+                predictions[i,:] = predictions[i,:]*NValuesList[i]
+        
+        case "fro":
+            # Create a matrix from the data
+            matrix = np.array([input_tensors])
+
+            # Calculate the Frobenius norm
+            frobenius_norm = np.linalg.norm(matrix, 'fro')
+
+            predictions = predictions * frobenius_norm
 
     return predictions
 
@@ -142,4 +165,8 @@ def generate():
 
     return Ux,Uy,Vx,ωRES
 
-#generateData("p.csv", 15)
+#generateDataset("dTemp.csv", 10)
+
+print(extract(path="dTemp.csv",i=[1,3],o=[4,4]))
+print(scale(extract(path="dTemp.csv",i=[1,3],o=[4,4])[0],extract(path="dTemp.csv",i=[1,3],o=[4,4])[1]))
+print(inverseScale(extract(path="dTemp.csv",i=[1,3],o=[4,4])[0],scale(extract(path="dTemp.csv",i=[1,3],o=[4,4])[0],extract(path="dTemp.csv",i=[1,3],o=[4,4])[1])[1]))
