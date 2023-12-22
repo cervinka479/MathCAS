@@ -211,8 +211,9 @@ def valLossComparasion():
     plt.show()
 
 
-#print(nnPredict(loadModel="2omegaRES2_VL{2.079e-04}.pth", testDataset=DataPrep.extract("p.csv",i=[1,3],o=[4,4]),model=nnArch(io=[3,1],hl=[16,16]))[0])
+#print(nnPredict(loadModel="2omegaRES3_VL{2.079e-04}.pth", testDataset=DataPrep.extract("dTemp.csv",i=[1,3],o=[4,4]),model=nnArch(io=[3,1],hl=[16,16]))[0])
 
 #valLossComparasion()
 
-nnTrain(save="Test",splitDataset=DataPrep.split(*DataPrep.extract("omegaRES.csv",i=[1,3],o=[4,4],limit=800)),model=nnArch(io=[3,1], hl=[16]), epochs=100, learningRate=0.001, batch_size=8)
+extractedData = DataPrep.extract("omegaRES.csv",i=[1,3],o=[4,4],limit=400)
+nnTrain(save="Test",splitDataset=DataPrep.split(*extractedData),model=nnArch(io=[3,1], hl=[16]), epochs=100, learningRate=0.001, batch_size=8)

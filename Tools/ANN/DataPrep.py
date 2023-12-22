@@ -110,14 +110,15 @@ def scale(input_tensors, output_tensors, method="fro"):
                 output_tensors[i,:] = output_tensors[i,:]/NValuesList[i]
         
         case "fro":
-            # Create a matrix from the data
-            matrix = np.array([input_tensors])
+            for i, row in enumerate(input_tensors):
+                # Create a matrix from the data
+                matrix = np.array([input_tensors[i,:]])
 
-            # Calculate the Frobenius norm
-            frobenius_norm = np.linalg.norm(matrix, 'fro')
+                # Calculate the Frobenius norm
+                frobenius_norm = np.linalg.norm(matrix, 'fro')
 
-            input_tensors = input_tensors / frobenius_norm
-            output_tensors = output_tensors / frobenius_norm
+                input_tensors[i,:] = input_tensors[i,:] / frobenius_norm
+                output_tensors[i,:] = output_tensors[i,:] / frobenius_norm
             
     return input_tensors, output_tensors
 
@@ -137,13 +138,15 @@ def inverseScale(input_tensors, predictions, method="fro"):
                 predictions[i,:] = predictions[i,:]*NValuesList[i]
         
         case "fro":
-            # Create a matrix from the data
-            matrix = np.array([input_tensors])
+            
+            for i, row in enumerate(input_tensors):
+                # Create a matrix from the data
+                matrix = np.array([input_tensors[i,:]])
 
-            # Calculate the Frobenius norm
-            frobenius_norm = np.linalg.norm(matrix, 'fro')
+                # Calculate the Frobenius norm
+                frobenius_norm = np.linalg.norm(matrix, 'fro')
 
-            predictions = predictions * frobenius_norm
+                predictions[i,:] = predictions[i,:] * frobenius_norm
 
     return predictions
 
@@ -167,6 +170,6 @@ def generate():
 
 #generateDataset("dTemp.csv", 10)
 
-print(extract(path="dTemp.csv",i=[1,3],o=[4,4]))
+"""print(extract(path="dTemp.csv",i=[1,3],o=[4,4]))
 print(scale(extract(path="dTemp.csv",i=[1,3],o=[4,4])[0],extract(path="dTemp.csv",i=[1,3],o=[4,4])[1]))
-print(inverseScale(extract(path="dTemp.csv",i=[1,3],o=[4,4])[0],scale(extract(path="dTemp.csv",i=[1,3],o=[4,4])[0],extract(path="dTemp.csv",i=[1,3],o=[4,4])[1])[1]))
+print(inverseScale(extract(path="dTemp.csv",i=[1,3],o=[4,4])[0],scale(extract(path="dTemp.csv",i=[1,3],o=[4,4])[0],extract(path="dTemp.csv",i=[1,3],o=[4,4])[1])[1]))"""
