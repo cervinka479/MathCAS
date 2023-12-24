@@ -170,6 +170,8 @@ def generate():
 
 #generateDataset("dTemp.csv", 10)
 
-"""print(extract(path="dTemp.csv",i=[1,3],o=[4,4]))
-print(scale(extract(path="dTemp.csv",i=[1,3],o=[4,4])[0],extract(path="dTemp.csv",i=[1,3],o=[4,4])[1]))
-print(inverseScale(extract(path="dTemp.csv",i=[1,3],o=[4,4])[0],scale(extract(path="dTemp.csv",i=[1,3],o=[4,4])[0],extract(path="dTemp.csv",i=[1,3],o=[4,4])[1])[1]))"""
+print(extract(path="dTemp.csv",i=[1,3],o=[4,4]))
+froScaledData = scale(extract(path="dTemp.csv",i=[1,3],o=[4,4])[0],extract(path="dTemp.csv",i=[1,3],o=[4,4])[1])
+
+print(froScaledData)
+print(inverseScale(extract(path="dTemp.csv",i=[1,3],o=[4,4])[0],scale(extract(path="dTemp.csv",i=[1,3],o=[4,4])[0],extract(path="dTemp.csv",i=[1,3],o=[4,4])[1])[1]))

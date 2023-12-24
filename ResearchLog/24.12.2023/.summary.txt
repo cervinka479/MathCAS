@@ -1,0 +1,2 @@
+add more scaling options to DataPrep - absolute maximum scaling, frobenius norm scaling
+
