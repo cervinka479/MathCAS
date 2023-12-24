@@ -1,0 +1,7 @@
+add more scaling options to DataPrep - absolute maximum scaling, frobenius norm scaling
+
+
+experiment (dataset=omegaRES.csv) with scaling > viz. scalingTest_info.txt
+
+models trained with frobenius norm scaling weren't more accurate
+they can differentiate values with no residual vorticity but the approximation of non-zero values is inaccurate

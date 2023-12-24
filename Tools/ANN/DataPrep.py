@@ -170,8 +170,13 @@ def generate():
 
 #generateDataset("dTemp.csv", 10)
 
-print(extract(path="dTemp.csv",i=[1,3],o=[4,4]))
+'''print(extract(path="dTemp.csv",i=[1,3],o=[4,4]))
+
 froScaledData = scale(extract(path="dTemp.csv",i=[1,3],o=[4,4])[0],extract(path="dTemp.csv",i=[1,3],o=[4,4])[1])
+absmaxScaledData = scale(extract(path="dTemp.csv",i=[1,3],o=[4,4])[0],extract(path="dTemp.csv",i=[1,3],o=[4,4])[1], method="absmax")
 
 print(froScaledData)
-print(inverseScale(extract(path="dTemp.csv",i=[1,3],o=[4,4])[0],scale(extract(path="dTemp.csv",i=[1,3],o=[4,4])[0],extract(path="dTemp.csv",i=[1,3],o=[4,4])[1])[1]))
+print(absmaxScaledData)
+
+print(inverseScale(extract(path="dTemp.csv",i=[1,3],o=[4,4])[0],froScaledData[1]))
+print(inverseScale(extract(path="dTemp.csv",i=[1,3],o=[4,4])[0],absmaxScaledData[1], method="absmax"))'''
