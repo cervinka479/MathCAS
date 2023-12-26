@@ -168,7 +168,7 @@ def generate():
 
     return Ux,Uy,Vx,ωRES
 
-#generateDataset("dTemp.csv", 10)
+#generateDataset("dOmegaRES100k.csv", 100000)
 
 '''print(extract(path="dTemp.csv",i=[1,3],o=[4,4]))
 
