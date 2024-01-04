@@ -55,4 +55,4 @@ def generateDataset(filename, num_items, distribution='cube'):
 
     print("Dataset generated: "+filename)
 
-generateDataset("sphere_dOmegaRES100k.csv", 100000, distribution='sphere')
+generateDataset("sphere2_dOmegaRES10k.csv", 10000, distribution='sphere')
