@@ -222,7 +222,7 @@ nnTrain(save="80kTestModel",splitDataset=DataPrep.split(*froScaledData),model=mo
 
 
 # Predicting section
-extractedData = DataPrep.extract(path="dTemp.csv",i=[1,3],o=[4,4])
+extractedData = DataPrep.extract(path="dTest.csv",i=[1,3],o=[4,4])
 froScaledData = DataPrep.scale(extractedData[0],extractedData[1],method="fro")
 
 #print(nnPredict(loadModel="TestModel1_VL{1.395e-04}.pth", testDataset=extractedData,model=modelArchitecture)[0])

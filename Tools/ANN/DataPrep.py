@@ -168,15 +168,15 @@ def generate():
 
     return Ux,Uy,Vx,ωRES
 
-#generateDataset("dOmegaRES100k.csv", 100000)
+#generateDataset("dOmegaRES1k.csv", 1000)
 
-'''print(extract(path="dTemp.csv",i=[1,3],o=[4,4]))
+'''print(extract(path="dOmegaRES1k.csv",i=[1,3],o=[4,4],limit=10))
 
-froScaledData = scale(extract(path="dTemp.csv",i=[1,3],o=[4,4])[0],extract(path="dTemp.csv",i=[1,3],o=[4,4])[1])
-absmaxScaledData = scale(extract(path="dTemp.csv",i=[1,3],o=[4,4])[0],extract(path="dTemp.csv",i=[1,3],o=[4,4])[1], method="absmax")
+froScaledData = scale(extract(path="dOmegaRES1k.csv",i=[1,3],o=[4,4],limit=10)[0],extract(path="dOmegaRES1k.csv",i=[1,3],o=[4,4],limit=10)[1])
+absmaxScaledData = scale(extract(path="dOmegaRES1k.csv",i=[1,3],o=[4,4],limit=10)[0],extract(path="dOmegaRES1k.csv",i=[1,3],o=[4,4],limit=10)[1], method="absmax")
 
 print(froScaledData)
 print(absmaxScaledData)
 
-print(inverseScale(extract(path="dTemp.csv",i=[1,3],o=[4,4])[0],froScaledData[1]))
-print(inverseScale(extract(path="dTemp.csv",i=[1,3],o=[4,4])[0],absmaxScaledData[1], method="absmax"))'''
+print(inverseScale(extract(path="dTemp.csv",i=[1,3],o=[4,4],limit=10)[0],froScaledData[1]))
+print(inverseScale(extract(path="dTemp.csv",i=[1,3],o=[4,4],limit=10)[0],absmaxScaledData[1], method="absmax"))'''

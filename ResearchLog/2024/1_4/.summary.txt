@@ -1,0 +1,8 @@
+visualizing distribution of points in different datasets - paraview (.pvsm files and OmegaRES datasets)
+
+new dataset generation method - all points contained on the surface of the cube or sphere (equivalent to 'fro' and 'max' normalization but with better distribution)
+
+exploring differences in point distributions after normalization and the effects of substituting normalized training dataset with specially generated dataset for a particular case
+
+
+idea > training two models, one for calssification (zero and non-zero values) and one for regression (magnitude of residual vorticity)
