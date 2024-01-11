@@ -1,7 +1,9 @@
 import DataPrep
 
 def nnArch(io=[9,1], hl=[12]):
+    import torch
     import torch.nn as nn
+    import torch.nn.functional as F
     
     class NeuralNetwork(nn.Module):
         def __init__(self, hl):
@@ -19,15 +21,16 @@ def nnArch(io=[9,1], hl=[12]):
             self.layers.append(nn.Linear(input_size, io[1]))
         
         def forward(self, x):
-            for layer in self.layers:
+            for layer in self.layers[:-1]:  # Exclude the last layer
                 x = layer(x)
+            x = torch.sigmoid(self.layers-1)  # Apply sigmoid activation to the output layer
             return x
     
     # Create the neural network instance
     model = NeuralNetwork(hl)
     return model
 
-def nnTrain(splitDataset=[["train_input"],["train_output"],["val_input"],["val_output"],["test_input"],["test_output"]], model=nnArch(),optimizer="adam",learningRate=0.01,criterion="mse",batch_size=4, epochs=50, save="test", visualize=True, cli=True):
+def nnTrain(splitDataset=[["train_input"],["train_output"],["val_input"],["val_output"],["test_input"],["test_output"]], model=nnArch(),optimizer="adam",learningRate=0.01,criterion="bce",batch_size=4, epochs=50, save="test", visualize=True, cli=True):
     import torch
     from torch.utils.data import DataLoader, TensorDataset
     import copy
@@ -56,6 +59,8 @@ def nnTrain(splitDataset=[["train_input"],["train_output"],["val_input"],["val_o
     match criterion:
         case "mse":
             criterion=torch.nn.MSELoss()
+        case "bce":
+            criterion=torch.nn.BCELoss()
 
     train_losses = []
     val_losses = []
