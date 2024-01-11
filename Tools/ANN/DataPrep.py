@@ -168,7 +168,7 @@ def generate():
 
     return Ux,Uy,Vx,ωRES
 
-generateDataset("dOmegaRES10k.csv", 10000)
+#generateDataset("dTest.csv", 20)
 
 '''print(extract(path="dOmegaRES1k.csv",i=[1,3],o=[4,4],limit=10))
 

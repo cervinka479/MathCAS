@@ -1,0 +1,11 @@
+Slightly changing regression model training code to classification purposes:
+
+Ran a few tests - train loss and val loss went to negative values, val accuracy remained the same across all epochs, predictions aren't binary
+>>> the predictions are suprisingly good
+
+code used <ANN_2.py>
+
+
+
+tried to create entirely new code for the classification model but results (predictions) are actually worse
+code used <ANN_trash.py>

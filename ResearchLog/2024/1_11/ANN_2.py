@@ -1,7 +1,9 @@
 import DataPrep
 
 def nnArch(io=[9,1], hl=[12]):
+    import torch
     import torch.nn as nn
+    import torch.nn.functional as F
     
     class NeuralNetwork(nn.Module):
         def __init__(self, hl):
@@ -17,6 +19,7 @@ def nnArch(io=[9,1], hl=[12]):
             
             # Create output layer
             self.layers.append(nn.Linear(input_size, io[1]))
+            self.layers.append(nn.Sigmoid())
         
         def forward(self, x):
             for layer in self.layers:
@@ -27,7 +30,7 @@ def nnArch(io=[9,1], hl=[12]):
     model = NeuralNetwork(hl)
     return model
 
-def nnTrain(splitDataset=[["train_input"],["train_output"],["val_input"],["val_output"],["test_input"],["test_output"]], model=nnArch(),optimizer="adam",learningRate=0.01,criterion="mse",batch_size=4, epochs=50, save="test", visualize=True, cli=True):
+def nnTrain(splitDataset=[["train_input"],["train_output"],["val_input"],["val_output"],["test_input"],["test_output"]], model=nnArch(),optimizer="adam",learningRate=0.01,criterion="bce",batch_size=4, epochs=50, save="test", visualize=True, cli=True):
     import torch
     from torch.utils.data import DataLoader, TensorDataset
     import copy
@@ -56,6 +59,8 @@ def nnTrain(splitDataset=[["train_input"],["train_output"],["val_input"],["val_o
     match criterion:
         case "mse":
             criterion=torch.nn.MSELoss()
+        case "bce":
+            criterion=torch.nn.BCELoss()
 
     train_losses = []
     val_losses = []
@@ -68,6 +73,8 @@ def nnTrain(splitDataset=[["train_input"],["train_output"],["val_input"],["val_o
         for epoch in range(epochs):
             train_loss = 0
             val_loss = 0
+            correct = 0
+            total = 0
             for inputs, targets in train_loader:
                 # Forward pass
                 outputs = model(inputs)
@@ -88,12 +95,17 @@ def nnTrain(splitDataset=[["train_input"],["train_output"],["val_input"],["val_o
                     outputs = model(inputs)
                     loss = criterion(outputs, targets)
                     val_loss += loss.item()
+                    # Calculate accuracy
+                    predicted = torch.round(outputs.data)
+                    total += targets.size(0)
+                    correct += (predicted == targets).sum().item()
                 val_loss /= len(val_loader)  # Average validation loss
+                val_acc = correct / total
             
             train_losses.append(train_loss)
             val_losses.append(val_loss)
             
-            print(f'Epoch {epoch+1}/{epochs}, Training Loss: {loss.item()}, Validation Loss: {val_loss}')
+            print(f'Epoch {epoch+1}/{epochs}, Training Loss: {loss.item()}, Validation Loss: {val_loss}, Validation Accuracy: {val_acc}')
             
             model.train()  # Set the model back to training mode
             
@@ -212,16 +224,16 @@ def valLossComparasion():
 modelArchitecture = nnArch(io=[3,1], hl=[32,16])
 
 '''# Trainig section
-extractedData = DataPrep.extract(path="dOmegaRES100k.csv",i=[1,3],o=[4,4],limit=80000)
+extractedData = DataPrep.extract(path="dOmegaRES10k.csv",i=[1,3],o=[4,4],limit=8000)
 froScaledData = DataPrep.scale(extractedData[0],extractedData[1],method="fro")
 
-#nnTrain(save="TestModel",splitDataset=DataPrep.split(*extractedData),model=modelArchitecture, epochs=100, learningRate=0.001, batch_size=8)
-nnTrain(save="80kTestModel",splitDataset=DataPrep.split(*froScaledData),model=modelArchitecture, epochs=50, learningRate=0.001, batch_size=8)'''
-
+nnTrain(save="classifierTest",splitDataset=DataPrep.split(*extractedData),model=modelArchitecture, epochs=100, learningRate=0.001, batch_size=8)
+#nnTrain(save="classifierTest",splitDataset=DataPrep.split(*froScaledData),model=modelArchitecture, epochs=50, learningRate=0.001, batch_size=8)
+'''
 
 # Predicting section
 extractedData = DataPrep.extract(path="dTest.csv",i=[1,3],o=[4,4])
 froScaledData = DataPrep.scale(extractedData[0],extractedData[1],method="fro")
 
-#print(nnPredict(loadModel="TestModel1_VL{1.395e-04}.pth", testDataset=extractedData,model=modelArchitecture)[0])
-print(DataPrep.inverseScale(extractedData[0],nnPredict(loadModel="8kTestModel1_VL{2.297e-06}.pth", testDataset=froScaledData,model=modelArchitecture)[0],method="fro"))
+print(nnPredict(loadModel="classifierTest1_VL{-2.491e+00}.pth", testDataset=extractedData,model=modelArchitecture)[0])
+#print(DataPrep.inverseScale(extractedData[0],nnPredict(loadModel="8kTestModel1_VL{2.297e-06}.pth", testDataset=froScaledData,model=modelArchitecture)[0],method="fro"))
