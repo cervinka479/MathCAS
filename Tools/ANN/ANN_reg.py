@@ -212,22 +212,25 @@ def valLossComparasion():
 modelArchitecture = nnArch(io=[3,1], hl=[32,16])
 
 
-# Trainig section
-extractedData = DataPrep.extract(path="dTemp.csv",i=[1,3],o=[4,4],limit=800)
-print(extractedData)
-froScaledData = DataPrep.scale(extractedData[0],extractedData[1],method="absmax")
-print(extractedData)
-print(froScaledData)
 
-'''
+
+# Training section
+import copy
+extractedData = DataPrep.extract(path="dTemp.csv",i=[1,3],o=[4,4],limit=800)
+extractedDataCopy = copy.deepcopy(extractedData)
+froScaledData = DataPrep.scale(extractedDataCopy[0],extractedDataCopy[1],method="fro")
+
+
 #nnTrain(save="TestModel",splitDataset=DataPrep.split(*extractedData),model=modelArchitecture, epochs=100, learningRate=0.001, batch_size=8)
 nnTrain(save="80kTestModel",splitDataset=DataPrep.split(*froScaledData),model=modelArchitecture, epochs=50, learningRate=0.001, batch_size=8)
-'''
+
 
 '''
 # Predicting section
-extractedData = DataPrep.extract(path="dTest.csv",i=[1,3],o=[4,4])
-froScaledData = DataPrep.scale(extractedData[0],extractedData[1],method="fro")
+import copy
+extractedData = DataPrep.extract(path="dTemp.csv",i=[1,3],o=[4,4])
+extractedDataCopy = copy.deepcopy(extractedData)
+froScaledData = DataPrep.scale(extractedDataCopy[0],extractedDataCopy[1],method="fro")
 
 #print(nnPredict(loadModel="TestModel1_VL{1.395e-04}.pth", testDataset=extractedData,model=modelArchitecture)[0])
 print(DataPrep.inverseScale(extractedData[0],nnPredict(loadModel="8kTestModel1_VL{2.297e-06}.pth", testDataset=froScaledData,model=modelArchitecture)[0],method="fro"))
