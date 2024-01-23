@@ -157,10 +157,11 @@ def nnTrain(splitDataset=[["train_input"],["train_output"],["val_input"],["val_o
     #return train_losses, val_losses
     return minimal_val_loss
 
-def nnPredict(loadModel, testDataset, model=nnArch()):
+def nnPredict(loadModel, testDataset, model=nnArch(), output=False):
     import torch
     from torch.utils.data import DataLoader, TensorDataset
     import torch.nn.functional as F
+    import pandas as pd
 
     # Load the saved model
     model.load_state_dict(torch.load(loadModel))  # Load the saved parameters
@@ -183,6 +184,12 @@ def nnPredict(loadModel, testDataset, model=nnArch()):
 
     _accuracy = (predictions == binLabels).float().mean()
     accuracy = "Accuracy: {:.3f}".format(_accuracy.item())
+    
+    if output == True:
+        # Filter rows with predicted value 1, append the predicted value, and save to a new dataset
+        filtered_rows = [row.tolist() + [pred.item()] for row, pred in zip(features, predictions) if pred == 1.0]
+        df = pd.DataFrame(filtered_rows, columns=['Ux', 'Uy', 'Vx', 'omegaRES'])
+        df.to_csv('non-zero_predictions.csv', index=False)
 
     return predictions, accuracy
 
@@ -228,9 +235,9 @@ def valLossComparasion():
     plt.show()
 
 
-modelArchitecture = nnArch(io=[3,1], hl=[32,24,16])
+modelArchitecture = nnArch(io=[3,1], hl=[32,16])
 
-
+'''
 # Trainig section
 import copy
 extractedData = DataPrep.extract(path="class-dOmegaRES100k.csv",i=[1,3],o=[4,4],limit=8000)
@@ -239,15 +246,14 @@ extractedDataCopy = copy.deepcopy(extractedData)
 
 nnTrain(save="classTest",splitDataset=DataPrep.split(*extractedData),model=modelArchitecture, epochs=50, learningRate=0.001, batch_size=8)
 #nnTrain(save="classTestNorm",splitDataset=DataPrep.split(*absmaxScaledData),model=modelArchitecture, epochs=50, learningRate=0.001, batch_size=8)
-
-
 '''
+
+
 # Predicting section
 import copy
-extractedData = DataPrep.extract(path="dTemp1k.csv",i=[1,3],o=[4,4])
+extractedData = DataPrep.extract(path="test1k.csv",i=[1,3],o=[4,4])
 extractedDataCopy = copy.deepcopy(extractedData)
 #absmaxScaledData = DataPrep.scale(extractedDataCopy[0],extractedDataCopy[1],method="absmax")
 
-print(nnPredict(loadModel="classTest1_VL{2.007e-02}.pth", testDataset=extractedData,model=modelArchitecture))
+print(nnPredict(loadModel="classTest1_VL{1.843e-02}.pth", testDataset=extractedData,model=modelArchitecture,output=True))
 #print(DataPrep.inverseScale(extractedData[0],nnPredict(loadModel="8kTestModel1_VL{2.297e-06}.pth", testDataset=absmaxScaledData,model=modelArchitecture)[0],method="absmax"))
-'''
