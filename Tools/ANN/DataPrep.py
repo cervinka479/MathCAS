@@ -1,12 +1,12 @@
 # Writes an output file #
-def generateDataset(filename, num_items):
+def generateDataset(filename, num_items, nonzero=False):
     import csv
 
     with open(filename, 'w', newline='') as file:
         writer = csv.writer(file)
         writer.writerow(["Ux","Uy","Vx","omegaRES"])
         for _ in range(num_items):
-            writer.writerow([*generate()])
+            writer.writerow([*generate(nonzero)])
 
     print("Dataset generated: "+filename)
 
@@ -150,25 +150,54 @@ def inverseScale(input_tensors, predictions, method="fro"):
 
     return predictions
 
-def generate():
+def generate(nonzero=False):
     import random
     import numpy as np
 
-    Ux = random.random()*2-1
-    Uy = random.random()*2-1
-    Vx = random.random()*2-1
-
-    s = np.sqrt(4*(Ux**2)+(Uy+Vx)**2)/2
-    ω = (Vx-Uy)/2
-
-    if np.abs(s) <= np.abs(ω):
-        ωRES = np.sign(ω)*(np.abs(ω)-np.abs(s))
-    else:
+    if nonzero==True:
         ωRES = 0
+        while ωRES == 0:
+            Ux = random.random()*2-1
+            Uy = random.random()*2-1
+            Vx = random.random()*2-1
+
+            s = np.sqrt(4*(Ux**2)+(Uy+Vx)**2)/2
+            ω = (Vx-Uy)/2
+
+            if np.abs(s) <= np.abs(ω):
+                ωRES = np.sign(ω)*(np.abs(ω)-np.abs(s))
+            else:
+                ωRES = 0
+    else:
+        Ux = random.random()*2-1
+        Uy = random.random()*2-1
+        Vx = random.random()*2-1
+
+        s = np.sqrt(4*(Ux**2)+(Uy+Vx)**2)/2
+        ω = (Vx-Uy)/2
+
+        if np.abs(s) <= np.abs(ω):
+            ωRES = np.sign(ω)*(np.abs(ω)-np.abs(s))
+        else:
+            ωRES = 0
 
     return Ux,Uy,Vx,ωRES
 
-#generateDataset("dTest.csv", 20)
+def toBinary(filename):
+    import pandas as pd
+    
+    # Load the dataset
+    df = pd.read_csv(filename)
+
+    # Replace all non-zero values in the 'omegaRES' column with 1
+    df.loc[df['omegaRES'] != 0, 'omegaRES'] = 1
+
+    # Save the modified dataset to a new CSV file
+    df.to_csv('bin-'+filename, index=False)
+
+#generateDataset("test10k.csv", 100000, True)
+
+#toBinary("dOmegaRES100k.csv")
 
 '''print(extract(path="dOmegaRES1k.csv",i=[1,3],o=[4,4],limit=10))
 

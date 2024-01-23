@@ -93,7 +93,7 @@ def nnTrain(splitDataset=[["train_input"],["train_output"],["val_input"],["val_o
             train_losses.append(train_loss)
             val_losses.append(val_loss)
             
-            print(f'Epoch {epoch+1}/{epochs}, Training Loss: {loss.item()}, Validation Loss: {val_loss}')
+            print(f'Epoch {epoch+1}/{epochs}, Training Loss: {train_loss}, Validation Loss: {val_loss}')
             
             model.train()  # Set the model back to training mode
             
@@ -212,17 +212,14 @@ def valLossComparasion():
 modelArchitecture = nnArch(io=[3,1], hl=[32,16])
 
 
-
-
 # Training section
 import copy
 extractedData = DataPrep.extract(path="dTemp.csv",i=[1,3],o=[4,4],limit=800)
 extractedDataCopy = copy.deepcopy(extractedData)
-froScaledData = DataPrep.scale(extractedDataCopy[0],extractedDataCopy[1],method="fro")
-
+absmaxScaledData = DataPrep.scale(extractedDataCopy[0],extractedDataCopy[1],method="absmax")
 
 #nnTrain(save="TestModel",splitDataset=DataPrep.split(*extractedData),model=modelArchitecture, epochs=100, learningRate=0.001, batch_size=8)
-nnTrain(save="80kTestModel",splitDataset=DataPrep.split(*froScaledData),model=modelArchitecture, epochs=50, learningRate=0.001, batch_size=8)
+nnTrain(save="80kTestModel",splitDataset=DataPrep.split(*absmaxScaledData),model=modelArchitecture, epochs=50, learningRate=0.001, batch_size=8)
 
 
 '''
@@ -230,8 +227,8 @@ nnTrain(save="80kTestModel",splitDataset=DataPrep.split(*froScaledData),model=mo
 import copy
 extractedData = DataPrep.extract(path="dTemp.csv",i=[1,3],o=[4,4])
 extractedDataCopy = copy.deepcopy(extractedData)
-froScaledData = DataPrep.scale(extractedDataCopy[0],extractedDataCopy[1],method="fro")
+absmaxScaledData = DataPrep.scale(extractedDataCopy[0],extractedDataCopy[1],method="absmax")
 
 #print(nnPredict(loadModel="TestModel1_VL{1.395e-04}.pth", testDataset=extractedData,model=modelArchitecture)[0])
-print(DataPrep.inverseScale(extractedData[0],nnPredict(loadModel="8kTestModel1_VL{2.297e-06}.pth", testDataset=froScaledData,model=modelArchitecture)[0],method="fro"))
+print(DataPrep.inverseScale(extractedData[0],nnPredict(loadModel="8kTestModel1_VL{2.297e-06}.pth", testDataset=absmaxScaledData,model=modelArchitecture)[0],method="absmax"))
 '''

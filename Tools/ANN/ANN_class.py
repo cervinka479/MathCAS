@@ -64,6 +64,7 @@ def nnTrain(splitDataset=[["train_input"],["train_output"],["val_input"],["val_o
 
     train_losses = []
     val_losses = []
+    val_accuracy = []
     models = []
     minimal_val_loss = "x"
     saveNum = 1
@@ -104,8 +105,9 @@ def nnTrain(splitDataset=[["train_input"],["train_output"],["val_input"],["val_o
             
             train_losses.append(train_loss)
             val_losses.append(val_loss)
+            val_accuracy.append(val_acc)         
             
-            print(f'Epoch {epoch+1}/{epochs}, Training Loss: {loss.item()}, Validation Loss: {val_loss}, Validation Accuracy: {val_acc}')
+            print(f'Epoch {epoch+1}/{epochs}, Training Loss: {train_loss}, Validation Loss: {val_loss}, Validation Accuracy: {val_acc}')
             
             model.train()  # Set the model back to training mode
             
@@ -122,7 +124,7 @@ def nnTrain(splitDataset=[["train_input"],["train_output"],["val_input"],["val_o
         
         # Visualize the training process
         if visualize == True:
-            nnVisualize(train_losses, val_losses)
+            nnVisualize(train_losses, val_losses, val_accuracy)
         
         # Interactive Training CLI
         if cli == True:
@@ -133,7 +135,7 @@ def nnTrain(splitDataset=[["train_input"],["train_output"],["val_input"],["val_o
                         cli = False
                         break
                     elif answer[0:4] == "show":
-                        nnVisualize(train_losses, val_losses)
+                        nnVisualize(train_losses, val_losses, val_accuracy)
                     elif answer[0:4] == "next":
                         epochs = int(answer[5:])
                         break
@@ -159,7 +161,7 @@ def nnPredict(loadModel, testDataset, model=nnArch()):
     import torch
     from torch.utils.data import DataLoader, TensorDataset
     import torch.nn.functional as F
-    
+
     # Load the saved model
     model.load_state_dict(torch.load(loadModel))  # Load the saved parameters
     model.eval()  # Set the model to evaluation mode
@@ -173,14 +175,18 @@ def nnPredict(loadModel, testDataset, model=nnArch()):
 
     # Use the model to make predictions
     with torch.no_grad():
-        predictions = model(features)
+        outputs = model(features)
+        predictions = torch.where(outputs > 0.1, torch.tensor(1.0), torch.tensor(0.0))  # Apply condition to outputs
 
-    mse = F.mse_loss(predictions, labels)
-    print("MSE: "+str("{:.3e}".format(mse.item())))
+    # Convert labels to binary
+    binLabels = torch.where(labels != 0, torch.tensor(1.0), torch.tensor(0.0))
 
-    return predictions, mse
+    _accuracy = (predictions == binLabels).float().mean()
+    accuracy = "Accuracy: {:.3f}".format(_accuracy.item())
 
-def nnVisualize(train_losses,val_losses):
+    return predictions, accuracy
+
+def nnVisualize(train_losses,val_losses,val_accuracy):
     import matplotlib.pyplot as plt
 
     # Create a figure
@@ -189,6 +195,7 @@ def nnVisualize(train_losses,val_losses):
     # Plot the training and validation losses for the model
     plt.plot(train_losses, '-', label='Training Loss')
     plt.plot(val_losses, '-', label='Validation Loss')
+    #plt.plot(val_accuracy, '-o', label='Validation Accuracy')
 
     plt.xlabel('Epoch')
     plt.ylabel('Loss')
@@ -221,25 +228,26 @@ def valLossComparasion():
     plt.show()
 
 
-modelArchitecture = nnArch(io=[3,1], hl=[32,16])
+modelArchitecture = nnArch(io=[3,1], hl=[32,24,16])
 
-'''
+
 # Trainig section
 import copy
-extractedData = DataPrep.extract(path="dTemp.csv",i=[1,3],o=[4,4],limit=800)
+extractedData = DataPrep.extract(path="class-dOmegaRES100k.csv",i=[1,3],o=[4,4],limit=8000)
 extractedDataCopy = copy.deepcopy(extractedData)
-froScaledData = DataPrep.scale(extractedDataCopy[0],extractedDataCopy[1],method="fro")
+#absmaxScaledData = DataPrep.scale(extractedDataCopy[0],extractedDataCopy[1],method="absmax")
 
-nnTrain(save="classifierTest",splitDataset=DataPrep.split(*extractedData),model=modelArchitecture, epochs=100, learningRate=0.001, batch_size=8)
-#nnTrain(save="classifierTest",splitDataset=DataPrep.split(*froScaledData),model=modelArchitecture, epochs=50, learningRate=0.001, batch_size=8)
+nnTrain(save="classTest",splitDataset=DataPrep.split(*extractedData),model=modelArchitecture, epochs=50, learningRate=0.001, batch_size=8)
+#nnTrain(save="classTestNorm",splitDataset=DataPrep.split(*absmaxScaledData),model=modelArchitecture, epochs=50, learningRate=0.001, batch_size=8)
+
+
 '''
-
-
 # Predicting section
 import copy
-extractedData = DataPrep.extract(path="dTemp.csv",i=[1,3],o=[4,4])
+extractedData = DataPrep.extract(path="dTemp1k.csv",i=[1,3],o=[4,4])
 extractedDataCopy = copy.deepcopy(extractedData)
-froScaledData = DataPrep.scale(extractedDataCopy[0],extractedDataCopy[1],method="fro")
+#absmaxScaledData = DataPrep.scale(extractedDataCopy[0],extractedDataCopy[1],method="absmax")
 
-print(nnPredict(loadModel="classifierTest1_VL{3.361e-02}.pth", testDataset=extractedData,model=modelArchitecture)[0])
-#print(DataPrep.inverseScale(extractedData[0],nnPredict(loadModel="8kTestModel1_VL{2.297e-06}.pth", testDataset=froScaledData,model=modelArchitecture)[0],method="fro"))
+print(nnPredict(loadModel="classTest1_VL{2.007e-02}.pth", testDataset=extractedData,model=modelArchitecture))
+#print(DataPrep.inverseScale(extractedData[0],nnPredict(loadModel="8kTestModel1_VL{2.297e-06}.pth", testDataset=absmaxScaledData,model=modelArchitecture)[0],method="absmax"))
+'''
