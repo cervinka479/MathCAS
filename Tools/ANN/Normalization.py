@@ -1,7 +1,7 @@
 import pandas as pd
 import numpy as np
 
-path = r"dOmegaRES10k.csv"
+path = r"test10k.csv"
 
 # Load the CSV dataset
 data = pd.read_csv(path)
@@ -43,10 +43,10 @@ def scale(input_tensors, output_tensors, method="fro"):
     return input_tensors, output_tensors
 
 # Normalize the tensors
-input_tensors, output_tensors = scale(input_tensors, output_tensors, method="fro")
+input_tensors, output_tensors = scale(input_tensors, output_tensors, method="absmax")
 
 # Combine the normalized tensors
 normalized_data = np.concatenate((input_tensors, output_tensors), axis=1)
 
 # Write the dataset to new .csv file in the same format as the original dataset
-pd.DataFrame(normalized_data, columns=data.columns).to_csv("fro_dOmegaRES10k.csv", index=False)
+pd.DataFrame(normalized_data, columns=data.columns).to_csv("absmax_"+path, index=False)
