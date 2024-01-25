@@ -1,0 +1,31 @@
+(from 10k values)
+
+Maximum regression error: [0.10633921]
+MSE: 6.375e-06
+
+Maximum regression error: [0.08976431]
+MSE: 6.600e-06
+
+Maximum regression error: [0.06855346]
+MSE: 6.250e-06
+
+Maximum regression error: [0.10641393]
+MSE: 5.777e-06
+
+Maximum regression error: [0.08250292]
+MSE: 8.762e-06
+
+Maximum regression error: [0.08293352]
+MSE: 6.006e-06
+
+Maximum regression error: [0.08983633]
+MSE: 6.754e-06
+
+Maximum regression error: [0.12054907]
+MSE: 8.160e-06
+
+Maximum regression error: [0.09701093]
+MSE: 8.411e-06
+
+Maximum regression error: [0.08905402]
+MSE: 6.080e-06

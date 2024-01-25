@@ -178,7 +178,7 @@ def nnPredict(loadModel, testDataset, model=nnArch(), output=False):
     with torch.no_grad():
         outputs = model(features)
         print(outputs)
-        predictions = torch.where(outputs > 0.1, torch.tensor(1.0), torch.tensor(0.0))  # Apply condition to outputs
+        predictions = torch.where(outputs > 0.5, torch.tensor(1.0), torch.tensor(0.0))  # Apply condition to outputs
 
     # Convert labels to binary
     binLabels = torch.where(labels != 0, torch.tensor(1.0), torch.tensor(0.0))
@@ -236,25 +236,26 @@ def valLossComparasion():
     plt.show()
 
 
-modelArchitecture = nnArch(io=[3,1], hl=[48,32,16])
+modelArchitecture = nnArch(io=[3,1], hl=[32,16])
 
-'''
+
 # Trainig section
 import copy
-extractedData = DataPrep.extract(path="class-dOmegaRES100k.csv",i=[1,3],o=[4,4],limit=1000)
+extractedData = DataPrep.extract(path="class-dOmegaRES100k.csv",i=[1,3],o=[4,4],limit=0)
 extractedDataCopy = copy.deepcopy(extractedData)
 #absmaxScaledData = DataPrep.scale(extractedDataCopy[0],extractedDataCopy[1],method="absmax")
 
-nnTrain(save="classTest1k",splitDataset=DataPrep.split(*extractedData),model=modelArchitecture, epochs=50, learningRate=0.001, batch_size=8)
+nnTrain(save="classTest",splitDataset=DataPrep.split(*extractedData),model=modelArchitecture, epochs=50, learningRate=0.0001, batch_size=8)
 #nnTrain(save="classTestNorm",splitDataset=DataPrep.split(*absmaxScaledData),model=modelArchitecture, epochs=50, learningRate=0.001, batch_size=8)
+
+
 '''
-
-
 # Predicting section
 import copy
 extractedData = DataPrep.extract(path="dataset10k.csv",i=[1,3],o=[4,4],limit=0)
 extractedDataCopy = copy.deepcopy(extractedData)
 #absmaxScaledData = DataPrep.scale(extractedDataCopy[0],extractedDataCopy[1],method="absmax")
 
-print(nnPredict(loadModel="classTest1kBig2_VL{1.321e-02}.pth", testDataset=extractedData,model=modelArchitecture,output=False))
+print(nnPredict(loadModel="classTest_VL{2.808e-01}.pth", testDataset=extractedData,model=modelArchitecture,output=False))
 #print(DataPrep.inverseScale(extractedData[0],nnPredict(loadModel="8kTestModel1_VL{2.297e-06}.pth", testDataset=absmaxScaledData,model=modelArchitecture)[0],method="absmax"))
+'''

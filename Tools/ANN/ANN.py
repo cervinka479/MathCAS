@@ -136,8 +136,8 @@ def Predict(loadClassModel, loadRegModel, extractedData, classModel=nnArchClass(
 
 # Variables
 
-classModel_Path = "classTest1kBig2_VL{1.321e-02}.pth"
-classModelArch = nnArchClass(io=[3,1], hl=[48,32,16])
+classModel_Path = "classTest_VL{2.808e-01}.pth"
+classModelArch = nnArchClass(io=[3,1], hl=[32,16])
 regModel_Path = "regTest3_VL{3.960e-06}.pth"
 regModelArch = nnArchReg(io=[3,1], hl=[32,16])
 dataset_Path = "dataset10k.csv"
