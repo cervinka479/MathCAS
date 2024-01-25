@@ -1,1 +1,7 @@
-- checked non-zero data distribution
+checked non-zero data distribution
+
+regression model training >>> reg-test-info
+
+created ANN.py code which combines both models and predicts target values
+
+

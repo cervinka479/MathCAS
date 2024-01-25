@@ -1,0 +1,23 @@
+dataset10k.csv
+
+classTest1_VL{1.843e-02}.pth
+accuracy: 98.7%
+Maximum regression error: [0.02301722]
+MSE: 9.154e-07
+
+classTest1k1_VL{5.757e-03}.pth
+accuracy: 98.0%
+Maximum regression error: [0.14205794]
+MSE: 9.087e-06
+
+classTest1kBig1_VL{2.097e-02}.pth
+nnArch(io=[3,1], hl=[48,32,16])
+accuracy: 97.0%
+Maximum regression error: [0.10345202]
+MSE: 9.683e-06
+
+classTest1kBig2_VL{1.321e-02}.pth
+nnArch(io=[3,1], hl=[48,32,16])
+accuracy: 97.8%
+Maximum regression error: [0.10345202]
+MSE: 1.437e-05

@@ -61,7 +61,6 @@ def nnArchReg(io=[9,1], hl=[12]):
     model = NeuralNetwork(hl)
     return model
 
-
 def Predict(loadClassModel, loadRegModel, extractedData, classModel=nnArchClass(), regModel=nnArchReg(), output=False):
     # Load the saved model
     classModel.load_state_dict(torch.load(loadClassModel))  # Load the saved parameters
@@ -77,10 +76,13 @@ def Predict(loadClassModel, loadRegModel, extractedData, classModel=nnArchClass(
     class_features_tensor = torch.tensor(extractedData[0], dtype=torch.float32)
     class_labels_tensor = torch.tensor(extractedData[1], dtype=torch.float32)
     reg_features_tensor = torch.tensor(absmaxScaledData[0], dtype=torch.float32)
-    reg_labels_tensor = torch.tensor(absmaxScaledData[1], dtype=torch.float32)
 
     # Initialize a list to store the predictions
     predictions = []
+
+    # Initialize a list to store the classification errors and the corresponding regression errors
+    classification_errors = []
+    regression_errors = []
 
     # Iterate over each row in the dataset
     for i in range(class_features_tensor.shape[0]):
@@ -91,7 +93,7 @@ def Predict(loadClassModel, loadRegModel, extractedData, classModel=nnArchClass(
         # Use the classification model to make a prediction
         with torch.no_grad():
             class_output = classModel(class_feature.unsqueeze(0))
-            class_prediction = torch.where(class_output > 0.1, torch.tensor(1.0), torch.tensor(0.0))  # Apply condition to outputs
+            class_prediction = torch.where(class_output > 0.5, torch.tensor(1.0), torch.tensor(0.0))  # Apply condition to outputs
 
         # If the class prediction is 1.0, use the regression model to make a prediction
         if class_prediction == 1.0:
@@ -107,12 +109,39 @@ def Predict(loadClassModel, loadRegModel, extractedData, classModel=nnArchClass(
         predictions.append(reg_prediction)
         print(reg_prediction)
 
-    return predictions
+        # If the class prediction is not equal to the actual class label, store the error
+        if class_prediction != class_labels_tensor[i]:
+            regression_errors.append(abs(reg_prediction - extractedData[1][i]))
 
-classModel_Path = "classTest1_VL{1.843e-02}.pth"
-classModelArch = nnArchClass(io=[3,1], hl=[32,16])
+    # Find and print the maximum regression error
+    max_regression_error = max(regression_errors) if regression_errors else 0
+    print(f"Maximum regression error: {max_regression_error}")
+    
+    # Convert the list of predictions to a tensor and reshape the prediction tensor to match the target tensor
+    predictions_tensor = torch.tensor(predictions, dtype=torch.float32)
+    predictions_tensor = predictions_tensor.view(-1, 1)
+
+    # Calculate the MSE loss between the predicted and actual values
+    mse = torch.nn.MSELoss()(predictions_tensor, class_labels_tensor)
+    print("MSE: "+str("{:.3e}".format(mse.item())))
+
+    if output == True:
+        # Create new DataFrame with the predictions
+        df = pd.DataFrame(extractedData[0], columns=['Ux', 'Uy', 'Vx'])
+        df['omegaRES'] = predictions
+
+        # Save the DataFrame to a CSV file
+        df.to_csv('predictions.csv', index=False)
+
+
+# Variables
+
+classModel_Path = "classTest1kBig2_VL{1.321e-02}.pth"
+classModelArch = nnArchClass(io=[3,1], hl=[48,32,16])
 regModel_Path = "regTest3_VL{3.960e-06}.pth"
 regModelArch = nnArchReg(io=[3,1], hl=[32,16])
-dataset_Path = "class-test.csv"
+dataset_Path = "dataset10k.csv"
+limit = 0
+output = False
 
-print(Predict(loadClassModel=classModel_Path,loadRegModel=regModel_Path,extractedData=dp.extract(path=dataset_Path,i=[1,3],o=[4,4],limit=50),classModel=classModelArch,regModel=regModelArch))
+Predict(loadClassModel=classModel_Path,loadRegModel=regModel_Path,extractedData=dp.extract(path=dataset_Path,i=[1,3],o=[4,4],limit=limit),classModel=classModelArch,regModel=regModelArch,output=output)

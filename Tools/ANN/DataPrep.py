@@ -195,7 +195,7 @@ def toBinary(filename):
     # Save the modified dataset to a new CSV file
     df.to_csv('bin-'+filename, index=False)
 
-#generateDataset("class-test.csv", 1000, False)
+#generateDataset("dataset10k.csv", 10000, False)
 
 #toBinary("dOmegaRES100k.csv")
 
