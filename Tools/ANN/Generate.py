@@ -1,8 +1,8 @@
-def generate(distribution='cube'):
+def generate(shape='cube'):
     import random
     import numpy as np
 
-    if distribution == 'cube':
+    if shape == 'cube':
         # Choose a random face of the cube (6 faces)
         face = random.choice(['x', 'y', 'z', '-x', '-y', '-z'])
 
@@ -24,7 +24,7 @@ def generate(distribution='cube'):
         elif face == '-z':
             Ux, Uy, Vx = U, V, -1
     
-    elif distribution == 'sphere':
+    elif shape == 'sphere':
         # Generate two random numbers
         theta = 2 * np.pi * random.random()  # Uniform from [0, 2π)
         phi = np.arccos(2 * random.random() - 1)  # Uniform from [0, π)
@@ -33,6 +33,11 @@ def generate(distribution='cube'):
         Ux = np.sin(phi) * np.cos(theta)
         Uy = np.sin(phi) * np.sin(theta)
         Vx = np.cos(phi)
+
+    elif shape == 'random':
+        Ux = random.random()*2-1
+        Uy = random.random()*2-1
+        Vx = random.random()*2-1
 
     s = np.sqrt(4*(Ux**2)+(Uy+Vx)**2)/2
     ω = (Vx-Uy)/2
@@ -44,15 +49,15 @@ def generate(distribution='cube'):
 
     return Ux,Uy,Vx,ωRES
 
-def generateDataset(filename, num_items, distribution='cube'):
+def generateDataset(filename, num_items, shape='cube'):
     import csv
 
     with open(filename, 'w', newline='') as file:
         writer = csv.writer(file)
         writer.writerow(["Ux","Uy","Vx","omegaRES"])
         for _ in range(num_items):
-            writer.writerow([*generate(distribution)])
+            writer.writerow([*generate(shape)])
 
     print("Dataset generated: "+filename)
 
-generateDataset("sphere2_dOmegaRES10k.csv", 10000, distribution='sphere')
+generateDataset("test1k.csv", 1000, shape='random')
