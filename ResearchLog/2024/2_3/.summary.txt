@@ -1,0 +1,14 @@
+GOAL: use classificator to create training data for regression model - compare accuracy and max_reg_error
+
+- count accuracy of 3 classificators with 8K dataset, then use these models for dataprep of reg_datasets for each classifier respectively >>> compare MSE loss of 2model architectures based on 8K
+
+experiment info (ann8k_accuracy_test.txt)
+classTest#.pth >>> #test8k.csv >>> #regTest.pth >>> ANN.pth (MSELoss)
+
+results:
+-> there is some noise/few errors in the datasets created by classifiers, but the results are still good
+-> no significant effect on the max_reg _error was found
+-> predictions are sometimes even better than values predicted by two separately created reg and class models
+-> this can speed-up dataset creation
+
+<< it seems to be ok to use this method >>

@@ -131,7 +131,7 @@ def nnTrain(splitDataset=[["train_input"],["train_output"],["val_input"],["val_o
                             torch.save(bestModel, savePath)
                         else:
                             savePath = save+str(saveNum)+"_VL{"+str("{:.3e}".format(val_losses[int(answer[5:])]))+"}.pth"
-                            torch.save(models[int(answer[5:])], savePath)
+                            torch.save(models[int(answer[5:])-1], savePath)
                         saveNum = saveNum + 1
                         print("saved model: "+savePath)
                 except Exception:
@@ -214,22 +214,22 @@ modelArchitecture = nnArch(io=[3,1], hl=[32,16])
 '''
 # Training section
 import copy
-extractedData = DataPrep.extract(path="reg-dOmegaRES100k.csv",i=[1,3],o=[4,4],limit=8000)
+extractedData = DataPrep.extract(path="3test8k.csv",i=[1,3],o=[4,4],limit=8000)
 extractedDataCopy = copy.deepcopy(extractedData)
 absmaxScaledData = DataPrep.scale(extractedDataCopy[0],extractedDataCopy[1],method="absmax")
 
 #nnTrain(save="TestModel",splitDataset=DataPrep.split(*extractedData),model=modelArchitecture, epochs=100, learningRate=0.001, batch_size=8)
-nnTrain(save="regTest",splitDataset=DataPrep.split(*absmaxScaledData),model=modelArchitecture, epochs=50, learningRate=0.0001, batch_size=8)
+nnTrain(save="3regTest",splitDataset=DataPrep.split(*absmaxScaledData),model=modelArchitecture, epochs=50, learningRate=0.0001, batch_size=8)
 '''
 
 
 # Predicting section
 import copy
-extractedData = DataPrep.extract(path="reg-test.csv",i=[1,3],o=[4,4])
+extractedData = DataPrep.extract(path="reg-dataset100k.csv",i=[1,3],o=[4,4])
 extractedDataCopy = copy.deepcopy(extractedData)
 absmaxScaledData = DataPrep.scale(extractedDataCopy[0],extractedDataCopy[1],method="absmax")
 
-print(nnPredict(loadModel="regTest3_VL{3.960e-06}.pth", testDataset=absmaxScaledData,model=modelArchitecture)[0])
+#print(nnPredict(loadModel="1regTest1_VL{3.890e-06}.pth", testDataset=absmaxScaledData,model=modelArchitecture)[0])
 
 #print(nnPredict(loadModel="TestModel1_VL{1.395e-04}.pth", testDataset=extractedData,model=modelArchitecture)[0])
-#print(DataPrep.inverseScale(extractedData[0],nnPredict(loadModel="regTest3_VL{3.960e-06}.pth", testDataset=absmaxScaledData,model=modelArchitecture)[0],method="absmax"))
+print(DataPrep.inverseScale(extractedData[0],nnPredict(loadModel="3regTest2_VL{3.773e-06}.pth", testDataset=absmaxScaledData,model=modelArchitecture)[0],method="absmax"))

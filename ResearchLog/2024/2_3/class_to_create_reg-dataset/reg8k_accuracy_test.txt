@@ -1,0 +1,22 @@
+reg-dataset100k.csv
+
+1regTest1_VL{2.190e-06}.pth*
+MSE: 2.435e-06
+
+1regTest1_VL{3.890e-06}.pth
+MSE: 4.184e-06
+
+2regTest1_VL{3.167e-05}.pth
+MSE: 3.326e-05
+
+2regTest2_VL{2.211e-05}.pth
+MSE: 2.106e-05
+
+2regTest3_VL{2.186e-05}.pth*
+MSE: 2.071e-05
+
+3regTest1_VL{3.782e-06}.pth*
+MSE: 3.755e-06
+
+3regTest2_VL{3.773e-06}.pth
+MSE: 4.080e-06

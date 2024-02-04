@@ -1,0 +1,72 @@
+#tested on "dataset100k.csv"
+
+# all classifiers were trained on "bin-dataset8k.csv"
+# classTest%.pth >>> %test8k.csv (dataset created based on classifier) >>> %regTest.pth (regression model trained on the dataset) >>> ANN.pth (classTest% and %regTest combined)
+
+- - - - - - - - - -
+
+classModel_Path = "classTest1_VL{2.035e-02}.pth"
+classModelArch = nnArchClass(io=[3,1], hl=[32,16])
+regModel_Path = "1regTest1_VL{2.190e-06}.pth"
+regModelArch = nnArchReg(io=[3,1], hl=[32,16])
+
+classTest1_VL{2.035e-02}.pth*
+Accuracy: 0.995090
+
+1regTest1_VL{2.190e-06}.pth*
+MSE: 2.435e-06
+
+
+Maximum regression error: [0.047444] 
+MSE: 6.179e-07
+
+- - - - - - - - - -
+
+classModel_Path = "classTest2_VL{2.040e-02}.pth"
+classModelArch = nnArchClass(io=[3,1], hl=[32,16])
+regModel_Path = "2regTest3_VL{2.186e-05}.pth"
+regModelArch = nnArchReg(io=[3,1], hl=[32,16])
+
+classTest2_VL{2.040e-02}.pth*
+Accuracy: 0.995130
+
+2regTest3_VL{2.186e-05}.pth*
+MSE: 2.071e-05
+
+
+Maximum regression error: [0.047444]    # maybe same datapoint as in previous architecture
+MSE: 3.082e-06
+
+- - - - - - - - - -
+
+classModel_Path = "classTest3_VL{1.462e-02}.pth"
+classModelArch = nnArchClass(io=[3,1], hl=[32,16])
+regModel_Path = "3regTest1_VL{3.782e-06}.pth"
+regModelArch = nnArchReg(io=[3,1], hl=[32,16])
+
+classTest3_VL{1.462e-02}.pth*
+Accuracy: 0.996120
+
+3regTest1_VL{3.782e-06}.pth*
+MSE: 3.755e-06
+
+
+Maximum regression error: [0.02440892]
+MSE: 6.540e-07
+
+- - - - - - - - - -
+
+
+# separately created class and reg models
+# just for comparasion
+
+
+- - - - - - - - - -
+
+classModel_Path = "ResearchLog\2024\1_25\best_models\classTest1_VL{1.843e-02}.pth"
+classModelArch = nnArchClass(io=[3,1], hl=[32,16])
+regModel_Path = "ResearchLog\2024\1_25\best_models\regTest3_VL{3.960e-06}.pth"
+regModelArch = nnArchReg(io=[3,1], hl=[32,16])
+
+Maximum regression error: [0.02665147]
+MSE: 9.425e-07
