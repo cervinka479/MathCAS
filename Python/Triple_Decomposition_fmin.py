@@ -5,7 +5,7 @@ import numpy as np
 # Initial variables
 A = np.array([[2, 4, 2], 
               [-4, 8, -2], 
-              [2, 2, 4]])/8
+              [2, 2, 4]])
 
 x0 = np.array([0, 0, 0])
 
