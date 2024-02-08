@@ -1,14 +1,15 @@
 import numpy as np
 import pyvista as pv
 import csv
+import random
 
 
 # Input variables
-A = np.array([[-5, 4, 4],
-              [-1, -8, 5],
-              [-4, 8, -3]])
+A = np.array([[-0.22, 0.8, 0.22],
+              [-0.82, -0.42, -0.22],
+              [0.82, -0.22, 0.64]])
 
-def bruteforceBRF(matrix, Step=5, Output=False):
+def bruteforceBRF(matrix, Step=5, Output=False, Info=False):
 
     α = 0
     β = 0
@@ -53,7 +54,6 @@ def bruteforceBRF(matrix, Step=5, Output=False):
     for i in range(int(γMax/γStep)):
         for j in range(int(βMax/βStep)):
             for k in range(int(αMax/αStep)):
-                #print(p/m*100)
                 f_value = GetFValue(α, β, γ)
                 data.append([α, β, γ, f_value])
                 if f_value > maxValues[0][3]:
@@ -90,7 +90,9 @@ def bruteforceBRF(matrix, Step=5, Output=False):
 
         print("output.vtk export completed")
 
-    print("Maximum F values:\n", np.array(maxValues))
+    if Info == True:
+        print(np.array(maxValues))
+    
     return maxValues[0][0:3]
 
 def CreateQMatrix(params):
@@ -116,7 +118,6 @@ def TripleDecomposition(result):
     
     # Transforming matrix A into matrix A_
     A_ = Q @ A @ Q.T
-    print(A_)
 
     # Splitting into ResidualTensor and SheerTensor
     ResidualTensor = np.array([[A_[0, 0], np.sign(A_[0, 1])*min(np.abs(A_[0, 1]),np.abs(A_[1, 0])), np.sign(A_[0, 2])*min(np.abs(A_[0, 2]),np.abs(A_[2, 0]))],
@@ -133,4 +134,4 @@ def TripleDecomposition(result):
     values = [np.linalg.norm(S, ord='fro'), np.linalg.norm(Ω, ord='fro'), np.linalg.norm(ShearTensor, ord='fro')]
     return values
 
-TripleDecomposition(bruteforceBRF(A))
+print(TripleDecomposition(bruteforceBRF(A, Step=5)))

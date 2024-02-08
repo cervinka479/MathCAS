@@ -4,9 +4,11 @@ def generateDataset(filename, num_items, nonzero=False):
 
     with open(filename, 'w', newline='') as file:
         writer = csv.writer(file)
-        writer.writerow(["A11","A12","A13","A21","A22","A23","A31","A32","A33","omegaRES"])
+        writer.writerow(["A11","A12","A13","A21","A22","A23","A31","A32","A33","vorticity"])
         for _ in range(num_items):
             writer.writerow([*generate(nonzero)])
+            percentage = (_ / num_items) * 100
+            print(f"{percentage:.2f}% ({_}/{num_items})\n", end="")
 
     print("Dataset generated: "+filename)
 
@@ -150,11 +152,11 @@ def inverseScale(input_tensors, predictions, method="fro"):
 
     return predictions
 
-def generate(nonzero=False):
+def generate(nonzero2D=False):
     import random
     import numpy as np
 
-    if nonzero==True:
+    if nonzero2D==True:
         ωRES = 0
         while ωRES == 0:
             Ux = random.random()*2-1
@@ -177,9 +179,17 @@ def generate(nonzero=False):
         A23 = random.random()*2-1
         A31 = random.random()*2-1
         A32 = random.random()*2-1
-        A33 = random.random()*2-1
+        A33 = -A11-A22
 
-    return A11, A12, A13, A21, A22, A23, A31, A32, A33
+        import BruteforceMethod as bf
+
+        A = np.array([[A11, A12, A13],
+                    [A21, A22, A23],
+                    [A31, A32, A33]])
+        
+        vorticity = bf.TripleDecomposition(bf.bruteforceBRF(A, Step=5))[1]
+
+    return A11, A12, A13, A21, A22, A23, A31, A32, A33, vorticity
 
 def toBinary(filename):
     import pandas as pd
@@ -193,7 +203,7 @@ def toBinary(filename):
     # Save the modified dataset to a new CSV file
     df.to_csv('bin-'+filename, index=False)
 
-generateDataset("dataset3D.csv", 100, False)
+generateDataset("dataset3D.csv", 1000)
 
 #toBinary("dataset100k.csv")
 

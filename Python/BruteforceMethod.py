@@ -1,12 +1,13 @@
 import numpy as np
 import pyvista as pv
 import csv
+import random
 
 
 # Input variables
-A = np.array([[-5, 4, 4],
-              [-1, -8, 5],
-              [-4, 8, -3]])
+A = np.array([[-2, 8, 3],
+              [-9, -5, -5],
+              [7, -1, 7]])
 
 def bruteforceBRF(matrix, Step=5, Output=False):
 

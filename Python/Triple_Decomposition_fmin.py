@@ -1,13 +1,14 @@
 import scipy
 from scipy.optimize import fmin
 import numpy as np
+import random
 
 # Initial variables
-A = np.array([[2, 4, 2], 
-              [-4, 8, -2], 
-              [2, 2, 4]])
+A = np.array([[-2, 8, 3],
+              [-9, -5, -5],
+              [7, -1, 7]])
 
-x0 = np.array([0, 0, 0])
+x0 = np.array([175, 45, 40])
 
 # Function
 def CreateQMatrix(params):
