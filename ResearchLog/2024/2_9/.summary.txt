@@ -1,0 +1,5 @@
+preparing the dataset for 3D vortex identification using bruteforce method
+
+>>> unacceptably high rate of zero values (due to code error) *FIXED*
+
+about 60% of values are zero

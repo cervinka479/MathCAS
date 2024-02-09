@@ -5,7 +5,7 @@ import random
 
 
 # Input variables
-A = np.array([[-0.22, 0.8, 0.22],
+B = np.array([[-0.22, 0.8, 0.22],
               [-0.82, -0.42, -0.22],
               [0.82, -0.22, 0.64]])
 
@@ -39,7 +39,7 @@ def bruteforceBRF(matrix, Step=5, Output=False, Info=False):
                     [np.cos(α)*np.sin(β), np.sin(α)*np.sin(β), np.cos(β)]])
 
         # Creating matrix A_
-        A_ = Q @ A @ Q.T
+        A_ = Q @ matrix @ Q.T
 
         # Spliting matrix A_ to symmetric (S) and antisymmetric (Ω) parts
         S = 0.5 * (A_ + A_.T)
@@ -111,13 +111,13 @@ def CreateQMatrix(params):
     
     return Q
 
-def TripleDecomposition(result):
+def TripleDecomposition(matrix, result):
 
     # Creating transformation matrix Q based on result from fmin function
     Q = CreateQMatrix(result)
     
     # Transforming matrix A into matrix A_
-    A_ = Q @ A @ Q.T
+    A_ = Q @ matrix @ Q.T
 
     # Splitting into ResidualTensor and SheerTensor
     ResidualTensor = np.array([[A_[0, 0], np.sign(A_[0, 1])*min(np.abs(A_[0, 1]),np.abs(A_[1, 0])), np.sign(A_[0, 2])*min(np.abs(A_[0, 2]),np.abs(A_[2, 0]))],
@@ -134,4 +134,8 @@ def TripleDecomposition(result):
     values = [np.linalg.norm(S, ord='fro'), np.linalg.norm(Ω, ord='fro'), np.linalg.norm(ShearTensor, ord='fro')]
     return values
 
-print(TripleDecomposition(bruteforceBRF(A, Step=5)))
+def getVorticity(matrix, Step=5):
+    result = bruteforceBRF(matrix, Step)
+    return TripleDecomposition(matrix, result)[1]
+
+#print(getVorticity(B, Step=5))

@@ -2,15 +2,25 @@
 def generateDataset(filename, num_items, nonzero=False):
     import csv
 
+    zero_vorticity_count = 0
+
     with open(filename, 'w', newline='') as file:
         writer = csv.writer(file)
         writer.writerow(["A11","A12","A13","A21","A22","A23","A31","A32","A33","vorticity"])
         for _ in range(num_items):
-            writer.writerow([*generate(nonzero)])
+            row = [*generate(nonzero)]
+            writer.writerow([*row])
             percentage = (_ / num_items) * 100
             print(f"{percentage:.2f}% ({_}/{num_items})\n", end="")
 
+            # Check if vorticity is zero
+            if row[-1] == 0:
+                zero_vorticity_count += 1
+
     print("Dataset generated: "+filename)
+
+    # Print the ratio of zero and non-zero vorticity values
+    print(f"zero values percentage: {zero_vorticity_count*100/num_items:.2f}")
 
 # Writes an output file #
 def removeEndCommas(path):
@@ -187,7 +197,8 @@ def generate(nonzero2D=False):
                     [A21, A22, A23],
                     [A31, A32, A33]])
         
-        vorticity = bf.TripleDecomposition(bf.bruteforceBRF(A, Step=5))[1]
+        vorticity = bf.getVorticity(A, Step=5)
+
 
     return A11, A12, A13, A21, A22, A23, A31, A32, A33, vorticity
 
