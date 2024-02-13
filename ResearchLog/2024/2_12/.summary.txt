@@ -1,0 +1,6 @@
+trying to train classificator on dataset3D10k (limit 10000)
+
+modelArchitecture = nnArch(io=[9,1], hl=[24])
+accuracy 86%
+
+conclusion >>> datset is likely too small

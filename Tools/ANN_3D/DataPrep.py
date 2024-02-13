@@ -208,23 +208,19 @@ def toBinary(filename):
     # Load the dataset
     df = pd.read_csv(filename)
 
-    # Replace all non-zero values in the 'omegaRES' column with 1
-    df.loc[df['omegaRES'] != 0, 'omegaRES'] = 1
+    # Replace all non-zero values in the 'vorticity' column with 1
+    df.loc[df['vorticity'] != 0, 'vorticity'] = 1
 
     # Save the modified dataset to a new CSV file
     df.to_csv('bin-'+filename, index=False)
 
-generateDataset("dataset3D10k.csv", 10000)
+#generateDataset("dataset3D.csv", 100)
 
-#toBinary("dataset100k.csv")
+#toBinary("dataset3D10k.csv")
 
-'''print(extract(path="dOmegaRES1k.csv",i=[1,3],o=[4,4],limit=10))
-
-froScaledData = scale(extract(path="dOmegaRES1k.csv",i=[1,3],o=[4,4],limit=10)[0],extract(path="dOmegaRES1k.csv",i=[1,3],o=[4,4],limit=10)[1])
-absmaxScaledData = scale(extract(path="dOmegaRES1k.csv",i=[1,3],o=[4,4],limit=10)[0],extract(path="dOmegaRES1k.csv",i=[1,3],o=[4,4],limit=10)[1], method="absmax")
-
-print(froScaledData)
+'''
+print(extract(path="dataset3D10k.csv",i=[1,9],o=[10,10],limit=10))
+absmaxScaledData = scale(extract(path="dataset3D10k.csv",i=[1,9],o=[10,10],limit=10)[0],extract(path="dataset3D10k.csv",i=[1,9],o=[10,10],limit=10)[1], method="absmax")
 print(absmaxScaledData)
-
-print(inverseScale(extract(path="dTemp.csv",i=[1,3],o=[4,4],limit=10)[0],froScaledData[1]))
-print(inverseScale(extract(path="dTemp.csv",i=[1,3],o=[4,4],limit=10)[0],absmaxScaledData[1], method="absmax"))'''
+print(inverseScale(extract(path="dataset3D10k.csv",i=[1,9],o=[10,10],limit=10)[0],absmaxScaledData[1], method="absmax"))
+'''

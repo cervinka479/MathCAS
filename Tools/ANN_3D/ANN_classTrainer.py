@@ -236,12 +236,12 @@ def valLossComparasion():
     plt.show()
 
 
-modelArchitecture = nnArch(io=[3,1], hl=[32,16])
+modelArchitecture = nnArch(io=[9,1], hl=[24])
 
 '''
 # Trainig section
 import copy
-extractedData = DataPrep.extract(path="bin-dataset8k.csv",i=[1,3],o=[4,4],limit=0)
+extractedData = DataPrep.extract(path="bin-dataset3D10k.csv",i=[1,9],o=[10,10],limit=0)
 extractedDataCopy = copy.deepcopy(extractedData)
 #absmaxScaledData = DataPrep.scale(extractedDataCopy[0],extractedDataCopy[1],method="absmax")
 
@@ -252,9 +252,9 @@ nnTrain(save="classTest",splitDataset=DataPrep.split(*extractedData),model=model
 
 # Predicting section
 import copy
-extractedData = DataPrep.extract(path="dataset100k.csv",i=[1,3],o=[4,4],limit=0)
+extractedData = DataPrep.extract(path="dataset3D10k.csv",i=[1,9],o=[10,10],limit=30)
 extractedDataCopy = copy.deepcopy(extractedData)
 #absmaxScaledData = DataPrep.scale(extractedDataCopy[0],extractedDataCopy[1],method="absmax")
 
-print(nnPredict(loadModel="classTest1_VL{2.035e-02}.pth", testDataset=extractedData,model=modelArchitecture,output=False))
+print(nnPredict(loadModel="classTest1_VL{2.982e-01}.pth", testDataset=extractedData,model=modelArchitecture,output=False))
 #print(DataPrep.inverseScale(extractedData[0],nnPredict(loadModel="8kTestModel1_VL{2.297e-06}.pth", testDataset=absmaxScaledData,model=modelArchitecture)[0],method="absmax"))
