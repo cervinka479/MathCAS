@@ -1,9 +1,7 @@
 import DataPrep
 
 def nnArch(io=[9,1], hl=[12]):
-    import torch
     import torch.nn as nn
-    import torch.nn.functional as F
     
     class NeuralNetwork(nn.Module):
         def __init__(self, hl):
@@ -252,7 +250,7 @@ nnTrain(save="classTest",splitDataset=DataPrep.split(*extractedData),model=model
 
 # Predicting section
 import copy
-extractedData = DataPrep.extract(path="dataset3D10k.csv",i=[1,9],o=[10,10],limit=30)
+extractedData = DataPrep.extract(path="dataset3D10k.csv",i=[1,9],o=[10,10],limit=0)
 extractedDataCopy = copy.deepcopy(extractedData)
 #absmaxScaledData = DataPrep.scale(extractedDataCopy[0],extractedDataCopy[1],method="absmax")
 
