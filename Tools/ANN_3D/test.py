@@ -42,7 +42,7 @@ assert torch.equal(res_cpu, res_gpu.cpu())
 
 
 
-
+'''
 import torch
 import torchvision.models as models
 
@@ -57,3 +57,4 @@ model = model.to(device)
 
 # Now the reader can continue the rest of the workflow
 # including training, cross validation, etc!
+'''

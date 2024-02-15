@@ -1,4 +1,9 @@
 import DataPrep
+import torch
+
+# Check if CUDA is available
+print(f"Is CUDA supported by this system?  {torch.cuda.is_available()}")
+device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 def nnArch(io=[9,1], hl=[12]):
     import torch.nn as nn
@@ -28,25 +33,24 @@ def nnArch(io=[9,1], hl=[12]):
     model = NeuralNetwork(hl)
     return model
 
-def nnTrain(splitDataset=[["train_input"],["train_output"],["val_input"],["val_output"],["test_input"],["test_output"]], model=nnArch(),optimizer="adam",learningRate=0.01,criterion="bce",batch_size=4, epochs=50, save="test", visualize=True, cli=True):
+def nnTrain(splitDataset=[["train_input"],["train_output"],["val_input"],["val_output"]], model=nnArch(),optimizer="adam",learningRate=0.01,criterion="bce",batch_size=32, epochs=50, save="test", visualize=True, cli=True):
     import torch
     from torch.utils.data import DataLoader, TensorDataset
     import copy
 
     # Unpack your dataset
-    train_input, train_output, val_input, val_output, test_input, test_output = splitDataset
+    train_input, train_output, val_input, val_output = splitDataset
 
     # Convert your dataset to PyTorch tensors
     train_data = TensorDataset(torch.tensor(train_input, dtype=torch.float32), torch.tensor(train_output, dtype=torch.float32))
     val_data = TensorDataset(torch.tensor(val_input, dtype=torch.float32), torch.tensor(val_output, dtype=torch.float32))
-    test_data = TensorDataset(torch.tensor(test_input, dtype=torch.float32), torch.tensor(test_output, dtype=torch.float32))
     
     # Create a DataLoader for your dataset
-    train_loader = DataLoader(train_data, batch_size)
-    val_loader = DataLoader(val_data, batch_size)
-    test_loader = DataLoader(test_data, batch_size)
+    train_loader = DataLoader(train_data, batch_size, pin_memory=True)
+    val_loader = DataLoader(val_data, batch_size, pin_memory=True)
 
     print(model)
+    model.to(device)
 
     match optimizer:
         case "sgd":
@@ -75,6 +79,8 @@ def nnTrain(splitDataset=[["train_input"],["train_output"],["val_input"],["val_o
             correct = 0
             total = 0
             for inputs, targets in train_loader:
+                inputs, targets = inputs.to(device), targets.to(device)
+                
                 # Forward pass
                 outputs = model(inputs)
                 loss = criterion(outputs, targets)
@@ -91,6 +97,8 @@ def nnTrain(splitDataset=[["train_input"],["train_output"],["val_input"],["val_o
             model.eval()  # Set the model to evaluation mode
             with torch.no_grad():
                 for inputs, targets in val_loader:
+                    inputs, targets = inputs.to(device), targets.to(device)
+
                     outputs = model(inputs)
                     loss = criterion(outputs, targets)
                     val_loss += loss.item()
@@ -163,6 +171,7 @@ def nnPredict(loadModel, testDataset, model=nnArch(), output=False):
 
     # Load the saved model
     model.load_state_dict(torch.load(loadModel))  # Load the saved parameters
+    model.to(device)
     model.eval()  # Set the model to evaluation mode
 
     features = testDataset[0]
@@ -175,7 +184,9 @@ def nnPredict(loadModel, testDataset, model=nnArch(), output=False):
     # Use the model to make predictions
     with torch.no_grad():
         outputs = model(features)
+        outputs = model(features.to(device))
         print(outputs)
+        
         predictions = torch.where(outputs > 0.5, torch.tensor(1.0), torch.tensor(0.0))  # Apply condition to outputs
 
     # Convert labels to binary
@@ -234,20 +245,20 @@ def valLossComparasion():
     plt.show()
 
 
-modelArchitecture = nnArch(io=[9,1], hl=[24])
+modelArchitecture = nnArch(io=[9,1], hl=[32,24])
 
-'''
+
 # Trainig section
 import copy
 extractedData = DataPrep.extract(path="bin-dataset3D10k.csv",i=[1,9],o=[10,10],limit=0)
 extractedDataCopy = copy.deepcopy(extractedData)
 #absmaxScaledData = DataPrep.scale(extractedDataCopy[0],extractedDataCopy[1],method="absmax")
 
-nnTrain(save="classTest",splitDataset=DataPrep.split(*extractedData),model=modelArchitecture, epochs=50, learningRate=0.001, batch_size=8)
-#nnTrain(save="classTestNorm",splitDataset=DataPrep.split(*absmaxScaledData),model=modelArchitecture, epochs=50, learningRate=0.001, batch_size=8)
+nnTrain(save="classTest",splitDataset=DataPrep.split(*extractedData),model=modelArchitecture, epochs=50, learningRate=0.001, batch_size=32)
+#nnTrain(save="classTestNorm",splitDataset=DataPrep.split(*absmaxScaledData),model=modelArchitecture, epochs=50, learningRate=0.001, batch_size=32)
+
+
 '''
-
-
 # Predicting section
 import copy
 extractedData = DataPrep.extract(path="dataset3D10k.csv",i=[1,9],o=[10,10],limit=0)
@@ -256,3 +267,4 @@ extractedDataCopy = copy.deepcopy(extractedData)
 
 print(nnPredict(loadModel="classTest1_VL{2.982e-01}.pth", testDataset=extractedData,model=modelArchitecture,output=False))
 #print(DataPrep.inverseScale(extractedData[0],nnPredict(loadModel="8kTestModel1_VL{2.297e-06}.pth", testDataset=absmaxScaledData,model=modelArchitecture)[0],method="absmax"))
+'''
