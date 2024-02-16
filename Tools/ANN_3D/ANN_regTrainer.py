@@ -27,23 +27,21 @@ def nnArch(io=[9,1], hl=[12]):
     model = NeuralNetwork(hl)
     return model
 
-def nnTrain(splitDataset=[["train_input"],["train_output"],["val_input"],["val_output"],["test_input"],["test_output"]], model=nnArch(),optimizer="adam",learningRate=0.01,criterion="mse",batch_size=4, epochs=50, save="test", visualize=True, cli=True):
+def nnTrain(splitDataset=[["train_input"],["train_output"],["val_input"],["val_output"]], model=nnArch(),optimizer="adam",learningRate=0.01,criterion="mse",batch_size=4, epochs=50, save="test", visualize=True, cli=True):
     import torch
     from torch.utils.data import DataLoader, TensorDataset
     import copy
 
     # Unpack your dataset
-    train_input, train_output, val_input, val_output, test_input, test_output = splitDataset
+    train_input, train_output, val_input, val_output = splitDataset
 
     # Convert your dataset to PyTorch tensors
     train_data = TensorDataset(torch.tensor(train_input, dtype=torch.float32), torch.tensor(train_output, dtype=torch.float32))
     val_data = TensorDataset(torch.tensor(val_input, dtype=torch.float32), torch.tensor(val_output, dtype=torch.float32))
-    test_data = TensorDataset(torch.tensor(test_input, dtype=torch.float32), torch.tensor(test_output, dtype=torch.float32))
     
     # Create a DataLoader for your dataset
     train_loader = DataLoader(train_data, batch_size)
     val_loader = DataLoader(val_data, batch_size)
-    test_loader = DataLoader(test_data, batch_size)
 
     print(model)
 

@@ -1,4 +1,12 @@
 import DataPrep
+<<<<<<< Updated upstream
+=======
+import torch
+
+# Check if CUDA is available.
+print(f"Is CUDA supported by this system?  {torch.cuda.is_available()}")
+device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+>>>>>>> Stashed changes
 
 def nnArch(io=[9,1], hl=[12]):
     import torch.nn as nn

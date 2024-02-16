@@ -94,15 +94,11 @@ def extract(path, i=[1,2], o=[3,3], limit=0, deviatoric=False):
 def split(input_tensors, output_tensors):
     from sklearn.model_selection import train_test_split
 
-    train_input, test_input, train_output, test_output = train_test_split(
+    train_input, val_input, train_output, val_output = train_test_split(
         input_tensors, output_tensors, test_size=0.2, random_state=42
     )
 
-    train_input, val_input, train_output, val_output = train_test_split(
-        train_input, train_output, test_size=0.1, random_state=42
-    )
-
-    return train_input, train_output, val_input, val_output, test_input, test_output
+    return train_input, train_output, val_input, val_output
 
 def scale(input_tensors, output_tensors, method="fro"):
     import numpy as np
