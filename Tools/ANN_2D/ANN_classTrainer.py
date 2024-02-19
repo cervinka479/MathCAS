@@ -238,23 +238,25 @@ def valLossComparasion():
 
 modelArchitecture = nnArch(io=[3,1], hl=[32,16])
 
-'''
+
 # Trainig section
 import copy
-extractedData = DataPrep.extract(path="bin-dataset8k.csv",i=[1,3],o=[4,4],limit=0)
+extractedData = DataPrep.extract(path="bin-dataset2D10k.csv",i=[1,3],o=[4,4],limit=0)
 extractedDataCopy = copy.deepcopy(extractedData)
-#absmaxScaledData = DataPrep.scale(extractedDataCopy[0],extractedDataCopy[1],method="absmax")
+absmaxScaledData = DataPrep.scale(extractedDataCopy[0],extractedDataCopy[1],method="absmax",class_labels=True)
 
-nnTrain(save="classTest",splitDataset=DataPrep.split(*extractedData),model=modelArchitecture, epochs=50, learningRate=0.001, batch_size=8)
-#nnTrain(save="classTestNorm",splitDataset=DataPrep.split(*absmaxScaledData),model=modelArchitecture, epochs=50, learningRate=0.001, batch_size=8)
+#nnTrain(save="classTest",splitDataset=DataPrep.split(*extractedData),model=modelArchitecture, epochs=50, learningRate=0.001, batch_size=8)
+nnTrain(save="classTestNorm",splitDataset=DataPrep.split(*absmaxScaledData),model=modelArchitecture, epochs=50, learningRate=0.001, batch_size=8)
+
+
 '''
-
-
 # Predicting section
 import copy
-extractedData = DataPrep.extract(path="dataset100k.csv",i=[1,3],o=[4,4],limit=0)
+extractedData = DataPrep.extract(path="test_dataset2D100k.csv",i=[1,3],o=[4,4],limit=0)
 extractedDataCopy = copy.deepcopy(extractedData)
-#absmaxScaledData = DataPrep.scale(extractedDataCopy[0],extractedDataCopy[1],method="absmax")
+absmaxScaledData = DataPrep.scale(extractedDataCopy[0],extractedDataCopy[1],method="absmax",class_labels=True)
 
-print(nnPredict(loadModel="classTest1_VL{2.035e-02}.pth", testDataset=extractedData,model=modelArchitecture,output=False))
-#print(DataPrep.inverseScale(extractedData[0],nnPredict(loadModel="8kTestModel1_VL{2.297e-06}.pth", testDataset=absmaxScaledData,model=modelArchitecture)[0],method="absmax"))
+#print(nnPredict(loadModel="classTest1_VL{2.035e-02}.pth", testDataset=extractedData,model=modelArchitecture,output=False))
+predictions, accuracy = nnPredict(loadModel="classTestNorm1_VL{9.848e-03}.pth", testDataset=absmaxScaledData,model=modelArchitecture,output=False)
+print(DataPrep.inverseScale(extractedData[0],predictions,method="absmax"),accuracy)
+'''

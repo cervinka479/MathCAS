@@ -92,7 +92,7 @@ def split(input_tensors, output_tensors):
 
     return train_input, train_output, val_input, val_output, test_input, test_output
 
-def scale(input_tensors, output_tensors, method="fro"):
+def scale(input_tensors, output_tensors, method="fro", class_labels=False):
     import numpy as np
     import pandas as pd
 
@@ -107,7 +107,8 @@ def scale(input_tensors, output_tensors, method="fro"):
             for i, row in enumerate(input_tensors):
                 NValuesList.append(max(np.abs(input_tensors[i,:])))
                 input_tensors[i,:] = input_tensors[i,:]/NValuesList[i]
-                output_tensors[i,:] = output_tensors[i,:]/NValuesList[i]
+                if class_labels==False:
+                    output_tensors[i,:] = output_tensors[i,:]/NValuesList[i]
         
         case "fro":
             for i, row in enumerate(input_tensors):
@@ -118,7 +119,8 @@ def scale(input_tensors, output_tensors, method="fro"):
                 frobenius_norm = np.linalg.norm(matrix, 'fro')
 
                 input_tensors[i,:] = input_tensors[i,:] / frobenius_norm
-                output_tensors[i,:] = output_tensors[i,:] / frobenius_norm
+                if class_labels==False:
+                    output_tensors[i,:] = output_tensors[i,:] / frobenius_norm
             
     return input_tensors, output_tensors
 
@@ -195,9 +197,9 @@ def toBinary(filename):
     # Save the modified dataset to a new CSV file
     df.to_csv('bin-'+filename, index=False)
 
-#generateDataset("reg-dataset100k.csv", 100000, True)
+#generateDataset("test_dataset2D100k.csv", 100000, False)
 
-#toBinary("dataset100k.csv")
+#toBinary("dataset2D10k.csv")
 
 '''print(extract(path="dOmegaRES1k.csv",i=[1,3],o=[4,4],limit=10))
 
