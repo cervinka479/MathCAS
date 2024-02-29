@@ -165,8 +165,6 @@ def nnTrain(splitDataset=[["train_input"],["train_output"],["val_input"],["val_o
 
 def nnPredict(loadModel, testDataset, model=nnArch(), output=False):
     import torch
-    from torch.utils.data import DataLoader, TensorDataset
-    import torch.nn.functional as F
     import pandas as pd
 
     # Load the saved model

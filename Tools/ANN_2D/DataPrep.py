@@ -82,15 +82,11 @@ def extract(path, i=[1,2], o=[3,3], limit=0, deviatoric=False):
 def split(input_tensors, output_tensors):
     from sklearn.model_selection import train_test_split
 
-    train_input, test_input, train_output, test_output = train_test_split(
+    train_input, val_input, train_output, val_output = train_test_split(
         input_tensors, output_tensors, test_size=0.2, random_state=42
     )
 
-    train_input, val_input, train_output, val_output = train_test_split(
-        train_input, train_output, test_size=0.1, random_state=42
-    )
-
-    return train_input, train_output, val_input, val_output, test_input, test_output
+    return train_input, train_output, val_input, val_output
 
 def scale(input_tensors, output_tensors, method="fro", class_labels=False):
     import numpy as np
@@ -197,9 +193,9 @@ def toBinary(filename):
     # Save the modified dataset to a new CSV file
     df.to_csv('bin-'+filename, index=False)
 
-#generateDataset("test_dataset2D100k.csv", 100000, False)
+#generateDataset("dataset2D1M.csv", 1000000, False)
 
-#toBinary("dataset2D10k.csv")
+#toBinary("dataset2D1M.csv")
 
 '''print(extract(path="dOmegaRES1k.csv",i=[1,3],o=[4,4],limit=10))
 
