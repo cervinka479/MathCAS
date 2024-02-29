@@ -126,7 +126,7 @@ def nnTrain(splitDataset=[["train_input"],["train_output"],["val_input"],["val_o
 
 import DataPrep
 
-modelArchitecture = nnArch(io=[9,1], hl=[32,24])
+modelArchitecture = nnArch(io=[9,1], hl=[48,32])
 
 
 # Trainig section

@@ -126,12 +126,12 @@ def nnTrain(splitDataset=[["train_input"],["train_output"],["val_input"],["val_o
 
 import DataPrep
 
-modelArchitecture = nnArch(io=[3,1], hl=[32,24])
+modelArchitecture = nnArch(io=[3,1], hl=[48,32])
 
 
 # Trainig section
 import copy
-extractedData = DataPrep.extract(path="bin-dataset2D1M.csv",i=[1,3],o=[4,4],limit=100000)
+extractedData = DataPrep.extract(path="bin-dataset2D1M.csv",i=[1,3],o=[4,4],limit=10000)
 extractedDataCopy = copy.deepcopy(extractedData)
 absmaxScaledData = DataPrep.scale(extractedDataCopy[0],extractedDataCopy[1],method="absmax",class_labels=True)
 

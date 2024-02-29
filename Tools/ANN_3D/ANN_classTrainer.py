@@ -243,7 +243,7 @@ def valLossComparasion():
     plt.show()
 
 
-modelArchitecture = nnArch(io=[9,1], hl=[32,24])
+modelArchitecture = nnArch(io=[9,1], hl=[512,512,256,256,256,128,128,128])
 
 
 # Trainig section
