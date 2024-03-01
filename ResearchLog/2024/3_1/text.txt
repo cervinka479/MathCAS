@@ -1,0 +1,93 @@
+--------------------------------------------------------------------------------
+  Environment Summary
+--------------------------------------------------------------------------------
+PyTorch 2.2.1+cu121 DEBUG compiled w/ CUDA 12.1
+Running with Python 3.11 and
+
+`pip3 list` truncated output:
+numpy==1.26.3
+torch==2.2.1+cu121
+torchaudio==2.2.1+cu121
+torchvision==0.17.1+cu121
+--------------------------------------------------------------------------------
+  cProfile output
+--------------------------------------------------------------------------------
+         10979580 function calls (10753480 primitive calls) in 37.415 seconds
+
+   Ordered by: internal time
+   List reduced from 6798 to 15 due to restriction <15>
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+        1   13.061   13.061   13.588   13.588 C:\Users\cervinka\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\io\parsers\c_parser_wrapper.py:222(read)
+   135040    3.784    0.000    3.784    0.000 {method 'item' of 'torch._C.TensorBase' objects}
+    10000    3.365    0.000    3.365    0.000 {method 'run_backward' of 'torch._C._EngineBase' objects}
+    25006    1.459    0.000    1.459    0.000 {method 'to' of 'torch._C.TensorBase' objects}
+    37500    1.435    0.000    1.435    0.000 {built-in method torch._C._nn.linear}
+  1200000    1.318    0.000    1.318    0.000 C:\Users\cervinka\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\torch\utils\data\dataset.py:206(<genexpr>)
+    15712    0.872    0.000    0.872    0.000 {built-in method nt.stat}
+    12500    0.473    0.000    0.473    0.000 {built-in method torch._C._nn.binary_cross_entropy}
+   400000    0.359    0.000    1.677    0.000 C:\Users\cervinka\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\torch\utils\data\dataset.py:205(__getitem__)
+    25000    0.353    0.000    0.353    0.000 {built-in method torch.relu}
+       15    0.350    0.023    0.350    0.023 C:\Users\cervinka\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\dtypes\concat.py:52(concat_compat)
+    32540    0.340    0.000    0.340    0.000 {built-in method torch._ops.profiler._record_function_enter_new}
+    25000    0.293    0.000    0.293    0.000 {built-in method torch.stack}
+        1    0.292    0.292    0.293    0.293 C:\Users\cervinka\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pandas\core\internals\managers.py:2244(_stack_arrays)
+        1    0.274    0.274   22.173   22.173 Tools\ANN_3D\GPUtest.py:36(nnTrain)
+
+
+--------------------------------------------------------------------------------
+  autograd profiler output (CPU mode)
+--------------------------------------------------------------------------------
+        top 15 events sorted by cpu_time_total
+
+-----------------------------  ------------  ------------  ------------  ------------  ------------  ------------
+                         Name    Self CPU %      Self CPU   CPU total %     CPU total  CPU time avg    # of Calls
+-----------------------------  ------------  ------------  ------------  ------------  ------------  ------------
+                   aten::item         0.01%       2.000us        17.12%       5.411ms       5.411ms             1
+    aten::_local_scalar_dense        17.12%       5.409ms        17.12%       5.409ms       5.409ms             1
+                   aten::item         0.01%       2.000us        17.03%       5.381ms       5.381ms             1
+    aten::_local_scalar_dense        17.02%       5.379ms        17.02%       5.379ms       5.379ms             1
+                   aten::item         0.01%       2.000us        14.22%       4.495ms       4.495ms             1
+    aten::_local_scalar_dense        14.22%       4.493ms        14.22%       4.493ms       4.493ms             1
+                   aten::item         0.00%       1.000us        13.74%       4.343ms       4.343ms             1
+    aten::_local_scalar_dense        13.74%       4.342ms        13.74%       4.342ms       4.342ms             1
+                   aten::item         0.03%       8.000us        12.96%       4.096ms       4.096ms             1
+    aten::_local_scalar_dense        12.94%       4.088ms        12.94%       4.088ms       4.088ms             1
+                   aten::item         0.01%       2.000us        12.51%       3.954ms       3.954ms             1
+    aten::_local_scalar_dense        12.51%       3.952ms        12.51%       3.952ms       3.952ms             1
+                   aten::item         0.01%       2.000us        12.40%       3.920ms       3.920ms             1
+    aten::_local_scalar_dense        12.40%       3.918ms        12.40%       3.918ms       3.918ms             1
+                   aten::item         0.00%       1.000us        12.39%       3.914ms       3.914ms             1
+-----------------------------  ------------  ------------  ------------  ------------  ------------  ------------
+Self CPU time total: 31.601ms
+
+--------------------------------------------------------------------------------
+  autograd profiler output (CUDA mode)
+--------------------------------------------------------------------------------
+        top 15 events sorted by cpu_time_total
+
+        Because the autograd profiler uses the CUDA event API,
+        the CUDA time column reports approximately max(cuda_time, cpu_time).
+        Please ignore this output if your code does not use CUDA.
+
+-------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------
+                                                   Name    Self CPU %      Self CPU   CPU total %     CPU total  CPU time avg     Self CUDA   Self CUDA %    CUDA total  CUDA time avg    # of Calls
+-------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------
+autograd::engine::evaluate_function: torch::autograd...         0.00%       9.000us        21.67%      39.189ms      39.189ms       3.000us         0.80%      11.000us      11.000us             1
+                        torch::autograd::AccumulateGrad        21.66%      39.170ms        21.67%      39.180ms      39.180ms       3.000us         0.80%       8.000us       8.000us             1
+                                           aten::linear        19.33%      34.963ms        19.36%      35.018ms      35.018ms       5.000us         1.33%      33.000us      33.000us             1
+        autograd::engine::evaluate_function: TBackward0         0.00%       9.000us        19.25%      34.816ms      34.816ms       3.000us         0.80%      14.000us      14.000us             1
+                                             TBackward0         0.00%       4.000us        19.25%      34.807ms      34.807ms       3.000us         0.80%      11.000us      11.000us             1
+                                                aten::t         0.00%       7.000us        19.25%      34.803ms      34.803ms       4.000us         1.07%       8.000us       8.000us             1
+                                        aten::transpose        19.24%      34.795ms        19.24%      34.796ms      34.796ms       2.000us         0.53%       4.000us       4.000us             1
+                                           aten::linear        18.81%      34.015ms        18.84%      34.074ms      34.074ms       5.000us         1.33%      38.000us      38.000us             1
+enumerate(DataLoader)#_SingleProcessDataLoaderIter._...        15.85%      28.665ms        16.06%      29.041ms      29.041ms     112.000us        29.87%      29.004ms      29.004ms             1
+                                               aten::to         0.00%       6.000us         2.56%       4.629ms       4.629ms       5.000us         1.33%     150.000us     150.000us             1
+                                         aten::_to_copy         0.03%      48.000us         2.56%       4.623ms       4.623ms       9.000us         2.40%     145.000us     145.000us             1
+                                               aten::to         0.00%       3.000us         2.53%       4.575ms       4.575ms       7.000us         1.87%      90.000us      90.000us             1
+                                         aten::_to_copy         0.01%      13.000us         2.53%       4.572ms       4.572ms       8.000us         2.13%      83.000us      83.000us             1
+                                            aten::copy_         2.53%       4.570ms         2.53%       4.570ms       4.570ms     133.000us        35.47%     133.000us     133.000us             1
+                                            aten::copy_         2.52%       4.556ms         2.52%       4.556ms       4.556ms      73.000us        19.47%      73.000us      73.000us             1
+-------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------
+Self CPU time total: 180.833ms
+Self CUDA time total: 375.000us
