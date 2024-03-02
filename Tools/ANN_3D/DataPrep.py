@@ -207,7 +207,7 @@ def toBinary(filename):
     df = pd.read_csv(filename)
 
     # Replace all non-zero values in the 'vorticity' column with 1
-    df.loc[df['vorticity'] != 0, 'vorticity'] = 1
+    df.loc[df['ResVort'] != 0, 'ResVort'] = 1
 
     # Save the modified dataset to a new CSV file
     df.to_csv('bin-'+filename, index=False)
