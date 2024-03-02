@@ -158,6 +158,8 @@ def nnTrain(splitDataset=[["train_input"],["train_output"],["val_input"],["val_o
                     print("E: Input is in wrong format")
         
         if cli == False:
+            savePath = save+str(saveNum)+"_VL{"+str("{:.3e}".format(minimal_val_loss))+"}.pth"
+            torch.save(bestModel, savePath)
             break
 
     #return train_losses, val_losses
@@ -244,16 +246,16 @@ def valLossComparasion():
 
 
 modelArchitecture = nnArch(io=[9,1], hl=[32,24])
-
+path_to_dataset = ""
 
 # Trainig section
 import copy
-extractedData = DataPrep.extract(path="bin-dataset3D10k.csv",i=[1,9],o=[10,10],limit=0)
+extractedData = DataPrep.extract(path=path_to_dataset,i=[1,9],o=[13,13],limit=0)
 extractedDataCopy = copy.deepcopy(extractedData)
 absmaxScaledData = DataPrep.scale(extractedDataCopy[0],extractedDataCopy[1],method="absmax",class_labels=True)
 
 #nnTrain(save="classTest",splitDataset=DataPrep.split(*extractedData),model=modelArchitecture, epochs=50, learningRate=0.001, batch_size=32)
-nnTrain(save="classTestNorm",splitDataset=DataPrep.split(*absmaxScaledData),model=modelArchitecture, epochs=50, learningRate=0.001, batch_size=32)
+nnTrain(cli=False,visualize=False,save="classificator",splitDataset=DataPrep.split(*absmaxScaledData),model=modelArchitecture, epochs=200, learningRate=0.001, batch_size=32)
 
 
 '''
