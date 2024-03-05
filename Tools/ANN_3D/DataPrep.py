@@ -95,7 +95,7 @@ def split(input_tensors, output_tensors):
     from sklearn.model_selection import train_test_split
 
     train_input, val_input, train_output, val_output = train_test_split(
-        input_tensors, output_tensors, test_size=0.2, random_state=42
+        input_tensors, output_tensors, test_size=0.1, random_state=42
     )
 
     return train_input, train_output, val_input, val_output

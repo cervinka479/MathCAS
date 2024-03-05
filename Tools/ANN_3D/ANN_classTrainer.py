@@ -46,8 +46,8 @@ def nnTrain(splitDataset=[["train_input"],["train_output"],["val_input"],["val_o
     val_data = TensorDataset(torch.tensor(val_input, dtype=torch.float32), torch.tensor(val_output, dtype=torch.float32))
     
     # Create a DataLoader for your dataset
-    train_loader = DataLoader(train_data, batch_size, pin_memory=True)
-    val_loader = DataLoader(val_data, batch_size, pin_memory=True)
+    train_loader = DataLoader(train_data, batch_size)
+    val_loader = DataLoader(val_data, batch_size)
 
     print(model)
     model.to(device)
@@ -248,6 +248,7 @@ def valLossComparasion():
 modelArchitecture = nnArch(io=[9,1], hl=[32,24])
 path_to_dataset = ""
 
+
 # Trainig section
 import copy
 extractedData = DataPrep.extract(path=path_to_dataset,i=[1,9],o=[13,13],limit=0)
@@ -261,7 +262,7 @@ nnTrain(cli=False,visualize=False,save="classificator",splitDataset=DataPrep.spl
 '''
 # Predicting section
 import copy
-extractedData = DataPrep.extract(path="dataset3D10k.csv",i=[1,9],o=[10,10],limit=0)
+extractedData = DataPrep.extract(path="dataset3D10k.csv",i=[1,9],o=[13,13],limit=0)
 extractedDataCopy = copy.deepcopy(extractedData)
 absmaxScaledData = DataPrep.scale(extractedDataCopy[0],extractedDataCopy[1],method="absmax",class_labels=True)
 
