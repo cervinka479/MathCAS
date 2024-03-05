@@ -1,4 +1,9 @@
 import DataPrep
+import torch
+
+# Check if CUDA is available
+print(f"Is CUDA supported by this system?  {torch.cuda.is_available()}")
+device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 def nnArch(io=[9,1], hl=[12]):
     import torch.nn as nn
@@ -44,6 +49,7 @@ def nnTrain(splitDataset=[["train_input"],["train_output"],["val_input"],["val_o
     val_loader = DataLoader(val_data, batch_size)
 
     print(model)
+    model.to(device)
 
     match optimizer:
         case "sgd":
@@ -67,6 +73,7 @@ def nnTrain(splitDataset=[["train_input"],["train_output"],["val_input"],["val_o
             train_loss = 0
             val_loss = 0
             for inputs, targets in train_loader:
+                inputs, targets = inputs.to(device), targets.to(device)
                 # Forward pass
                 outputs = model(inputs)
                 loss = criterion(outputs, targets)
@@ -83,6 +90,8 @@ def nnTrain(splitDataset=[["train_input"],["train_output"],["val_input"],["val_o
             model.eval()  # Set the model to evaluation mode
             with torch.no_grad():
                 for inputs, targets in val_loader:
+                    inputs, targets = inputs.to(device), targets.to(device)
+
                     outputs = model(inputs)
                     loss = criterion(outputs, targets)
                     val_loss += loss.item()
@@ -136,6 +145,8 @@ def nnTrain(splitDataset=[["train_input"],["train_output"],["val_input"],["val_o
                     print("E: Input is in wrong format")
         
         if cli == False:
+            savePath = save+str(saveNum)+"_VL{"+str("{:.3e}".format(minimal_val_loss))+"}.pth"
+            torch.save(bestModel, savePath)
             break
 
     #return train_losses, val_losses
@@ -207,27 +218,29 @@ def valLossComparasion():
     plt.show()
 
 
-modelArchitecture = nnArch(io=[3,1], hl=[32,16])
+modelArchitecture = nnArch(io=[9,1], hl=[32,24])
+path_to_dataset = ""
 
-'''
+
 # Training section
 import copy
-extractedData = DataPrep.extract(path="3test8k.csv",i=[1,3],o=[4,4],limit=8000)
+extractedData = DataPrep.extract(path=path_to_dataset,i=[1,9],o=[13,13],limit=0)
 extractedDataCopy = copy.deepcopy(extractedData)
 absmaxScaledData = DataPrep.scale(extractedDataCopy[0],extractedDataCopy[1],method="absmax")
 
 #nnTrain(save="TestModel",splitDataset=DataPrep.split(*extractedData),model=modelArchitecture, epochs=100, learningRate=0.001, batch_size=8)
-nnTrain(save="3regTest",splitDataset=DataPrep.split(*absmaxScaledData),model=modelArchitecture, epochs=50, learningRate=0.0001, batch_size=8)
+nnTrain(cli=False,visualize=False,save="regression",splitDataset=DataPrep.split(*absmaxScaledData),model=modelArchitecture, epochs=50, learningRate=0.0001, batch_size=8)
+
+
 '''
-
-
 # Predicting section
 import copy
-extractedData = DataPrep.extract(path="reg-dataset100k.csv",i=[1,3],o=[4,4])
+extractedData = DataPrep.extract(path="dataset3D10k.csv",i=[1,9],o=[10,10])
 extractedDataCopy = copy.deepcopy(extractedData)
 absmaxScaledData = DataPrep.scale(extractedDataCopy[0],extractedDataCopy[1],method="absmax")
 
 #print(nnPredict(loadModel="1regTest1_VL{3.890e-06}.pth", testDataset=absmaxScaledData,model=modelArchitecture)[0])
 
 #print(nnPredict(loadModel="TestModel1_VL{1.395e-04}.pth", testDataset=extractedData,model=modelArchitecture)[0])
-print(DataPrep.inverseScale(extractedData[0],nnPredict(loadModel="3regTest2_VL{3.773e-06}.pth", testDataset=absmaxScaledData,model=modelArchitecture)[0],method="absmax"))
+print(DataPrep.inverseScale(extractedData[0],nnPredict(loadModel="regression1_VL{3.569e-03}.pth", testDataset=absmaxScaledData,model=modelArchitecture)[0],method="absmax"))
+'''
