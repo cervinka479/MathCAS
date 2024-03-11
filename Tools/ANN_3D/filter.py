@@ -60,6 +60,9 @@ def nnArchClass(io=[9,1], hl=[12]):
     model = NeuralNetwork(hl)
     return model
 
+import os
+import time
+
 def filter(new_file_name, loadClassModel, extractedData, classModel=nnArchClass()):
     # Load the saved model
     if torch.cuda.is_available():
@@ -81,6 +84,11 @@ def filter(new_file_name, loadClassModel, extractedData, classModel=nnArchClass(
         writer = csv.writer(file)
         writer.writerow(["A11","A12","A13","A21","A22","A23","A31","A32","A33","vorticity"])
     
+        # Calculate the number of rows for each 1% of the dataset
+        one_percent = features_tensor.shape[0] // 100
+
+        start_time = time.time()  # Record the start time
+
         # Iterate over each row in the dataset
         for i in range(features_tensor.shape[0]):
             # Extract the feature for the current row
@@ -94,6 +102,14 @@ def filter(new_file_name, loadClassModel, extractedData, classModel=nnArchClass(
             # If the class prediction is 1.0, use the regression model to make a prediction
             if class_prediction == 1.0:
                 writer.writerow([*extractedData[0][i],*extractedData[1][i]])
+
+            # Print a message every time 1% of the rows have been processed
+            if i % one_percent == 0:
+                #os.system('cls' if os.name == 'nt' else 'clear')  # Clear the terminal
+                elapsed_time = time.time() - start_time  # Calculate the elapsed time
+                estimated_time = elapsed_time / (i + 1) * features_tensor.shape[0]  # Estimate the total time
+                remaining_time = estimated_time - elapsed_time  # Estimate the remaining time
+                print(f'Progress: {i // one_percent}%, Estimated remaining time: {remaining_time} seconds')
 
     print("Dataset generated: "+new_file_name)
 

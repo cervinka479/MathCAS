@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 
 def plot_loss_and_accuracy(paths):
     # Create a figure with six subplots: two rows and three columns
-    fig, axs = plt.subplots(2, 3, figsize=(15, 10))
+    fig, axs = plt.subplots(2, len(paths), figsize=(5*len(paths), 10))
 
     for i, path in enumerate(paths):
         # Initialize lists to store the data
@@ -37,4 +37,4 @@ def plot_loss_and_accuracy(paths):
     # Show the plot
     plt.show()
 
-plot_loss_and_accuracy(['history_10M_32_24_32.txt', 'history_10M_32_24_3200.txt','history_50M_32_24_3200.txt'])
+plot_loss_and_accuracy(['slurm-941161.out','slurm-941162.out'])
