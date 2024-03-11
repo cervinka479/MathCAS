@@ -1,5 +1,6 @@
 import DataPrep
 import torch
+import time
 
 # Check if CUDA is available
 print(f"Is CUDA supported by this system?  {torch.cuda.is_available()}")
@@ -70,10 +71,12 @@ def nnTrain(splitDataset=[["train_input"],["train_output"],["val_input"],["val_o
     models = []
     minimal_val_loss = "x"
     saveNum = 1
+    total_time = 0
 
     # Training loop
     while True:
         for epoch in range(epochs):
+            start_time = time.time()  # Start time of the epoch
             train_loss = 0
             val_loss = 0
             correct = 0
@@ -111,7 +114,16 @@ def nnTrain(splitDataset=[["train_input"],["train_output"],["val_input"],["val_o
             val_losses.append(val_loss)
             val_accuracy.append(val_acc)         
             
-            print(f'Epoch {epoch+1}/{epochs}, Training Loss: {train_loss}, Validation Loss: {val_loss}, Validation Accuracy: {val_acc}')
+            end_time = time.time()  # End time of the epoch
+            elapsed_time = end_time - start_time  # Calculate elapsed time
+            total_time += elapsed_time  # Add elapsed time to total time
+
+            avg_time_per_epoch = total_time / (epoch + 1)  # Calculate average time per epoch
+            remaining_epochs = epochs - epoch - 1  # Calculate remaining epochs
+            remaining_time = avg_time_per_epoch * remaining_epochs  # Estimate remaining time
+
+            remaining_time_formatted = time.strftime("%H:%M:%S", time.gmtime(remaining_time))
+            print(f'Epoch {epoch+1}/{epochs}, Training Loss: {train_loss}, Validation Loss: {val_loss}, Validation Accuracy: {val_acc}, Estimated Remaining Time: {remaining_time_formatted}')
             
             model.train()  # Set the model back to training mode
             
@@ -186,7 +198,6 @@ def nnPredict(loadModel, testDataset, model=nnArch(), output=False):
     # Use the model to make predictions
     with torch.no_grad():
         outputs = model(features)
-        #outputs = model(features.to(device))
         print(outputs)
         
         predictions = torch.where(outputs > 0.5, torch.tensor(1.0), torch.tensor(0.0))  # Apply condition to outputs
@@ -250,7 +261,7 @@ def valLossComparasion():
 modelArchitecture = nnArch(io=[9,1], hl=[80,64,48])
 path_to_dataset = "bin-dataset3D10k.csv"
 
-'''
+
 # Trainig section
 import copy
 extractedData = DataPrep.extract(path=path_to_dataset,i=[1,9],o=[10,10],limit=0)
@@ -259,9 +270,9 @@ absmaxScaledData = DataPrep.scale(extractedDataCopy[0],extractedDataCopy[1],meth
 
 #nnTrain(save="classTest",splitDataset=DataPrep.split(*extractedData),model=modelArchitecture, epochs=50, learningRate=0.001, batch_size=32)
 nnTrain(cli=False,visualize=False,save="classificator",splitDataset=DataPrep.split(*absmaxScaledData),model=modelArchitecture, epochs=200, learningRate=0.001, batch_size=32)
+
+
 '''
-
-
 # Predicting section
 import copy
 extractedData = DataPrep.extract(path="dataset3D10k.csv",i=[1,9],o=[10,10],limit=0)
@@ -271,3 +282,4 @@ absmaxScaledData = DataPrep.scale(extractedDataCopy[0],extractedDataCopy[1],meth
 #print(nnPredict(loadModel="classTest1_VL{2.982e-01}.pth", testDataset=extractedData,model=modelArchitecture,output=False))
 predictions, accuracy = nnPredict(loadModel="classificator_10M_80_64_481_VL{1.099e-01}.pth", testDataset=absmaxScaledData,model=modelArchitecture,output=False)
 print(DataPrep.inverseScale(extractedData[0],predictions,method="absmax"),accuracy)
+'''

@@ -1,5 +1,6 @@
 import DataPrep
 import torch
+import time
 
 # Check if CUDA is available
 print(f"Is CUDA supported by this system?  {torch.cuda.is_available()}")
@@ -41,8 +42,8 @@ def nnTrain(splitDataset=[["train_input"],["train_output"],["val_input"],["val_o
     train_input, train_output, val_input, val_output = splitDataset
 
     # Convert your dataset to PyTorch tensors
-    train_data = TensorDataset(torch.tensor(train_input, dtype=torch.float32), torch.tensor(train_output, dtype=torch.float32))
-    val_data = TensorDataset(torch.tensor(val_input, dtype=torch.float32), torch.tensor(val_output, dtype=torch.float32))
+    train_data = TensorDataset(torch.tensor(train_input, dtype=torch.float32).to(device), torch.tensor(train_output, dtype=torch.float32).to(device))
+    val_data = TensorDataset(torch.tensor(val_input, dtype=torch.float32).to(device), torch.tensor(val_output, dtype=torch.float32).to(device))
     
     # Create a DataLoader for your dataset
     train_loader = DataLoader(train_data, batch_size)
@@ -66,14 +67,16 @@ def nnTrain(splitDataset=[["train_input"],["train_output"],["val_input"],["val_o
     models = []
     minimal_val_loss = "x"
     saveNum = 1
+    total_time = 0
 
     # Training loop
     while True:
         for epoch in range(epochs):
+            start_time = time.time()  # Start time of the epoch
             train_loss = 0
             val_loss = 0
             for inputs, targets in train_loader:
-                inputs, targets = inputs.to(device), targets.to(device)
+                
                 # Forward pass
                 outputs = model(inputs)
                 loss = criterion(outputs, targets)
@@ -90,7 +93,6 @@ def nnTrain(splitDataset=[["train_input"],["train_output"],["val_input"],["val_o
             model.eval()  # Set the model to evaluation mode
             with torch.no_grad():
                 for inputs, targets in val_loader:
-                    inputs, targets = inputs.to(device), targets.to(device)
 
                     outputs = model(inputs)
                     loss = criterion(outputs, targets)
@@ -100,7 +102,17 @@ def nnTrain(splitDataset=[["train_input"],["train_output"],["val_input"],["val_o
             train_losses.append(train_loss)
             val_losses.append(val_loss)
             
-            print(f'Epoch {epoch+1}/{epochs}, Training Loss: {train_loss}, Validation Loss: {val_loss}')
+            end_time = time.time()  # End time of the epoch
+            elapsed_time = end_time - start_time  # Calculate elapsed time
+            total_time += elapsed_time  # Add elapsed time to total time
+
+            avg_time_per_epoch = total_time / (epoch + 1)  # Calculate average time per epoch
+            remaining_epochs = epochs - epoch - 1  # Calculate remaining epochs
+            remaining_time = avg_time_per_epoch * remaining_epochs  # Estimate remaining time
+
+            remaining_time_formatted = time.strftime("%H:%M:%S", time.gmtime(remaining_time))
+            print(f'Epoch {epoch+1}/{epochs}, Training Loss: {train_loss}, Validation Loss: {val_loss}, Estimated Remaining Time: {remaining_time_formatted}')
+            
             
             model.train()  # Set the model back to training mode
             
@@ -158,7 +170,12 @@ def nnPredict(loadModel, testDataset, model=nnArch()):
     import torch.nn.functional as F
     
     # Load the saved model
-    model.load_state_dict(torch.load(loadModel))  # Load the saved parameters
+    if torch.cuda.is_available():
+        model.load_state_dict(torch.load(loadModel))
+    else:
+        model.load_state_dict(torch.load(loadModel,map_location=torch.device('cpu')))  # Load the saved parameters
+    
+    model.to(device)
     model.eval()  # Set the model to evaluation mode
 
     features = testDataset[0]
@@ -219,12 +236,12 @@ def valLossComparasion():
 
 
 modelArchitecture = nnArch(io=[9,1], hl=[32,24])
-path_to_dataset = ""
+path_to_dataset = "filtered_datset.csv"
 
 
 # Training section
 import copy
-extractedData = DataPrep.extract(path=path_to_dataset,i=[1,9],o=[13,13],limit=0)
+extractedData = DataPrep.extract(path=path_to_dataset,i=[1,9],o=[10,10],limit=0)
 extractedDataCopy = copy.deepcopy(extractedData)
 absmaxScaledData = DataPrep.scale(extractedDataCopy[0],extractedDataCopy[1],method="absmax")
 
