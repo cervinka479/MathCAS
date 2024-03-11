@@ -7,7 +7,7 @@ validation_loss = []
 validation_accuracy = []
 
 # Open the file and read the data
-with open('convergence_history.txt', 'r') as file:
+with open('history_50M_32_24_3200.txt', 'r') as file:
     for line in file:
         # Use regular expressions to extract the values
         match = re.search(r'Training Loss: (.*), Validation Loss: (.*), Validation Accuracy: (.*)', line)

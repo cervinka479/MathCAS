@@ -42,8 +42,8 @@ def nnTrain(splitDataset=[["train_input"],["train_output"],["val_input"],["val_o
     train_input, train_output, val_input, val_output = splitDataset
 
     # Convert your dataset to PyTorch tensors
-    train_data = TensorDataset(torch.tensor(train_input, dtype=torch.float32), torch.tensor(train_output, dtype=torch.float32))
-    val_data = TensorDataset(torch.tensor(val_input, dtype=torch.float32), torch.tensor(val_output, dtype=torch.float32))
+    train_data = TensorDataset(torch.tensor(train_input, dtype=torch.float32).to(device), torch.tensor(train_output, dtype=torch.float32).to(device))
+    val_data = TensorDataset(torch.tensor(val_input, dtype=torch.float32).to(device), torch.tensor(val_output, dtype=torch.float32).to(device))
     
     # Create a DataLoader for your dataset
     train_loader = DataLoader(train_data, batch_size)
@@ -79,7 +79,6 @@ def nnTrain(splitDataset=[["train_input"],["train_output"],["val_input"],["val_o
             correct = 0
             total = 0
             for inputs, targets in train_loader:
-                inputs, targets = inputs.to(device), targets.to(device)
                 
                 # Forward pass
                 outputs = model(inputs)
@@ -97,7 +96,6 @@ def nnTrain(splitDataset=[["train_input"],["train_output"],["val_input"],["val_o
             model.eval()  # Set the model to evaluation mode
             with torch.no_grad():
                 for inputs, targets in val_loader:
-                    inputs, targets = inputs.to(device), targets.to(device)
 
                     outputs = model(inputs)
                     loss = criterion(outputs, targets)
@@ -246,12 +244,12 @@ def valLossComparasion():
 
 
 modelArchitecture = nnArch(io=[9,1], hl=[32,24])
-path_to_dataset = ""
+path_to_dataset = "bin-dataset3D10k.csv"
 
 
 # Trainig section
 import copy
-extractedData = DataPrep.extract(path=path_to_dataset,i=[1,9],o=[13,13],limit=0)
+extractedData = DataPrep.extract(path=path_to_dataset,i=[1,9],o=[10,10],limit=0)
 extractedDataCopy = copy.deepcopy(extractedData)
 absmaxScaledData = DataPrep.scale(extractedDataCopy[0],extractedDataCopy[1],method="absmax",class_labels=True)
 
