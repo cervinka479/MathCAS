@@ -1,0 +1,10 @@
+Kar0l1na training tests:
+classificator 3D >>> 95% accuracy (10M datapoints, hl[80,64,48])
+- larger networks seems like to be more accurate (to some extent)
+- slow training speed is probably directly linked to total number of batches processed in each epoch
+
+Outputs > history.txt and slurm.out files
+
+added remaining time estimate to some processes
+added filter.py script >>> filters out nonzero datapoints based on trained classificator
+added history_info_extractor.py script >>> extracts and visualizes training indicators from training logs
