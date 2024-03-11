@@ -7,6 +7,8 @@ def nnArch(io=[9,1], hl=[12]):
         def __init__(self, hl):
             super(NeuralNetwork, self).__init__()
             self.layers = nn.ModuleList()
+            
+            # Create input layer
             input_size = io[0]
             
             # Create hidden layers
