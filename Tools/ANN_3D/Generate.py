@@ -166,4 +166,4 @@ def nnGenerateDataset(filename, num_items, classifier="path",arch=nnArchClass())
 
 #generateDataset("test1k.csv", 1000, shape='random')
 
-nnGenerateDataset("3test8k.csv", 8000, classifier="classTest3_VL{1.462e-02}.pth", arch=nnArchClass(io=[3,1], hl=[32,16]))
+nnGenerateDataset("dataset.csv", 8000, classifier="classTest3_VL{1.462e-02}.pth", arch=nnArchClass(io=[9,1], hl=[32,24]))

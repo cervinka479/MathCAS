@@ -168,7 +168,11 @@ def nnPredict(loadModel, testDataset, model=nnArch(), output=False):
     import pandas as pd
 
     # Load the saved model
-    model.load_state_dict(torch.load(loadModel))  # Load the saved parameters
+    if torch.cuda.is_available():
+        model.load_state_dict(torch.load(loadModel))
+    else:
+        model.load_state_dict(torch.load(loadModel,map_location=torch.device('cpu')))  # Load the saved parameters
+    
     model.to(device)
     model.eval()  # Set the model to evaluation mode
 
@@ -182,7 +186,7 @@ def nnPredict(loadModel, testDataset, model=nnArch(), output=False):
     # Use the model to make predictions
     with torch.no_grad():
         outputs = model(features)
-        outputs = model(features.to(device))
+        #outputs = model(features.to(device))
         print(outputs)
         
         predictions = torch.where(outputs > 0.5, torch.tensor(1.0), torch.tensor(0.0))  # Apply condition to outputs
@@ -246,7 +250,7 @@ def valLossComparasion():
 modelArchitecture = nnArch(io=[9,1], hl=[32,24])
 path_to_dataset = "bin-dataset3D10k.csv"
 
-
+'''
 # Trainig section
 import copy
 extractedData = DataPrep.extract(path=path_to_dataset,i=[1,9],o=[10,10],limit=0)
@@ -255,16 +259,15 @@ absmaxScaledData = DataPrep.scale(extractedDataCopy[0],extractedDataCopy[1],meth
 
 #nnTrain(save="classTest",splitDataset=DataPrep.split(*extractedData),model=modelArchitecture, epochs=50, learningRate=0.001, batch_size=32)
 nnTrain(cli=False,visualize=False,save="classificator",splitDataset=DataPrep.split(*absmaxScaledData),model=modelArchitecture, epochs=200, learningRate=0.001, batch_size=32)
-
-
 '''
+
+
 # Predicting section
 import copy
-extractedData = DataPrep.extract(path="dataset3D10k.csv",i=[1,9],o=[13,13],limit=0)
+extractedData = DataPrep.extract(path="dataset3D10k.csv",i=[1,9],o=[10,10],limit=0)
 extractedDataCopy = copy.deepcopy(extractedData)
 absmaxScaledData = DataPrep.scale(extractedDataCopy[0],extractedDataCopy[1],method="absmax",class_labels=True)
 
 #print(nnPredict(loadModel="classTest1_VL{2.982e-01}.pth", testDataset=extractedData,model=modelArchitecture,output=False))
-predictions, accuracy = nnPredict(loadModel="classTestNorm1_VL{2.982e-01}.pth", testDataset=absmaxScaledData,model=modelArchitecture,output=False)
+predictions, accuracy = nnPredict(loadModel="classificator1_VL{2.000e-01}.pth", testDataset=absmaxScaledData,model=modelArchitecture,output=False)
 print(DataPrep.inverseScale(extractedData[0],predictions,method="absmax"),accuracy)
-'''
