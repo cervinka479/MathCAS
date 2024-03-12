@@ -1,7 +1,7 @@
 import re
 import matplotlib.pyplot as plt
 
-def plot_loss_and_accuracy(paths):
+def class_extractor(paths):
     # Create a figure with six subplots: two rows and three columns
     fig, axs = plt.subplots(2, len(paths), figsize=(5*len(paths), 10))
 
@@ -15,7 +15,9 @@ def plot_loss_and_accuracy(paths):
         with open(path, 'r') as file:
             for line in file:
                 # Use regular expressions to extract the values
-                match = re.search(r'Training Loss: (.*), Validation Loss: (.*), Validation Accuracy: (.*)', line)
+                
+                match = re.search(r'Training Loss: (.*), Validation Loss: (.*), Validation Accuracy: (.*), Estimated Remaining Time:', line)
+                
                 if match:
                     training_loss.append(float(match.group(1)))
                     validation_loss.append(float(match.group(2)))
@@ -37,4 +39,31 @@ def plot_loss_and_accuracy(paths):
     # Show the plot
     plt.show()
 
-plot_loss_and_accuracy(['slurm-941161.out','slurm-941162.out'])
+def reg_extractor(path):
+    # Initialize lists
+    training_loss = []
+    validation_loss = []
+
+    # Open the file and read the data
+    with open(path, 'r') as file:
+        for line in file:
+            # Use regular expressions to extract the values
+            match = re.search(r'Training Loss: (.*), Validation Loss: (.*),', line)
+            
+            if match:
+                training_loss.append(float(match.group(1)))
+                validation_loss.append(float(match.group(2)))
+
+    # Plot the data
+    plt.figure(figsize=(10, 5))
+    plt.plot(training_loss, label='Training Loss')
+    plt.plot(validation_loss, label='Validation Loss')
+    plt.title('Training Loss and Validation Loss over time')
+    plt.xlabel('Epochs')
+    plt.ylabel('Loss')
+    plt.legend()
+    plt.show()
+
+#class_extractor(['class_deeper.txt','class_double.txt'])
+    
+reg_extractor('regression_10M_80_64_48.txt')

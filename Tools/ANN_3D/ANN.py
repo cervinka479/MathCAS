@@ -63,8 +63,12 @@ def nnArchReg(io=[9,1], hl=[12]):
 
 def Predict(loadClassModel, loadRegModel, extractedData, classModel=nnArchClass(), regModel=nnArchReg(), output=False):
     # Load the saved model
-    classModel.load_state_dict(torch.load(loadClassModel))  # Load the saved parameters
-    regModel.load_state_dict(torch.load(loadRegModel))
+    if torch.cuda.is_available():
+        classModel.load_state_dict(torch.load(loadClassModel))  # Load the saved parameters
+        regModel.load_state_dict(torch.load(loadRegModel))
+    else:
+        classModel.load_state_dict(torch.load(loadClassModel,map_location=torch.device('cpu')))  # Load the saved parameters
+        regModel.load_state_dict(torch.load(loadRegModel,map_location=torch.device('cpu')))
     
     classModel.eval()  # Set the model to evaluation mode
     regModel.eval()
@@ -136,12 +140,12 @@ def Predict(loadClassModel, loadRegModel, extractedData, classModel=nnArchClass(
 
 # Variables
 
-classModel_Path = r"ResearchLog\2024\1_25\best_models\classTest1_VL{1.843e-02}.pth"
-classModelArch = nnArchClass(io=[3,1], hl=[32,16])
-regModel_Path = r"ResearchLog\2024\1_25\best_models\regTest3_VL{3.960e-06}.pth"
-regModelArch = nnArchReg(io=[3,1], hl=[32,16])
-dataset_Path = "dataset100k.csv"
-limit = 0
+classModel_Path = 'classificator_double_VL{7.373e-02}_942571.pth'
+classModelArch = nnArchClass(io=[9,1], hl=[160,128,96])
+regModel_Path = 'regression_10M_80_64_481_VL{2.335e-03}.pth'
+regModelArch = nnArchReg(io=[9,1], hl=[80,64,48])
+dataset_Path = "dataset3D10k.csv"
+limit = 200
 output = False
 
-Predict(loadClassModel=classModel_Path,loadRegModel=regModel_Path,extractedData=dp.extract(path=dataset_Path,i=[1,3],o=[4,4],limit=limit),classModel=classModelArch,regModel=regModelArch,output=output)
+Predict(loadClassModel=classModel_Path,loadRegModel=regModel_Path,extractedData=dp.extract(path=dataset_Path,i=[1,9],o=[10,10],limit=limit),classModel=classModelArch,regModel=regModelArch,output=output)

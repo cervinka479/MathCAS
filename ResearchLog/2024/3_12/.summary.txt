@@ -1,0 +1,6 @@
+class_double.pth is the best model >>> 95% accuracy in practice
+regression.pth >>> MSE: 2.602e-03
+
+overall combination:
+Maximum regression error: [0.26217154]
+MSE: 8.021e-04
