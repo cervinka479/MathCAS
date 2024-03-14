@@ -113,6 +113,18 @@ def filter(new_file_name, loadClassModel, extractedData, classModel=nnArchClass(
 
     print("Dataset generated: "+new_file_name)
 
+def precise_filter(new_file_name, targetDataset):
+    import pandas as pd
+
+    # Load the dataset
+    df = pd.read_csv(targetDataset)
+
+    # Filter the DataFrame
+    filtered_df = df[df['vorticity'] != 0]
+
+    # Write the filtered DataFrame to a new CSV file
+    filtered_df.to_csv(new_file_name, index=False)
+
 # Variables
 
 classModel_Path = "classificator1_VL{2.000e-01}.pth"
@@ -120,4 +132,6 @@ classModelArch = nnArchClass(io=[9,1], hl=[32,24])
 dataset_Path = "dataset3D10k.csv"
 limit = 0
 
-filter("filtered_datset.csv",classModel_Path,dp.extract(dataset_Path, i=[1,9], o=[10,10], limit=limit),classModelArch)
+#filter("filtered_datset.csv",classModel_Path,dp.extract(dataset_Path, i=[1,9], o=[10,10], limit=limit),classModelArch)
+
+precise_filter("precise_filtered_datset.csv",dataset_Path)
