@@ -259,7 +259,7 @@ def valLossComparasion():
 
 
 #modelArchitecture = nnArch(io=[9,1], hl=[220,160,128,96])
-modelArchitecture = nnArch(io=[9,1], hl=[160,128,96])
+modelArchitecture = nnArch(io=[9,1], hl=[200,160,100,48])
 #modelArchitecture = nnArch(io=[9,1], hl=[80,64,48])
 
 path_to_dataset = "bin-dataset3D10k.csv"
@@ -283,5 +283,5 @@ extractedDataCopy = copy.deepcopy(extractedData)
 absmaxScaledData = DataPrep.scale(extractedDataCopy[0],extractedDataCopy[1],method="absmax",class_labels=True)
 
 #print(nnPredict(loadModel="classTest1_VL{2.982e-01}.pth", testDataset=extractedData,model=modelArchitecture,output=False))
-predictions, accuracy = nnPredict(loadModel="classificator_double_VL{7.373e-02}_942571.pth", testDataset=absmaxScaledData,model=modelArchitecture,output=False)
+predictions, accuracy = nnPredict(loadModel="classificator_50M_80_64_481_VL{7.147e-02}.pth", testDataset=absmaxScaledData,model=modelArchitecture,output=False)
 print(DataPrep.inverseScale(extractedData[0],predictions,method="absmax"),accuracy)

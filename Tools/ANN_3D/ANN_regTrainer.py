@@ -235,7 +235,7 @@ def valLossComparasion():
     plt.show()
 
 
-modelArchitecture = nnArch(io=[9,1], hl=[80,64,48])
+modelArchitecture = nnArch(io=[9,1], hl=[200,160,120,100,48])
 path_to_dataset = "filtered_datset.csv"
 
 '''
@@ -252,11 +252,11 @@ nnTrain(cli=False,visualize=False,save="regression",splitDataset=DataPrep.split(
 
 # Predicting section
 import copy
-extractedData = DataPrep.extract(path="filtered_datset.csv",i=[1,9],o=[10,10])
+extractedData = DataPrep.extract(path="precise_filtered_datset.csv",i=[1,9],o=[10,10],limit=100)
 extractedDataCopy = copy.deepcopy(extractedData)
 absmaxScaledData = DataPrep.scale(extractedDataCopy[0],extractedDataCopy[1],method="absmax")
 
 #print(nnPredict(loadModel="1regTest1_VL{3.890e-06}.pth", testDataset=absmaxScaledData,model=modelArchitecture)[0])
 
 #print(nnPredict(loadModel="TestModel1_VL{1.395e-04}.pth", testDataset=extractedData,model=modelArchitecture)[0])
-print(DataPrep.inverseScale(extractedData[0],nnPredict(loadModel="regression_10M_80_64_481_VL{2.335e-03}.pth", testDataset=absmaxScaledData,model=modelArchitecture)[0],method="absmax"))
+print(DataPrep.inverseScale(extractedData[0],nnPredict(loadModel="regression_10M_200_64_481_VL{8.363e-04}.pth", testDataset=absmaxScaledData,model=modelArchitecture)[0],method="absmax"))

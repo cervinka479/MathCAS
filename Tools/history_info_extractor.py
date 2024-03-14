@@ -64,6 +64,6 @@ def reg_extractor(path):
     plt.legend()
     plt.show()
 
-#class_extractor(['class_deeper.txt','class_double.txt'])
+#class_extractor(['class_deeper.txt','classificator_50M_80_64_481_VL{7.147e-02}_history.txt'])
     
-reg_extractor('regression_10M_80_64_48.txt')
+#reg_extractor('regression_10M_80_64_48.txt')
