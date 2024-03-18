@@ -9,7 +9,7 @@ A = np.array([[-2, 8, 3],
               [-9, -5, -5],
               [7, -1, 7]])
 
-def bruteforceBRF(matrix, Step=5, Output=False):
+def bruteforceBRF(matrix, Step=2, Output=False):
 
     α = 0
     β = 0
@@ -93,4 +93,4 @@ def bruteforceBRF(matrix, Step=5, Output=False):
 
     print("Maximum F values:\n", np.array(maxValues))
 
-bruteforceBRF(A,Step=1, Output=True)
+bruteforceBRF(A,Step=2, Output=True)
