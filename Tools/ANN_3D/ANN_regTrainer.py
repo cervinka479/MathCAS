@@ -75,6 +75,7 @@ def nnTrain(splitDataset=[["train_input"],["train_output"],["val_input"],["val_o
             start_time = time.time()  # Start time of the epoch
             train_loss = 0
             val_loss = 0
+            model.train()  # Set the model back to training mode
             for inputs, targets in train_loader:
                 
                 # Forward pass
@@ -122,8 +123,14 @@ def nnTrain(splitDataset=[["train_input"],["train_output"],["val_input"],["val_o
             if minimal_val_loss == "x":
                 minimal_val_loss = val_loss
             elif val_loss < minimal_val_loss:
-                bestModel = model.state_dict()
+                bestModel = copy.deepcopy(model.state_dict())
+                model.eval()
+                example_input = torch.randn(1, 9).to(device)  # Replace with an example input to the model
+                bestModelTorchscript = torch.jit.trace(model, example_input)
                 minimal_val_loss = val_loss
+
+            # Save the TorchScript model
+            #torch.jit.save(bestModelTorchscript, f"{save}_scripted.pt")
         
         print("minimal validation loss: "+str(minimal_val_loss))
         
@@ -159,6 +166,8 @@ def nnTrain(splitDataset=[["train_input"],["train_output"],["val_input"],["val_o
         if cli == False:
             savePath = save+str(saveNum)+"_VL{"+str("{:.3e}".format(minimal_val_loss))+"}.pth"
             torch.save(bestModel, savePath)
+            # Save the TorchScript model
+            torch.jit.save(bestModelTorchscript, f"{save}_scripted.pt")
             break
 
     #return train_losses, val_losses
@@ -235,10 +244,10 @@ def valLossComparasion():
     plt.show()
 
 
-modelArchitecture = nnArch(io=[9,1], hl=[200,160,120,100,48])
+modelArchitecture = nnArch(io=[9,1], hl=[32,24])
 path_to_dataset = "filtered_datset.csv"
 
-'''
+
 # Training section
 import copy
 extractedData = DataPrep.extract(path=path_to_dataset,i=[1,9],o=[10,10],limit=0)
@@ -246,10 +255,10 @@ extractedDataCopy = copy.deepcopy(extractedData)
 absmaxScaledData = DataPrep.scale(extractedDataCopy[0],extractedDataCopy[1],method="absmax")
 
 #nnTrain(save="TestModel",splitDataset=DataPrep.split(*extractedData),model=modelArchitecture, epochs=100, learningRate=0.001, batch_size=8)
-nnTrain(cli=False,visualize=False,save="regression",splitDataset=DataPrep.split(*absmaxScaledData),model=modelArchitecture, epochs=50, learningRate=0.0001, batch_size=8)
+nnTrain(cli=False,visualize=False,save="regression",splitDataset=DataPrep.split(*absmaxScaledData),model=modelArchitecture, epochs=10, learningRate=0.0001, batch_size=8)
+
+
 '''
-
-
 # Predicting section
 import copy
 extractedData = DataPrep.extract(path="precise_filtered_datset.csv",i=[1,9],o=[10,10],limit=100)
@@ -260,3 +269,4 @@ absmaxScaledData = DataPrep.scale(extractedDataCopy[0],extractedDataCopy[1],meth
 
 #print(nnPredict(loadModel="TestModel1_VL{1.395e-04}.pth", testDataset=extractedData,model=modelArchitecture)[0])
 print(DataPrep.inverseScale(extractedData[0],nnPredict(loadModel="regression_10M_200_64_481_VL{8.363e-04}.pth", testDataset=absmaxScaledData,model=modelArchitecture)[0],method="absmax"))
+'''

@@ -133,7 +133,10 @@ def nnTrain(splitDataset=[["train_input"],["train_output"],["val_input"],["val_o
             if minimal_val_loss == "x":
                 minimal_val_loss = val_loss
             elif val_loss < minimal_val_loss:
-                bestModel = model.state_dict()
+                bestModel = copy.deepcopy(model.state_dict())
+                model.eval()
+                example_input = torch.randn(1, 9).to(device)  # Replace with an example input to the model
+                bestModelTorchscript = torch.jit.trace(model, example_input)
                 minimal_val_loss = val_loss
         
         print("minimal validation loss: "+str(minimal_val_loss))
@@ -170,6 +173,8 @@ def nnTrain(splitDataset=[["train_input"],["train_output"],["val_input"],["val_o
         if cli == False:
             savePath = save+str(saveNum)+"_VL{"+str("{:.3e}".format(minimal_val_loss))+"}.pth"
             torch.save(bestModel, savePath)
+            # Save the TorchScript model
+            torch.jit.save(bestModelTorchscript, f"{save}_scripted.pt")
             break
 
     #return train_losses, val_losses
@@ -264,7 +269,7 @@ modelArchitecture = nnArch(io=[9,1], hl=[200,160,100,48])
 
 path_to_dataset = "bin-dataset3D10k.csv"
 
-'''
+
 # Trainig section
 import copy
 extractedData = DataPrep.extract(path=path_to_dataset,i=[1,9],o=[10,10],limit=0)
@@ -272,10 +277,10 @@ extractedDataCopy = copy.deepcopy(extractedData)
 absmaxScaledData = DataPrep.scale(extractedDataCopy[0],extractedDataCopy[1],method="absmax",class_labels=True)
 
 #nnTrain(save="classTest",splitDataset=DataPrep.split(*extractedData),model=modelArchitecture, epochs=50, learningRate=0.001, batch_size=32)
-nnTrain(cli=False,visualize=False,save="classificator",splitDataset=DataPrep.split(*absmaxScaledData),model=modelArchitecture, epochs=200, learningRate=0.001, batch_size=32)
+nnTrain(cli=False,visualize=False,save="classificator",splitDataset=DataPrep.split(*absmaxScaledData),model=modelArchitecture, epochs=10, learningRate=0.001, batch_size=32)
+
+
 '''
-
-
 # Predicting section
 import copy
 extractedData = DataPrep.extract(path="dataset3D10k.csv",i=[1,9],o=[10,10],limit=0)
@@ -285,3 +290,4 @@ absmaxScaledData = DataPrep.scale(extractedDataCopy[0],extractedDataCopy[1],meth
 #print(nnPredict(loadModel="classTest1_VL{2.982e-01}.pth", testDataset=extractedData,model=modelArchitecture,output=False))
 predictions, accuracy = nnPredict(loadModel="classificator_50M_80_64_481_VL{7.147e-02}.pth", testDataset=absmaxScaledData,model=modelArchitecture,output=False)
 print(DataPrep.inverseScale(extractedData[0],predictions,method="absmax"),accuracy)
+'''

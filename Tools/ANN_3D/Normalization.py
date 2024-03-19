@@ -1,7 +1,7 @@
 import pandas as pd
 import numpy as np
 
-path = r"test10k.csv"
+path = r"dataset2D1K.csv"
 
 # Load the CSV dataset
 data = pd.read_csv(path)
@@ -49,4 +49,4 @@ input_tensors, output_tensors = scale(input_tensors, output_tensors, method="abs
 normalized_data = np.concatenate((input_tensors, output_tensors), axis=1)
 
 # Write the dataset to new .csv file in the same format as the original dataset
-pd.DataFrame(normalized_data, columns=data.columns).to_csv("absmax_"+path, index=False)
+pd.DataFrame(normalized_data, columns=data.columns).to_csv("absmax"+path, index=False)
