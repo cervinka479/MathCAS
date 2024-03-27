@@ -271,6 +271,7 @@ modelArchitecture = nnArch(io=[9,1], hl=[200,160,120,100,48])
 #modelArchitecture = nnArch(io=[9,1], hl=[64,48])
 
 path_to_dataset = "bin-dataset3D10k.csv"
+print("Dataset: "+path_to_dataset)
 
 
 # Trainig section

@@ -246,6 +246,7 @@ def valLossComparasion():
 
 modelArchitecture = nnArch(io=[9,1], hl=[200,160,120,100,48])
 path_to_dataset = "filtered_datset.csv"
+print("Dataset: "+path_to_dataset)
 
 
 # Training section
