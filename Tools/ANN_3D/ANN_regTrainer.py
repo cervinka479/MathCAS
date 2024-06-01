@@ -256,7 +256,7 @@ extractedDataCopy = copy.deepcopy(extractedData)
 absmaxScaledData = DataPrep.scale(extractedDataCopy[0],extractedDataCopy[1],method="absmax")
 
 #nnTrain(save="TestModel",splitDataset=DataPrep.split(*extractedData),model=modelArchitecture, epochs=100, learningRate=0.001, batch_size=8)
-nnTrain(cli=False,visualize=False,save="regression",splitDataset=DataPrep.split(*absmaxScaledData),model=modelArchitecture, epochs=200, learningRate=0.0001, batch_size=8)
+nnTrain(cli=True,visualize=True,save="regression",splitDataset=DataPrep.split(*absmaxScaledData),model=modelArchitecture, epochs=20, learningRate=0.0001, batch_size=8)
 
 
 '''
