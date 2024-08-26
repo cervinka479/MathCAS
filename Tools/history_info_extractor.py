@@ -64,6 +64,6 @@ def reg_extractor(path):
     plt.legend()
     plt.show()
 
-class_extractor(['test.out','training_clas.out'])
+class_extractor(['training_clas.out'])
     
 #reg_extractor('training_reg.out')
