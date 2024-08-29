@@ -5,9 +5,9 @@ import random
 
 
 # Input variables
-B = np.array([[-0.22, 0.8, 0.22],
-              [-0.82, -0.42, -0.22],
-              [0.82, -0.22, 0.64]])
+A = np.array([[-0.2062846138237724, 0.7197670188119811, 0.4273246758017726],
+              [-0.3687860044372759, 0.9677110170545922, 0.5423272895542992],
+              [0.0903706439625058, 0.6008452813455123, -0.7614264032308198]])
 
 def bruteforceBRF(matrix, Step=5, Output=False, Info=False):
 
@@ -138,4 +138,4 @@ def getVorticity(matrix, Step=5):
     result = bruteforceBRF(matrix, Step)
     return TripleDecomposition(matrix, result)[1]
 
-#print(getVorticity(B, Step=5))
+print(getVorticity(A, Step=2))

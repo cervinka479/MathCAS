@@ -1,3 +1,5 @@
+import time
+
 # Writes an output file #
 def generateDataset(filename, num_items, nonzero=False):
     import csv
@@ -212,7 +214,7 @@ def toBinary(filename):
     # Save the modified dataset to a new CSV file
     df.to_csv('bin-'+filename, index=False)
 
-#generateDataset("dataset3D.csv", 100)
+generateDataset("dataset3D100K.csv", 100000)
 
 #toBinary("dataset3D10k.csv")
 
