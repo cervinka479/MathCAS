@@ -3,10 +3,11 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 # Load the dataset
-df = pd.read_csv('precise_filtered_datset.csv')
+#df = pd.read_csv('precise_filtered_datset.csv')
+df = pd.read_csv(r"c:\Users\Eda\Documents\CodeFiles\dataset_training_unsampled.csv")
 
 # Define the column names for the 9 elements of matrix A
-matrix_a_columns = ['A11', 'A12', 'A13', 'A21', 'A22', 'A23', 'A31', 'A32', 'A33','vorticity']
+matrix_a_columns = ['A11', 'A12', 'A13', 'A21', 'A22', 'A23', 'A31', 'A32', 'A33','ResVort']
 
 
 # Initialize an empty list to store the matrices
@@ -18,6 +19,8 @@ vorticity_list = []
 # Initialize an empty list to store the result values
 rvalues_list = []
 
+df = df[df['ResVort'] != 0]
+df = df.head(500000)
 
 # Iterate through each row of the DataFrame
 for index, row in df.iterrows():
@@ -29,7 +32,7 @@ for index, row in df.iterrows():
     ])
     # Append the matrix to the list
     matrix_list.append(matrix)
-    vorticity_list.append(row['vorticity'])
+    vorticity_list.append(row['ResVort'])
 
     # Spliting matrix A_ to symmetric (S) and antisymmetric (Ω) parts
     S = 0.5 * (matrix + matrix.T)
@@ -47,7 +50,7 @@ print(min)
 
 
 # Plotting the data
-plt.scatter(vorticity_list, rvalues_list)
+plt.scatter(vorticity_list, rvalues_list, s=0.1)
 plt.xlabel('Vorticity')
 plt.ylabel('R-values')
 plt.title('Vorticity vs R-values')
