@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 
 
 # Load the dataset
-'''df2 = pd.read_csv(r'deleteme\high_error_gradients.csv')'''
+df2 = pd.read_csv(r'deleteme\high_error_gradients.csv')
 df = pd.read_csv(r"deleteme\dataset3D_50K_training_sampled.csv")
 
 # Define the column names for the 9 elements of matrix A
@@ -95,10 +95,12 @@ print(min)'''
 print(negative)
 print(positive)'''
 
-'''# Initialize additional lists for the df2 dataset
+# Initialize additional lists for the df2 dataset
 matrix_list2 = []
 vorticity_list2 = []
 rvalues_list2 = []
+deltavalues_list2 = []
+lambda2values_list2 = []
 
 # Process the df2 dataset in the same way as the df dataset
 for index, row in df2.iterrows():
@@ -113,7 +115,20 @@ for index, row in df2.iterrows():
     S = 0.5 * (matrix + matrix.T)
     Ω = 0.5 * (matrix - matrix.T)
 
-    rvalues_list2.append(np.linalg.norm(Ω, ord='fro')/np.linalg.norm(S, ord='fro'))'''
+    rvalues_list2.append((np.linalg.norm(Ω, ord='fro')/np.linalg.norm(S, ord='fro'))-1)
+
+    # Calculate the delta value
+    Q = (matrix[0][0]*matrix[1][1]) + (matrix[1][1]*matrix[2][2]) + (matrix[0][0]*matrix[2][2]) - (matrix[0][1]*matrix[1][0]) - (matrix[1][2]*matrix[2][1]) - (matrix[0][2]*matrix[2][0])
+    R = -(matrix[0][2]*matrix[1][1]*matrix[2][0]) + (matrix[0][1]*matrix[1][2]*matrix[2][0]) + (matrix[0][2]*matrix[1][0]*matrix[2][1]) - (matrix[0][0]*matrix[1][2]*matrix[2][1]) - (matrix[0][1]*matrix[1][0]*matrix[2][2]) + (matrix[0][0]*matrix[1][1]*matrix[2][2])
+
+    deltavalue = (Q/3)**3 + (R/2)**2
+    deltavalues_list2.append(deltavalue)
+
+    # Calculate the lambda2 criterion
+    JHtensor = S@S + Ω@Ω
+    eigenvalues = np.linalg.eigvals(JHtensor)
+    lambda2 = np.sort(eigenvalues)[1]
+    lambda2values_list2.append(-lambda2)
 
 '''# Normalize the values to range between 0 and 1
 norm_deltavalues = [float(i) / max(deltavalues_list) for i in deltavalues_list]
@@ -123,8 +138,13 @@ norm_deltavalues = [(i + 1) / 2 for i in norm_deltavalues]'''
 plt.axhline(0, color='black', linewidth=0.5)
 plt.axvline(0, color='black', linewidth=0.5)
 
-plt.scatter(deltavalues_list, lambda2values_list, s=1)
+# Plot df dataset values
+plt.scatter(vorticity_list, rvalues_list, s=1, label='df dataset')
 
-plt.xlabel('delta')
-plt.ylabel('-lambda2')
+# Plot df2 dataset values with color red
+plt.scatter(vorticity_list2, rvalues_list2, s=4, color='red', label='df2 dataset')
+
+plt.xlabel('ResVort')
+plt.ylabel('magnitude ratio')
+plt.legend()
 plt.show()
