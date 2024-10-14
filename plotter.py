@@ -23,6 +23,9 @@ rvalues_list = []
 # Initialize an empty list to store the delta values
 deltavalues_list = []
 
+# Initialize an empty list to store the lambda2 values
+lambda2values_list = []
+
 vortex = 0
 negative = 0
 positive = 0
@@ -46,7 +49,7 @@ for index, row in df.iterrows():
     S = 0.5 * (matrix + matrix.T)
     Ω = 0.5 * (matrix - matrix.T)
 
-    rvalues_list.append(np.linalg.norm(Ω, ord='fro')/np.linalg.norm(S, ord='fro'))
+    rvalues_list.append((np.linalg.norm(Ω, ord='fro')/np.linalg.norm(S, ord='fro'))-1)
 
     # Calculate the delta value
     Q = (matrix[0][0]*matrix[1][1]) + (matrix[1][1]*matrix[2][2]) + (matrix[0][0]*matrix[2][2]) - (matrix[0][1]*matrix[1][0]) - (matrix[1][2]*matrix[2][1]) - (matrix[0][2]*matrix[2][0])
@@ -62,16 +65,35 @@ for index, row in df.iterrows():
         else:
             positive += 1
 
+    # Calculate the lambda2 criterion
+    JHtensor = S@S + Ω@Ω
+    eigenvalues = np.linalg.eigvals(JHtensor)
+    lambda2 = np.sort(eigenvalues)[1]
+    lambda2values_list.append(-lambda2)
+    if index == 0:
+        print(matrix)
+        print(eigenvalues)
+        print(lambda2)
+        print("- - - - - - - - - -")
+
+    counter = 0
+    if lambda2 < 0 and deltavalue < 0:
+        counter =+1
+
 print(matrix_list[0])
 print(vorticity_list[0])
 print(rvalues_list[0])
+print(deltavalues_list[0])
+print(lambda2values_list[0])
 
-min = min(rvalues_list)
-print(min)
+print(counter)
 
-print(vortex)
+'''min = min(rvalues_list)
+print(min)'''
+
+'''print(vortex)
 print(negative)
-print(positive)
+print(positive)'''
 
 '''# Initialize additional lists for the df2 dataset
 matrix_list2 = []
@@ -93,27 +115,16 @@ for index, row in df2.iterrows():
 
     rvalues_list2.append(np.linalg.norm(Ω, ord='fro')/np.linalg.norm(S, ord='fro'))'''
 
-# Normalize the values to range between 0 and 1
+'''# Normalize the values to range between 0 and 1
 norm_deltavalues = [float(i) / max(deltavalues_list) for i in deltavalues_list]
-norm_deltavalues = [(i + 1) / 2 for i in norm_deltavalues]
+norm_deltavalues = [(i + 1) / 2 for i in norm_deltavalues]'''
 
-# Set the colormap
-cmap = plt.cm.get_cmap('coolwarm')
+# Add zero axes
+plt.axhline(0, color='black', linewidth=0.5)
+plt.axvline(0, color='black', linewidth=0.5)
 
-# Plot the data for the df dataset in blue (this will be the default color)
-if False:
-    for i in range(len(matrix_list)):
-        if 0.4 < norm_deltavalues[i] < 0.6:
-            plt.scatter(vorticity_list[i], rvalues_list[i], color=cmap(norm_deltavalues[i]), s=2)
-        else:
-            plt.scatter(vorticity_list[i], rvalues_list[i], color=cmap(norm_deltavalues[i]), s=16)
-        print(i)
-else:
-    plt.scatter(vorticity_list, deltavalues_list, s=1)
+plt.scatter(deltavalues_list, lambda2values_list, s=1)
 
-'''# Plot the data for the df2 dataset in red
-plt.scatter(vorticity_list2, rvalues_list2, s=1, color='red')'''
-
-plt.xlabel('Vorticity')
-plt.ylabel('Delta')
+plt.xlabel('delta')
+plt.ylabel('-lambda2')
 plt.show()
