@@ -4,8 +4,8 @@ import matplotlib.pyplot as plt
 
 
 # Load the dataset
-df2 = pd.read_csv(r'deleteme\high_error_gradients.csv')
-df = pd.read_csv(r"deleteme\dataset3D_50K_training_sampled.csv")
+#df2 = pd.read_csv(r'deleteme\high_error_gradients.csv')
+df = pd.read_csv(r"deleteme\dataset3D_500K_training_sampled.csv")
 
 # Define the column names for the 9 elements of matrix A
 matrix_a_columns = ['A11', 'A12', 'A13', 'A21', 'A22', 'A23', 'A31', 'A32', 'A33','ResVort']
@@ -31,7 +31,7 @@ negative = 0
 positive = 0
 
 #df = df[df['ResVort'] != 0]
-df = df.head(50000)
+df = df.head(500000)
 
 # Iterate through each row of the DataFrame
 for index, row in df.iterrows():
@@ -80,30 +80,41 @@ for index, row in df.iterrows():
     if lambda2 < 0 and deltavalue < 0:
         counter =+1
 
-print(matrix_list[0])
+# Filter delta values with non-zero positive residual vorticity
+filtered_deltas = [(delta, vorticity) for delta, vorticity in zip(deltavalues_list, vorticity_list) if vorticity > 0]
+
+# Sort the filtered delta values in ascending order
+sorted_deltas = sorted(filtered_deltas, key=lambda x: x[0])
+
+# Print the 5 most negative delta values
+print("5 most negative delta values with non-zero positive residual vorticity:")
+for delta, vorticity in sorted_deltas[:5]:
+    print(f"Delta: {delta}, Residual Vorticity: {vorticity}")
+
+'''print(matrix_list[0])
 print(vorticity_list[0])
 print(rvalues_list[0])
 print(deltavalues_list[0])
-print(lambda2values_list[0])
+print(lambda2values_list[0])'''
 
 print(counter)
 
 '''min = min(rvalues_list)
 print(min)'''
 
-'''print(vortex)
+print(vortex)
 print(negative)
-print(positive)'''
+print(positive)
 
 # Initialize additional lists for the df2 dataset
-matrix_list2 = []
+'''matrix_list2 = []
 vorticity_list2 = []
 rvalues_list2 = []
 deltavalues_list2 = []
-lambda2values_list2 = []
+lambda2values_list2 = []'''
 
 # Process the df2 dataset in the same way as the df dataset
-for index, row in df2.iterrows():
+'''for index, row in df2.iterrows():
     matrix = np.array([
         [row['A11'], row['A12'], row['A13']],
         [row['A21'], row['A22'], row['A23']],
@@ -128,7 +139,7 @@ for index, row in df2.iterrows():
     JHtensor = S@S + Ω@Ω
     eigenvalues = np.linalg.eigvals(JHtensor)
     lambda2 = np.sort(eigenvalues)[1]
-    lambda2values_list2.append(-lambda2)
+    lambda2values_list2.append(-lambda2)'''
 
 '''# Normalize the values to range between 0 and 1
 norm_deltavalues = [float(i) / max(deltavalues_list) for i in deltavalues_list]
@@ -139,10 +150,10 @@ plt.axhline(0, color='black', linewidth=0.5)
 plt.axvline(0, color='black', linewidth=0.5)
 
 # Plot df dataset values
-plt.scatter(vorticity_list, rvalues_list, s=1, label='df dataset')
+plt.scatter(vorticity_list, deltavalues_list, s=1, label='df dataset')
 
 # Plot df2 dataset values with color red
-plt.scatter(vorticity_list2, rvalues_list2, s=4, color='red', label='df2 dataset')
+#plt.scatter(vorticity_list2, deltavalues_list2, s=4, color='red', label='df2 dataset')
 
 plt.xlabel('ResVort')
 plt.ylabel('magnitude ratio')
