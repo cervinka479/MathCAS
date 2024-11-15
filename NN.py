@@ -2,6 +2,8 @@ import os
 import shutil
 import pandas as pd
 import time
+from datetime import timedelta
+import sys
 import optuna
 import torch
 import torch.nn as nn
@@ -46,6 +48,7 @@ def objective(trial):
     hidden_layers = trial.suggest_int('hidden_layers', 1, 4)
     hidden_units = [trial.suggest_int(f'n_units_l{i}', 4, 128) for i in range(hidden_layers)]
     learning_rate = trial.suggest_loguniform('lr', 1e-5, 1e-1)
+    num_epochs = trial.suggest_int('num_epochs', 10, 200)  # Sample number of epochs
     
     # Create the model
     model = nnArch(io=[9, 1], hl=hidden_units).to(device)
@@ -61,7 +64,9 @@ def objective(trial):
     
     # Training loop
     model.train()
-    for epoch in range(10):  # Use more epochs for actual training
+    start_time = time.time()
+    for epoch in range(num_epochs):  # Use sampled number of epochs for training
+        epoch_start_time = time.time()
         epoch_train_loss = 0
         for batch_x, batch_y in train_loader:
             batch_x, batch_y = batch_x.to(device), batch_y.to(device)
@@ -94,7 +99,23 @@ def objective(trial):
         epoch_val_loss /= len(val_loader)
         val_losses.append(epoch_val_loss)
         val_accuracies.append(correct_val / total_val)
-    
+
+        # Calculate elapsed time and estimated time left
+        elapsed_time = time.time() - start_time
+        epoch_time = time.time() - epoch_start_time
+        estimated_time_left = epoch_time * (num_epochs - epoch - 1)
+        
+        # Format time in hours:minutes:seconds
+        elapsed_time_str = str(timedelta(seconds=int(elapsed_time)))
+        estimated_time_left_str = str(timedelta(seconds=int(estimated_time_left)))
+        
+        # Print epoch information
+        print(f"Epoch: {epoch + 1}/{num_epochs}, Val loss: {epoch_val_loss:.4f}, Accuracy: {correct_val / total_val:.4f}, Elapsed time: {elapsed_time_str}, Estimated time left: {estimated_time_left_str}")
+        sys.stdout.flush()
+
+    # Print a newline after the final epoch information
+    print()
+
     # Save losses and validation accuracies to CSV file
     trial_number = trial.number
     df_metrics = pd.DataFrame({
@@ -109,9 +130,16 @@ def objective(trial):
 def logging_callback(study, trial):
     elapsed_time = time.time() - start_time
     trial_times.append(elapsed_time)
-    avg_time_per_trial = sum(trial_times) / len(trial_times)
+    
+    # Calculate the average time per epoch
+    total_epochs = sum(trial.params['num_epochs'] for trial in study.trials)
+    avg_time_per_epoch = sum(trial_times) / total_epochs
+    
+    # Estimate the remaining time
     trials_left = n_trials - trial.number - 1
-    estimated_time_left = avg_time_per_trial * trials_left
+    remaining_epochs = sum(trial.params['num_epochs'] for trial in study.trials[trial.number + 1:])
+    estimated_time_left = avg_time_per_epoch * remaining_epochs
+    
     print(f"Elapsed time: {elapsed_time:.2f} seconds")
     print(f"Estimated time left: {estimated_time_left:.2f} seconds")
 

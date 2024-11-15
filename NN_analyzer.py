@@ -34,4 +34,4 @@ def plot_metrics(csv_file):
     plt.show()
 
 # Call the plot_metrics function with the specified CSV file
-plot_metrics('NN_training_log/trial1.csv')
+plot_metrics('NN_training_log/trial0.csv')
