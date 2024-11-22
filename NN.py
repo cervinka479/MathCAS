@@ -17,7 +17,7 @@ if os.path.exists(log_dir):
     shutil.rmtree(log_dir)
 os.makedirs(log_dir)
 
-def nnArch(io=[9,1], hl=[12]):
+def nnArch(io=[9,1], hl=[12], task='class'):	
     class NeuralNetwork(nn.Module):
         def __init__(self, hl):
             super(NeuralNetwork, self).__init__()
@@ -32,7 +32,8 @@ def nnArch(io=[9,1], hl=[12]):
             
             # Create output layer
             self.layers.append(nn.Linear(input_size, io[1]))
-            self.layers.append(nn.Sigmoid())
+            if task == 'class':
+                self.layers.append(nn.Sigmoid())
         
         def forward(self, x):
             for layer in self.layers:
@@ -43,7 +44,7 @@ def nnArch(io=[9,1], hl=[12]):
     model = NeuralNetwork(hl)
     return model
 
-def objective(trial):
+def objective(trial, task='class'):
     # Sample hyperparameters
     hidden_layers = trial.suggest_int('hidden_layers', 1, 4)
     hidden_units = [trial.suggest_int(f'n_units_l{i}', 4, 128) for i in range(hidden_layers)]
@@ -51,10 +52,14 @@ def objective(trial):
     num_epochs = trial.suggest_int('num_epochs', 10, 200)  # Sample number of epochs
     
     # Create the model
-    model = nnArch(io=[9, 1], hl=hidden_units).to(device)
+    model = nnArch(io=[9, 1], hl=hidden_units, task=task).to(device)
     
     # Define loss and optimizer
-    criterion = nn.BCELoss()
+    if task == 'class':
+        criterion = nn.BCELoss()
+    else:
+        criterion = nn.MSELoss()
+
     optimizer = optim.Adam(model.parameters(), lr=learning_rate)
     
     # Initialize lists to store losses and validation accuracies
