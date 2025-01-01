@@ -18,18 +18,18 @@ if os.path.exists(log_dir):
     shutil.rmtree(log_dir)
 os.makedirs(log_dir)
 
-def nnArch(io=[9,1], hl=[12], task='class'):    
+def nnArch(io=[9,1], hl=[12], dropout_prob=0.5, task='class'):    
     class NeuralNetwork(nn.Module):
         def __init__(self, hl):
             super(NeuralNetwork, self).__init__()
             self.layers = nn.ModuleList()
             input_size = io[0]
             
-            # Create hidden layers
+            # Create hidden layers with dropout
             for hidden_size in hl:
                 self.layers.append(nn.Linear(input_size, hidden_size))
                 self.layers.append(nn.ReLU())
-                self.layers.append(nn.Dropout(0.5))  # Add dropout for regularization
+                self.layers.append(nn.Dropout(dropout_prob))  # Add dropout for regularization
                 input_size = hidden_size
             
             # Create output layer
@@ -48,14 +48,14 @@ def nnArch(io=[9,1], hl=[12], task='class'):
 
 def objective(trial, task='class'):
     # Sample hyperparameters
-    hidden_layers = trial.suggest_int('hidden_layers', 1, 4)
-    hidden_units = [trial.suggest_int(f'n_units_l{i}', 4, 128) for i in range(hidden_layers)]
+    hidden_layers = trial.suggest_int('hidden_layers', 1, 8)
+    hidden_units = [trial.suggest_int(f'n_units_l{i}', 4, 256) for i in range(hidden_layers)]
     learning_rate = trial.suggest_loguniform('lr', 1e-5, 1e-1)
     num_epochs = trial.suggest_int('num_epochs', 10, 200)  # Sample number of epochs
-    batch_size = trial.suggest_int('batch_size', 16, 128)  # Sample batch size
+    batch_size = trial.suggest_int('batch_size', 16, 256)  # Sample batch size
     
     # Create the model
-    model = nnArch(io=[9, 1], hl=hidden_units, task=task).to(device)
+    model = nnArch(io=[9, 1], hl=hidden_units, dropout_prob=0.5, task=task).to(device)
     
     # Define loss and optimizer
     if task == 'class':
@@ -204,7 +204,7 @@ print(f"Device: {device}")
 task = 'regression'  # Change this to 'class' for classification
 
 # Load the dataset
-df = pd.read_csv('deleteme/dataset3D_50K_training_sampled.csv')
+df = pd.read_csv(r'deleteme\dataset_compressible_flow_5M_training_nstep180.csv')
 
 # Extract features (columns 1-9) and labels (column 12)
 X = df.iloc[:, :9].values
@@ -228,7 +228,7 @@ train_loader = DataLoader(TensorDataset(X_train_tensor, y_train_tensor), batch_s
 val_loader = DataLoader(TensorDataset(X_val_tensor, y_val_tensor), batch_size=32, shuffle=False)
 
 # Run the optimization
-n_trials = 50
+n_trials = 100
 start_time = time.time()
 trial_times = []
 

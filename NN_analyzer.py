@@ -50,4 +50,4 @@ def plot_metrics(csv_file, task='class'):
 task = 'reg'
 
 # Call the plot_metrics function with the specified CSV file and task
-plot_metrics('NN_training_log/trial2.csv', task=task)
+plot_metrics(r'NN_training_log\trial32.csv', task=task)
