@@ -12,6 +12,7 @@ from torch.utils.data import DataLoader, TensorDataset
 from sklearn.model_selection import train_test_split
 from torch.optim.lr_scheduler import ReduceLROnPlateau
 
+
 # Clear the NN_training_log folder
 log_dir = 'NN_training_log'
 if os.path.exists(log_dir):
@@ -49,13 +50,13 @@ def nnArch(io=[9,1], hl=[12], dropout_prob=0.5, task='class'):
 def objective(trial, task='class'):
     # Sample hyperparameters
     hidden_layers = trial.suggest_int('hidden_layers', 1, 8)
-    hidden_units = [trial.suggest_int(f'n_units_l{i}', 4, 256) for i in range(hidden_layers)]
-    learning_rate = trial.suggest_loguniform('lr', 1e-5, 1e-1)
-    num_epochs = trial.suggest_int('num_epochs', 10, 200)  # Sample number of epochs
-    batch_size = trial.suggest_int('batch_size', 16, 256)  # Sample batch size
+    hidden_units = trial.suggest_int('n_units_l', 4, 256, log=True)
+    hidden_units_list = [int(hidden_units)] * hidden_layers
+    learning_rate = trial.suggest_float('lr', 1e-5, 1e-1, log=True)
+    batch_size = trial.suggest_int('batch_size', 16, 256, log=True)
     
     # Create the model
-    model = nnArch(io=[9, 1], hl=hidden_units, dropout_prob=0.5, task=task).to(device)
+    model = nnArch(io=[9, 1], hl=hidden_units_list, dropout_prob=0.5, task=task).to(device)
     
     # Define loss and optimizer
     if task == 'class':
@@ -64,7 +65,7 @@ def objective(trial, task='class'):
         criterion = nn.MSELoss()
 
     optimizer = optim.Adam(model.parameters(), lr=learning_rate)
-    scheduler = ReduceLROnPlateau(optimizer, 'min', patience=5, factor=0.5, verbose=True)
+    scheduler = ReduceLROnPlateau(optimizer, 'min', patience=5, factor=0.5)
     
     # Initialize lists to store losses and validation accuracies
     train_losses = []
@@ -194,14 +195,18 @@ def run_optimization(task='class'):
         print(f'    {key}: {value}')
     print(f'Best trial number: {trial.number}')
 
-# Main execution logic
+
+# # # # # # # # # # # # #
+# Main execution logic  #
+# # # # # # # # # # # # #
+
 # Check if CUDA is available
 print(f"Is CUDA supported by this system?  {torch.cuda.is_available()}")
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 print(f"Device: {device}")
 
 # Set the task
-task = 'regression'  # Change this to 'class' for classification
+task = 'regression'  # Change this to 'class' for classification, otherwise it will be regression
 
 # Load the dataset
 df = pd.read_csv(r'deleteme\dataset_compressible_flow_5M_training_nstep180.csv')
@@ -228,6 +233,7 @@ train_loader = DataLoader(TensorDataset(X_train_tensor, y_train_tensor), batch_s
 val_loader = DataLoader(TensorDataset(X_val_tensor, y_val_tensor), batch_size=32, shuffle=False)
 
 # Run the optimization
+num_epochs = 100
 n_trials = 100
 start_time = time.time()
 trial_times = []
