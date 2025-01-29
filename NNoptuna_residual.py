@@ -69,7 +69,7 @@ sys.stderr = StreamToLogger(logging.getLogger('STDERR'), logging.ERROR)
 optuna.logging.get_logger("optuna").addHandler(file_handler)
 
 
-def nnArch(io=[9,1], hl=[12], dropout_prob=0.5, task='class'):    
+def nnArch(io=[10,2], hl=[12], dropout_prob=0.5, task='class'):    
     class NeuralNetwork(nn.Module):
         def __init__(self, hl):
             super(NeuralNetwork, self).__init__()
@@ -110,7 +110,7 @@ def objective(trial, task='class'):
     val_loader = DataLoader(TensorDataset(X_val_tensor, y_val_tensor), batch_size=batch_size, shuffle=False)
     
     # Create the model
-    model = nnArch(io=[9, 1], hl=hidden_units_list, dropout_prob=0.5, task=task).to(device)
+    model = nnArch(io=[10, 2], hl=hidden_units_list, dropout_prob=0.5, task=task).to(device)
     
     # Define loss and optimizer
     if task == 'class':
@@ -265,9 +265,9 @@ task = 'regression'  # Change this to 'class' for classification, otherwise it w
 # Load the dataset
 df = pd.read_csv(r'deleteme\dataset_compressible_flow_500K_training_nstep180.csv')
 
-# Extract features (columns 1-9) and labels (column 12)
-X = df.iloc[:, :9].values
-y = df.iloc[:, 11].values
+# Extract features (columns 1-9 and 12) and labels (columns 10 and 11)
+X = df.iloc[:, list(range(9)) + [11]].values
+y = df.iloc[:, 9:11].values
 
 # Preprocess labels: if the value is non-zero, set it to 1.0
 if task == 'class':
@@ -278,9 +278,9 @@ X_train, X_val, y_train, y_val = train_test_split(X, y, test_size=0.2, random_st
 
 # Convert to PyTorch tensors
 X_train_tensor = torch.tensor(X_train, dtype=torch.float32)
-y_train_tensor = torch.tensor(y_train, dtype=torch.float32).unsqueeze(1)  # Ensure y is of shape (N, 1)
+y_train_tensor = torch.tensor(y_train, dtype=torch.float32)
 X_val_tensor = torch.tensor(X_val, dtype=torch.float32)
-y_val_tensor = torch.tensor(y_val, dtype=torch.float32).unsqueeze(1)  # Ensure y is of shape (N, 1)
+y_val_tensor = torch.tensor(y_val, dtype=torch.float32)
 
 # Run the optimization
 num_epochs = 10
