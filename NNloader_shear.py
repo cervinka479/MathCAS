@@ -71,7 +71,7 @@ y_true = df.iloc[:10, 14].values
 X_test_tensor = torch.tensor(X_test, dtype=torch.float32)
 
 # Load the trained model
-model_path = r'saved_models\shear_reg_v02.pth'  # Use raw string to handle backslashes
+model_path = r'shear_best_model1024.pth'  # Use raw string to handle backslashes
 dropout_prob = 0.5
 task = 'regression'
 
@@ -86,10 +86,16 @@ print("True results:", y_true)
 print("Predictions:", y_pred.flatten())
 
 # Calculate accuracy metrics
+list_of_mape_errors = []
+for i in range(len(y_true)):
+    list_of_mape_errors.append(np.abs((y_true[i] - y_pred[i]) / y_true[i]) * 100)
+
+mape = np.mean(list_of_mape_errors)
 mae = mean_absolute_error(y_true, y_pred)
 mse = mean_squared_error(y_true, y_pred)
 rmse = np.sqrt(mse)
 
+print(f"Mean Absolute Percentage Error (MAPE): {mape}")
 print(f"Mean Absolute Error (MAE): {mae}")
 print(f"Mean Squared Error (MSE): {mse}")
 print(f"Root Mean Squared Error (RMSE): {rmse}")

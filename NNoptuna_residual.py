@@ -13,15 +13,16 @@ from torch.utils.data import DataLoader, TensorDataset
 from sklearn.model_selection import train_test_split
 from torch.optim.lr_scheduler import ReduceLROnPlateau
 
+torch.manual_seed(0)
 
-# Clear the NN_training_log folder
-log_dir = 'NN_training_log'
+# Clear the NN_residual_training_log folder
+log_dir = 'NN_residual_training_log'
 if os.path.exists(log_dir):
     shutil.rmtree(log_dir)
 os.makedirs(log_dir)
 
 # Configure the logging
-log_dir = 'NN_training_log'
+log_dir = 'NN_residual_training_log'
 if not os.path.exists(log_dir):
     os.makedirs(log_dir)
 log_file = os.path.join(log_dir, 'output.log')
@@ -100,7 +101,7 @@ def nnArch(io=[10,2], hl=[12], dropout_prob=0.5, task='class'):
 def objective(trial, task='class'):
     # Sample hyperparameters
     hidden_layers = trial.suggest_int('hidden_layers', 1, 8)
-    hidden_units = trial.suggest_int('n_units_l', 4, 256, log=True)
+    hidden_units = trial.suggest_int('n_units_l', 128, 512, log=True)
     hidden_units_list = [int(hidden_units)] * hidden_layers
     learning_rate = trial.suggest_float('lr', 1e-5, 1e-1, log=True)
     batch_size = trial.suggest_int('batch_size', 16, 256, log=True)
@@ -174,7 +175,7 @@ def objective(trial, task='class'):
         # Save the model if it has the best validation loss so far
         if epoch_val_loss < best_val_loss:
             best_val_loss = epoch_val_loss
-            torch.save(model.state_dict(), f'NN_training_log/trial{trial.number}_best_model.pth')
+            torch.save(model.state_dict(), f'NN_residual_training_log/trial{trial.number}_best_model.pth')
             patience_counter = 0  # Reset patience counter
         else:
             patience_counter += 1
@@ -214,7 +215,7 @@ def objective(trial, task='class'):
     })
     if task == 'class':
         df_metrics['val_accuracies'] = val_accuracies
-    df_metrics.to_csv(f'NN_training_log/trial{trial_number}.csv', index=False)
+    df_metrics.to_csv(f'NN_residual_training_log/trial{trial_number}.csv', index=False)
     
     return val_losses[-1]
 
@@ -263,7 +264,7 @@ print(f"Device: {device}")
 task = 'regression'  # Change this to 'class' for classification, otherwise it will be regression
 
 # Load the dataset
-df = pd.read_csv(r'deleteme\dataset_compressible_flow_500K_training_nstep180.csv')
+df = pd.read_csv(r'deleteme\dataset_compressible_flow_5M_training_nstep180.csv')
 
 # Extract features (columns 1-9 and 12) and labels (columns 10 and 11)
 X = df.iloc[:, list(range(9)) + [11]].values

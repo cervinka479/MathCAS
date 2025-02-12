@@ -1,1 +1,15 @@
-best model 14
+Shear hyperparams>
+
+hidden layers:      4
+neurons:            256n, 512n, 1024n
+learning rate:      0.0002
+batch size:         24
+
+
+
+Residual hyperparams>
+
+hidden layers:      4
+neurons:            256n, 512n, 1024n
+learning rate:      0.0003
+batch size:         96

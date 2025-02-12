@@ -1,0 +1,1081 @@
+2025-02-09 15:53:20,130 - INFO - Is CUDA supported by this system?  True
+2025-02-09 15:53:20,130 - INFO - Device: cuda
+2025-02-09 15:53:26,191 - INFO - A new study created in memory with name: no-name-dad7d594-2c1e-475b-b624-4b935de26301
+2025-02-09 15:55:52,233 - INFO - Trial: 1/100, Epoch: 1/10, Val loss: 0.1632, Elapsed time: 0:02:25, Estimated time left: 0:21:48
+2025-02-09 15:58:08,728 - INFO - Trial: 1/100, Epoch: 2/10, Val loss: 0.1656, Elapsed time: 0:04:41, Estimated time left: 0:18:11
+2025-02-09 16:00:24,802 - INFO - Trial: 1/100, Epoch: 3/10, Val loss: 0.1641, Elapsed time: 0:06:57, Estimated time left: 0:15:52
+2025-02-09 16:02:40,055 - INFO - Trial: 1/100, Epoch: 4/10, Val loss: 0.1633, Elapsed time: 0:09:13, Estimated time left: 0:13:31
+2025-02-09 16:04:56,951 - INFO - Trial: 1/100, Epoch: 5/10, Val loss: 0.1634, Elapsed time: 0:11:30, Estimated time left: 0:11:24
+2025-02-09 16:07:12,785 - INFO - Trial: 1/100, Epoch: 6/10, Val loss: 0.1643, Elapsed time: 0:13:45, Estimated time left: 0:09:03
+2025-02-09 16:09:28,175 - INFO - Trial: 1/100, Epoch: 7/10, Val loss: 0.1691, Elapsed time: 0:16:01, Estimated time left: 0:06:46
+2025-02-09 16:11:43,924 - INFO - Trial: 1/100, Epoch: 8/10, Val loss: 0.1644, Elapsed time: 0:18:17, Estimated time left: 0:04:31
+2025-02-09 16:14:00,924 - INFO - Trial: 1/100, Epoch: 9/10, Val loss: 0.1633, Elapsed time: 0:20:34, Estimated time left: 0:02:17
+2025-02-09 16:16:17,493 - INFO - Trial: 1/100, Epoch: 10/10, Val loss: 0.1641, Elapsed time: 0:22:50, Estimated time left: 0:00:00
+2025-02-09 16:16:17,498 - INFO - Trial 0 finished with value: 0.16406844101793427 and parameters: {'hidden_layers': 8, 'n_units_l': 378, 'lr': 0.07574901476148636, 'batch_size': 111}. Best is trial 0 with value: 0.16406844101793427.
+2025-02-09 16:16:17,498 - INFO - Elapsed time: 1371.31 seconds
+2025-02-09 16:16:17,498 - INFO - Estimated time left: 0.00 seconds
+2025-02-09 16:18:47,752 - INFO - Trial: 2/100, Epoch: 1/10, Val loss: 0.1046, Elapsed time: 0:02:30, Estimated time left: 0:22:32
+2025-02-09 16:21:10,108 - INFO - Trial: 2/100, Epoch: 2/10, Val loss: 0.0014, Elapsed time: 0:04:52, Estimated time left: 0:18:58
+2025-02-09 16:23:32,368 - INFO - Trial: 2/100, Epoch: 3/10, Val loss: 0.0011, Elapsed time: 0:07:14, Estimated time left: 0:16:35
+2025-02-09 16:25:54,773 - INFO - Trial: 2/100, Epoch: 4/10, Val loss: 0.0011, Elapsed time: 0:09:37, Estimated time left: 0:14:14
+2025-02-09 16:28:22,179 - INFO - Trial: 2/100, Epoch: 5/10, Val loss: 0.0010, Elapsed time: 0:12:04, Estimated time left: 0:12:17
+2025-02-09 16:30:49,859 - INFO - Trial: 2/100, Epoch: 6/10, Val loss: 0.0010, Elapsed time: 0:14:32, Estimated time left: 0:09:50
+2025-02-09 16:33:17,494 - INFO - Trial: 2/100, Epoch: 7/10, Val loss: 0.0009, Elapsed time: 0:16:59, Estimated time left: 0:07:22
+2025-02-09 16:35:44,905 - INFO - Trial: 2/100, Epoch: 8/10, Val loss: 0.0008, Elapsed time: 0:19:27, Estimated time left: 0:04:54
+2025-02-09 16:38:12,483 - INFO - Trial: 2/100, Epoch: 9/10, Val loss: 0.0007, Elapsed time: 0:21:54, Estimated time left: 0:02:27
+2025-02-09 16:40:38,292 - INFO - Trial: 2/100, Epoch: 10/10, Val loss: 0.0007, Elapsed time: 0:24:20, Estimated time left: 0:00:00
+2025-02-09 16:40:38,293 - INFO - Trial 1 finished with value: 0.0006893035997776993 and parameters: {'hidden_layers': 3, 'n_units_l': 393, 'lr': 1.5360806792168607e-05, 'batch_size': 62}. Best is trial 1 with value: 0.0006893035997776993.
+2025-02-09 16:40:38,294 - INFO - Elapsed time: 2832.10 seconds
+2025-02-09 16:40:38,294 - INFO - Estimated time left: 0.00 seconds
+2025-02-09 16:43:32,545 - INFO - Trial: 3/100, Epoch: 1/10, Val loss: 0.1632, Elapsed time: 0:02:54, Estimated time left: 0:26:08
+2025-02-09 16:46:19,217 - INFO - Trial: 3/100, Epoch: 2/10, Val loss: 0.1633, Elapsed time: 0:05:40, Estimated time left: 0:22:13
+2025-02-09 16:49:01,723 - INFO - Trial: 3/100, Epoch: 3/10, Val loss: 0.1633, Elapsed time: 0:08:23, Estimated time left: 0:18:57
+2025-02-09 16:51:44,214 - INFO - Trial: 3/100, Epoch: 4/10, Val loss: 0.1651, Elapsed time: 0:11:05, Estimated time left: 0:16:14
+2025-02-09 16:54:26,578 - INFO - Trial: 3/100, Epoch: 5/10, Val loss: 0.1632, Elapsed time: 0:13:48, Estimated time left: 0:13:31
+2025-02-09 16:57:13,168 - INFO - Trial: 3/100, Epoch: 6/10, Val loss: 0.1650, Elapsed time: 0:16:34, Estimated time left: 0:11:06
+2025-02-09 16:59:56,197 - INFO - Trial: 3/100, Epoch: 7/10, Val loss: 0.1632, Elapsed time: 0:19:17, Estimated time left: 0:08:09
+2025-02-09 17:02:39,093 - INFO - Trial: 3/100, Epoch: 8/10, Val loss: 0.1642, Elapsed time: 0:22:00, Estimated time left: 0:05:25
+2025-02-09 17:05:35,964 - INFO - Trial: 3/100, Epoch: 9/10, Val loss: 0.1674, Elapsed time: 0:24:57, Estimated time left: 0:02:56
+2025-02-09 17:08:43,959 - INFO - Trial: 3/100, Epoch: 10/10, Val loss: 0.1641, Elapsed time: 0:28:05, Estimated time left: 0:00:00
+2025-02-09 17:08:43,961 - INFO - Trial 2 finished with value: 0.16408986164970668 and parameters: {'hidden_layers': 8, 'n_units_l': 241, 'lr': 0.05034616836730901, 'batch_size': 83}. Best is trial 1 with value: 0.0006893035997776993.
+2025-02-09 17:08:43,962 - INFO - Elapsed time: 4517.77 seconds
+2025-02-09 17:08:43,962 - INFO - Estimated time left: 0.00 seconds
+2025-02-09 17:10:35,563 - INFO - Trial: 4/100, Epoch: 1/10, Val loss: 0.1385, Elapsed time: 0:01:51, Estimated time left: 0:16:44
+2025-02-09 17:12:20,688 - INFO - Trial: 4/100, Epoch: 2/10, Val loss: 0.0015, Elapsed time: 0:03:36, Estimated time left: 0:14:00
+2025-02-09 17:14:05,938 - INFO - Trial: 4/100, Epoch: 3/10, Val loss: 0.0012, Elapsed time: 0:05:21, Estimated time left: 0:12:16
+2025-02-09 17:15:51,427 - INFO - Trial: 4/100, Epoch: 4/10, Val loss: 0.0009, Elapsed time: 0:07:07, Estimated time left: 0:10:32
+2025-02-09 17:17:39,079 - INFO - Trial: 4/100, Epoch: 5/10, Val loss: 0.0007, Elapsed time: 0:08:55, Estimated time left: 0:08:58
+2025-02-09 17:19:24,339 - INFO - Trial: 4/100, Epoch: 6/10, Val loss: 0.0007, Elapsed time: 0:10:40, Estimated time left: 0:07:01
+2025-02-09 17:21:09,733 - INFO - Trial: 4/100, Epoch: 7/10, Val loss: 0.0006, Elapsed time: 0:12:25, Estimated time left: 0:05:16
+2025-02-09 17:22:55,221 - INFO - Trial: 4/100, Epoch: 8/10, Val loss: 0.0006, Elapsed time: 0:14:11, Estimated time left: 0:03:30
+2025-02-09 17:24:40,675 - INFO - Trial: 4/100, Epoch: 9/10, Val loss: 0.0005, Elapsed time: 0:15:56, Estimated time left: 0:01:45
+2025-02-09 17:26:25,952 - INFO - Trial: 4/100, Epoch: 10/10, Val loss: 0.0005, Elapsed time: 0:17:41, Estimated time left: 0:00:00
+2025-02-09 17:26:25,954 - INFO - Trial 3 finished with value: 0.0004631672391851325 and parameters: {'hidden_layers': 6, 'n_units_l': 203, 'lr': 8.265186728007837e-05, 'batch_size': 141}. Best is trial 3 with value: 0.0004631672391851325.
+2025-02-09 17:26:25,955 - INFO - Elapsed time: 5579.76 seconds
+2025-02-09 17:26:25,955 - INFO - Estimated time left: 0.00 seconds
+2025-02-09 17:35:02,651 - INFO - Trial: 5/100, Epoch: 1/10, Val loss: 0.1632, Elapsed time: 0:08:36, Estimated time left: 1:17:30
+2025-02-09 17:42:50,747 - INFO - Trial: 5/100, Epoch: 2/10, Val loss: 0.1633, Elapsed time: 0:16:24, Estimated time left: 1:02:24
+2025-02-09 17:50:39,413 - INFO - Trial: 5/100, Epoch: 3/10, Val loss: 0.1632, Elapsed time: 0:24:13, Estimated time left: 0:54:40
+2025-02-09 17:58:25,212 - INFO - Trial: 5/100, Epoch: 4/10, Val loss: 0.1635, Elapsed time: 0:31:59, Estimated time left: 0:46:34
+2025-02-09 18:06:13,628 - INFO - Trial: 5/100, Epoch: 5/10, Val loss: 0.1633, Elapsed time: 0:39:47, Estimated time left: 0:39:02
+2025-02-09 18:14:03,981 - INFO - Trial: 5/100, Epoch: 6/10, Val loss: 0.1633, Elapsed time: 0:47:38, Estimated time left: 0:31:21
+2025-02-09 18:21:59,603 - INFO - Trial: 5/100, Epoch: 7/10, Val loss: 0.1633, Elapsed time: 0:55:33, Estimated time left: 0:23:46
+2025-02-09 18:34:19,040 - INFO - Trial: 5/100, Epoch: 8/10, Val loss: 0.1633, Elapsed time: 1:07:53, Estimated time left: 0:24:38
+2025-02-09 18:46:45,819 - INFO - Trial: 5/100, Epoch: 9/10, Val loss: 0.1632, Elapsed time: 1:20:19, Estimated time left: 0:12:26
+2025-02-09 18:59:12,609 - INFO - Trial: 5/100, Epoch: 10/10, Val loss: 0.1632, Elapsed time: 1:32:46, Estimated time left: 0:00:00
+2025-02-09 18:59:12,610 - INFO - Trial 4 finished with value: 0.16322078765685358 and parameters: {'hidden_layers': 8, 'n_units_l': 285, 'lr': 0.002891984855948004, 'batch_size': 31}. Best is trial 3 with value: 0.0004631672391851325.
+2025-02-09 18:59:12,611 - INFO - Elapsed time: 11146.42 seconds
+2025-02-09 18:59:12,611 - INFO - Estimated time left: 0.00 seconds
+2025-02-09 19:02:42,417 - INFO - Trial: 6/100, Epoch: 1/10, Val loss: 0.1641, Elapsed time: 0:03:29, Estimated time left: 0:31:28
+2025-02-09 19:06:13,091 - INFO - Trial: 6/100, Epoch: 2/10, Val loss: 0.1632, Elapsed time: 0:07:00, Estimated time left: 0:28:05
+2025-02-09 19:09:46,090 - INFO - Trial: 6/100, Epoch: 3/10, Val loss: 0.1635, Elapsed time: 0:10:33, Estimated time left: 0:24:50
+2025-02-09 19:13:16,468 - INFO - Trial: 6/100, Epoch: 4/10, Val loss: 0.1634, Elapsed time: 0:14:03, Estimated time left: 0:21:02
+2025-02-09 19:16:49,635 - INFO - Trial: 6/100, Epoch: 5/10, Val loss: 0.1634, Elapsed time: 0:17:37, Estimated time left: 0:17:45
+2025-02-09 19:19:55,369 - INFO - Trial: 6/100, Epoch: 6/10, Val loss: 0.1647, Elapsed time: 0:20:42, Estimated time left: 0:12:22
+2025-02-09 19:22:22,386 - INFO - Trial: 6/100, Epoch: 7/10, Val loss: 0.1668, Elapsed time: 0:23:09, Estimated time left: 0:07:21
+2025-02-09 19:24:47,833 - INFO - Trial: 6/100, Epoch: 8/10, Val loss: 0.1634, Elapsed time: 0:25:35, Estimated time left: 0:04:50
+2025-02-09 19:27:13,073 - INFO - Trial: 6/100, Epoch: 9/10, Val loss: 0.1641, Elapsed time: 0:28:00, Estimated time left: 0:02:25
+2025-02-09 19:29:38,281 - INFO - Trial: 6/100, Epoch: 10/10, Val loss: 0.1637, Elapsed time: 0:30:25, Estimated time left: 0:00:00
+2025-02-09 19:29:38,283 - INFO - Trial 5 finished with value: 0.16371063732353633 and parameters: {'hidden_layers': 2, 'n_units_l': 293, 'lr': 0.04307272919149161, 'batch_size': 82}. Best is trial 3 with value: 0.0004631672391851325.
+2025-02-09 19:29:38,283 - INFO - Elapsed time: 12972.09 seconds
+2025-02-09 19:29:38,284 - INFO - Estimated time left: 0.00 seconds
+2025-02-09 19:31:39,853 - INFO - Trial: 7/100, Epoch: 1/10, Val loss: 0.1633, Elapsed time: 0:02:01, Estimated time left: 0:18:14
+2025-02-09 19:33:21,996 - INFO - Trial: 7/100, Epoch: 2/10, Val loss: 0.1633, Elapsed time: 0:03:43, Estimated time left: 0:13:37
+2025-02-09 19:35:07,802 - INFO - Trial: 7/100, Epoch: 3/10, Val loss: 0.1632, Elapsed time: 0:05:29, Estimated time left: 0:12:20
+2025-02-09 19:36:54,684 - INFO - Trial: 7/100, Epoch: 4/10, Val loss: 0.1652, Elapsed time: 0:07:16, Estimated time left: 0:10:41
+2025-02-09 19:38:40,899 - INFO - Trial: 7/100, Epoch: 5/10, Val loss: 0.1642, Elapsed time: 0:09:02, Estimated time left: 0:08:51
+2025-02-09 19:40:26,989 - INFO - Trial: 7/100, Epoch: 6/10, Val loss: 0.1632, Elapsed time: 0:10:48, Estimated time left: 0:07:04
+2025-02-09 19:42:13,132 - INFO - Trial: 7/100, Epoch: 7/10, Val loss: 0.1635, Elapsed time: 0:12:34, Estimated time left: 0:05:18
+2025-02-09 19:44:00,003 - INFO - Trial: 7/100, Epoch: 8/10, Val loss: 0.1640, Elapsed time: 0:14:21, Estimated time left: 0:03:33
+2025-02-09 19:45:46,134 - INFO - Trial: 7/100, Epoch: 9/10, Val loss: 0.1634, Elapsed time: 0:16:07, Estimated time left: 0:01:46
+2025-02-09 19:47:32,262 - INFO - Trial: 7/100, Epoch: 10/10, Val loss: 0.1632, Elapsed time: 0:17:53, Estimated time left: 0:00:00
+2025-02-09 19:47:32,264 - INFO - Trial 6 finished with value: 0.16322292957251955 and parameters: {'hidden_layers': 4, 'n_units_l': 270, 'lr': 0.031219707474755623, 'batch_size': 123}. Best is trial 3 with value: 0.0004631672391851325.
+2025-02-09 19:47:32,265 - INFO - Elapsed time: 14046.07 seconds
+2025-02-09 19:47:32,265 - INFO - Estimated time left: 0.00 seconds
+2025-02-09 20:00:19,720 - INFO - Trial: 8/100, Epoch: 1/10, Val loss: 0.0610, Elapsed time: 0:12:47, Estimated time left: 1:55:07
+2025-02-09 20:11:50,061 - INFO - Trial: 8/100, Epoch: 2/10, Val loss: 0.0020, Elapsed time: 0:24:17, Estimated time left: 1:32:02
+2025-02-09 20:23:22,947 - INFO - Trial: 8/100, Epoch: 3/10, Val loss: 0.0009, Elapsed time: 0:35:50, Estimated time left: 1:20:50
+2025-02-09 20:35:16,329 - INFO - Trial: 8/100, Epoch: 4/10, Val loss: 0.0007, Elapsed time: 0:47:44, Estimated time left: 1:11:20
+2025-02-09 20:47:09,749 - INFO - Trial: 8/100, Epoch: 5/10, Val loss: 0.0007, Elapsed time: 0:59:37, Estimated time left: 0:59:27
+2025-02-09 21:02:10,333 - INFO - Trial: 8/100, Epoch: 6/10, Val loss: 0.0007, Elapsed time: 1:14:38, Estimated time left: 1:00:02
+2025-02-09 21:12:39,980 - INFO - Trial: 8/100, Epoch: 7/10, Val loss: 0.0008, Elapsed time: 1:25:07, Estimated time left: 0:31:28
+2025-02-09 21:22:26,895 - INFO - Trial: 8/100, Epoch: 8/10, Val loss: 0.0006, Elapsed time: 1:34:54, Estimated time left: 0:19:33
+2025-02-09 21:32:11,255 - INFO - Trial: 8/100, Epoch: 9/10, Val loss: 0.0005, Elapsed time: 1:44:38, Estimated time left: 0:09:44
+2025-02-09 21:42:10,782 - INFO - Trial: 8/100, Epoch: 10/10, Val loss: 0.0006, Elapsed time: 1:54:38, Estimated time left: 0:00:00
+2025-02-09 21:42:10,784 - INFO - Trial 7 finished with value: 0.0005533911307059295 and parameters: {'hidden_layers': 8, 'n_units_l': 332, 'lr': 0.0009123629222721436, 'batch_size': 21}. Best is trial 3 with value: 0.0004631672391851325.
+2025-02-09 21:42:10,785 - INFO - Elapsed time: 20924.59 seconds
+2025-02-09 21:42:10,785 - INFO - Estimated time left: 0.00 seconds
+2025-02-09 21:45:03,594 - INFO - Trial: 9/100, Epoch: 1/10, Val loss: 0.0741, Elapsed time: 0:02:52, Estimated time left: 0:25:55
+2025-02-09 21:47:49,310 - INFO - Trial: 9/100, Epoch: 2/10, Val loss: 0.0016, Elapsed time: 0:05:38, Estimated time left: 0:22:05
+2025-02-09 21:50:32,587 - INFO - Trial: 9/100, Epoch: 3/10, Val loss: 0.0015, Elapsed time: 0:08:21, Estimated time left: 0:19:02
+2025-02-09 21:53:18,062 - INFO - Trial: 9/100, Epoch: 4/10, Val loss: 0.0017, Elapsed time: 0:11:07, Estimated time left: 0:16:32
+2025-02-09 21:56:01,337 - INFO - Trial: 9/100, Epoch: 5/10, Val loss: 0.0020, Elapsed time: 0:13:50, Estimated time left: 0:13:36
+2025-02-09 21:58:46,487 - INFO - Trial: 9/100, Epoch: 6/10, Val loss: 0.0012, Elapsed time: 0:16:35, Estimated time left: 0:11:00
+2025-02-09 22:01:31,755 - INFO - Trial: 9/100, Epoch: 7/10, Val loss: 0.0011, Elapsed time: 0:19:20, Estimated time left: 0:08:15
+2025-02-09 22:04:15,594 - INFO - Trial: 9/100, Epoch: 8/10, Val loss: 0.0011, Elapsed time: 0:22:04, Estimated time left: 0:05:27
+2025-02-09 22:07:01,026 - INFO - Trial: 9/100, Epoch: 9/10, Val loss: 0.0010, Elapsed time: 0:24:50, Estimated time left: 0:02:45
+2025-02-09 22:09:44,658 - INFO - Trial: 9/100, Epoch: 10/10, Val loss: 0.0011, Elapsed time: 0:27:33, Estimated time left: 0:00:00
+2025-02-09 22:09:44,660 - INFO - Trial 8 finished with value: 0.0010932674097594772 and parameters: {'hidden_layers': 4, 'n_units_l': 171, 'lr': 0.005413919231703156, 'batch_size': 60}. Best is trial 3 with value: 0.0004631672391851325.
+2025-02-09 22:09:44,661 - INFO - Elapsed time: 22578.47 seconds
+2025-02-09 22:09:44,661 - INFO - Estimated time left: 0.00 seconds
+2025-02-09 22:10:49,489 - INFO - Trial: 10/100, Epoch: 1/10, Val loss: 0.0310, Elapsed time: 0:01:04, Estimated time left: 0:09:43
+2025-02-09 22:11:50,394 - INFO - Trial: 10/100, Epoch: 2/10, Val loss: 0.0009, Elapsed time: 0:02:05, Estimated time left: 0:08:07
+2025-02-09 22:12:51,621 - INFO - Trial: 10/100, Epoch: 3/10, Val loss: 0.0007, Elapsed time: 0:03:06, Estimated time left: 0:07:08
+2025-02-09 22:13:52,789 - INFO - Trial: 10/100, Epoch: 4/10, Val loss: 0.0006, Elapsed time: 0:04:08, Estimated time left: 0:06:07
+2025-02-09 22:14:57,182 - INFO - Trial: 10/100, Epoch: 5/10, Val loss: 0.0005, Elapsed time: 0:05:12, Estimated time left: 0:05:21
+2025-02-09 22:15:58,553 - INFO - Trial: 10/100, Epoch: 6/10, Val loss: 0.0005, Elapsed time: 0:06:13, Estimated time left: 0:04:05
+2025-02-09 22:16:59,825 - INFO - Trial: 10/100, Epoch: 7/10, Val loss: 0.0004, Elapsed time: 0:07:15, Estimated time left: 0:03:03
+2025-02-09 22:18:01,108 - INFO - Trial: 10/100, Epoch: 8/10, Val loss: 0.0005, Elapsed time: 0:08:16, Estimated time left: 0:02:02
+2025-02-09 22:19:02,844 - INFO - Trial: 10/100, Epoch: 9/10, Val loss: 0.0004, Elapsed time: 0:09:18, Estimated time left: 0:01:01
+2025-02-09 22:20:03,878 - INFO - Trial: 10/100, Epoch: 10/10, Val loss: 0.0004, Elapsed time: 0:10:19, Estimated time left: 0:00:00
+2025-02-09 22:20:03,879 - INFO - Trial 9 finished with value: 0.00039675724598152093 and parameters: {'hidden_layers': 3, 'n_units_l': 218, 'lr': 0.0002527096835680834, 'batch_size': 208}. Best is trial 9 with value: 0.00039675724598152093.
+2025-02-09 22:20:03,880 - INFO - Elapsed time: 23197.69 seconds
+2025-02-09 22:20:03,880 - INFO - Estimated time left: 0.00 seconds
+2025-02-09 22:20:55,078 - INFO - Trial: 11/100, Epoch: 1/10, Val loss: 0.0659, Elapsed time: 0:00:51, Estimated time left: 0:07:40
+2025-02-09 22:21:45,582 - INFO - Trial: 11/100, Epoch: 2/10, Val loss: 0.0236, Elapsed time: 0:01:41, Estimated time left: 0:06:44
+2025-02-09 22:22:35,930 - INFO - Trial: 11/100, Epoch: 3/10, Val loss: 0.0202, Elapsed time: 0:02:32, Estimated time left: 0:05:52
+2025-02-09 22:23:26,333 - INFO - Trial: 11/100, Epoch: 4/10, Val loss: 0.0190, Elapsed time: 0:03:22, Estimated time left: 0:05:02
+2025-02-09 22:24:16,650 - INFO - Trial: 11/100, Epoch: 5/10, Val loss: 0.0187, Elapsed time: 0:04:12, Estimated time left: 0:04:11
+2025-02-09 22:25:06,830 - INFO - Trial: 11/100, Epoch: 6/10, Val loss: 0.0183, Elapsed time: 0:05:02, Estimated time left: 0:03:20
+2025-02-09 22:25:58,160 - INFO - Trial: 11/100, Epoch: 7/10, Val loss: 0.0181, Elapsed time: 0:05:54, Estimated time left: 0:02:33
+2025-02-09 22:26:49,526 - INFO - Trial: 11/100, Epoch: 8/10, Val loss: 0.0181, Elapsed time: 0:06:45, Estimated time left: 0:01:42
+2025-02-09 22:27:40,441 - INFO - Trial: 11/100, Epoch: 9/10, Val loss: 0.0179, Elapsed time: 0:07:36, Estimated time left: 0:00:50
+2025-02-09 22:28:31,500 - INFO - Trial: 11/100, Epoch: 10/10, Val loss: 0.0179, Elapsed time: 0:08:27, Estimated time left: 0:00:00
+2025-02-09 22:28:31,502 - INFO - Trial 10 finished with value: 0.017889544232826893 and parameters: {'hidden_layers': 1, 'n_units_l': 128, 'lr': 0.00020026422267542968, 'batch_size': 203}. Best is trial 9 with value: 0.00039675724598152093.
+2025-02-09 22:28:31,503 - INFO - Elapsed time: 23705.31 seconds
+2025-02-09 22:28:31,503 - INFO - Estimated time left: 0.00 seconds
+2025-02-09 22:29:40,517 - INFO - Trial: 12/100, Epoch: 1/10, Val loss: 0.2112, Elapsed time: 0:01:09, Estimated time left: 0:10:21
+2025-02-09 22:30:46,961 - INFO - Trial: 12/100, Epoch: 2/10, Val loss: 0.0021, Elapsed time: 0:02:15, Estimated time left: 0:08:51
+2025-02-09 22:31:53,406 - INFO - Trial: 12/100, Epoch: 3/10, Val loss: 0.0014, Elapsed time: 0:03:21, Estimated time left: 0:07:45
+2025-02-09 22:33:01,583 - INFO - Trial: 12/100, Epoch: 4/10, Val loss: 0.0013, Elapsed time: 0:04:30, Estimated time left: 0:06:49
+2025-02-09 22:34:07,839 - INFO - Trial: 12/100, Epoch: 5/10, Val loss: 0.0010, Elapsed time: 0:05:36, Estimated time left: 0:05:31
+2025-02-09 22:35:14,162 - INFO - Trial: 12/100, Epoch: 6/10, Val loss: 0.0009, Elapsed time: 0:06:42, Estimated time left: 0:04:25
+2025-02-09 22:36:20,642 - INFO - Trial: 12/100, Epoch: 7/10, Val loss: 0.0009, Elapsed time: 0:07:49, Estimated time left: 0:03:19
+2025-02-09 22:37:27,110 - INFO - Trial: 12/100, Epoch: 8/10, Val loss: 0.0008, Elapsed time: 0:08:55, Estimated time left: 0:02:12
+2025-02-09 22:38:33,465 - INFO - Trial: 12/100, Epoch: 9/10, Val loss: 0.0008, Elapsed time: 0:10:01, Estimated time left: 0:01:06
+2025-02-09 22:39:41,647 - INFO - Trial: 12/100, Epoch: 10/10, Val loss: 0.0007, Elapsed time: 0:11:10, Estimated time left: 0:00:00
+2025-02-09 22:39:41,648 - INFO - Trial 11 finished with value: 0.0007124332406667498 and parameters: {'hidden_layers': 6, 'n_units_l': 200, 'lr': 4.9385370759388586e-05, 'batch_size': 241}. Best is trial 9 with value: 0.00039675724598152093.
+2025-02-09 22:39:41,649 - INFO - Elapsed time: 24375.46 seconds
+2025-02-09 22:39:41,649 - INFO - Estimated time left: 0.00 seconds
+2025-02-09 22:41:08,897 - INFO - Trial: 13/100, Epoch: 1/10, Val loss: 0.1301, Elapsed time: 0:01:27, Estimated time left: 0:13:05
+2025-02-09 22:42:32,187 - INFO - Trial: 13/100, Epoch: 2/10, Val loss: 0.0010, Elapsed time: 0:02:50, Estimated time left: 0:11:06
+2025-02-09 22:43:55,427 - INFO - Trial: 13/100, Epoch: 3/10, Val loss: 0.0007, Elapsed time: 0:04:13, Estimated time left: 0:09:42
+2025-02-09 22:45:18,401 - INFO - Trial: 13/100, Epoch: 4/10, Val loss: 0.0006, Elapsed time: 0:05:36, Estimated time left: 0:08:17
+2025-02-09 22:46:43,828 - INFO - Trial: 13/100, Epoch: 5/10, Val loss: 0.0005, Elapsed time: 0:07:02, Estimated time left: 0:07:07
+2025-02-09 22:48:06,749 - INFO - Trial: 13/100, Epoch: 6/10, Val loss: 0.0005, Elapsed time: 0:08:25, Estimated time left: 0:05:31
+2025-02-09 22:49:29,657 - INFO - Trial: 13/100, Epoch: 7/10, Val loss: 0.0004, Elapsed time: 0:09:47, Estimated time left: 0:04:08
+2025-02-09 22:50:52,657 - INFO - Trial: 13/100, Epoch: 8/10, Val loss: 0.0004, Elapsed time: 0:11:10, Estimated time left: 0:02:46
+2025-02-09 22:52:15,858 - INFO - Trial: 13/100, Epoch: 9/10, Val loss: 0.0003, Elapsed time: 0:12:34, Estimated time left: 0:01:23
+2025-02-09 22:53:41,069 - INFO - Trial: 13/100, Epoch: 10/10, Val loss: 0.0003, Elapsed time: 0:13:59, Estimated time left: 0:00:00
+2025-02-09 22:53:41,070 - INFO - Trial 12 finished with value: 0.00032993522703287016 and parameters: {'hidden_layers': 6, 'n_units_l': 181, 'lr': 0.0002282780807934234, 'batch_size': 165}. Best is trial 12 with value: 0.00032993522703287016.
+2025-02-09 22:53:41,071 - INFO - Elapsed time: 25214.88 seconds
+2025-02-09 22:53:41,071 - INFO - Estimated time left: 0.00 seconds
+2025-02-09 22:55:07,557 - INFO - Trial: 14/100, Epoch: 1/10, Val loss: 0.1655, Elapsed time: 0:01:26, Estimated time left: 0:12:58
+2025-02-09 22:56:29,764 - INFO - Trial: 14/100, Epoch: 2/10, Val loss: 0.0012, Elapsed time: 0:02:48, Estimated time left: 0:10:57
+2025-02-09 22:57:51,686 - INFO - Trial: 14/100, Epoch: 3/10, Val loss: 0.0008, Elapsed time: 0:04:10, Estimated time left: 0:09:33
+2025-02-09 22:59:13,866 - INFO - Trial: 14/100, Epoch: 4/10, Val loss: 0.0008, Elapsed time: 0:05:32, Estimated time left: 0:08:13
+2025-02-09 23:00:37,993 - INFO - Trial: 14/100, Epoch: 5/10, Val loss: 0.0006, Elapsed time: 0:06:56, Estimated time left: 0:07:00
+2025-02-09 23:02:00,066 - INFO - Trial: 14/100, Epoch: 6/10, Val loss: 0.0004, Elapsed time: 0:08:18, Estimated time left: 0:05:28
+2025-02-09 23:03:22,040 - INFO - Trial: 14/100, Epoch: 7/10, Val loss: 0.0004, Elapsed time: 0:09:40, Estimated time left: 0:04:05
+2025-02-09 23:04:44,129 - INFO - Trial: 14/100, Epoch: 8/10, Val loss: 0.0004, Elapsed time: 0:11:03, Estimated time left: 0:02:44
+2025-02-09 23:06:06,138 - INFO - Trial: 14/100, Epoch: 9/10, Val loss: 0.0004, Elapsed time: 0:12:25, Estimated time left: 0:01:22
+2025-02-09 23:07:29,644 - INFO - Trial: 14/100, Epoch: 10/10, Val loss: 0.0003, Elapsed time: 0:13:48, Estimated time left: 0:00:00
+2025-02-09 23:07:29,646 - INFO - Trial 13 finished with value: 0.00028395243166676675 and parameters: {'hidden_layers': 6, 'n_units_l': 152, 'lr': 0.0004523656769290126, 'batch_size': 173}. Best is trial 13 with value: 0.00028395243166676675.
+2025-02-09 23:07:29,648 - INFO - Elapsed time: 26043.46 seconds
+2025-02-09 23:07:29,648 - INFO - Estimated time left: 0.00 seconds
+2025-02-09 23:12:08,122 - INFO - Trial: 15/100, Epoch: 1/10, Val loss: 0.0811, Elapsed time: 0:04:38, Estimated time left: 0:41:46
+2025-02-09 23:16:29,467 - INFO - Trial: 15/100, Epoch: 2/10, Val loss: 0.0014, Elapsed time: 0:08:59, Estimated time left: 0:34:50
+2025-02-09 23:20:50,719 - INFO - Trial: 15/100, Epoch: 3/10, Val loss: 0.0008, Elapsed time: 0:13:21, Estimated time left: 0:30:28
+2025-02-09 23:25:08,899 - INFO - Trial: 15/100, Epoch: 4/10, Val loss: 0.0006, Elapsed time: 0:17:39, Estimated time left: 0:25:49
+2025-02-09 23:29:33,196 - INFO - Trial: 15/100, Epoch: 5/10, Val loss: 0.0006, Elapsed time: 0:22:03, Estimated time left: 0:22:01
+2025-02-09 23:33:59,300 - INFO - Trial: 15/100, Epoch: 6/10, Val loss: 0.0004, Elapsed time: 0:26:29, Estimated time left: 0:17:44
+2025-02-09 23:38:25,198 - INFO - Trial: 15/100, Epoch: 7/10, Val loss: 0.0004, Elapsed time: 0:30:55, Estimated time left: 0:13:17
+2025-02-09 23:42:51,021 - INFO - Trial: 15/100, Epoch: 8/10, Val loss: 0.0004, Elapsed time: 0:35:21, Estimated time left: 0:08:51
+2025-02-09 23:48:27,336 - INFO - Trial: 15/100, Epoch: 9/10, Val loss: 0.0003, Elapsed time: 0:40:57, Estimated time left: 0:05:36
+2025-02-09 23:54:22,862 - INFO - Trial: 15/100, Epoch: 10/10, Val loss: 0.0004, Elapsed time: 0:46:53, Estimated time left: 0:00:00
+2025-02-09 23:54:22,864 - INFO - Trial 14 finished with value: 0.00044392296565399424 and parameters: {'hidden_layers': 6, 'n_units_l': 149, 'lr': 0.0006773312015349003, 'batch_size': 42}. Best is trial 13 with value: 0.00028395243166676675.
+2025-02-09 23:54:22,865 - INFO - Elapsed time: 28856.67 seconds
+2025-02-09 23:54:22,865 - INFO - Estimated time left: 0.00 seconds
+2025-02-09 23:56:25,557 - INFO - Trial: 16/100, Epoch: 1/10, Val loss: 0.0577, Elapsed time: 0:02:02, Estimated time left: 0:18:24
+2025-02-09 23:58:23,485 - INFO - Trial: 16/100, Epoch: 2/10, Val loss: 0.0014, Elapsed time: 0:04:00, Estimated time left: 0:15:43
+2025-02-10 00:00:21,150 - INFO - Trial: 16/100, Epoch: 3/10, Val loss: 0.0014, Elapsed time: 0:05:58, Estimated time left: 0:13:43
+2025-02-10 00:02:19,253 - INFO - Trial: 16/100, Epoch: 4/10, Val loss: 0.0008, Elapsed time: 0:07:56, Estimated time left: 0:11:48
+2025-02-10 00:04:18,303 - INFO - Trial: 16/100, Epoch: 5/10, Val loss: 0.0008, Elapsed time: 0:09:55, Estimated time left: 0:09:55
+2025-02-10 00:06:16,173 - INFO - Trial: 16/100, Epoch: 6/10, Val loss: 0.0008, Elapsed time: 0:11:53, Estimated time left: 0:07:51
+2025-02-10 00:08:14,111 - INFO - Trial: 16/100, Epoch: 7/10, Val loss: 0.0008, Elapsed time: 0:13:51, Estimated time left: 0:05:53
+2025-02-10 00:10:11,629 - INFO - Trial: 16/100, Epoch: 8/10, Val loss: 0.0007, Elapsed time: 0:15:48, Estimated time left: 0:03:55
+2025-02-10 00:12:09,673 - INFO - Trial: 16/100, Epoch: 9/10, Val loss: 0.0007, Elapsed time: 0:17:46, Estimated time left: 0:01:58
+2025-02-10 00:14:07,630 - INFO - Trial: 16/100, Epoch: 10/10, Val loss: 0.0008, Elapsed time: 0:19:44, Estimated time left: 0:00:00
+2025-02-10 00:14:07,632 - INFO - Trial 15 finished with value: 0.0008191861124762813 and parameters: {'hidden_layers': 5, 'n_units_l': 501, 'lr': 0.004645215573276712, 'batch_size': 154}. Best is trial 13 with value: 0.00028395243166676675.
+2025-02-10 00:14:07,633 - INFO - Elapsed time: 30041.44 seconds
+2025-02-10 00:14:07,633 - INFO - Estimated time left: 0.00 seconds
+2025-02-10 00:16:02,630 - INFO - Trial: 17/100, Epoch: 1/10, Val loss: 0.2412, Elapsed time: 0:01:54, Estimated time left: 0:17:14
+2025-02-10 00:17:49,915 - INFO - Trial: 17/100, Epoch: 2/10, Val loss: 0.0025, Elapsed time: 0:03:42, Estimated time left: 0:14:18
+2025-02-10 00:19:37,457 - INFO - Trial: 17/100, Epoch: 3/10, Val loss: 0.0020, Elapsed time: 0:05:29, Estimated time left: 0:12:32
+2025-02-10 00:21:24,953 - INFO - Trial: 17/100, Epoch: 4/10, Val loss: 0.0018, Elapsed time: 0:07:17, Estimated time left: 0:10:44
+2025-02-10 00:23:12,385 - INFO - Trial: 17/100, Epoch: 5/10, Val loss: 0.0016, Elapsed time: 0:09:04, Estimated time left: 0:08:57
+2025-02-10 00:24:59,514 - INFO - Trial: 17/100, Epoch: 6/10, Val loss: 0.0016, Elapsed time: 0:10:51, Estimated time left: 0:07:08
+2025-02-10 00:26:46,781 - INFO - Trial: 17/100, Epoch: 7/10, Val loss: 0.0016, Elapsed time: 0:12:39, Estimated time left: 0:05:21
+2025-02-10 00:28:34,169 - INFO - Trial: 17/100, Epoch: 8/10, Val loss: 0.0014, Elapsed time: 0:14:26, Estimated time left: 0:03:34
+2025-02-10 00:30:22,122 - INFO - Trial: 17/100, Epoch: 9/10, Val loss: 0.0014, Elapsed time: 0:16:14, Estimated time left: 0:01:47
+2025-02-10 00:32:10,344 - INFO - Trial: 17/100, Epoch: 10/10, Val loss: 0.0014, Elapsed time: 0:18:02, Estimated time left: 0:00:00
+2025-02-10 00:32:10,346 - INFO - Trial 16 finished with value: 0.0013874492495200813 and parameters: {'hidden_layers': 7, 'n_units_l': 166, 'lr': 1.0669277882761104e-05, 'batch_size': 163}. Best is trial 13 with value: 0.00028395243166676675.
+2025-02-10 00:32:10,347 - INFO - Elapsed time: 31124.16 seconds
+2025-02-10 00:32:10,347 - INFO - Estimated time left: 0.00 seconds
+2025-02-10 00:34:55,820 - INFO - Trial: 18/100, Epoch: 1/10, Val loss: 0.1529, Elapsed time: 0:02:45, Estimated time left: 0:24:49
+2025-02-10 00:37:30,369 - INFO - Trial: 18/100, Epoch: 2/10, Val loss: 0.0016, Elapsed time: 0:05:20, Estimated time left: 0:20:36
+2025-02-10 00:40:05,154 - INFO - Trial: 18/100, Epoch: 3/10, Val loss: 0.0010, Elapsed time: 0:07:54, Estimated time left: 0:18:03
+2025-02-10 00:42:40,215 - INFO - Trial: 18/100, Epoch: 4/10, Val loss: 0.0009, Elapsed time: 0:10:29, Estimated time left: 0:15:30
+2025-02-10 00:45:15,080 - INFO - Trial: 18/100, Epoch: 5/10, Val loss: 0.0008, Elapsed time: 0:13:04, Estimated time left: 0:12:54
+2025-02-10 00:47:50,030 - INFO - Trial: 18/100, Epoch: 6/10, Val loss: 0.0007, Elapsed time: 0:15:39, Estimated time left: 0:10:19
+2025-02-10 00:50:24,787 - INFO - Trial: 18/100, Epoch: 7/10, Val loss: 0.0008, Elapsed time: 0:18:14, Estimated time left: 0:07:44
+2025-02-10 00:52:59,250 - INFO - Trial: 18/100, Epoch: 8/10, Val loss: 0.0006, Elapsed time: 0:20:48, Estimated time left: 0:05:08
+2025-02-10 00:55:33,943 - INFO - Trial: 18/100, Epoch: 9/10, Val loss: 0.0006, Elapsed time: 0:23:23, Estimated time left: 0:02:34
+2025-02-10 00:58:11,256 - INFO - Trial: 18/100, Epoch: 10/10, Val loss: 0.0005, Elapsed time: 0:26:00, Estimated time left: 0:00:00
+2025-02-10 00:58:11,257 - INFO - Trial 17 finished with value: 0.0005446188743115369 and parameters: {'hidden_layers': 5, 'n_units_l': 129, 'lr': 0.000357833364094717, 'batch_size': 93}. Best is trial 13 with value: 0.00028395243166676675.
+2025-02-10 00:58:11,259 - INFO - Elapsed time: 32685.07 seconds
+2025-02-10 00:58:11,259 - INFO - Estimated time left: 0.00 seconds
+2025-02-10 01:14:30,660 - INFO - Trial: 19/100, Epoch: 1/10, Val loss: 0.1365, Elapsed time: 0:16:19, Estimated time left: 2:26:54
+2025-02-10 01:30:04,044 - INFO - Trial: 19/100, Epoch: 2/10, Val loss: 0.0014, Elapsed time: 0:31:52, Estimated time left: 2:04:27
+2025-02-10 01:45:28,210 - INFO - Trial: 19/100, Epoch: 3/10, Val loss: 0.0009, Elapsed time: 0:47:16, Estimated time left: 1:47:49
+2025-02-10 02:00:45,960 - INFO - Trial: 19/100, Epoch: 4/10, Val loss: 0.0008, Elapsed time: 1:02:34, Estimated time left: 1:31:46
+2025-02-10 02:16:03,842 - INFO - Trial: 19/100, Epoch: 5/10, Val loss: 0.0006, Elapsed time: 1:17:52, Estimated time left: 1:16:29
+2025-02-10 02:31:08,219 - INFO - Trial: 19/100, Epoch: 6/10, Val loss: 0.0006, Elapsed time: 1:32:56, Estimated time left: 1:00:17
+2025-02-10 02:46:15,492 - INFO - Trial: 19/100, Epoch: 7/10, Val loss: 0.0005, Elapsed time: 1:48:04, Estimated time left: 0:45:21
+2025-02-10 03:00:58,241 - INFO - Trial: 19/100, Epoch: 8/10, Val loss: 0.0004, Elapsed time: 2:02:46, Estimated time left: 0:29:25
+2025-02-10 03:15:48,294 - INFO - Trial: 19/100, Epoch: 9/10, Val loss: 0.0004, Elapsed time: 2:17:37, Estimated time left: 0:14:50
+2025-02-10 03:30:30,103 - INFO - Trial: 19/100, Epoch: 10/10, Val loss: 0.0004, Elapsed time: 2:32:18, Estimated time left: 0:00:00
+2025-02-10 03:30:30,105 - INFO - Trial 18 finished with value: 0.0003947901964649824 and parameters: {'hidden_layers': 7, 'n_units_l': 175, 'lr': 7.178593027074552e-05, 'batch_size': 17}. Best is trial 13 with value: 0.00028395243166676675.
+2025-02-10 03:30:30,106 - INFO - Elapsed time: 41823.91 seconds
+2025-02-10 03:30:30,106 - INFO - Estimated time left: 0.00 seconds
+2025-02-10 03:31:57,926 - INFO - Trial: 20/100, Epoch: 1/10, Val loss: 0.0790, Elapsed time: 0:01:27, Estimated time left: 0:13:10
+2025-02-10 03:33:21,310 - INFO - Trial: 20/100, Epoch: 2/10, Val loss: 0.0012, Elapsed time: 0:02:51, Estimated time left: 0:11:07
+2025-02-10 03:34:44,670 - INFO - Trial: 20/100, Epoch: 3/10, Val loss: 0.0009, Elapsed time: 0:04:14, Estimated time left: 0:09:43
+2025-02-10 03:36:08,219 - INFO - Trial: 20/100, Epoch: 4/10, Val loss: 0.0009, Elapsed time: 0:05:38, Estimated time left: 0:08:21
+2025-02-10 03:37:31,378 - INFO - Trial: 20/100, Epoch: 5/10, Val loss: 0.0006, Elapsed time: 0:07:01, Estimated time left: 0:06:55
+2025-02-10 03:38:54,153 - INFO - Trial: 20/100, Epoch: 6/10, Val loss: 0.0006, Elapsed time: 0:08:24, Estimated time left: 0:05:31
+2025-02-10 03:40:16,801 - INFO - Trial: 20/100, Epoch: 7/10, Val loss: 0.0004, Elapsed time: 0:09:46, Estimated time left: 0:04:07
+2025-02-10 03:41:39,788 - INFO - Trial: 20/100, Epoch: 8/10, Val loss: 0.0004, Elapsed time: 0:11:09, Estimated time left: 0:02:45
+2025-02-10 03:43:02,891 - INFO - Trial: 20/100, Epoch: 9/10, Val loss: 0.0004, Elapsed time: 0:12:32, Estimated time left: 0:01:23
+2025-02-10 03:44:24,872 - INFO - Trial: 20/100, Epoch: 10/10, Val loss: 0.0003, Elapsed time: 0:13:54, Estimated time left: 0:00:00
+2025-02-10 03:44:24,874 - INFO - Trial 19 finished with value: 0.00032896044667952 and parameters: {'hidden_layers': 7, 'n_units_l': 149, 'lr': 0.0017497150368500183, 'batch_size': 247}. Best is trial 13 with value: 0.00028395243166676675.
+2025-02-10 03:44:24,875 - INFO - Elapsed time: 42658.68 seconds
+2025-02-10 03:44:24,875 - INFO - Estimated time left: 0.00 seconds
+2025-02-10 03:45:54,510 - INFO - Trial: 21/100, Epoch: 1/10, Val loss: 0.1632, Elapsed time: 0:01:29, Estimated time left: 0:13:26
+2025-02-10 03:47:19,705 - INFO - Trial: 21/100, Epoch: 2/10, Val loss: 0.1635, Elapsed time: 0:02:54, Estimated time left: 0:11:21
+2025-02-10 03:48:43,893 - INFO - Trial: 21/100, Epoch: 3/10, Val loss: 0.1632, Elapsed time: 0:04:19, Estimated time left: 0:09:49
+2025-02-10 03:50:08,920 - INFO - Trial: 21/100, Epoch: 4/10, Val loss: 0.1634, Elapsed time: 0:05:44, Estimated time left: 0:08:30
+2025-02-10 03:51:33,239 - INFO - Trial: 21/100, Epoch: 5/10, Val loss: 0.1632, Elapsed time: 0:07:08, Estimated time left: 0:07:01
+2025-02-10 03:52:58,261 - INFO - Trial: 21/100, Epoch: 6/10, Val loss: 0.1633, Elapsed time: 0:08:33, Estimated time left: 0:05:40
+2025-02-10 03:54:22,348 - INFO - Trial: 21/100, Epoch: 7/10, Val loss: 0.1633, Elapsed time: 0:09:57, Estimated time left: 0:04:12
+2025-02-10 03:55:47,156 - INFO - Trial: 21/100, Epoch: 8/10, Val loss: 0.1635, Elapsed time: 0:11:22, Estimated time left: 0:02:49
+2025-02-10 03:57:11,897 - INFO - Trial: 21/100, Epoch: 9/10, Val loss: 0.1632, Elapsed time: 0:12:47, Estimated time left: 0:01:24
+2025-02-10 03:58:36,354 - INFO - Trial: 21/100, Epoch: 10/10, Val loss: 0.1633, Elapsed time: 0:14:11, Estimated time left: 0:00:00
+2025-02-10 03:58:36,356 - INFO - Trial 20 finished with value: 0.1632560289414354 and parameters: {'hidden_layers': 7, 'n_units_l': 142, 'lr': 0.012810791961386382, 'batch_size': 228}. Best is trial 13 with value: 0.00028395243166676675.
+2025-02-10 03:58:36,357 - INFO - Elapsed time: 43510.17 seconds
+2025-02-10 03:58:36,357 - INFO - Estimated time left: 0.00 seconds
+2025-02-10 04:00:22,054 - INFO - Trial: 22/100, Epoch: 1/10, Val loss: 0.0672, Elapsed time: 0:01:45, Estimated time left: 0:15:51
+2025-02-10 04:02:02,723 - INFO - Trial: 22/100, Epoch: 2/10, Val loss: 0.0013, Elapsed time: 0:03:26, Estimated time left: 0:13:25
+2025-02-10 04:03:43,643 - INFO - Trial: 22/100, Epoch: 3/10, Val loss: 0.0009, Elapsed time: 0:05:07, Estimated time left: 0:11:46
+2025-02-10 04:05:24,254 - INFO - Trial: 22/100, Epoch: 4/10, Val loss: 0.0007, Elapsed time: 0:06:47, Estimated time left: 0:10:03
+2025-02-10 04:07:04,935 - INFO - Trial: 22/100, Epoch: 5/10, Val loss: 0.0007, Elapsed time: 0:08:28, Estimated time left: 0:08:23
+2025-02-10 04:08:46,079 - INFO - Trial: 22/100, Epoch: 6/10, Val loss: 0.0006, Elapsed time: 0:10:09, Estimated time left: 0:06:44
+2025-02-10 04:10:26,975 - INFO - Trial: 22/100, Epoch: 7/10, Val loss: 0.0006, Elapsed time: 0:11:50, Estimated time left: 0:05:02
+2025-02-10 04:12:08,276 - INFO - Trial: 22/100, Epoch: 8/10, Val loss: 0.0005, Elapsed time: 0:13:31, Estimated time left: 0:03:22
+2025-02-10 04:13:49,039 - INFO - Trial: 22/100, Epoch: 9/10, Val loss: 0.0005, Elapsed time: 0:15:12, Estimated time left: 0:01:40
+2025-02-10 04:15:29,899 - INFO - Trial: 22/100, Epoch: 10/10, Val loss: 0.0004, Elapsed time: 0:16:53, Estimated time left: 0:00:00
+2025-02-10 04:15:29,900 - INFO - Trial 21 finished with value: 0.00041822675001037 and parameters: {'hidden_layers': 6, 'n_units_l': 152, 'lr': 0.0020071992087362556, 'batch_size': 174}. Best is trial 13 with value: 0.00028395243166676675.
+2025-02-10 04:15:29,902 - INFO - Elapsed time: 44523.71 seconds
+2025-02-10 04:15:29,902 - INFO - Estimated time left: 0.00 seconds
+2025-02-10 04:16:48,343 - INFO - Trial: 23/100, Epoch: 1/10, Val loss: 0.0916, Elapsed time: 0:01:18, Estimated time left: 0:11:45
+2025-02-10 04:18:03,061 - INFO - Trial: 23/100, Epoch: 2/10, Val loss: 0.0009, Elapsed time: 0:02:33, Estimated time left: 0:09:57
+2025-02-10 04:19:17,847 - INFO - Trial: 23/100, Epoch: 3/10, Val loss: 0.0007, Elapsed time: 0:03:47, Estimated time left: 0:08:43
+2025-02-10 04:20:32,871 - INFO - Trial: 23/100, Epoch: 4/10, Val loss: 0.0008, Elapsed time: 0:05:02, Estimated time left: 0:07:30
+2025-02-10 04:21:48,360 - INFO - Trial: 23/100, Epoch: 5/10, Val loss: 0.0005, Elapsed time: 0:06:18, Estimated time left: 0:06:17
+2025-02-10 04:23:03,593 - INFO - Trial: 23/100, Epoch: 6/10, Val loss: 0.0007, Elapsed time: 0:07:33, Estimated time left: 0:05:00
+2025-02-10 04:24:18,804 - INFO - Trial: 23/100, Epoch: 7/10, Val loss: 0.0005, Elapsed time: 0:08:48, Estimated time left: 0:03:45
+2025-02-10 04:25:34,342 - INFO - Trial: 23/100, Epoch: 8/10, Val loss: 0.0005, Elapsed time: 0:10:04, Estimated time left: 0:02:31
+2025-02-10 04:26:49,255 - INFO - Trial: 23/100, Epoch: 9/10, Val loss: 0.0005, Elapsed time: 0:11:19, Estimated time left: 0:01:14
+2025-02-10 04:28:04,629 - INFO - Trial: 23/100, Epoch: 10/10, Val loss: 0.0004, Elapsed time: 0:12:34, Estimated time left: 0:00:00
+2025-02-10 04:28:04,631 - INFO - Trial 22 finished with value: 0.0003905183384232667 and parameters: {'hidden_layers': 5, 'n_units_l': 191, 'lr': 0.0011571981941218667, 'batch_size': 255}. Best is trial 13 with value: 0.00028395243166676675.
+2025-02-10 04:28:04,632 - INFO - Elapsed time: 45278.44 seconds
+2025-02-10 04:28:04,632 - INFO - Estimated time left: 0.00 seconds
+2025-02-10 04:30:36,446 - INFO - Trial: 24/100, Epoch: 1/10, Val loss: 0.1062, Elapsed time: 0:02:31, Estimated time left: 0:22:46
+2025-02-10 04:32:52,836 - INFO - Trial: 24/100, Epoch: 2/10, Val loss: 0.0013, Elapsed time: 0:04:48, Estimated time left: 0:18:11
+2025-02-10 04:35:04,878 - INFO - Trial: 24/100, Epoch: 3/10, Val loss: 0.0009, Elapsed time: 0:07:00, Estimated time left: 0:15:24
+2025-02-10 04:37:21,248 - INFO - Trial: 24/100, Epoch: 4/10, Val loss: 0.0007, Elapsed time: 0:09:16, Estimated time left: 0:13:38
+2025-02-10 04:39:33,300 - INFO - Trial: 24/100, Epoch: 5/10, Val loss: 0.0006, Elapsed time: 0:11:28, Estimated time left: 0:11:00
+2025-02-10 04:41:49,188 - INFO - Trial: 24/100, Epoch: 6/10, Val loss: 0.0005, Elapsed time: 0:13:44, Estimated time left: 0:09:03
+2025-02-10 04:44:01,955 - INFO - Trial: 24/100, Epoch: 7/10, Val loss: 0.0005, Elapsed time: 0:15:57, Estimated time left: 0:06:38
+2025-02-10 04:46:17,125 - INFO - Trial: 24/100, Epoch: 8/10, Val loss: 0.0004, Elapsed time: 0:18:12, Estimated time left: 0:04:30
+2025-02-10 04:48:32,656 - INFO - Trial: 24/100, Epoch: 9/10, Val loss: 0.0004, Elapsed time: 0:20:28, Estimated time left: 0:02:15
+2025-02-10 04:50:48,479 - INFO - Trial: 24/100, Epoch: 10/10, Val loss: 0.0003, Elapsed time: 0:22:43, Estimated time left: 0:00:00
+2025-02-10 04:50:48,481 - INFO - Trial 23 finished with value: 0.00034167510747984647 and parameters: {'hidden_layers': 7, 'n_units_l': 159, 'lr': 0.0004916582455458188, 'batch_size': 122}. Best is trial 13 with value: 0.00028395243166676675.
+2025-02-10 04:50:48,482 - INFO - Elapsed time: 46642.29 seconds
+2025-02-10 04:50:48,482 - INFO - Estimated time left: 0.00 seconds
+2025-02-10 04:52:34,653 - INFO - Trial: 25/100, Epoch: 1/10, Val loss: 0.1154, Elapsed time: 0:01:46, Estimated time left: 0:15:55
+2025-02-10 04:54:20,563 - INFO - Trial: 25/100, Epoch: 2/10, Val loss: 0.0035, Elapsed time: 0:03:32, Estimated time left: 0:14:07
+2025-02-10 04:56:06,314 - INFO - Trial: 25/100, Epoch: 3/10, Val loss: 0.0008, Elapsed time: 0:05:17, Estimated time left: 0:12:20
+2025-02-10 04:57:49,309 - INFO - Trial: 25/100, Epoch: 4/10, Val loss: 0.0007, Elapsed time: 0:07:00, Estimated time left: 0:10:17
+2025-02-10 04:59:31,424 - INFO - Trial: 25/100, Epoch: 5/10, Val loss: 0.0004, Elapsed time: 0:08:42, Estimated time left: 0:08:30
+2025-02-10 05:01:12,711 - INFO - Trial: 25/100, Epoch: 6/10, Val loss: 0.0005, Elapsed time: 0:10:24, Estimated time left: 0:06:45
+2025-02-10 05:02:53,799 - INFO - Trial: 25/100, Epoch: 7/10, Val loss: 0.0003, Elapsed time: 0:12:05, Estimated time left: 0:05:03
+2025-02-10 05:04:34,878 - INFO - Trial: 25/100, Epoch: 8/10, Val loss: 0.0003, Elapsed time: 0:13:46, Estimated time left: 0:03:22
+2025-02-10 05:06:15,554 - INFO - Trial: 25/100, Epoch: 9/10, Val loss: 0.0003, Elapsed time: 0:15:27, Estimated time left: 0:01:40
+2025-02-10 05:07:56,962 - INFO - Trial: 25/100, Epoch: 10/10, Val loss: 0.0003, Elapsed time: 0:17:08, Estimated time left: 0:00:00
+2025-02-10 05:07:56,963 - INFO - Trial 24 finished with value: 0.00026755512528401336 and parameters: {'hidden_layers': 6, 'n_units_l': 228, 'lr': 0.0001809772386745143, 'batch_size': 182}. Best is trial 24 with value: 0.00026755512528401336.
+2025-02-10 05:07:56,965 - INFO - Elapsed time: 47670.77 seconds
+2025-02-10 05:07:56,965 - INFO - Estimated time left: 0.00 seconds
+2025-02-10 05:09:44,236 - INFO - Trial: 26/100, Epoch: 1/10, Val loss: 0.1180, Elapsed time: 0:01:47, Estimated time left: 0:16:05
+2025-02-10 05:11:25,893 - INFO - Trial: 26/100, Epoch: 2/10, Val loss: 0.0011, Elapsed time: 0:03:28, Estimated time left: 0:13:33
+2025-02-10 05:13:08,079 - INFO - Trial: 26/100, Epoch: 3/10, Val loss: 0.0007, Elapsed time: 0:05:11, Estimated time left: 0:11:55
+2025-02-10 05:14:50,182 - INFO - Trial: 26/100, Epoch: 4/10, Val loss: 0.0006, Elapsed time: 0:06:53, Estimated time left: 0:10:12
+2025-02-10 05:16:31,956 - INFO - Trial: 26/100, Epoch: 5/10, Val loss: 0.0006, Elapsed time: 0:08:34, Estimated time left: 0:08:28
+2025-02-10 05:18:13,809 - INFO - Trial: 26/100, Epoch: 6/10, Val loss: 0.0004, Elapsed time: 0:10:16, Estimated time left: 0:06:47
+2025-02-10 05:19:55,705 - INFO - Trial: 26/100, Epoch: 7/10, Val loss: 0.0005, Elapsed time: 0:11:58, Estimated time left: 0:05:05
+2025-02-10 05:21:37,919 - INFO - Trial: 26/100, Epoch: 8/10, Val loss: 0.0004, Elapsed time: 0:13:40, Estimated time left: 0:03:24
+2025-02-10 05:23:19,408 - INFO - Trial: 26/100, Epoch: 9/10, Val loss: 0.0003, Elapsed time: 0:15:22, Estimated time left: 0:01:41
+2025-02-10 05:25:01,545 - INFO - Trial: 26/100, Epoch: 10/10, Val loss: 0.0004, Elapsed time: 0:17:04, Estimated time left: 0:00:00
+2025-02-10 05:25:01,547 - INFO - Trial 25 finished with value: 0.0003800820299708911 and parameters: {'hidden_layers': 7, 'n_units_l': 229, 'lr': 0.00013435664404214416, 'batch_size': 192}. Best is trial 24 with value: 0.00026755512528401336.
+2025-02-10 05:25:01,548 - INFO - Elapsed time: 48695.36 seconds
+2025-02-10 05:25:01,548 - INFO - Estimated time left: 0.00 seconds
+2025-02-10 05:27:31,720 - INFO - Trial: 27/100, Epoch: 1/10, Val loss: 0.1846, Elapsed time: 0:02:30, Estimated time left: 0:22:31
+2025-02-10 05:29:52,864 - INFO - Trial: 27/100, Epoch: 2/10, Val loss: 0.0022, Elapsed time: 0:04:51, Estimated time left: 0:18:49
+2025-02-10 05:32:14,513 - INFO - Trial: 27/100, Epoch: 3/10, Val loss: 0.0018, Elapsed time: 0:07:12, Estimated time left: 0:16:31
+2025-02-10 05:34:37,017 - INFO - Trial: 27/100, Epoch: 4/10, Val loss: 0.0017, Elapsed time: 0:09:35, Estimated time left: 0:14:15
+2025-02-10 05:36:58,891 - INFO - Trial: 27/100, Epoch: 5/10, Val loss: 0.0014, Elapsed time: 0:11:57, Estimated time left: 0:11:49
+2025-02-10 05:39:20,308 - INFO - Trial: 27/100, Epoch: 6/10, Val loss: 0.0013, Elapsed time: 0:14:18, Estimated time left: 0:09:25
+2025-02-10 05:41:41,555 - INFO - Trial: 27/100, Epoch: 7/10, Val loss: 0.0012, Elapsed time: 0:16:39, Estimated time left: 0:07:03
+2025-02-10 05:44:02,399 - INFO - Trial: 27/100, Epoch: 8/10, Val loss: 0.0011, Elapsed time: 0:19:00, Estimated time left: 0:04:41
+2025-02-10 05:46:23,447 - INFO - Trial: 27/100, Epoch: 9/10, Val loss: 0.0011, Elapsed time: 0:21:21, Estimated time left: 0:02:21
+2025-02-10 05:48:45,530 - INFO - Trial: 27/100, Epoch: 10/10, Val loss: 0.0009, Elapsed time: 0:23:43, Estimated time left: 0:00:00
+2025-02-10 05:48:45,532 - INFO - Trial 26 finished with value: 0.0009336466100084949 and parameters: {'hidden_layers': 5, 'n_units_l': 138, 'lr': 3.0424947163015596e-05, 'batch_size': 102}. Best is trial 24 with value: 0.00026755512528401336.
+2025-02-10 05:48:45,533 - INFO - Elapsed time: 50119.34 seconds
+2025-02-10 05:48:45,534 - INFO - Estimated time left: 0.00 seconds
+2025-02-10 05:51:04,551 - INFO - Trial: 28/100, Epoch: 1/10, Val loss: 0.1632, Elapsed time: 0:02:19, Estimated time left: 0:20:51
+2025-02-10 05:53:18,563 - INFO - Trial: 28/100, Epoch: 2/10, Val loss: 0.1636, Elapsed time: 0:04:33, Estimated time left: 0:17:52
+2025-02-10 05:55:33,349 - INFO - Trial: 28/100, Epoch: 3/10, Val loss: 0.1635, Elapsed time: 0:06:47, Estimated time left: 0:15:43
+2025-02-10 05:57:47,916 - INFO - Trial: 28/100, Epoch: 4/10, Val loss: 0.1633, Elapsed time: 0:09:02, Estimated time left: 0:13:27
+2025-02-10 06:00:02,388 - INFO - Trial: 28/100, Epoch: 5/10, Val loss: 0.1633, Elapsed time: 0:11:16, Estimated time left: 0:11:12
+2025-02-10 06:02:17,017 - INFO - Trial: 28/100, Epoch: 6/10, Val loss: 0.1635, Elapsed time: 0:13:31, Estimated time left: 0:08:58
+2025-02-10 06:04:31,693 - INFO - Trial: 28/100, Epoch: 7/10, Val loss: 0.1636, Elapsed time: 0:15:46, Estimated time left: 0:06:44
+2025-02-10 06:06:49,654 - INFO - Trial: 28/100, Epoch: 8/10, Val loss: 0.1640, Elapsed time: 0:18:04, Estimated time left: 0:04:35
+2025-02-10 06:09:02,972 - INFO - Trial: 28/100, Epoch: 9/10, Val loss: 0.1633, Elapsed time: 0:20:17, Estimated time left: 0:02:13
+2025-02-10 06:11:16,159 - INFO - Trial: 28/100, Epoch: 10/10, Val loss: 0.1632, Elapsed time: 0:22:30, Estimated time left: 0:00:00
+2025-02-10 06:11:16,160 - INFO - Trial 27 finished with value: 0.16323594745236755 and parameters: {'hidden_layers': 6, 'n_units_l': 211, 'lr': 0.011496029345623798, 'batch_size': 132}. Best is trial 24 with value: 0.00026755512528401336.
+2025-02-10 06:11:16,162 - INFO - Elapsed time: 51469.97 seconds
+2025-02-10 06:11:16,162 - INFO - Estimated time left: 0.00 seconds
+2025-02-10 06:16:25,727 - INFO - Trial: 29/100, Epoch: 1/10, Val loss: 0.0212, Elapsed time: 0:05:09, Estimated time left: 0:46:25
+2025-02-10 06:21:16,474 - INFO - Trial: 29/100, Epoch: 2/10, Val loss: 0.0010, Elapsed time: 0:10:00, Estimated time left: 0:38:45
+2025-02-10 06:26:03,540 - INFO - Trial: 29/100, Epoch: 3/10, Val loss: 0.0006, Elapsed time: 0:14:47, Estimated time left: 0:33:29
+2025-02-10 06:30:53,891 - INFO - Trial: 29/100, Epoch: 4/10, Val loss: 0.0006, Elapsed time: 0:19:37, Estimated time left: 0:29:02
+2025-02-10 06:35:44,034 - INFO - Trial: 29/100, Epoch: 5/10, Val loss: 0.0006, Elapsed time: 0:24:27, Estimated time left: 0:24:10
+2025-02-10 06:40:30,772 - INFO - Trial: 29/100, Epoch: 6/10, Val loss: 0.0006, Elapsed time: 0:29:14, Estimated time left: 0:19:06
+2025-02-10 06:45:20,563 - INFO - Trial: 29/100, Epoch: 7/10, Val loss: 0.0005, Elapsed time: 0:34:04, Estimated time left: 0:14:29
+2025-02-10 06:50:10,125 - INFO - Trial: 29/100, Epoch: 8/10, Val loss: 0.0005, Elapsed time: 0:38:53, Estimated time left: 0:09:39
+2025-02-10 06:54:56,418 - INFO - Trial: 29/100, Epoch: 9/10, Val loss: 0.0005, Elapsed time: 0:43:40, Estimated time left: 0:04:46
+2025-02-10 06:58:52,954 - INFO - Trial: 29/100, Epoch: 10/10, Val loss: 0.0005, Elapsed time: 0:47:36, Estimated time left: 0:00:00
+2025-02-10 06:58:52,956 - INFO - Trial 28 finished with value: 0.0004528221773191035 and parameters: {'hidden_layers': 4, 'n_units_l': 323, 'lr': 0.001527609651670533, 'batch_size': 50}. Best is trial 24 with value: 0.00026755512528401336.
+2025-02-10 06:58:52,958 - INFO - Elapsed time: 54326.77 seconds
+2025-02-10 06:58:52,958 - INFO - Estimated time left: 0.00 seconds
+2025-02-10 07:00:31,025 - INFO - Trial: 30/100, Epoch: 1/10, Val loss: 0.0369, Elapsed time: 0:01:38, Estimated time left: 0:14:42
+2025-02-10 07:02:02,777 - INFO - Trial: 30/100, Epoch: 2/10, Val loss: 0.0007, Elapsed time: 0:03:09, Estimated time left: 0:12:14
+2025-02-10 07:03:34,612 - INFO - Trial: 30/100, Epoch: 3/10, Val loss: 0.0005, Elapsed time: 0:04:41, Estimated time left: 0:10:42
+2025-02-10 07:05:06,359 - INFO - Trial: 30/100, Epoch: 4/10, Val loss: 0.0004, Elapsed time: 0:06:13, Estimated time left: 0:09:10
+2025-02-10 07:06:38,740 - INFO - Trial: 30/100, Epoch: 5/10, Val loss: 0.0004, Elapsed time: 0:07:45, Estimated time left: 0:07:41
+2025-02-10 07:08:15,589 - INFO - Trial: 30/100, Epoch: 6/10, Val loss: 0.0003, Elapsed time: 0:09:22, Estimated time left: 0:06:27
+2025-02-10 07:09:50,391 - INFO - Trial: 30/100, Epoch: 7/10, Val loss: 0.0003, Elapsed time: 0:10:57, Estimated time left: 0:04:44
+2025-02-10 07:11:43,521 - INFO - Trial: 30/100, Epoch: 8/10, Val loss: 0.0003, Elapsed time: 0:12:50, Estimated time left: 0:03:46
+2025-02-10 07:13:36,290 - INFO - Trial: 30/100, Epoch: 9/10, Val loss: 0.0003, Elapsed time: 0:14:43, Estimated time left: 0:01:52
+2025-02-10 07:16:13,165 - INFO - Trial: 30/100, Epoch: 10/10, Val loss: 0.0003, Elapsed time: 0:17:20, Estimated time left: 0:00:00
+2025-02-10 07:16:13,166 - INFO - Trial 29 finished with value: 0.0002796843020825696 and parameters: {'hidden_layers': 8, 'n_units_l': 422, 'lr': 0.0005528073346470977, 'batch_size': 190}. Best is trial 24 with value: 0.00026755512528401336.
+2025-02-10 07:16:13,168 - INFO - Elapsed time: 55366.98 seconds
+2025-02-10 07:16:13,168 - INFO - Estimated time left: 0.00 seconds
+2025-02-10 07:21:14,763 - INFO - Trial: 31/100, Epoch: 1/10, Val loss: 0.0688, Elapsed time: 0:05:01, Estimated time left: 0:45:14
+2025-02-10 07:25:53,084 - INFO - Trial: 31/100, Epoch: 2/10, Val loss: 0.0009, Elapsed time: 0:09:39, Estimated time left: 0:37:06
+2025-02-10 07:30:27,415 - INFO - Trial: 31/100, Epoch: 3/10, Val loss: 0.0006, Elapsed time: 0:14:14, Estimated time left: 0:32:00
+2025-02-10 07:35:06,881 - INFO - Trial: 31/100, Epoch: 4/10, Val loss: 0.0005, Elapsed time: 0:18:53, Estimated time left: 0:27:56
+2025-02-10 07:39:45,867 - INFO - Trial: 31/100, Epoch: 5/10, Val loss: 0.0004, Elapsed time: 0:23:32, Estimated time left: 0:23:14
+2025-02-10 07:44:24,238 - INFO - Trial: 31/100, Epoch: 6/10, Val loss: 0.0004, Elapsed time: 0:28:11, Estimated time left: 0:18:33
+2025-02-10 07:49:03,414 - INFO - Trial: 31/100, Epoch: 7/10, Val loss: 0.0003, Elapsed time: 0:32:50, Estimated time left: 0:13:57
+2025-02-10 07:53:38,260 - INFO - Trial: 31/100, Epoch: 8/10, Val loss: 0.0003, Elapsed time: 0:37:25, Estimated time left: 0:09:09
+2025-02-10 07:58:15,130 - INFO - Trial: 31/100, Epoch: 9/10, Val loss: 0.0003, Elapsed time: 0:42:01, Estimated time left: 0:04:36
+2025-02-10 08:02:53,051 - INFO - Trial: 31/100, Epoch: 10/10, Val loss: 0.0002, Elapsed time: 0:46:39, Estimated time left: 0:00:00
+2025-02-10 08:02:53,052 - INFO - Trial 30 finished with value: 0.0002407816538046952 and parameters: {'hidden_layers': 8, 'n_units_l': 434, 'lr': 0.00011835993869121946, 'batch_size': 105}. Best is trial 30 with value: 0.0002407816538046952.
+2025-02-10 08:02:53,054 - INFO - Elapsed time: 58166.86 seconds
+2025-02-10 08:02:53,054 - INFO - Estimated time left: 0.00 seconds
+2025-02-10 08:07:43,060 - INFO - Trial: 32/100, Epoch: 1/10, Val loss: 0.0275, Elapsed time: 0:04:49, Estimated time left: 0:43:29
+2025-02-10 08:12:09,765 - INFO - Trial: 32/100, Epoch: 2/10, Val loss: 0.0008, Elapsed time: 0:09:16, Estimated time left: 0:35:33
+2025-02-10 08:16:37,740 - INFO - Trial: 32/100, Epoch: 3/10, Val loss: 0.0005, Elapsed time: 0:13:44, Estimated time left: 0:31:15
+2025-02-10 08:20:58,275 - INFO - Trial: 32/100, Epoch: 4/10, Val loss: 0.0004, Elapsed time: 0:18:05, Estimated time left: 0:26:03
+2025-02-10 08:25:25,163 - INFO - Trial: 32/100, Epoch: 5/10, Val loss: 0.0004, Elapsed time: 0:22:32, Estimated time left: 0:22:14
+2025-02-10 08:29:52,840 - INFO - Trial: 32/100, Epoch: 6/10, Val loss: 0.0003, Elapsed time: 0:26:59, Estimated time left: 0:17:50
+2025-02-10 08:34:19,820 - INFO - Trial: 32/100, Epoch: 7/10, Val loss: 0.0003, Elapsed time: 0:31:26, Estimated time left: 0:13:20
+2025-02-10 08:38:47,428 - INFO - Trial: 32/100, Epoch: 8/10, Val loss: 0.0003, Elapsed time: 0:35:54, Estimated time left: 0:08:55
+2025-02-10 08:43:14,405 - INFO - Trial: 32/100, Epoch: 9/10, Val loss: 0.0003, Elapsed time: 0:40:21, Estimated time left: 0:04:26
+2025-02-10 08:47:36,364 - INFO - Trial: 32/100, Epoch: 10/10, Val loss: 0.0003, Elapsed time: 0:44:43, Estimated time left: 0:00:00
+2025-02-10 08:47:36,366 - INFO - Trial 31 finished with value: 0.00027339177386505705 and parameters: {'hidden_layers': 8, 'n_units_l': 452, 'lr': 0.0004604578323802888, 'batch_size': 110}. Best is trial 30 with value: 0.0002407816538046952.
+2025-02-10 08:47:36,368 - INFO - Elapsed time: 60850.18 seconds
+2025-02-10 08:47:36,368 - INFO - Estimated time left: 0.00 seconds
+2025-02-10 08:54:41,962 - INFO - Trial: 33/100, Epoch: 1/10, Val loss: 0.2608, Elapsed time: 0:07:05, Estimated time left: 1:03:50
+2025-02-10 09:01:09,439 - INFO - Trial: 33/100, Epoch: 2/10, Val loss: 0.0011, Elapsed time: 0:13:33, Estimated time left: 0:51:39
+2025-02-10 09:07:38,372 - INFO - Trial: 33/100, Epoch: 3/10, Val loss: 0.0007, Elapsed time: 0:20:01, Estimated time left: 0:45:22
+2025-02-10 09:14:01,766 - INFO - Trial: 33/100, Epoch: 4/10, Val loss: 0.0005, Elapsed time: 0:26:25, Estimated time left: 0:38:20
+2025-02-10 09:20:21,473 - INFO - Trial: 33/100, Epoch: 5/10, Val loss: 0.0005, Elapsed time: 0:32:45, Estimated time left: 0:31:38
+2025-02-10 09:26:44,952 - INFO - Trial: 33/100, Epoch: 6/10, Val loss: 0.0004, Elapsed time: 0:39:08, Estimated time left: 0:25:33
+2025-02-10 09:33:05,896 - INFO - Trial: 33/100, Epoch: 7/10, Val loss: 0.0003, Elapsed time: 0:45:29, Estimated time left: 0:19:02
+2025-02-10 09:39:30,005 - INFO - Trial: 33/100, Epoch: 8/10, Val loss: 0.0004, Elapsed time: 0:51:53, Estimated time left: 0:12:48
+2025-02-10 09:45:52,829 - INFO - Trial: 33/100, Epoch: 9/10, Val loss: 0.0003, Elapsed time: 0:58:16, Estimated time left: 0:06:22
+2025-02-10 09:52:16,617 - INFO - Trial: 33/100, Epoch: 10/10, Val loss: 0.0002, Elapsed time: 1:04:40, Estimated time left: 0:00:00
+2025-02-10 09:52:16,619 - INFO - Trial 32 finished with value: 0.0002363301394453565 and parameters: {'hidden_layers': 8, 'n_units_l': 464, 'lr': 3.7011390613191215e-05, 'batch_size': 71}. Best is trial 32 with value: 0.0002363301394453565.
+2025-02-10 09:52:16,620 - INFO - Elapsed time: 64730.43 seconds
+2025-02-10 09:52:16,621 - INFO - Estimated time left: 0.00 seconds
+2025-02-10 09:59:20,526 - INFO - Trial: 34/100, Epoch: 1/10, Val loss: 0.2928, Elapsed time: 0:07:03, Estimated time left: 1:03:34
+2025-02-10 10:05:43,283 - INFO - Trial: 34/100, Epoch: 2/10, Val loss: 0.0011, Elapsed time: 0:13:26, Estimated time left: 0:51:02
+2025-02-10 10:12:05,824 - INFO - Trial: 34/100, Epoch: 3/10, Val loss: 0.0008, Elapsed time: 0:19:49, Estimated time left: 0:44:37
+2025-02-10 10:17:41,445 - INFO - Trial: 34/100, Epoch: 4/10, Val loss: 0.0006, Elapsed time: 0:25:24, Estimated time left: 0:33:33
+2025-02-10 10:24:05,669 - INFO - Trial: 34/100, Epoch: 5/10, Val loss: 0.0005, Elapsed time: 0:31:49, Estimated time left: 0:32:01
+2025-02-10 10:30:28,335 - INFO - Trial: 34/100, Epoch: 6/10, Val loss: 0.0004, Elapsed time: 0:38:11, Estimated time left: 0:25:30
+2025-02-10 10:36:49,906 - INFO - Trial: 34/100, Epoch: 7/10, Val loss: 0.0003, Elapsed time: 0:44:33, Estimated time left: 0:19:04
+2025-02-10 10:42:10,412 - INFO - Trial: 34/100, Epoch: 8/10, Val loss: 0.0003, Elapsed time: 0:49:53, Estimated time left: 0:10:41
+2025-02-10 10:46:29,884 - INFO - Trial: 34/100, Epoch: 9/10, Val loss: 0.0003, Elapsed time: 0:54:13, Estimated time left: 0:04:19
+2025-02-10 10:50:49,841 - INFO - Trial: 34/100, Epoch: 10/10, Val loss: 0.0002, Elapsed time: 0:58:33, Estimated time left: 0:00:00
+2025-02-10 10:50:49,843 - INFO - Trial 33 finished with value: 0.00023549912399688084 and parameters: {'hidden_layers': 8, 'n_units_l': 507, 'lr': 2.5114653568887934e-05, 'batch_size': 73}. Best is trial 33 with value: 0.00023549912399688084.
+2025-02-10 10:50:49,844 - INFO - Elapsed time: 68243.65 seconds
+2025-02-10 10:50:49,845 - INFO - Estimated time left: 0.00 seconds
+2025-02-10 10:55:36,519 - INFO - Trial: 35/100, Epoch: 1/10, Val loss: 0.2895, Elapsed time: 0:04:46, Estimated time left: 0:42:59
+2025-02-10 10:59:56,158 - INFO - Trial: 35/100, Epoch: 2/10, Val loss: 0.0012, Elapsed time: 0:09:06, Estimated time left: 0:34:37
+2025-02-10 11:04:18,676 - INFO - Trial: 35/100, Epoch: 3/10, Val loss: 0.0007, Elapsed time: 0:13:28, Estimated time left: 0:30:37
+2025-02-10 11:08:40,646 - INFO - Trial: 35/100, Epoch: 4/10, Val loss: 0.0005, Elapsed time: 0:17:50, Estimated time left: 0:26:11
+2025-02-10 11:13:00,566 - INFO - Trial: 35/100, Epoch: 5/10, Val loss: 0.0005, Elapsed time: 0:22:10, Estimated time left: 0:21:39
+2025-02-10 11:17:21,603 - INFO - Trial: 35/100, Epoch: 6/10, Val loss: 0.0004, Elapsed time: 0:26:31, Estimated time left: 0:17:24
+2025-02-10 11:21:41,916 - INFO - Trial: 35/100, Epoch: 7/10, Val loss: 0.0003, Elapsed time: 0:30:52, Estimated time left: 0:13:00
+2025-02-10 11:26:00,958 - INFO - Trial: 35/100, Epoch: 8/10, Val loss: 0.0003, Elapsed time: 0:35:11, Estimated time left: 0:08:38
+2025-02-10 11:30:21,888 - INFO - Trial: 35/100, Epoch: 9/10, Val loss: 0.0002, Elapsed time: 0:39:32, Estimated time left: 0:04:20
+2025-02-10 11:34:43,271 - INFO - Trial: 35/100, Epoch: 10/10, Val loss: 0.0002, Elapsed time: 0:43:53, Estimated time left: 0:00:00
+2025-02-10 11:34:43,273 - INFO - Trial 34 finished with value: 0.0002271263525212831 and parameters: {'hidden_layers': 8, 'n_units_l': 510, 'lr': 2.6538107436156745e-05, 'batch_size': 73}. Best is trial 34 with value: 0.0002271263525212831.
+2025-02-10 11:34:43,275 - INFO - Elapsed time: 70877.08 seconds
+2025-02-10 11:34:43,275 - INFO - Estimated time left: 0.00 seconds
+2025-02-10 11:39:23,954 - INFO - Trial: 36/100, Epoch: 1/10, Val loss: 0.2897, Elapsed time: 0:04:40, Estimated time left: 0:42:05
+2025-02-10 11:43:42,570 - INFO - Trial: 36/100, Epoch: 2/10, Val loss: 0.0011, Elapsed time: 0:08:59, Estimated time left: 0:34:28
+2025-02-10 11:48:02,590 - INFO - Trial: 36/100, Epoch: 3/10, Val loss: 0.0008, Elapsed time: 0:13:19, Estimated time left: 0:30:20
+2025-02-10 11:52:22,560 - INFO - Trial: 36/100, Epoch: 4/10, Val loss: 0.0007, Elapsed time: 0:17:39, Estimated time left: 0:25:59
+2025-02-10 11:56:48,694 - INFO - Trial: 36/100, Epoch: 5/10, Val loss: 0.0005, Elapsed time: 0:22:05, Estimated time left: 0:22:10
+2025-02-10 12:01:11,167 - INFO - Trial: 36/100, Epoch: 6/10, Val loss: 0.0004, Elapsed time: 0:26:27, Estimated time left: 0:17:29
+2025-02-10 12:05:34,166 - INFO - Trial: 36/100, Epoch: 7/10, Val loss: 0.0004, Elapsed time: 0:30:50, Estimated time left: 0:13:08
+2025-02-10 12:09:56,485 - INFO - Trial: 36/100, Epoch: 8/10, Val loss: 0.0004, Elapsed time: 0:35:13, Estimated time left: 0:08:44
+2025-02-10 12:14:18,310 - INFO - Trial: 36/100, Epoch: 9/10, Val loss: 0.0003, Elapsed time: 0:39:35, Estimated time left: 0:04:21
+2025-02-10 12:18:40,572 - INFO - Trial: 36/100, Epoch: 10/10, Val loss: 0.0003, Elapsed time: 0:43:57, Estimated time left: 0:00:00
+2025-02-10 12:18:40,574 - INFO - Trial 35 finished with value: 0.00028738333751007576 and parameters: {'hidden_layers': 8, 'n_units_l': 506, 'lr': 2.3512870920627474e-05, 'batch_size': 73}. Best is trial 34 with value: 0.0002271263525212831.
+2025-02-10 12:18:40,576 - INFO - Elapsed time: 73514.38 seconds
+2025-02-10 12:18:40,576 - INFO - Estimated time left: 0.00 seconds
+2025-02-10 12:23:28,032 - INFO - Trial: 37/100, Epoch: 1/10, Val loss: 0.2228, Elapsed time: 0:04:47, Estimated time left: 0:43:06
+2025-02-10 12:28:00,033 - INFO - Trial: 37/100, Epoch: 2/10, Val loss: 0.0013, Elapsed time: 0:09:19, Estimated time left: 0:36:15
+2025-02-10 12:32:29,846 - INFO - Trial: 37/100, Epoch: 3/10, Val loss: 0.0010, Elapsed time: 0:13:49, Estimated time left: 0:31:28
+2025-02-10 12:36:56,445 - INFO - Trial: 37/100, Epoch: 4/10, Val loss: 0.0008, Elapsed time: 0:18:15, Estimated time left: 0:26:39
+2025-02-10 12:41:21,157 - INFO - Trial: 37/100, Epoch: 5/10, Val loss: 0.0007, Elapsed time: 0:22:40, Estimated time left: 0:22:03
+2025-02-10 12:45:45,747 - INFO - Trial: 37/100, Epoch: 6/10, Val loss: 0.0007, Elapsed time: 0:27:05, Estimated time left: 0:17:38
+2025-02-10 12:50:10,715 - INFO - Trial: 37/100, Epoch: 7/10, Val loss: 0.0006, Elapsed time: 0:31:30, Estimated time left: 0:13:14
+2025-02-10 12:54:34,897 - INFO - Trial: 37/100, Epoch: 8/10, Val loss: 0.0005, Elapsed time: 0:35:54, Estimated time left: 0:08:48
+2025-02-10 12:58:59,417 - INFO - Trial: 37/100, Epoch: 9/10, Val loss: 0.0005, Elapsed time: 0:40:18, Estimated time left: 0:04:24
+2025-02-10 13:03:23,826 - INFO - Trial: 37/100, Epoch: 10/10, Val loss: 0.0004, Elapsed time: 0:44:43, Estimated time left: 0:00:00
+2025-02-10 13:03:23,827 - INFO - Trial 36 finished with value: 0.0004077574928943886 and parameters: {'hidden_layers': 8, 'n_units_l': 376, 'lr': 2.039911336852349e-05, 'batch_size': 68}. Best is trial 34 with value: 0.0002271263525212831.
+2025-02-10 13:03:23,829 - INFO - Elapsed time: 76197.64 seconds
+2025-02-10 13:03:23,829 - INFO - Estimated time left: 0.00 seconds
+2025-02-10 13:08:56,262 - INFO - Trial: 38/100, Epoch: 1/10, Val loss: 0.1708, Elapsed time: 0:05:32, Estimated time left: 0:49:51
+2025-02-10 13:14:08,911 - INFO - Trial: 38/100, Epoch: 2/10, Val loss: 0.0010, Elapsed time: 0:10:45, Estimated time left: 0:41:41
+2025-02-10 13:19:38,055 - INFO - Trial: 38/100, Epoch: 3/10, Val loss: 0.0006, Elapsed time: 0:16:14, Estimated time left: 0:38:24
+2025-02-10 13:25:21,431 - INFO - Trial: 38/100, Epoch: 4/10, Val loss: 0.0005, Elapsed time: 0:21:57, Estimated time left: 0:34:20
+2025-02-10 13:31:07,821 - INFO - Trial: 38/100, Epoch: 5/10, Val loss: 0.0004, Elapsed time: 0:27:43, Estimated time left: 0:28:51
+2025-02-10 13:36:51,445 - INFO - Trial: 38/100, Epoch: 6/10, Val loss: 0.0003, Elapsed time: 0:33:27, Estimated time left: 0:22:54
+2025-02-10 13:42:06,807 - INFO - Trial: 38/100, Epoch: 7/10, Val loss: 0.0003, Elapsed time: 0:38:42, Estimated time left: 0:15:46
+2025-02-10 13:47:03,386 - INFO - Trial: 38/100, Epoch: 8/10, Val loss: 0.0002, Elapsed time: 0:43:39, Estimated time left: 0:09:53
+2025-02-10 13:52:00,424 - INFO - Trial: 38/100, Epoch: 9/10, Val loss: 0.0002, Elapsed time: 0:48:36, Estimated time left: 0:04:57
+2025-02-10 13:56:57,909 - INFO - Trial: 38/100, Epoch: 10/10, Val loss: 0.0002, Elapsed time: 0:53:34, Estimated time left: 0:00:00
+2025-02-10 13:56:57,911 - INFO - Trial 37 finished with value: 0.00022053746730657086 and parameters: {'hidden_layers': 8, 'n_units_l': 447, 'lr': 4.739841148384938e-05, 'batch_size': 58}. Best is trial 37 with value: 0.00022053746730657086.
+2025-02-10 13:56:57,913 - INFO - Elapsed time: 79411.72 seconds
+2025-02-10 13:56:57,913 - INFO - Estimated time left: 0.00 seconds
+2025-02-10 14:03:50,763 - INFO - Trial: 39/100, Epoch: 1/10, Val loss: 0.1685, Elapsed time: 0:06:52, Estimated time left: 1:01:55
+2025-02-10 14:10:01,424 - INFO - Trial: 39/100, Epoch: 2/10, Val loss: 0.0009, Elapsed time: 0:13:03, Estimated time left: 0:49:25
+2025-02-10 14:15:00,791 - INFO - Trial: 39/100, Epoch: 3/10, Val loss: 0.0005, Elapsed time: 0:18:02, Estimated time left: 0:34:55
+2025-02-10 14:21:17,673 - INFO - Trial: 39/100, Epoch: 4/10, Val loss: 0.0005, Elapsed time: 0:24:19, Estimated time left: 0:37:41
+2025-02-10 14:27:44,592 - INFO - Trial: 39/100, Epoch: 5/10, Val loss: 0.0003, Elapsed time: 0:30:46, Estimated time left: 0:32:14
+2025-02-10 14:34:11,474 - INFO - Trial: 39/100, Epoch: 6/10, Val loss: 0.0003, Elapsed time: 0:37:13, Estimated time left: 0:25:47
+2025-02-10 14:40:32,608 - INFO - Trial: 39/100, Epoch: 7/10, Val loss: 0.0003, Elapsed time: 0:43:34, Estimated time left: 0:19:03
+2025-02-10 14:47:36,356 - INFO - Trial: 39/100, Epoch: 8/10, Val loss: 0.0002, Elapsed time: 0:50:38, Estimated time left: 0:14:07
+2025-02-10 14:54:36,942 - INFO - Trial: 39/100, Epoch: 9/10, Val loss: 0.0002, Elapsed time: 0:57:39, Estimated time left: 0:07:00
+2025-02-10 15:01:37,155 - INFO - Trial: 39/100, Epoch: 10/10, Val loss: 0.0002, Elapsed time: 1:04:39, Estimated time left: 0:00:00
+2025-02-10 15:01:37,157 - INFO - Trial 38 finished with value: 0.00019503775862250657 and parameters: {'hidden_layers': 7, 'n_units_l': 474, 'lr': 4.5572601655736974e-05, 'batch_size': 42}. Best is trial 38 with value: 0.00019503775862250657.
+2025-02-10 15:01:37,159 - INFO - Elapsed time: 83290.97 seconds
+2025-02-10 15:01:37,160 - INFO - Estimated time left: 0.00 seconds
+2025-02-10 15:10:02,899 - INFO - Trial: 40/100, Epoch: 1/10, Val loss: 0.2770, Elapsed time: 0:08:25, Estimated time left: 1:15:51
+2025-02-10 15:17:55,477 - INFO - Trial: 40/100, Epoch: 2/10, Val loss: 0.0013, Elapsed time: 0:16:18, Estimated time left: 1:03:00
+2025-02-10 15:25:47,927 - INFO - Trial: 40/100, Epoch: 3/10, Val loss: 0.0011, Elapsed time: 0:24:10, Estimated time left: 0:55:07
+2025-02-10 15:33:40,660 - INFO - Trial: 40/100, Epoch: 4/10, Val loss: 0.0010, Elapsed time: 0:32:03, Estimated time left: 0:47:16
+2025-02-10 15:41:34,412 - INFO - Trial: 40/100, Epoch: 5/10, Val loss: 0.0008, Elapsed time: 0:39:57, Estimated time left: 0:39:28
+2025-02-10 15:49:24,653 - INFO - Trial: 40/100, Epoch: 6/10, Val loss: 0.0007, Elapsed time: 0:47:47, Estimated time left: 0:31:20
+2025-02-10 15:57:16,871 - INFO - Trial: 40/100, Epoch: 7/10, Val loss: 0.0007, Elapsed time: 0:55:39, Estimated time left: 0:23:36
+2025-02-10 16:05:10,275 - INFO - Trial: 40/100, Epoch: 8/10, Val loss: 0.0006, Elapsed time: 1:03:33, Estimated time left: 0:15:46
+2025-02-10 16:12:56,088 - INFO - Trial: 40/100, Epoch: 9/10, Val loss: 0.0006, Elapsed time: 1:11:18, Estimated time left: 0:07:45
+2025-02-10 16:20:49,006 - INFO - Trial: 40/100, Epoch: 10/10, Val loss: 0.0005, Elapsed time: 1:19:11, Estimated time left: 0:00:00
+2025-02-10 16:20:49,008 - INFO - Trial 39 finished with value: 0.0005363176810446567 and parameters: {'hidden_layers': 7, 'n_units_l': 391, 'lr': 1.0461374568425478e-05, 'batch_size': 36}. Best is trial 38 with value: 0.00019503775862250657.
+2025-02-10 16:20:49,010 - INFO - Elapsed time: 88042.82 seconds
+2025-02-10 16:20:49,010 - INFO - Estimated time left: 0.00 seconds
+2025-02-10 16:26:05,481 - INFO - Trial: 41/100, Epoch: 1/10, Val loss: 0.1264, Elapsed time: 0:05:16, Estimated time left: 0:47:28
+2025-02-10 16:30:34,290 - INFO - Trial: 41/100, Epoch: 2/10, Val loss: 0.0009, Elapsed time: 0:09:45, Estimated time left: 0:35:50
+2025-02-10 16:36:57,886 - INFO - Trial: 41/100, Epoch: 3/10, Val loss: 0.0006, Elapsed time: 0:16:08, Estimated time left: 0:44:45
+2025-02-10 16:44:11,590 - INFO - Trial: 41/100, Epoch: 4/10, Val loss: 0.0004, Elapsed time: 0:23:22, Estimated time left: 0:43:22
+2025-02-10 16:51:24,993 - INFO - Trial: 41/100, Epoch: 5/10, Val loss: 0.0004, Elapsed time: 0:30:35, Estimated time left: 0:36:07
+2025-02-10 16:58:39,401 - INFO - Trial: 41/100, Epoch: 6/10, Val loss: 0.0003, Elapsed time: 0:37:50, Estimated time left: 0:28:57
+2025-02-10 17:05:52,454 - INFO - Trial: 41/100, Epoch: 7/10, Val loss: 0.0003, Elapsed time: 0:45:03, Estimated time left: 0:21:39
+2025-02-10 17:13:05,143 - INFO - Trial: 41/100, Epoch: 8/10, Val loss: 0.0003, Elapsed time: 0:52:16, Estimated time left: 0:14:25
+2025-02-10 17:20:18,691 - INFO - Trial: 41/100, Epoch: 9/10, Val loss: 0.0002, Elapsed time: 0:59:29, Estimated time left: 0:07:13
+2025-02-10 17:27:32,061 - INFO - Trial: 41/100, Epoch: 10/10, Val loss: 0.0002, Elapsed time: 1:06:43, Estimated time left: 0:00:00
+2025-02-10 17:27:32,063 - INFO - Trial 40 finished with value: 0.00022214432309023975 and parameters: {'hidden_layers': 8, 'n_units_l': 365, 'lr': 5.845282632958613e-05, 'batch_size': 55}. Best is trial 38 with value: 0.00019503775862250657.
+2025-02-10 17:27:32,066 - INFO - Elapsed time: 92045.87 seconds
+2025-02-10 17:27:32,066 - INFO - Estimated time left: 0.00 seconds
+2025-02-10 17:34:42,686 - INFO - Trial: 42/100, Epoch: 1/10, Val loss: 0.1145, Elapsed time: 0:07:10, Estimated time left: 1:04:35
+2025-02-10 17:40:17,504 - INFO - Trial: 42/100, Epoch: 2/10, Val loss: 0.0009, Elapsed time: 0:12:45, Estimated time left: 0:44:38
+2025-02-10 17:45:49,722 - INFO - Trial: 42/100, Epoch: 3/10, Val loss: 0.0007, Elapsed time: 0:18:17, Estimated time left: 0:38:45
+2025-02-10 17:51:05,950 - INFO - Trial: 42/100, Epoch: 4/10, Val loss: 0.0005, Elapsed time: 0:23:33, Estimated time left: 0:31:37
+2025-02-10 17:56:18,710 - INFO - Trial: 42/100, Epoch: 5/10, Val loss: 0.0004, Elapsed time: 0:28:46, Estimated time left: 0:26:03
+2025-02-10 18:01:31,231 - INFO - Trial: 42/100, Epoch: 6/10, Val loss: 0.0004, Elapsed time: 0:33:59, Estimated time left: 0:20:50
+2025-02-10 18:06:43,439 - INFO - Trial: 42/100, Epoch: 7/10, Val loss: 0.0003, Elapsed time: 0:39:11, Estimated time left: 0:15:36
+2025-02-10 18:11:55,315 - INFO - Trial: 42/100, Epoch: 8/10, Val loss: 0.0003, Elapsed time: 0:44:23, Estimated time left: 0:10:23
+2025-02-10 18:17:09,626 - INFO - Trial: 42/100, Epoch: 9/10, Val loss: 0.0003, Elapsed time: 0:49:37, Estimated time left: 0:05:14
+2025-02-10 18:22:22,609 - INFO - Trial: 42/100, Epoch: 10/10, Val loss: 0.0002, Elapsed time: 0:54:50, Estimated time left: 0:00:00
+2025-02-10 18:22:22,611 - INFO - Trial 41 finished with value: 0.00023193602069286262 and parameters: {'hidden_layers': 8, 'n_units_l': 355, 'lr': 5.712598560001607e-05, 'batch_size': 53}. Best is trial 38 with value: 0.00019503775862250657.
+2025-02-10 18:22:22,614 - INFO - Elapsed time: 95336.42 seconds
+2025-02-10 18:22:22,614 - INFO - Estimated time left: 0.00 seconds
+2025-02-10 18:27:39,748 - INFO - Trial: 43/100, Epoch: 1/10, Val loss: 0.1352, Elapsed time: 0:05:17, Estimated time left: 0:47:34
+2025-02-10 18:32:42,229 - INFO - Trial: 43/100, Epoch: 2/10, Val loss: 0.0010, Elapsed time: 0:10:19, Estimated time left: 0:40:19
+2025-02-10 18:37:44,317 - INFO - Trial: 43/100, Epoch: 3/10, Val loss: 0.0007, Elapsed time: 0:15:21, Estimated time left: 0:35:14
+2025-02-10 18:43:03,467 - INFO - Trial: 43/100, Epoch: 4/10, Val loss: 0.0005, Elapsed time: 0:20:40, Estimated time left: 0:31:54
+2025-02-10 18:48:33,969 - INFO - Trial: 43/100, Epoch: 5/10, Val loss: 0.0004, Elapsed time: 0:26:11, Estimated time left: 0:27:32
+2025-02-10 18:54:01,947 - INFO - Trial: 43/100, Epoch: 6/10, Val loss: 0.0003, Elapsed time: 0:31:39, Estimated time left: 0:21:51
+2025-02-10 18:59:28,738 - INFO - Trial: 43/100, Epoch: 7/10, Val loss: 0.0003, Elapsed time: 0:37:06, Estimated time left: 0:16:20
+2025-02-10 19:04:55,909 - INFO - Trial: 43/100, Epoch: 8/10, Val loss: 0.0003, Elapsed time: 0:42:33, Estimated time left: 0:10:54
+2025-02-10 19:10:24,220 - INFO - Trial: 43/100, Epoch: 9/10, Val loss: 0.0002, Elapsed time: 0:48:01, Estimated time left: 0:05:28
+2025-02-10 19:15:50,790 - INFO - Trial: 43/100, Epoch: 10/10, Val loss: 0.0002, Elapsed time: 0:53:28, Estimated time left: 0:00:00
+2025-02-10 19:15:50,792 - INFO - Trial 42 finished with value: 0.00022278384305669604 and parameters: {'hidden_layers': 8, 'n_units_l': 353, 'lr': 6.214527952937296e-05, 'batch_size': 55}. Best is trial 38 with value: 0.00019503775862250657.
+2025-02-10 19:15:50,795 - INFO - Elapsed time: 98544.60 seconds
+2025-02-10 19:15:50,795 - INFO - Estimated time left: 0.00 seconds
+2025-02-10 19:26:24,237 - INFO - Trial: 44/100, Epoch: 1/10, Val loss: 0.0522, Elapsed time: 0:10:33, Estimated time left: 1:35:00
+2025-02-10 19:36:21,028 - INFO - Trial: 44/100, Epoch: 2/10, Val loss: 0.0006, Elapsed time: 0:20:30, Estimated time left: 1:19:34
+2025-02-10 19:46:18,559 - INFO - Trial: 44/100, Epoch: 3/10, Val loss: 0.0004, Elapsed time: 0:30:27, Estimated time left: 1:09:42
+2025-02-10 19:56:15,392 - INFO - Trial: 44/100, Epoch: 4/10, Val loss: 0.0004, Elapsed time: 0:40:24, Estimated time left: 0:59:40
+2025-02-10 20:06:13,091 - INFO - Trial: 44/100, Epoch: 5/10, Val loss: 0.0003, Elapsed time: 0:50:22, Estimated time left: 0:49:48
+2025-02-10 20:16:09,435 - INFO - Trial: 44/100, Epoch: 6/10, Val loss: 0.0003, Elapsed time: 1:00:18, Estimated time left: 0:39:45
+2025-02-10 20:26:02,174 - INFO - Trial: 44/100, Epoch: 7/10, Val loss: 0.0003, Elapsed time: 1:10:11, Estimated time left: 0:29:38
+2025-02-10 20:35:41,988 - INFO - Trial: 44/100, Epoch: 8/10, Val loss: 0.0002, Elapsed time: 1:19:51, Estimated time left: 0:19:19
+2025-02-10 20:45:21,127 - INFO - Trial: 44/100, Epoch: 9/10, Val loss: 0.0002, Elapsed time: 1:29:30, Estimated time left: 0:09:39
+2025-02-10 20:55:00,037 - INFO - Trial: 44/100, Epoch: 10/10, Val loss: 0.0002, Elapsed time: 1:39:09, Estimated time left: 0:00:00
+2025-02-10 20:55:00,039 - INFO - Trial 43 finished with value: 0.00019995786444785651 and parameters: {'hidden_layers': 7, 'n_units_l': 414, 'lr': 9.176651203868924e-05, 'batch_size': 28}. Best is trial 38 with value: 0.00019503775862250657.
+2025-02-10 20:55:00,043 - INFO - Elapsed time: 104493.85 seconds
+2025-02-10 20:55:00,043 - INFO - Estimated time left: 0.00 seconds
+2025-02-10 21:05:47,489 - INFO - Trial: 45/100, Epoch: 1/10, Val loss: 0.0748, Elapsed time: 0:10:47, Estimated time left: 1:37:06
+2025-02-10 21:16:38,335 - INFO - Trial: 45/100, Epoch: 2/10, Val loss: 0.0007, Elapsed time: 0:21:38, Estimated time left: 1:26:46
+2025-02-10 21:27:32,442 - INFO - Trial: 45/100, Epoch: 3/10, Val loss: 0.0005, Elapsed time: 0:32:32, Estimated time left: 1:16:18
+2025-02-10 21:38:26,850 - INFO - Trial: 45/100, Epoch: 4/10, Val loss: 0.0003, Elapsed time: 0:43:26, Estimated time left: 1:05:26
+2025-02-10 21:47:09,382 - INFO - Trial: 45/100, Epoch: 5/10, Val loss: 0.0003, Elapsed time: 0:52:09, Estimated time left: 0:43:32
+2025-02-10 21:59:14,128 - INFO - Trial: 45/100, Epoch: 6/10, Val loss: 0.0003, Elapsed time: 1:04:14, Estimated time left: 0:48:18
+2025-02-10 22:13:29,190 - INFO - Trial: 45/100, Epoch: 7/10, Val loss: 0.0002, Elapsed time: 1:18:29, Estimated time left: 0:42:45
+2025-02-10 22:27:44,073 - INFO - Trial: 45/100, Epoch: 8/10, Val loss: 0.0002, Elapsed time: 1:32:44, Estimated time left: 0:28:29
+2025-02-10 22:41:58,127 - INFO - Trial: 45/100, Epoch: 9/10, Val loss: 0.0002, Elapsed time: 1:46:58, Estimated time left: 0:14:14
+2025-02-10 22:55:22,019 - INFO - Trial: 45/100, Epoch: 10/10, Val loss: 0.0002, Elapsed time: 2:00:21, Estimated time left: 0:00:00
+2025-02-10 22:55:22,020 - INFO - Trial 44 finished with value: 0.00021229143424642238 and parameters: {'hidden_layers': 7, 'n_units_l': 415, 'lr': 8.648320974390216e-05, 'batch_size': 27}. Best is trial 38 with value: 0.00019503775862250657.
+2025-02-10 22:55:22,022 - INFO - Elapsed time: 111715.83 seconds
+2025-02-10 22:55:22,022 - INFO - Estimated time left: 0.00 seconds
+2025-02-10 23:07:02,561 - INFO - Trial: 46/100, Epoch: 1/10, Val loss: 0.0527, Elapsed time: 0:11:40, Estimated time left: 1:45:04
+2025-02-10 23:15:05,464 - INFO - Trial: 46/100, Epoch: 2/10, Val loss: 0.0008, Elapsed time: 0:19:43, Estimated time left: 1:04:23
+2025-02-10 23:23:02,637 - INFO - Trial: 46/100, Epoch: 3/10, Val loss: 0.0005, Elapsed time: 0:27:40, Estimated time left: 0:55:40
+2025-02-10 23:30:56,337 - INFO - Trial: 46/100, Epoch: 4/10, Val loss: 0.0004, Elapsed time: 0:35:34, Estimated time left: 0:47:22
+2025-02-10 23:39:00,899 - INFO - Trial: 46/100, Epoch: 5/10, Val loss: 0.0003, Elapsed time: 0:43:38, Estimated time left: 0:40:22
+2025-02-10 23:47:47,984 - INFO - Trial: 46/100, Epoch: 6/10, Val loss: 0.0003, Elapsed time: 0:52:25, Estimated time left: 0:35:08
+2025-02-10 23:56:28,761 - INFO - Trial: 46/100, Epoch: 7/10, Val loss: 0.0003, Elapsed time: 1:01:06, Estimated time left: 0:26:02
+2025-02-11 00:05:06,725 - INFO - Trial: 46/100, Epoch: 8/10, Val loss: 0.0002, Elapsed time: 1:09:44, Estimated time left: 0:17:15
+2025-02-11 00:13:41,718 - INFO - Trial: 46/100, Epoch: 9/10, Val loss: 0.0002, Elapsed time: 1:18:19, Estimated time left: 0:08:34
+2025-02-11 00:22:15,890 - INFO - Trial: 46/100, Epoch: 10/10, Val loss: 0.0002, Elapsed time: 1:26:53, Estimated time left: 0:00:00
+2025-02-11 00:22:15,892 - INFO - Trial 45 finished with value: 0.00020935184231368477 and parameters: {'hidden_layers': 7, 'n_units_l': 416, 'lr': 9.810927581695919e-05, 'batch_size': 32}. Best is trial 38 with value: 0.00019503775862250657.
+2025-02-11 00:22:15,894 - INFO - Elapsed time: 116929.70 seconds
+2025-02-11 00:22:15,894 - INFO - Estimated time left: 0.00 seconds
+2025-02-11 00:33:00,109 - INFO - Trial: 47/100, Epoch: 1/10, Val loss: 0.0529, Elapsed time: 0:10:44, Estimated time left: 1:36:37
+2025-02-11 00:43:07,097 - INFO - Trial: 47/100, Epoch: 2/10, Val loss: 0.0007, Elapsed time: 0:20:51, Estimated time left: 1:20:55
+2025-02-11 00:53:14,326 - INFO - Trial: 47/100, Epoch: 3/10, Val loss: 0.0005, Elapsed time: 0:30:58, Estimated time left: 1:10:50
+2025-02-11 01:03:21,803 - INFO - Trial: 47/100, Epoch: 4/10, Val loss: 0.0005, Elapsed time: 0:41:05, Estimated time left: 1:00:44
+2025-02-11 01:13:36,099 - INFO - Trial: 47/100, Epoch: 5/10, Val loss: 0.0004, Elapsed time: 0:51:20, Estimated time left: 0:51:11
+2025-02-11 01:23:59,936 - INFO - Trial: 47/100, Epoch: 6/10, Val loss: 0.0004, Elapsed time: 1:01:44, Estimated time left: 0:41:35
+2025-02-11 01:34:25,296 - INFO - Trial: 47/100, Epoch: 7/10, Val loss: 0.0003, Elapsed time: 1:12:09, Estimated time left: 0:31:16
+2025-02-11 01:44:50,728 - INFO - Trial: 47/100, Epoch: 8/10, Val loss: 0.0003, Elapsed time: 1:22:34, Estimated time left: 0:20:50
+2025-02-11 01:55:15,091 - INFO - Trial: 47/100, Epoch: 9/10, Val loss: 0.0003, Elapsed time: 1:32:59, Estimated time left: 0:10:24
+2025-02-11 02:05:34,332 - INFO - Trial: 47/100, Epoch: 10/10, Val loss: 0.0003, Elapsed time: 1:43:18, Estimated time left: 0:00:00
+2025-02-11 02:05:34,333 - INFO - Trial 46 finished with value: 0.00025860722419165114 and parameters: {'hidden_layers': 7, 'n_units_l': 412, 'lr': 0.00010325850599711046, 'batch_size': 27}. Best is trial 38 with value: 0.00019503775862250657.
+2025-02-11 02:05:34,335 - INFO - Elapsed time: 123128.14 seconds
+2025-02-11 02:05:34,336 - INFO - Estimated time left: 0.00 seconds
+2025-02-11 02:17:07,512 - INFO - Trial: 48/100, Epoch: 1/10, Val loss: 0.2486, Elapsed time: 0:11:33, Estimated time left: 1:43:58
+2025-02-11 02:28:12,457 - INFO - Trial: 48/100, Epoch: 2/10, Val loss: 0.0011, Elapsed time: 0:22:38, Estimated time left: 1:28:39
+2025-02-11 02:39:19,115 - INFO - Trial: 48/100, Epoch: 3/10, Val loss: 0.0008, Elapsed time: 0:33:44, Estimated time left: 1:17:46
+2025-02-11 02:50:11,110 - INFO - Trial: 48/100, Epoch: 4/10, Val loss: 0.0007, Elapsed time: 0:44:36, Estimated time left: 1:05:11
+2025-02-11 03:01:05,281 - INFO - Trial: 48/100, Epoch: 5/10, Val loss: 0.0005, Elapsed time: 0:55:30, Estimated time left: 0:54:30
+2025-02-11 03:12:00,199 - INFO - Trial: 48/100, Epoch: 6/10, Val loss: 0.0004, Elapsed time: 1:06:25, Estimated time left: 0:43:39
+2025-02-11 03:22:54,318 - INFO - Trial: 48/100, Epoch: 7/10, Val loss: 0.0003, Elapsed time: 1:17:19, Estimated time left: 0:32:42
+2025-02-11 03:33:40,970 - INFO - Trial: 48/100, Epoch: 8/10, Val loss: 0.0003, Elapsed time: 1:28:06, Estimated time left: 0:21:33
+2025-02-11 03:44:04,462 - INFO - Trial: 48/100, Epoch: 9/10, Val loss: 0.0003, Elapsed time: 1:38:30, Estimated time left: 0:10:23
+2025-02-11 03:54:37,623 - INFO - Trial: 48/100, Epoch: 10/10, Val loss: 0.0003, Elapsed time: 1:49:03, Estimated time left: 0:00:00
+2025-02-11 03:54:37,624 - INFO - Trial 47 finished with value: 0.0002789829459339343 and parameters: {'hidden_layers': 7, 'n_units_l': 471, 'lr': 1.6749401183836536e-05, 'batch_size': 26}. Best is trial 38 with value: 0.00019503775862250657.
+2025-02-11 03:54:37,627 - INFO - Elapsed time: 129671.43 seconds
+2025-02-11 03:54:37,627 - INFO - Estimated time left: 0.00 seconds
+2025-02-11 03:58:38,057 - INFO - Trial: 49/100, Epoch: 1/10, Val loss: 0.0535, Elapsed time: 0:04:00, Estimated time left: 0:36:03
+2025-02-11 04:02:29,400 - INFO - Trial: 49/100, Epoch: 2/10, Val loss: 0.0142, Elapsed time: 0:07:51, Estimated time left: 0:30:50
+2025-02-11 04:06:21,735 - INFO - Trial: 49/100, Epoch: 3/10, Val loss: 0.0105, Elapsed time: 0:11:44, Estimated time left: 0:27:06
+2025-02-11 04:10:13,680 - INFO - Trial: 49/100, Epoch: 4/10, Val loss: 0.0093, Elapsed time: 0:15:36, Estimated time left: 0:23:11
+2025-02-11 04:14:05,732 - INFO - Trial: 49/100, Epoch: 5/10, Val loss: 0.0087, Elapsed time: 0:19:28, Estimated time left: 0:19:20
+2025-02-11 04:17:59,059 - INFO - Trial: 49/100, Epoch: 6/10, Val loss: 0.0084, Elapsed time: 0:23:21, Estimated time left: 0:15:33
+2025-02-11 04:21:51,438 - INFO - Trial: 49/100, Epoch: 7/10, Val loss: 0.0082, Elapsed time: 0:27:13, Estimated time left: 0:11:37
+2025-02-11 04:25:42,438 - INFO - Trial: 49/100, Epoch: 8/10, Val loss: 0.0080, Elapsed time: 0:31:04, Estimated time left: 0:07:42
+2025-02-11 04:29:32,243 - INFO - Trial: 49/100, Epoch: 9/10, Val loss: 0.0079, Elapsed time: 0:34:54, Estimated time left: 0:03:49
+2025-02-11 04:33:18,991 - INFO - Trial: 49/100, Epoch: 10/10, Val loss: 0.0078, Elapsed time: 0:38:41, Estimated time left: 0:00:00
+2025-02-11 04:33:18,992 - INFO - Trial 48 finished with value: 0.007794213060899083 and parameters: {'hidden_layers': 1, 'n_units_l': 315, 'lr': 3.667488730836227e-05, 'batch_size': 37}. Best is trial 38 with value: 0.00019503775862250657.
+2025-02-11 04:33:18,995 - INFO - Elapsed time: 131992.80 seconds
+2025-02-11 04:33:18,995 - INFO - Estimated time left: 0.00 seconds
+2025-02-11 04:42:19,964 - INFO - Trial: 50/100, Epoch: 1/10, Val loss: 0.0101, Elapsed time: 0:09:00, Estimated time left: 1:21:08
+2025-02-11 04:51:25,693 - INFO - Trial: 50/100, Epoch: 2/10, Val loss: 0.0007, Elapsed time: 0:18:06, Estimated time left: 1:12:45
+2025-02-11 05:00:31,665 - INFO - Trial: 50/100, Epoch: 3/10, Val loss: 0.0006, Elapsed time: 0:27:12, Estimated time left: 1:03:41
+2025-02-11 05:09:34,263 - INFO - Trial: 50/100, Epoch: 4/10, Val loss: 0.0005, Elapsed time: 0:36:15, Estimated time left: 0:54:15
+2025-02-11 05:18:37,636 - INFO - Trial: 50/100, Epoch: 5/10, Val loss: 0.0005, Elapsed time: 0:45:18, Estimated time left: 0:45:16
+2025-02-11 05:27:40,492 - INFO - Trial: 50/100, Epoch: 6/10, Val loss: 0.0004, Elapsed time: 0:54:21, Estimated time left: 0:36:11
+2025-02-11 05:36:43,171 - INFO - Trial: 50/100, Epoch: 7/10, Val loss: 0.0004, Elapsed time: 1:03:24, Estimated time left: 0:27:08
+2025-02-11 05:45:46,355 - INFO - Trial: 50/100, Epoch: 8/10, Val loss: 0.0004, Elapsed time: 1:12:27, Estimated time left: 0:18:06
+2025-02-11 05:54:50,074 - INFO - Trial: 50/100, Epoch: 9/10, Val loss: 0.0004, Elapsed time: 1:21:31, Estimated time left: 0:09:03
+2025-02-11 06:03:54,148 - INFO - Trial: 50/100, Epoch: 10/10, Val loss: 0.0003, Elapsed time: 1:30:35, Estimated time left: 0:00:00
+2025-02-11 06:03:54,149 - INFO - Trial 49 finished with value: 0.00033176129784197545 and parameters: {'hidden_layers': 3, 'n_units_l': 402, 'lr': 0.0001621396260602387, 'batch_size': 22}. Best is trial 38 with value: 0.00019503775862250657.
+2025-02-11 06:03:54,151 - INFO - Elapsed time: 137427.96 seconds
+2025-02-11 06:03:54,152 - INFO - Estimated time left: 0.00 seconds
+2025-02-11 06:08:08,174 - INFO - Trial: 51/100, Epoch: 1/10, Val loss: 0.0034, Elapsed time: 0:04:14, Estimated time left: 0:38:06
+2025-02-11 06:12:21,569 - INFO - Trial: 51/100, Epoch: 2/10, Val loss: 0.0011, Elapsed time: 0:08:27, Estimated time left: 0:33:47
+2025-02-11 06:16:30,388 - INFO - Trial: 51/100, Epoch: 3/10, Val loss: 0.0009, Elapsed time: 0:12:36, Estimated time left: 0:29:01
+2025-02-11 06:20:45,993 - INFO - Trial: 51/100, Epoch: 4/10, Val loss: 0.0008, Elapsed time: 0:16:51, Estimated time left: 0:25:33
+2025-02-11 06:25:03,493 - INFO - Trial: 51/100, Epoch: 5/10, Val loss: 0.0008, Elapsed time: 0:21:09, Estimated time left: 0:21:27
+2025-02-11 06:29:21,582 - INFO - Trial: 51/100, Epoch: 6/10, Val loss: 0.0007, Elapsed time: 0:25:27, Estimated time left: 0:17:12
+2025-02-11 06:33:41,841 - INFO - Trial: 51/100, Epoch: 7/10, Val loss: 0.0006, Elapsed time: 0:29:47, Estimated time left: 0:13:00
+2025-02-11 06:37:59,176 - INFO - Trial: 51/100, Epoch: 8/10, Val loss: 0.0006, Elapsed time: 0:34:05, Estimated time left: 0:08:34
+2025-02-11 06:42:16,752 - INFO - Trial: 51/100, Epoch: 9/10, Val loss: 0.0006, Elapsed time: 0:38:22, Estimated time left: 0:04:17
+2025-02-11 06:46:38,117 - INFO - Trial: 51/100, Epoch: 10/10, Val loss: 0.0006, Elapsed time: 0:42:43, Estimated time left: 0:00:00
+2025-02-11 06:46:38,119 - INFO - Trial 50 finished with value: 0.0005905161573456324 and parameters: {'hidden_layers': 2, 'n_units_l': 444, 'lr': 0.00030291109442198694, 'batch_size': 43}. Best is trial 38 with value: 0.00019503775862250657.
+2025-02-11 06:46:38,121 - INFO - Elapsed time: 139991.93 seconds
+2025-02-11 06:46:38,121 - INFO - Estimated time left: 0.00 seconds
+2025-02-11 06:55:53,303 - INFO - Trial: 52/100, Epoch: 1/10, Val loss: 0.0695, Elapsed time: 0:09:15, Estimated time left: 1:23:16
+2025-02-11 07:04:48,571 - INFO - Trial: 52/100, Epoch: 2/10, Val loss: 0.0007, Elapsed time: 0:18:10, Estimated time left: 1:11:22
+2025-02-11 07:13:43,409 - INFO - Trial: 52/100, Epoch: 3/10, Val loss: 0.0006, Elapsed time: 0:27:05, Estimated time left: 1:02:23
+2025-02-11 07:22:38,295 - INFO - Trial: 52/100, Epoch: 4/10, Val loss: 0.0004, Elapsed time: 0:36:00, Estimated time left: 0:53:29
+2025-02-11 07:31:17,769 - INFO - Trial: 52/100, Epoch: 5/10, Val loss: 0.0003, Elapsed time: 0:44:39, Estimated time left: 0:43:17
+2025-02-11 07:39:59,647 - INFO - Trial: 52/100, Epoch: 6/10, Val loss: 0.0003, Elapsed time: 0:53:21, Estimated time left: 0:34:47
+2025-02-11 07:48:40,031 - INFO - Trial: 52/100, Epoch: 7/10, Val loss: 0.0004, Elapsed time: 1:02:01, Estimated time left: 0:26:01
+2025-02-11 07:57:19,152 - INFO - Trial: 52/100, Epoch: 8/10, Val loss: 0.0002, Elapsed time: 1:10:41, Estimated time left: 0:17:18
+2025-02-11 08:05:21,416 - INFO - Trial: 52/100, Epoch: 9/10, Val loss: 0.0002, Elapsed time: 1:18:43, Estimated time left: 0:08:02
+2025-02-11 08:13:15,647 - INFO - Trial: 52/100, Epoch: 10/10, Val loss: 0.0002, Elapsed time: 1:26:37, Estimated time left: 0:00:00
+2025-02-11 08:13:15,649 - INFO - Trial 51 finished with value: 0.00020408177742350423 and parameters: {'hidden_layers': 7, 'n_units_l': 372, 'lr': 7.959367761015284e-05, 'batch_size': 31}. Best is trial 38 with value: 0.00019503775862250657.
+2025-02-11 08:13:15,651 - INFO - Elapsed time: 145189.46 seconds
+2025-02-11 08:13:15,651 - INFO - Estimated time left: 0.00 seconds
+2025-02-11 08:22:31,279 - INFO - Trial: 53/100, Epoch: 1/10, Val loss: 0.0473, Elapsed time: 0:09:15, Estimated time left: 1:23:20
+2025-02-11 08:30:44,774 - INFO - Trial: 53/100, Epoch: 2/10, Val loss: 0.0007, Elapsed time: 0:17:29, Estimated time left: 1:05:47
+2025-02-11 08:38:47,491 - INFO - Trial: 53/100, Epoch: 3/10, Val loss: 0.0005, Elapsed time: 0:25:31, Estimated time left: 0:56:19
+2025-02-11 08:51:41,390 - INFO - Trial: 53/100, Epoch: 4/10, Val loss: 0.0003, Elapsed time: 0:38:25, Estimated time left: 1:17:23
+2025-02-11 09:04:34,484 - INFO - Trial: 53/100, Epoch: 5/10, Val loss: 0.0003, Elapsed time: 0:51:18, Estimated time left: 1:04:25
+2025-02-11 09:17:27,452 - INFO - Trial: 53/100, Epoch: 6/10, Val loss: 0.0003, Elapsed time: 1:04:11, Estimated time left: 0:51:31
+2025-02-11 09:30:19,897 - INFO - Trial: 53/100, Epoch: 7/10, Val loss: 0.0003, Elapsed time: 1:17:04, Estimated time left: 0:38:37
+2025-02-11 09:43:11,308 - INFO - Trial: 53/100, Epoch: 8/10, Val loss: 0.0002, Elapsed time: 1:29:55, Estimated time left: 0:25:42
+2025-02-11 09:56:17,693 - INFO - Trial: 53/100, Epoch: 9/10, Val loss: 0.0002, Elapsed time: 1:43:02, Estimated time left: 0:13:06
+2025-02-11 10:05:59,798 - INFO - Trial: 53/100, Epoch: 10/10, Val loss: 0.0002, Elapsed time: 1:52:44, Estimated time left: 0:00:00
+2025-02-11 10:05:59,801 - INFO - Trial 52 finished with value: 0.0001980462559114676 and parameters: {'hidden_layers': 7, 'n_units_l': 473, 'lr': 7.819224356941252e-05, 'batch_size': 32}. Best is trial 38 with value: 0.00019503775862250657.
+2025-02-11 10:05:59,803 - INFO - Elapsed time: 151953.61 seconds
+2025-02-11 10:05:59,804 - INFO - Estimated time left: 0.00 seconds
+2025-02-11 10:16:46,349 - INFO - Trial: 54/100, Epoch: 1/10, Val loss: 0.0386, Elapsed time: 0:10:46, Estimated time left: 1:36:58
+2025-02-11 10:26:45,710 - INFO - Trial: 54/100, Epoch: 2/10, Val loss: 0.0007, Elapsed time: 0:20:45, Estimated time left: 1:19:54
+2025-02-11 10:36:44,008 - INFO - Trial: 54/100, Epoch: 3/10, Val loss: 0.0005, Elapsed time: 0:30:44, Estimated time left: 1:09:48
+2025-02-11 10:46:46,467 - INFO - Trial: 54/100, Epoch: 4/10, Val loss: 0.0004, Elapsed time: 0:40:46, Estimated time left: 1:00:14
+2025-02-11 10:56:49,158 - INFO - Trial: 54/100, Epoch: 5/10, Val loss: 0.0003, Elapsed time: 0:50:49, Estimated time left: 0:50:13
+2025-02-11 11:06:51,490 - INFO - Trial: 54/100, Epoch: 6/10, Val loss: 0.0003, Elapsed time: 1:00:51, Estimated time left: 0:40:09
+2025-02-11 11:16:45,775 - INFO - Trial: 54/100, Epoch: 7/10, Val loss: 0.0002, Elapsed time: 1:10:45, Estimated time left: 0:29:42
+2025-02-11 11:26:38,562 - INFO - Trial: 54/100, Epoch: 8/10, Val loss: 0.0002, Elapsed time: 1:20:38, Estimated time left: 0:19:45
+2025-02-11 11:36:28,760 - INFO - Trial: 54/100, Epoch: 9/10, Val loss: 0.0002, Elapsed time: 1:30:28, Estimated time left: 0:09:50
+2025-02-11 11:46:18,968 - INFO - Trial: 54/100, Epoch: 10/10, Val loss: 0.0002, Elapsed time: 1:40:19, Estimated time left: 0:00:00
+2025-02-11 11:46:18,970 - INFO - Trial 53 finished with value: 0.00020540259871449666 and parameters: {'hidden_layers': 7, 'n_units_l': 475, 'lr': 8.286146838046247e-05, 'batch_size': 30}. Best is trial 38 with value: 0.00019503775862250657.
+2025-02-11 11:46:18,973 - INFO - Elapsed time: 157972.78 seconds
+2025-02-11 11:46:18,973 - INFO - Estimated time left: 0.00 seconds
+2025-02-11 11:55:15,868 - INFO - Trial: 55/100, Epoch: 1/10, Val loss: 0.0472, Elapsed time: 0:08:56, Estimated time left: 1:20:31
+2025-02-11 12:03:48,237 - INFO - Trial: 55/100, Epoch: 2/10, Val loss: 0.0007, Elapsed time: 0:17:29, Estimated time left: 1:08:18
+2025-02-11 12:12:15,242 - INFO - Trial: 55/100, Epoch: 3/10, Val loss: 0.0004, Elapsed time: 0:25:56, Estimated time left: 0:59:09
+2025-02-11 12:20:44,792 - INFO - Trial: 55/100, Epoch: 4/10, Val loss: 0.0003, Elapsed time: 0:34:25, Estimated time left: 0:50:57
+2025-02-11 12:29:17,238 - INFO - Trial: 55/100, Epoch: 5/10, Val loss: 0.0003, Elapsed time: 0:42:58, Estimated time left: 0:42:42
+2025-02-11 12:38:05,433 - INFO - Trial: 55/100, Epoch: 6/10, Val loss: 0.0002, Elapsed time: 0:51:46, Estimated time left: 0:35:12
+2025-02-11 12:46:50,275 - INFO - Trial: 55/100, Epoch: 7/10, Val loss: 0.0003, Elapsed time: 1:00:31, Estimated time left: 0:26:14
+2025-02-11 12:55:34,363 - INFO - Trial: 55/100, Epoch: 8/10, Val loss: 0.0002, Elapsed time: 1:09:15, Estimated time left: 0:17:28
+2025-02-11 13:04:14,936 - INFO - Trial: 55/100, Epoch: 9/10, Val loss: 0.0002, Elapsed time: 1:17:55, Estimated time left: 0:08:40
+2025-02-11 13:12:54,100 - INFO - Trial: 55/100, Epoch: 10/10, Val loss: 0.0002, Elapsed time: 1:26:35, Estimated time left: 0:00:00
+2025-02-11 13:12:54,102 - INFO - Trial 54 finished with value: 0.00018281718529685167 and parameters: {'hidden_layers': 6, 'n_units_l': 484, 'lr': 8.727063100330734e-05, 'batch_size': 32}. Best is trial 54 with value: 0.00018281718529685167.
+2025-02-11 13:12:54,105 - INFO - Elapsed time: 163167.91 seconds
+2025-02-11 13:12:54,106 - INFO - Estimated time left: 0.00 seconds
+2025-02-11 13:25:35,816 - INFO - Trial: 56/100, Epoch: 1/10, Val loss: 0.0262, Elapsed time: 0:12:41, Estimated time left: 1:54:15
+2025-02-11 13:37:12,591 - INFO - Trial: 56/100, Epoch: 2/10, Val loss: 0.0007, Elapsed time: 0:24:18, Estimated time left: 1:32:54
+2025-02-11 13:49:20,021 - INFO - Trial: 56/100, Epoch: 3/10, Val loss: 0.0005, Elapsed time: 0:36:25, Estimated time left: 1:24:52
+2025-02-11 14:01:34,138 - INFO - Trial: 56/100, Epoch: 4/10, Val loss: 0.0004, Elapsed time: 0:48:40, Estimated time left: 1:13:24
+2025-02-11 14:13:15,362 - INFO - Trial: 56/100, Epoch: 5/10, Val loss: 0.0004, Elapsed time: 1:00:21, Estimated time left: 0:58:26
+2025-02-11 14:25:19,526 - INFO - Trial: 56/100, Epoch: 6/10, Val loss: 0.0003, Elapsed time: 1:12:25, Estimated time left: 0:48:16
+2025-02-11 14:37:38,847 - INFO - Trial: 56/100, Epoch: 7/10, Val loss: 0.0003, Elapsed time: 1:24:44, Estimated time left: 0:36:57
+2025-02-11 14:49:26,359 - INFO - Trial: 56/100, Epoch: 8/10, Val loss: 0.0003, Elapsed time: 1:36:32, Estimated time left: 0:23:35
+2025-02-11 15:01:18,277 - INFO - Trial: 56/100, Epoch: 9/10, Val loss: 0.0003, Elapsed time: 1:48:24, Estimated time left: 0:11:51
+2025-02-11 15:13:17,494 - INFO - Trial: 56/100, Epoch: 10/10, Val loss: 0.0003, Elapsed time: 2:00:23, Estimated time left: 0:00:00
+2025-02-11 15:13:17,496 - INFO - Trial 55 finished with value: 0.00027053351115866026 and parameters: {'hidden_layers': 6, 'n_units_l': 467, 'lr': 0.00024357338338678209, 'batch_size': 23}. Best is trial 54 with value: 0.00018281718529685167.
+2025-02-11 15:13:17,499 - INFO - Elapsed time: 170391.31 seconds
+2025-02-11 15:13:17,499 - INFO - Estimated time left: 0.00 seconds
+2025-02-11 15:29:20,507 - INFO - Trial: 57/100, Epoch: 1/10, Val loss: 0.1212, Elapsed time: 0:16:02, Estimated time left: 2:24:26
+2025-02-11 15:44:24,554 - INFO - Trial: 57/100, Epoch: 2/10, Val loss: 0.0009, Elapsed time: 0:31:07, Estimated time left: 2:00:32
+2025-02-11 15:57:44,209 - INFO - Trial: 57/100, Epoch: 3/10, Val loss: 0.0007, Elapsed time: 0:44:26, Estimated time left: 1:33:17
+2025-02-11 16:12:49,857 - INFO - Trial: 57/100, Epoch: 4/10, Val loss: 0.0005, Elapsed time: 0:59:32, Estimated time left: 1:30:33
+2025-02-11 16:28:09,703 - INFO - Trial: 57/100, Epoch: 5/10, Val loss: 0.0004, Elapsed time: 1:14:52, Estimated time left: 1:16:39
+2025-02-11 16:43:20,437 - INFO - Trial: 57/100, Epoch: 6/10, Val loss: 0.0004, Elapsed time: 1:30:02, Estimated time left: 1:00:42
+2025-02-11 16:58:21,497 - INFO - Trial: 57/100, Epoch: 7/10, Val loss: 0.0003, Elapsed time: 1:45:03, Estimated time left: 0:45:03
+2025-02-11 17:13:43,933 - INFO - Trial: 57/100, Epoch: 8/10, Val loss: 0.0003, Elapsed time: 2:00:26, Estimated time left: 0:30:44
+2025-02-11 17:29:00,878 - INFO - Trial: 57/100, Epoch: 9/10, Val loss: 0.0003, Elapsed time: 2:15:43, Estimated time left: 0:15:16
+2025-02-11 17:43:54,589 - INFO - Trial: 57/100, Epoch: 10/10, Val loss: 0.0002, Elapsed time: 2:30:37, Estimated time left: 0:00:00
+2025-02-11 17:43:54,590 - INFO - Trial 56 finished with value: 0.0002458127863532947 and parameters: {'hidden_layers': 7, 'n_units_l': 258, 'lr': 4.080673285736151e-05, 'batch_size': 18}. Best is trial 54 with value: 0.00018281718529685167.
+2025-02-11 17:43:54,593 - INFO - Elapsed time: 179428.40 seconds
+2025-02-11 17:43:54,593 - INFO - Estimated time left: 0.00 seconds
+2025-02-11 17:52:38,650 - INFO - Trial: 58/100, Epoch: 1/10, Val loss: 0.0685, Elapsed time: 0:08:44, Estimated time left: 1:18:36
+2025-02-11 18:00:47,028 - INFO - Trial: 58/100, Epoch: 2/10, Val loss: 0.0007, Elapsed time: 0:16:52, Estimated time left: 1:05:07
+2025-02-11 18:09:21,961 - INFO - Trial: 58/100, Epoch: 3/10, Val loss: 0.0005, Elapsed time: 0:25:27, Estimated time left: 1:00:04
+2025-02-11 18:16:46,358 - INFO - Trial: 58/100, Epoch: 4/10, Val loss: 0.0004, Elapsed time: 0:32:51, Estimated time left: 0:44:26
+2025-02-11 18:22:40,329 - INFO - Trial: 58/100, Epoch: 5/10, Val loss: 0.0003, Elapsed time: 0:38:45, Estimated time left: 0:29:29
+2025-02-11 18:28:33,334 - INFO - Trial: 58/100, Epoch: 6/10, Val loss: 0.0003, Elapsed time: 0:44:38, Estimated time left: 0:23:32
+2025-02-11 18:34:26,284 - INFO - Trial: 58/100, Epoch: 7/10, Val loss: 0.0003, Elapsed time: 0:50:31, Estimated time left: 0:17:38
+2025-02-11 18:40:20,286 - INFO - Trial: 58/100, Epoch: 8/10, Val loss: 0.0002, Elapsed time: 0:56:25, Estimated time left: 0:11:48
+2025-02-11 18:46:12,878 - INFO - Trial: 58/100, Epoch: 9/10, Val loss: 0.0002, Elapsed time: 1:02:18, Estimated time left: 0:05:52
+2025-02-11 18:52:05,210 - INFO - Trial: 58/100, Epoch: 10/10, Val loss: 0.0002, Elapsed time: 1:08:10, Estimated time left: 0:00:00
+2025-02-11 18:52:05,212 - INFO - Trial 57 finished with value: 0.00018463445107941406 and parameters: {'hidden_layers': 6, 'n_units_l': 470, 'lr': 7.723005845177484e-05, 'batch_size': 33}. Best is trial 54 with value: 0.00018281718529685167.
+2025-02-11 18:52:05,215 - INFO - Elapsed time: 183519.02 seconds
+2025-02-11 18:52:05,216 - INFO - Estimated time left: 0.00 seconds
+2025-02-11 18:56:25,154 - INFO - Trial: 59/100, Epoch: 1/10, Val loss: 0.0672, Elapsed time: 0:04:19, Estimated time left: 0:38:59
+2025-02-11 19:00:29,425 - INFO - Trial: 59/100, Epoch: 2/10, Val loss: 0.0006, Elapsed time: 0:08:24, Estimated time left: 0:32:34
+2025-02-11 19:05:30,757 - INFO - Trial: 59/100, Epoch: 3/10, Val loss: 0.0005, Elapsed time: 0:13:25, Estimated time left: 0:35:09
+2025-02-11 19:10:37,495 - INFO - Trial: 59/100, Epoch: 4/10, Val loss: 0.0004, Elapsed time: 0:18:32, Estimated time left: 0:30:40
+2025-02-11 19:14:49,418 - INFO - Trial: 59/100, Epoch: 5/10, Val loss: 0.0003, Elapsed time: 0:22:44, Estimated time left: 0:20:59
+2025-02-11 19:19:55,871 - INFO - Trial: 59/100, Epoch: 6/10, Val loss: 0.0003, Elapsed time: 0:27:50, Estimated time left: 0:20:25
+2025-02-11 19:25:41,713 - INFO - Trial: 59/100, Epoch: 7/10, Val loss: 0.0002, Elapsed time: 0:33:36, Estimated time left: 0:17:17
+2025-02-11 19:31:27,071 - INFO - Trial: 59/100, Epoch: 8/10, Val loss: 0.0002, Elapsed time: 0:39:21, Estimated time left: 0:11:30
+2025-02-11 19:37:12,618 - INFO - Trial: 59/100, Epoch: 9/10, Val loss: 0.0002, Elapsed time: 0:45:07, Estimated time left: 0:05:45
+2025-02-11 19:42:45,517 - INFO - Trial: 59/100, Epoch: 10/10, Val loss: 0.0002, Elapsed time: 0:50:40, Estimated time left: 0:00:00
+2025-02-11 19:42:45,519 - INFO - Trial 58 finished with value: 0.0002119686495432039 and parameters: {'hidden_layers': 5, 'n_units_l': 481, 'lr': 0.00015356390709976117, 'batch_size': 45}. Best is trial 54 with value: 0.00018281718529685167.
+2025-02-11 19:42:45,523 - INFO - Elapsed time: 186559.33 seconds
+2025-02-11 19:42:45,524 - INFO - Estimated time left: 0.00 seconds
+2025-02-11 19:50:04,625 - INFO - Trial: 60/100, Epoch: 1/10, Val loss: 0.2513, Elapsed time: 0:07:19, Estimated time left: 1:05:51
+2025-02-11 19:57:01,095 - INFO - Trial: 60/100, Epoch: 2/10, Val loss: 0.0015, Elapsed time: 0:14:15, Estimated time left: 0:55:31
+2025-02-11 20:04:02,891 - INFO - Trial: 60/100, Epoch: 3/10, Val loss: 0.0013, Elapsed time: 0:21:17, Estimated time left: 0:49:12
+2025-02-11 20:11:03,709 - INFO - Trial: 60/100, Epoch: 4/10, Val loss: 0.0011, Elapsed time: 0:28:18, Estimated time left: 0:42:04
+2025-02-11 20:18:13,871 - INFO - Trial: 60/100, Epoch: 5/10, Val loss: 0.0010, Elapsed time: 0:35:28, Estimated time left: 0:35:50
+2025-02-11 20:25:26,636 - INFO - Trial: 60/100, Epoch: 6/10, Val loss: 0.0008, Elapsed time: 0:42:41, Estimated time left: 0:28:51
+2025-02-11 20:32:39,920 - INFO - Trial: 60/100, Epoch: 7/10, Val loss: 0.0008, Elapsed time: 0:49:54, Estimated time left: 0:21:39
+2025-02-11 20:39:39,260 - INFO - Trial: 60/100, Epoch: 8/10, Val loss: 0.0007, Elapsed time: 0:56:53, Estimated time left: 0:13:58
+2025-02-11 20:46:44,432 - INFO - Trial: 60/100, Epoch: 9/10, Val loss: 0.0007, Elapsed time: 1:03:58, Estimated time left: 0:07:05
+2025-02-11 20:53:50,106 - INFO - Trial: 60/100, Epoch: 10/10, Val loss: 0.0006, Elapsed time: 1:11:04, Estimated time left: 0:00:00
+2025-02-11 20:53:50,109 - INFO - Trial 59 finished with value: 0.0006169022789858226 and parameters: {'hidden_layers': 6, 'n_units_l': 296, 'lr': 1.5206139064884763e-05, 'batch_size': 37}. Best is trial 54 with value: 0.00018281718529685167.
+2025-02-11 20:53:50,112 - INFO - Elapsed time: 190823.92 seconds
+2025-02-11 20:53:50,112 - INFO - Estimated time left: 0.00 seconds
+2025-02-11 21:02:09,888 - INFO - Trial: 61/100, Epoch: 1/10, Val loss: 0.0906, Elapsed time: 0:08:19, Estimated time left: 1:14:57
+2025-02-11 21:10:06,087 - INFO - Trial: 61/100, Epoch: 2/10, Val loss: 0.0007, Elapsed time: 0:16:15, Estimated time left: 1:03:29
+2025-02-11 21:18:05,199 - INFO - Trial: 61/100, Epoch: 3/10, Val loss: 0.0005, Elapsed time: 0:24:15, Estimated time left: 0:55:53
+2025-02-11 21:25:53,889 - INFO - Trial: 61/100, Epoch: 4/10, Val loss: 0.0004, Elapsed time: 0:32:03, Estimated time left: 0:46:52
+2025-02-11 21:33:41,077 - INFO - Trial: 61/100, Epoch: 5/10, Val loss: 0.0004, Elapsed time: 0:39:50, Estimated time left: 0:38:55
+2025-02-11 21:41:27,280 - INFO - Trial: 61/100, Epoch: 6/10, Val loss: 0.0003, Elapsed time: 0:47:37, Estimated time left: 0:31:04
+2025-02-11 21:49:13,805 - INFO - Trial: 61/100, Epoch: 7/10, Val loss: 0.0003, Elapsed time: 0:55:23, Estimated time left: 0:23:19
+2025-02-11 21:57:03,386 - INFO - Trial: 61/100, Epoch: 8/10, Val loss: 0.0002, Elapsed time: 1:03:13, Estimated time left: 0:15:39
+2025-02-11 22:04:51,964 - INFO - Trial: 61/100, Epoch: 9/10, Val loss: 0.0002, Elapsed time: 1:11:01, Estimated time left: 0:07:48
+2025-02-11 22:12:50,300 - INFO - Trial: 61/100, Epoch: 10/10, Val loss: 0.0002, Elapsed time: 1:19:00, Estimated time left: 0:00:00
+2025-02-11 22:12:50,302 - INFO - Trial 60 finished with value: 0.00020807961534141827 and parameters: {'hidden_layers': 6, 'n_units_l': 390, 'lr': 7.290095157163114e-05, 'batch_size': 33}. Best is trial 54 with value: 0.00018281718529685167.
+2025-02-11 22:12:50,305 - INFO - Elapsed time: 195564.11 seconds
+2025-02-11 22:12:50,306 - INFO - Estimated time left: 0.00 seconds
+2025-02-11 22:22:16,178 - INFO - Trial: 62/100, Epoch: 1/10, Val loss: 0.0490, Elapsed time: 0:09:25, Estimated time left: 1:24:52
+2025-02-11 22:30:50,009 - INFO - Trial: 62/100, Epoch: 2/10, Val loss: 0.0006, Elapsed time: 0:17:59, Estimated time left: 1:08:30
+2025-02-11 22:39:23,618 - INFO - Trial: 62/100, Epoch: 3/10, Val loss: 0.0006, Elapsed time: 0:26:33, Estimated time left: 0:59:55
+2025-02-11 22:47:57,900 - INFO - Trial: 62/100, Epoch: 4/10, Val loss: 0.0004, Elapsed time: 0:35:07, Estimated time left: 0:51:25
+2025-02-11 22:56:35,645 - INFO - Trial: 62/100, Epoch: 5/10, Val loss: 0.0003, Elapsed time: 0:43:45, Estimated time left: 0:43:08
+2025-02-11 23:05:39,502 - INFO - Trial: 62/100, Epoch: 6/10, Val loss: 0.0003, Elapsed time: 0:52:49, Estimated time left: 0:36:15
+2025-02-11 23:15:04,794 - INFO - Trial: 62/100, Epoch: 7/10, Val loss: 0.0002, Elapsed time: 1:02:14, Estimated time left: 0:28:15
+2025-02-11 23:24:28,308 - INFO - Trial: 62/100, Epoch: 8/10, Val loss: 0.0002, Elapsed time: 1:11:37, Estimated time left: 0:18:47
+2025-02-11 23:33:57,839 - INFO - Trial: 62/100, Epoch: 9/10, Val loss: 0.0003, Elapsed time: 1:21:07, Estimated time left: 0:09:29
+2025-02-11 23:43:28,400 - INFO - Trial: 62/100, Epoch: 10/10, Val loss: 0.0002, Elapsed time: 1:30:38, Estimated time left: 0:00:00
+2025-02-11 23:43:28,401 - INFO - Trial 61 finished with value: 0.0002042025358342671 and parameters: {'hidden_layers': 6, 'n_units_l': 480, 'lr': 0.00011682542251127492, 'batch_size': 29}. Best is trial 54 with value: 0.00018281718529685167.
+2025-02-11 23:43:28,405 - INFO - Elapsed time: 201002.21 seconds
+2025-02-11 23:43:28,405 - INFO - Estimated time left: 0.00 seconds
+2025-02-11 23:55:41,406 - INFO - Trial: 63/100, Epoch: 1/10, Val loss: 0.1633, Elapsed time: 0:12:12, Estimated time left: 1:49:56
+2025-02-12 00:07:14,025 - INFO - Trial: 63/100, Epoch: 2/10, Val loss: 0.1632, Elapsed time: 0:23:45, Estimated time left: 1:32:20
+2025-02-12 00:18:48,961 - INFO - Trial: 63/100, Epoch: 3/10, Val loss: 0.1640, Elapsed time: 0:35:20, Estimated time left: 1:21:04
+2025-02-12 00:30:16,573 - INFO - Trial: 63/100, Epoch: 4/10, Val loss: 0.1647, Elapsed time: 0:46:48, Estimated time left: 1:08:45
+2025-02-12 00:41:37,004 - INFO - Trial: 63/100, Epoch: 5/10, Val loss: 0.1635, Elapsed time: 0:58:08, Estimated time left: 0:56:42
+2025-02-12 00:53:08,997 - INFO - Trial: 63/100, Epoch: 6/10, Val loss: 0.1635, Elapsed time: 1:09:40, Estimated time left: 0:46:07
+2025-02-12 01:05:19,503 - INFO - Trial: 63/100, Epoch: 7/10, Val loss: 0.1633, Elapsed time: 1:21:51, Estimated time left: 0:36:31
+2025-02-12 01:17:23,259 - INFO - Trial: 63/100, Epoch: 8/10, Val loss: 0.1633, Elapsed time: 1:33:54, Estimated time left: 0:24:07
+2025-02-12 01:28:51,965 - INFO - Trial: 63/100, Epoch: 9/10, Val loss: 0.1632, Elapsed time: 1:45:23, Estimated time left: 0:11:28
+2025-02-12 01:40:22,061 - INFO - Trial: 63/100, Epoch: 10/10, Val loss: 0.1649, Elapsed time: 1:56:53, Estimated time left: 0:00:00
+2025-02-12 01:40:22,064 - INFO - Trial 62 finished with value: 0.16485821728576028 and parameters: {'hidden_layers': 6, 'n_units_l': 436, 'lr': 0.08908255348055023, 'batch_size': 24}. Best is trial 54 with value: 0.00018281718529685167.
+2025-02-12 01:40:22,067 - INFO - Elapsed time: 208015.87 seconds
+2025-02-12 01:40:22,067 - INFO - Estimated time left: 0.00 seconds
+2025-02-12 01:53:39,240 - INFO - Trial: 64/100, Epoch: 1/10, Val loss: 0.0404, Elapsed time: 0:13:17, Estimated time left: 1:59:34
+2025-02-12 02:06:17,673 - INFO - Trial: 64/100, Epoch: 2/10, Val loss: 0.0006, Elapsed time: 0:25:55, Estimated time left: 1:41:07
+2025-02-12 02:18:45,400 - INFO - Trial: 64/100, Epoch: 3/10, Val loss: 0.0005, Elapsed time: 0:38:23, Estimated time left: 1:27:14
+2025-02-12 02:31:06,409 - INFO - Trial: 64/100, Epoch: 4/10, Val loss: 0.0004, Elapsed time: 0:50:44, Estimated time left: 1:14:06
+2025-02-12 02:42:56,327 - INFO - Trial: 64/100, Epoch: 5/10, Val loss: 0.0003, Elapsed time: 1:02:34, Estimated time left: 0:59:09
+2025-02-12 02:54:30,217 - INFO - Trial: 64/100, Epoch: 6/10, Val loss: 0.0003, Elapsed time: 1:14:08, Estimated time left: 0:46:15
+2025-02-12 03:06:32,437 - INFO - Trial: 64/100, Epoch: 7/10, Val loss: 0.0003, Elapsed time: 1:26:10, Estimated time left: 0:36:06
+2025-02-12 03:19:02,582 - INFO - Trial: 64/100, Epoch: 8/10, Val loss: 0.0003, Elapsed time: 1:38:40, Estimated time left: 0:25:00
+2025-02-12 03:31:15,347 - INFO - Trial: 64/100, Epoch: 9/10, Val loss: 0.0002, Elapsed time: 1:50:53, Estimated time left: 0:12:12
+2025-02-12 03:43:26,965 - INFO - Trial: 64/100, Epoch: 10/10, Val loss: 0.0002, Elapsed time: 2:03:04, Estimated time left: 0:00:00
+2025-02-12 03:43:26,967 - INFO - Trial 63 finished with value: 0.00023463518083734016 and parameters: {'hidden_layers': 5, 'n_units_l': 482, 'lr': 0.00015017173419476414, 'batch_size': 20}. Best is trial 54 with value: 0.00018281718529685167.
+2025-02-12 03:43:26,971 - INFO - Elapsed time: 215400.78 seconds
+2025-02-12 03:43:26,971 - INFO - Estimated time left: 0.00 seconds
+2025-02-12 03:51:55,225 - INFO - Trial: 65/100, Epoch: 1/10, Val loss: 0.0516, Elapsed time: 0:08:28, Estimated time left: 1:16:14
+2025-02-12 03:57:36,934 - INFO - Trial: 65/100, Epoch: 2/10, Val loss: 0.0007, Elapsed time: 0:14:09, Estimated time left: 0:45:33
+2025-02-12 04:03:17,475 - INFO - Trial: 65/100, Epoch: 3/10, Val loss: 0.0005, Elapsed time: 0:19:50, Estimated time left: 0:39:43
+2025-02-12 04:08:58,579 - INFO - Trial: 65/100, Epoch: 4/10, Val loss: 0.0004, Elapsed time: 0:25:31, Estimated time left: 0:34:06
+2025-02-12 04:14:38,983 - INFO - Trial: 65/100, Epoch: 5/10, Val loss: 0.0003, Elapsed time: 0:31:11, Estimated time left: 0:28:22
+2025-02-12 04:20:19,305 - INFO - Trial: 65/100, Epoch: 6/10, Val loss: 0.0003, Elapsed time: 0:36:52, Estimated time left: 0:22:41
+2025-02-12 04:25:59,284 - INFO - Trial: 65/100, Epoch: 7/10, Val loss: 0.0003, Elapsed time: 0:42:32, Estimated time left: 0:16:59
+2025-02-12 04:31:39,939 - INFO - Trial: 65/100, Epoch: 8/10, Val loss: 0.0002, Elapsed time: 0:48:12, Estimated time left: 0:11:21
+2025-02-12 04:37:19,953 - INFO - Trial: 65/100, Epoch: 9/10, Val loss: 0.0002, Elapsed time: 0:53:52, Estimated time left: 0:05:40
+2025-02-12 04:43:04,985 - INFO - Trial: 65/100, Epoch: 10/10, Val loss: 0.0002, Elapsed time: 0:59:37, Estimated time left: 0:00:00
+2025-02-12 04:43:04,987 - INFO - Trial 64 finished with value: 0.00021263991708377284 and parameters: {'hidden_layers': 6, 'n_units_l': 492, 'lr': 0.00011341824247703519, 'batch_size': 30}. Best is trial 54 with value: 0.00018281718529685167.
+2025-02-12 04:43:04,990 - INFO - Elapsed time: 218978.80 seconds
+2025-02-12 04:43:04,990 - INFO - Estimated time left: 0.00 seconds
+2025-02-12 04:48:14,154 - INFO - Trial: 66/100, Epoch: 1/10, Val loss: 0.1496, Elapsed time: 0:05:09, Estimated time left: 0:46:22
+2025-02-12 04:52:55,812 - INFO - Trial: 66/100, Epoch: 2/10, Val loss: 0.0008, Elapsed time: 0:09:50, Estimated time left: 0:37:33
+2025-02-12 04:57:38,221 - INFO - Trial: 66/100, Epoch: 3/10, Val loss: 0.0005, Elapsed time: 0:14:33, Estimated time left: 0:32:56
+2025-02-12 05:02:20,339 - INFO - Trial: 66/100, Epoch: 4/10, Val loss: 0.0004, Elapsed time: 0:19:15, Estimated time left: 0:28:12
+2025-02-12 05:07:02,635 - INFO - Trial: 66/100, Epoch: 5/10, Val loss: 0.0003, Elapsed time: 0:23:57, Estimated time left: 0:23:31
+2025-02-12 05:11:45,013 - INFO - Trial: 66/100, Epoch: 6/10, Val loss: 0.0002, Elapsed time: 0:28:40, Estimated time left: 0:18:49
+2025-02-12 05:16:27,189 - INFO - Trial: 66/100, Epoch: 7/10, Val loss: 0.0002, Elapsed time: 0:33:22, Estimated time left: 0:14:06
+2025-02-12 05:21:09,394 - INFO - Trial: 66/100, Epoch: 8/10, Val loss: 0.0002, Elapsed time: 0:38:04, Estimated time left: 0:09:24
+2025-02-12 05:25:51,409 - INFO - Trial: 66/100, Epoch: 9/10, Val loss: 0.0002, Elapsed time: 0:42:46, Estimated time left: 0:04:42
+2025-02-12 05:30:33,911 - INFO - Trial: 66/100, Epoch: 10/10, Val loss: 0.0002, Elapsed time: 0:47:28, Estimated time left: 0:00:00
+2025-02-12 05:30:33,913 - INFO - Trial 65 finished with value: 0.00020972742768048192 and parameters: {'hidden_layers': 7, 'n_units_l': 452, 'lr': 4.939631160427955e-05, 'batch_size': 40}. Best is trial 54 with value: 0.00018281718529685167.
+2025-02-12 05:30:33,917 - INFO - Elapsed time: 221827.72 seconds
+2025-02-12 05:30:33,917 - INFO - Estimated time left: 0.00 seconds
+2025-02-12 05:34:45,526 - INFO - Trial: 67/100, Epoch: 1/10, Val loss: 0.0155, Elapsed time: 0:04:11, Estimated time left: 0:37:44
+2025-02-12 05:38:44,230 - INFO - Trial: 67/100, Epoch: 2/10, Val loss: 0.0006, Elapsed time: 0:08:10, Estimated time left: 0:31:49
+2025-02-12 05:42:44,254 - INFO - Trial: 67/100, Epoch: 3/10, Val loss: 0.0005, Elapsed time: 0:12:10, Estimated time left: 0:28:00
+2025-02-12 05:46:41,584 - INFO - Trial: 67/100, Epoch: 4/10, Val loss: 0.0004, Elapsed time: 0:16:07, Estimated time left: 0:23:43
+2025-02-12 05:50:39,538 - INFO - Trial: 67/100, Epoch: 5/10, Val loss: 0.0004, Elapsed time: 0:20:05, Estimated time left: 0:19:49
+2025-02-12 05:54:36,458 - INFO - Trial: 67/100, Epoch: 6/10, Val loss: 0.0003, Elapsed time: 0:24:02, Estimated time left: 0:15:47
+2025-02-12 05:58:33,571 - INFO - Trial: 67/100, Epoch: 7/10, Val loss: 0.0003, Elapsed time: 0:27:59, Estimated time left: 0:11:51
+2025-02-12 06:02:32,870 - INFO - Trial: 67/100, Epoch: 8/10, Val loss: 0.0003, Elapsed time: 0:31:58, Estimated time left: 0:07:58
+2025-02-12 06:06:31,138 - INFO - Trial: 67/100, Epoch: 9/10, Val loss: 0.0003, Elapsed time: 0:35:57, Estimated time left: 0:03:58
+2025-02-12 06:10:28,170 - INFO - Trial: 67/100, Epoch: 10/10, Val loss: 0.0003, Elapsed time: 0:39:54, Estimated time left: 0:00:00
+2025-02-12 06:10:28,171 - INFO - Trial 66 finished with value: 0.00025892969321128766 and parameters: {'hidden_layers': 4, 'n_units_l': 431, 'lr': 0.00028952475348031784, 'batch_size': 47}. Best is trial 54 with value: 0.00018281718529685167.
+2025-02-12 06:10:28,175 - INFO - Elapsed time: 224221.98 seconds
+2025-02-12 06:10:28,175 - INFO - Estimated time left: 0.00 seconds
+2025-02-12 06:16:53,055 - INFO - Trial: 68/100, Epoch: 1/10, Val loss: 0.0691, Elapsed time: 0:06:24, Estimated time left: 0:57:43
+2025-02-12 06:22:55,938 - INFO - Trial: 68/100, Epoch: 2/10, Val loss: 0.0007, Elapsed time: 0:12:27, Estimated time left: 0:48:23
+2025-02-12 06:28:58,963 - INFO - Trial: 68/100, Epoch: 3/10, Val loss: 0.0005, Elapsed time: 0:18:30, Estimated time left: 0:42:21
+2025-02-12 06:35:00,530 - INFO - Trial: 68/100, Epoch: 4/10, Val loss: 0.0005, Elapsed time: 0:24:32, Estimated time left: 0:36:09
+2025-02-12 06:41:03,296 - INFO - Trial: 68/100, Epoch: 5/10, Val loss: 0.0004, Elapsed time: 0:30:35, Estimated time left: 0:30:13
+2025-02-12 06:47:05,633 - INFO - Trial: 68/100, Epoch: 6/10, Val loss: 0.0003, Elapsed time: 0:36:37, Estimated time left: 0:24:09
+2025-02-12 06:53:08,311 - INFO - Trial: 68/100, Epoch: 7/10, Val loss: 0.0003, Elapsed time: 0:42:40, Estimated time left: 0:18:08
+2025-02-12 06:59:11,205 - INFO - Trial: 68/100, Epoch: 8/10, Val loss: 0.0003, Elapsed time: 0:48:43, Estimated time left: 0:12:05
+2025-02-12 07:05:14,127 - INFO - Trial: 68/100, Epoch: 9/10, Val loss: 0.0002, Elapsed time: 0:54:45, Estimated time left: 0:06:02
+2025-02-12 07:11:16,793 - INFO - Trial: 68/100, Epoch: 10/10, Val loss: 0.0002, Elapsed time: 1:00:48, Estimated time left: 0:00:00
+2025-02-12 07:11:16,795 - INFO - Trial 67 finished with value: 0.00024726420808357275 and parameters: {'hidden_layers': 6, 'n_units_l': 341, 'lr': 0.00020168038858413084, 'batch_size': 34}. Best is trial 54 with value: 0.00018281718529685167.
+2025-02-12 07:11:16,799 - INFO - Elapsed time: 227870.61 seconds
+2025-02-12 07:11:16,799 - INFO - Estimated time left: 0.00 seconds
+2025-02-12 07:18:04,427 - INFO - Trial: 69/100, Epoch: 1/10, Val loss: 0.0542, Elapsed time: 0:06:47, Estimated time left: 1:01:08
+2025-02-12 07:24:02,605 - INFO - Trial: 69/100, Epoch: 2/10, Val loss: 0.0010, Elapsed time: 0:12:45, Estimated time left: 0:47:45
+2025-02-12 07:30:01,078 - INFO - Trial: 69/100, Epoch: 3/10, Val loss: 0.0007, Elapsed time: 0:18:44, Estimated time left: 0:41:49
+2025-02-12 07:35:58,482 - INFO - Trial: 69/100, Epoch: 4/10, Val loss: 0.0007, Elapsed time: 0:24:41, Estimated time left: 0:35:44
+2025-02-12 07:41:57,145 - INFO - Trial: 69/100, Epoch: 5/10, Val loss: 0.0005, Elapsed time: 0:30:40, Estimated time left: 0:29:53
+2025-02-12 07:47:55,501 - INFO - Trial: 69/100, Epoch: 6/10, Val loss: 0.0005, Elapsed time: 0:36:38, Estimated time left: 0:23:53
+2025-02-12 07:53:53,799 - INFO - Trial: 69/100, Epoch: 7/10, Val loss: 0.0004, Elapsed time: 0:42:36, Estimated time left: 0:17:54
+2025-02-12 07:59:51,808 - INFO - Trial: 69/100, Epoch: 8/10, Val loss: 0.0004, Elapsed time: 0:48:34, Estimated time left: 0:11:56
+2025-02-12 08:05:49,737 - INFO - Trial: 69/100, Epoch: 9/10, Val loss: 0.0004, Elapsed time: 0:54:32, Estimated time left: 0:05:57
+2025-02-12 08:11:47,696 - INFO - Trial: 69/100, Epoch: 10/10, Val loss: 0.0003, Elapsed time: 1:00:30, Estimated time left: 0:00:00
+2025-02-12 08:11:47,698 - INFO - Trial 68 finished with value: 0.0003253690321501169 and parameters: {'hidden_layers': 7, 'n_units_l': 384, 'lr': 0.0007720721846201903, 'batch_size': 30}. Best is trial 54 with value: 0.00018281718529685167.
+2025-02-12 08:11:47,701 - INFO - Elapsed time: 231501.51 seconds
+2025-02-12 08:11:47,702 - INFO - Estimated time left: 0.00 seconds
+2025-02-12 08:20:11,959 - INFO - Trial: 70/100, Epoch: 1/10, Val loss: 0.1131, Elapsed time: 0:08:24, Estimated time left: 1:15:38
+2025-02-12 08:28:09,202 - INFO - Trial: 70/100, Epoch: 2/10, Val loss: 0.0008, Elapsed time: 0:16:21, Estimated time left: 1:03:37
+2025-02-12 08:36:06,200 - INFO - Trial: 70/100, Epoch: 3/10, Val loss: 0.0005, Elapsed time: 0:24:18, Estimated time left: 0:55:38
+2025-02-12 08:42:01,637 - INFO - Trial: 70/100, Epoch: 4/10, Val loss: 0.0004, Elapsed time: 0:30:13, Estimated time left: 0:35:32
+2025-02-12 08:47:59,361 - INFO - Trial: 70/100, Epoch: 5/10, Val loss: 0.0003, Elapsed time: 0:36:11, Estimated time left: 0:29:48
+2025-02-12 08:53:54,485 - INFO - Trial: 70/100, Epoch: 6/10, Val loss: 0.0003, Elapsed time: 0:42:06, Estimated time left: 0:23:40
+2025-02-12 09:01:51,730 - INFO - Trial: 70/100, Epoch: 7/10, Val loss: 0.0003, Elapsed time: 0:50:04, Estimated time left: 0:23:51
+2025-02-12 09:09:49,898 - INFO - Trial: 70/100, Epoch: 8/10, Val loss: 0.0002, Elapsed time: 0:58:02, Estimated time left: 0:15:56
+2025-02-12 09:15:45,496 - INFO - Trial: 70/100, Epoch: 9/10, Val loss: 0.0002, Elapsed time: 1:03:57, Estimated time left: 0:05:55
+2025-02-12 09:23:42,537 - INFO - Trial: 70/100, Epoch: 10/10, Val loss: 0.0002, Elapsed time: 1:11:54, Estimated time left: 0:00:00
+2025-02-12 09:23:42,539 - INFO - Trial 69 finished with value: 0.00020403422334204608 and parameters: {'hidden_layers': 5, 'n_units_l': 406, 'lr': 3.942134911149588e-05, 'batch_size': 25}. Best is trial 54 with value: 0.00018281718529685167.
+2025-02-12 09:23:42,542 - INFO - Elapsed time: 235816.35 seconds
+2025-02-12 09:23:42,542 - INFO - Estimated time left: 0.00 seconds
+2025-02-12 09:32:55,243 - INFO - Trial: 71/100, Epoch: 1/10, Val loss: 0.1050, Elapsed time: 0:09:12, Estimated time left: 1:22:54
+2025-02-12 09:40:17,012 - INFO - Trial: 71/100, Epoch: 2/10, Val loss: 0.0008, Elapsed time: 0:16:34, Estimated time left: 0:58:54
+2025-02-12 09:50:04,054 - INFO - Trial: 71/100, Epoch: 3/10, Val loss: 0.0006, Elapsed time: 0:26:21, Estimated time left: 1:08:29
+2025-02-12 09:57:25,817 - INFO - Trial: 71/100, Epoch: 4/10, Val loss: 0.0004, Elapsed time: 0:33:43, Estimated time left: 0:44:10
+2025-02-12 10:06:27,793 - INFO - Trial: 71/100, Epoch: 5/10, Val loss: 0.0003, Elapsed time: 0:42:45, Estimated time left: 0:45:09
+2025-02-12 10:14:01,105 - INFO - Trial: 71/100, Epoch: 6/10, Val loss: 0.0003, Elapsed time: 0:50:18, Estimated time left: 0:30:13
+2025-02-12 10:21:30,843 - INFO - Trial: 71/100, Epoch: 7/10, Val loss: 0.0003, Elapsed time: 0:57:48, Estimated time left: 0:22:29
+2025-02-12 10:29:36,439 - INFO - Trial: 71/100, Epoch: 8/10, Val loss: 0.0003, Elapsed time: 1:05:53, Estimated time left: 0:16:11
+2025-02-12 10:37:55,356 - INFO - Trial: 71/100, Epoch: 9/10, Val loss: 0.0002, Elapsed time: 1:14:12, Estimated time left: 0:08:18
+2025-02-12 10:47:20,154 - INFO - Trial: 71/100, Epoch: 10/10, Val loss: 0.0002, Elapsed time: 1:23:37, Estimated time left: 0:00:00
+2025-02-12 10:47:20,155 - INFO - Trial 70 finished with value: 0.00019680192113453814 and parameters: {'hidden_layers': 5, 'n_units_l': 402, 'lr': 3.5610243755338674e-05, 'batch_size': 20}. Best is trial 54 with value: 0.00018281718529685167.
+2025-02-12 10:47:20,158 - INFO - Elapsed time: 240833.96 seconds
+2025-02-12 10:47:20,158 - INFO - Estimated time left: 0.00 seconds
+2025-02-12 10:59:02,248 - INFO - Trial: 72/100, Epoch: 1/10, Val loss: 0.1242, Elapsed time: 0:11:42, Estimated time left: 1:45:18
+2025-02-12 11:07:10,690 - INFO - Trial: 72/100, Epoch: 2/10, Val loss: 0.0009, Elapsed time: 0:19:50, Estimated time left: 1:05:07
+2025-02-12 11:18:21,890 - INFO - Trial: 72/100, Epoch: 3/10, Val loss: 0.0006, Elapsed time: 0:31:01, Estimated time left: 1:18:18
+2025-02-12 11:26:17,650 - INFO - Trial: 72/100, Epoch: 4/10, Val loss: 0.0005, Elapsed time: 0:38:57, Estimated time left: 0:47:34
+2025-02-12 11:33:55,058 - INFO - Trial: 72/100, Epoch: 5/10, Val loss: 0.0004, Elapsed time: 0:46:34, Estimated time left: 0:38:07
+2025-02-12 11:39:59,219 - INFO - Trial: 72/100, Epoch: 6/10, Val loss: 0.0003, Elapsed time: 0:52:39, Estimated time left: 0:24:16
+2025-02-12 11:46:03,600 - INFO - Trial: 72/100, Epoch: 7/10, Val loss: 0.0003, Elapsed time: 0:58:43, Estimated time left: 0:18:13
+2025-02-12 11:52:06,809 - INFO - Trial: 72/100, Epoch: 8/10, Val loss: 0.0003, Elapsed time: 1:04:46, Estimated time left: 0:12:06
+2025-02-12 12:00:07,737 - INFO - Trial: 72/100, Epoch: 9/10, Val loss: 0.0002, Elapsed time: 1:12:47, Estimated time left: 0:08:00
+2025-02-12 12:06:09,194 - INFO - Trial: 72/100, Epoch: 10/10, Val loss: 0.0002, Elapsed time: 1:18:49, Estimated time left: 0:00:00
+2025-02-12 12:06:09,195 - INFO - Trial 71 finished with value: 0.0002209437430080925 and parameters: {'hidden_layers': 5, 'n_units_l': 403, 'lr': 3.340888299606801e-05, 'batch_size': 25}. Best is trial 54 with value: 0.00018281718529685167.
+2025-02-12 12:06:09,198 - INFO - Elapsed time: 245563.00 seconds
+2025-02-12 12:06:09,198 - INFO - Estimated time left: 0.00 seconds
+2025-02-12 12:14:21,166 - INFO - Trial: 73/100, Epoch: 1/10, Val loss: 0.1050, Elapsed time: 0:08:11, Estimated time left: 1:13:47
+2025-02-12 12:22:01,853 - INFO - Trial: 73/100, Epoch: 2/10, Val loss: 0.0011, Elapsed time: 0:15:52, Estimated time left: 1:01:25
+2025-02-12 12:29:20,528 - INFO - Trial: 73/100, Epoch: 3/10, Val loss: 0.0008, Elapsed time: 0:23:11, Estimated time left: 0:51:10
+2025-02-12 12:35:53,514 - INFO - Trial: 73/100, Epoch: 4/10, Val loss: 0.0007, Elapsed time: 0:29:44, Estimated time left: 0:39:17
+2025-02-12 12:42:26,261 - INFO - Trial: 73/100, Epoch: 5/10, Val loss: 0.0006, Elapsed time: 0:36:17, Estimated time left: 0:32:43
+2025-02-12 12:48:59,144 - INFO - Trial: 73/100, Epoch: 6/10, Val loss: 0.0005, Elapsed time: 0:42:49, Estimated time left: 0:26:11
+2025-02-12 12:55:31,803 - INFO - Trial: 73/100, Epoch: 7/10, Val loss: 0.0005, Elapsed time: 0:49:22, Estimated time left: 0:19:37
+2025-02-12 13:02:05,395 - INFO - Trial: 73/100, Epoch: 8/10, Val loss: 0.0004, Elapsed time: 0:55:56, Estimated time left: 0:13:07
+2025-02-12 13:08:38,517 - INFO - Trial: 73/100, Epoch: 9/10, Val loss: 0.0004, Elapsed time: 1:02:29, Estimated time left: 0:06:33
+2025-02-12 13:15:11,485 - INFO - Trial: 73/100, Epoch: 10/10, Val loss: 0.0004, Elapsed time: 1:09:02, Estimated time left: 0:00:00
+2025-02-12 13:15:11,487 - INFO - Trial 72 finished with value: 0.000398070583916342 and parameters: {'hidden_layers': 4, 'n_units_l': 372, 'lr': 1.7154264707504945e-05, 'batch_size': 20}. Best is trial 54 with value: 0.00018281718529685167.
+2025-02-12 13:15:11,490 - INFO - Elapsed time: 249705.30 seconds
+2025-02-12 13:15:11,490 - INFO - Estimated time left: 0.00 seconds
+2025-02-12 13:23:47,190 - INFO - Trial: 74/100, Epoch: 1/10, Val loss: 0.0381, Elapsed time: 0:08:35, Estimated time left: 1:17:21
+2025-02-12 13:25:55,199 - WARNING - Trial 73 failed with parameters: {'hidden_layers': 5, 'n_units_l': 456, 'lr': 7.203515257327992e-05, 'batch_size': 18} because of the following error: RuntimeError('CUDA error: unknown error\nCUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.\nFor debugging consider passing CUDA_LAUNCH_BLOCKING=1.\nCompile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.\n').
+Traceback (most recent call last):
+  File "C:\Users\cervinka\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\optuna\study\_optimize.py", line 197, in _run_trial
+    value_or_values = func(trial)
+                      ^^^^^^^^^^^
+  File "C:\Users\cervinka\cervinka\GitHub\MathCAS\NNoptuna_shear.py", line 241, in <lambda>
+    study.optimize(lambda trial: objective(trial, task=task), n_trials=n_trials, callbacks=[logging_callback])
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\cervinka\cervinka\GitHub\MathCAS\NNoptuna_shear.py", line 143, in objective
+    batch_x, batch_y = batch_x.to(device), batch_y.to(device)
+                       ^^^^^^^^^^^^^^^^^^
+RuntimeError: CUDA error: unknown error
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1.
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+2025-02-12 13:25:55,202 - WARNING - Trial 73 failed with value None.
+2025-02-12 13:25:55,203 - ERROR - Traceback (most recent call last):
+2025-02-12 13:25:55,203 - ERROR -   File "C:\Users\cervinka\cervinka\GitHub\MathCAS\NNoptuna_shear.py", line 293, in <module>
+2025-02-12 13:25:55,204 - ERROR - run_optimization(task=task)
+2025-02-12 13:25:55,204 - ERROR -   File "C:\Users\cervinka\cervinka\GitHub\MathCAS\NNoptuna_shear.py", line 241, in run_optimization
+2025-02-12 13:25:55,205 - ERROR - study.optimize(lambda trial: objective(trial, task=task), n_trials=n_trials, callbacks=[logging_callback])
+2025-02-12 13:25:55,205 - ERROR -   File "C:\Users\cervinka\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\optuna\study\study.py", line 475, in optimize
+2025-02-12 13:25:55,208 - ERROR - _optimize(
+2025-02-12 13:25:55,208 - ERROR -   File "C:\Users\cervinka\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\optuna\study\_optimize.py", line 63, in _optimize
+2025-02-12 13:25:55,209 - ERROR - _optimize_sequential(
+2025-02-12 13:25:55,209 - ERROR -   File "C:\Users\cervinka\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\optuna\study\_optimize.py", line 160, in _optimize_sequential
+2025-02-12 13:25:55,210 - ERROR - frozen_trial = _run_trial(study, func, catch)
+2025-02-12 13:25:55,210 - ERROR - ^
+2025-02-12 13:25:55,210 - ERROR - ^
+2025-02-12 13:25:55,210 - ERROR - ^
+2025-02-12 13:25:55,210 - ERROR - ^
+2025-02-12 13:25:55,211 - ERROR - ^
+2025-02-12 13:25:55,211 - ERROR - ^
+2025-02-12 13:25:55,211 - ERROR - ^
+2025-02-12 13:25:55,211 - ERROR - ^
+2025-02-12 13:25:55,212 - ERROR - ^
+2025-02-12 13:25:55,212 - ERROR - ^
+2025-02-12 13:25:55,212 - ERROR - ^
+2025-02-12 13:25:55,212 - ERROR - ^
+2025-02-12 13:25:55,213 - ERROR - ^
+2025-02-12 13:25:55,213 - ERROR - ^
+2025-02-12 13:25:55,213 - ERROR - ^
+2025-02-12 13:25:55,213 - ERROR - ^
+2025-02-12 13:25:55,214 - ERROR - ^
+2025-02-12 13:25:55,214 - ERROR - ^
+2025-02-12 13:25:55,214 - ERROR - ^
+2025-02-12 13:25:55,214 - ERROR - ^
+2025-02-12 13:25:55,215 - ERROR - ^
+2025-02-12 13:25:55,215 - ERROR - ^
+2025-02-12 13:25:55,215 - ERROR - ^
+2025-02-12 13:25:55,215 - ERROR - ^
+2025-02-12 13:25:55,216 - ERROR - ^
+2025-02-12 13:25:55,216 - ERROR - ^
+2025-02-12 13:25:55,216 - ERROR - ^
+2025-02-12 13:25:55,217 - ERROR - ^
+2025-02-12 13:25:55,217 - ERROR - ^
+2025-02-12 13:25:55,217 - ERROR - ^
+2025-02-12 13:25:55,218 - ERROR -   File "C:\Users\cervinka\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\optuna\study\_optimize.py", line 248, in _run_trial
+2025-02-12 13:25:55,219 - ERROR - raise func_err
+2025-02-12 13:25:55,219 - ERROR -   File "C:\Users\cervinka\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\optuna\study\_optimize.py", line 197, in _run_trial
+2025-02-12 13:25:55,220 - ERROR - value_or_values = func(trial)
+2025-02-12 13:25:55,221 - ERROR - ^
+2025-02-12 13:25:55,221 - ERROR - ^
+2025-02-12 13:25:55,221 - ERROR - ^
+2025-02-12 13:25:55,222 - ERROR - ^
+2025-02-12 13:25:55,223 - ERROR - ^
+2025-02-12 13:25:55,223 - ERROR - ^
+2025-02-12 13:25:55,223 - ERROR - ^
+2025-02-12 13:25:55,224 - ERROR - ^
+2025-02-12 13:25:55,225 - ERROR - ^
+2025-02-12 13:25:55,226 - ERROR - ^
+2025-02-12 13:25:55,226 - ERROR - ^
+2025-02-12 13:25:55,227 - ERROR -   File "C:\Users\cervinka\cervinka\GitHub\MathCAS\NNoptuna_shear.py", line 241, in <lambda>
+2025-02-12 13:25:55,227 - ERROR - study.optimize(lambda trial: objective(trial, task=task), n_trials=n_trials, callbacks=[logging_callback])
+2025-02-12 13:25:55,228 - ERROR - ^
+2025-02-12 13:25:55,228 - ERROR - ^
+2025-02-12 13:25:55,228 - ERROR - ^
+2025-02-12 13:25:55,229 - ERROR - ^
+2025-02-12 13:25:55,229 - ERROR - ^
+2025-02-12 13:25:55,229 - ERROR - ^
+2025-02-12 13:25:55,229 - ERROR - ^
+2025-02-12 13:25:55,230 - ERROR - ^
+2025-02-12 13:25:55,230 - ERROR - ^
+2025-02-12 13:25:55,230 - ERROR - ^
+2025-02-12 13:25:55,230 - ERROR - ^
+2025-02-12 13:25:55,230 - ERROR - ^
+2025-02-12 13:25:55,231 - ERROR - ^
+2025-02-12 13:25:55,231 - ERROR - ^
+2025-02-12 13:25:55,231 - ERROR - ^
+2025-02-12 13:25:55,231 - ERROR - ^
+2025-02-12 13:25:55,232 - ERROR - ^
+2025-02-12 13:25:55,232 - ERROR - ^
+2025-02-12 13:25:55,232 - ERROR - ^
+2025-02-12 13:25:55,232 - ERROR - ^
+2025-02-12 13:25:55,232 - ERROR - ^
+2025-02-12 13:25:55,233 - ERROR - ^
+2025-02-12 13:25:55,233 - ERROR - ^
+2025-02-12 13:25:55,233 - ERROR - ^
+2025-02-12 13:25:55,233 - ERROR - ^
+2025-02-12 13:25:55,234 - ERROR - ^
+2025-02-12 13:25:55,234 - ERROR - ^
+2025-02-12 13:25:55,234 - ERROR -   File "C:\Users\cervinka\cervinka\GitHub\MathCAS\NNoptuna_shear.py", line 143, in objective
+2025-02-12 13:25:55,235 - ERROR - batch_x, batch_y = batch_x.to(device), batch_y.to(device)
+2025-02-12 13:25:55,235 - ERROR - ^
+2025-02-12 13:25:55,235 - ERROR - ^
+2025-02-12 13:25:55,236 - ERROR - ^
+2025-02-12 13:25:55,236 - ERROR - ^
+2025-02-12 13:25:55,236 - ERROR - ^
+2025-02-12 13:25:55,236 - ERROR - ^
+2025-02-12 13:25:55,237 - ERROR - ^
+2025-02-12 13:25:55,237 - ERROR - ^
+2025-02-12 13:25:55,237 - ERROR - ^
+2025-02-12 13:25:55,237 - ERROR - ^
+2025-02-12 13:25:55,237 - ERROR - ^
+2025-02-12 13:25:55,238 - ERROR - ^
+2025-02-12 13:25:55,238 - ERROR - ^
+2025-02-12 13:25:55,238 - ERROR - ^
+2025-02-12 13:25:55,239 - ERROR - ^
+2025-02-12 13:25:55,239 - ERROR - ^
+2025-02-12 13:25:55,239 - ERROR - ^
+2025-02-12 13:25:55,239 - ERROR - ^
+2025-02-12 13:25:55,239 - ERROR - RuntimeError
+2025-02-12 13:25:55,240 - ERROR - :
+2025-02-12 13:25:55,240 - ERROR - CUDA error: unknown error
+2025-02-12 13:25:55,240 - ERROR - CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+2025-02-12 13:25:55,240 - ERROR - For debugging consider passing CUDA_LAUNCH_BLOCKING=1.
+2025-02-12 13:25:55,240 - ERROR - Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
