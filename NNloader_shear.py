@@ -60,7 +60,7 @@ def load_model(model_path, dropout_prob=0.5, task='regression'):
     return model
 
 # Load the dataset
-dataset_path = r'deleteme\test.csv'
+dataset_path = r'deleteme\test_subset_100K.csv'
 df = pd.read_csv(dataset_path)
 
 # Extract the first 10 data points
@@ -71,7 +71,7 @@ y_true = df.iloc[:10, 14].values
 X_test_tensor = torch.tensor(X_test, dtype=torch.float32)
 
 # Load the trained model
-model_path = r'shear_best_model1024.pth'  # Use raw string to handle backslashes
+model_path = r'shear_best_model.pth'  # Use raw string to handle backslashes
 dropout_prob = 0.5
 task = 'regression'
 
