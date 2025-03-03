@@ -10,6 +10,7 @@ import torch.optim as optim
 from torch.utils.data import DataLoader, TensorDataset
 from sklearn.model_selection import train_test_split
 from torch.optim.lr_scheduler import ReduceLROnPlateau
+from torch.optim.lr_scheduler import StepLR
 
 torch.manual_seed(0)
 

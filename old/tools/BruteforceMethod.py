@@ -5,9 +5,9 @@ import random
 
 
 # Input variables
-A = np.array([[-1, -1, 1],
-              [1, -1, -1],
-              [-1, 1, 2]])
+A = np.array([[ 1, 1, 1],
+              [ 1,-1, 1],
+              [-1,-1,-1]])
 
 def bruteforceBRF(matrix, Step=5, Output=False, Info=False):
 
