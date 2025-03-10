@@ -72,7 +72,7 @@ y_true = df.iloc[:, 14].values
 X_test_tensor = torch.tensor(X_test, dtype=torch.float32)
 
 # Load the trained model
-model_path = r'best_models\shear_best_model1024.pth'  # Use raw string to handle backslashes
+model_path = r'best_models\shear_best_model.pth'  # Use raw string to handle backslashes
 dropout_prob = 0.5
 task = 'regression'
 
@@ -83,8 +83,8 @@ with torch.no_grad():
     y_pred = model(X_test_tensor).numpy()
 
 # Print true results and predictions
-print("True results:", y_true[:10,0])
-print("Predictions:", y_pred[:10,0].flatten())
+print("True results:", y_true[:10])
+print("Predictions:", y_pred[:10].flatten())
 
 # Calculate accuracy metrics
 list_of_mape_errors = []
