@@ -110,7 +110,7 @@ X2_test = np.hstack((X_test, y_shear_pred))
 X2_test_tensor = torch.tensor(X2_test, dtype=torch.float32)
 
 # Load the trained Residual model
-residual_model_path = r'best_models\residual_best_model.pth'
+residual_model_path = r'best_models\residual_true_shear.pth'
 dropout_prob = 0.5
 task = 'regression'
 
@@ -211,6 +211,70 @@ print(f"Mean Absolute Error (MAE): {sr_mae}")
 print(f"Median Absolute Error (MedAE): {sr_medae}")
 print(f"Max Absolute Error (MaxAE): {sr_maxae}")
 
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
+
+# Constants
+v_tmax = np.sqrt(6)
+sr_tmax = np.sqrt(8)
+
+# Create a figure with two subplots (1 row, 2 columns)
+subset_size = 50000  # Adjust the number of points to plot
+indices = np.random.choice(len(y_true), subset_size, replace=False)  # Randomly sample indices
+fig, axes = plt.subplots(1, 2, figsize=(12, 6))  # Adjust figure size as needed
+
+# First subplot: y_true[:, 0] vs. y_pred[:, 0] (using v_tmax)
+axes[0].scatter(y_true[indices, 0], y_pred[indices, 0], color='blue', s=1, label='Predicted vs True')
+axes[0].plot([0, v_tmax], [0, v_tmax], color='red', linestyle='-')  # Ideal line
+axes[0].plot([0+v_tmax/100, v_tmax+v_tmax/100], [0, v_tmax], color='red', alpha=0.75, linestyle='--')
+axes[0].plot([0, v_tmax], [0+v_tmax/100, v_tmax+v_tmax/100], color='red', alpha=0.75, linestyle='--')
+axes[0].set_xlabel('True Values')
+axes[0].set_ylabel('Predicted Values')
+axes[0].set_title(residual_model_path+" (Residual Vorticity)")
+axes[0].legend()
+axes[0].grid(True)
+
+# Second subplot: y_true[:, 1] vs. y_pred[:, 1] (using sr_tmax)
+axes[1].scatter(y_true[indices, 1], y_pred[indices, 1], color='green', s=1, label='Predicted vs True')
+axes[1].plot([0, sr_tmax], [0, sr_tmax], color='red', linestyle='-')  # Ideal line
+axes[1].plot([0+sr_tmax/100, sr_tmax+sr_tmax/100], [0, sr_tmax], color='red', alpha=0.75, linestyle='--')
+axes[1].plot([0, sr_tmax], [0+sr_tmax/100, sr_tmax+sr_tmax/100], color='red', alpha=0.75, linestyle='--')
+axes[1].set_xlabel('True Values')
+axes[1].set_ylabel('Predicted Values')
+axes[1].set_title(residual_model_path+" (Residual Strain-Rate)")
+axes[1].legend()
+axes[1].grid(True)
+
+# Adjust layout and show the plot
+plt.tight_layout()
+plt.savefig(residual_model_path+" (Residual Predicted vs True).pdf")
+plt.show()
+
+# # # # # # # # # #
+
+fig, axes = plt.subplots(1, 2, figsize=(12, 6))  # Adjust figure size as needed
+
+# Plot true values vs. absolute errors
+absolute_errors = [np.abs(y_true[indices, 0] - y_pred[indices, 0].flatten()), np.abs(y_true[indices, 1] - y_pred[indices, 1].flatten())]
+
+axes[0].scatter(y_true[indices, 0], absolute_errors[0], color='purple', s=1, alpha=0.75, label='Absolute Error vs True Value')  # Make dots smaller with s=1
+
+axes[0].set_xlabel('True Values')
+axes[0].set_ylabel('Absolute Error')
+axes[0].set_title(residual_model_path+" (Residual Vorticity)")
+axes[0].legend()
+axes[0].grid(True)
+
+axes[1].scatter(y_true[indices, 1], absolute_errors[1], color='olive', s=1, alpha=0.75, label='Absolute Error vs True Value')  # Make dots smaller with s=1
+
+axes[1].set_xlabel('True Values')
+axes[1].set_ylabel('Absolute Error')
+axes[1].set_title(residual_model_path+" (Residual Strain-Rate)")
+axes[1].legend()
+axes[1].grid(True)
+
+plt.tight_layout()
+plt.savefig(residual_model_path+" (Residual Absolute Error).pdf")
+plt.show()
 
 # # Combine X_test, y_pred, and y_true into a single DataFrame
 # results_df = pd.DataFrame(np.hstack((X_test, y_pred, y_true)),

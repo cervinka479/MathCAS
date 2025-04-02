@@ -73,7 +73,7 @@ y_true = df.iloc[:, 9:11].values
 X_test_tensor = torch.tensor(X_test, dtype=torch.float32)
 
 # Load the trained model
-model_path = r'best_models\.residual_best_model.pth'  # Use raw string to handle backslashes
+model_path = r'best_models\residual_true_shear.pth'  # Use raw string to handle backslashes
 dropout_prob = 0.5
 task = 'regression'
 
@@ -182,7 +182,7 @@ axes[1].grid(True)
 
 # Adjust layout and show the plot
 plt.tight_layout()
-plt.savefig(model_path+" (Residual Predicted vs True).pdf")
+plt.savefig(model_path+"_precise_shear (Residual Predicted vs True).pdf")
 plt.show()
 
 # # # # # # # # # #
@@ -209,5 +209,5 @@ axes[1].legend()
 axes[1].grid(True)
 
 plt.tight_layout()
-plt.savefig(model_path+" (Residual Absolute Error).pdf")
+plt.savefig(model_path+"_precise_shear (Residual Absolute Error).pdf")
 plt.show()

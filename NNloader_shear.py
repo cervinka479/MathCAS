@@ -73,7 +73,7 @@ y_all = df.iloc[:, 9:11].values
 X_test_tensor = torch.tensor(X_test, dtype=torch.float32)
 
 # Load the trained model
-model_path = r'best_models\.shear_best_model.pth'  # Use raw string to handle backslashes
+model_path = r'best_models\shear_1024x4.pth'  # Use raw string to handle backslashes
 dropout_prob = 0.5
 task = 'regression'
 
