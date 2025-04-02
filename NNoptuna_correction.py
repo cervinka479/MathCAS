@@ -70,7 +70,7 @@ sys.stderr = StreamToLogger(logging.getLogger('STDERR'), logging.ERROR)
 optuna.logging.get_logger("optuna").addHandler(file_handler)
 
 
-def nnArch(io=[10,2], hl=[12], dropout_prob=0.5, task='class'):    
+def nnArch(io=[12,3], hl=[12], dropout_prob=0.5, task='class'):    
     class NeuralNetwork(nn.Module):
         def __init__(self, hl):
             super(NeuralNetwork, self).__init__()
@@ -264,11 +264,14 @@ print(f"Device: {device}")
 task = 'regression'  # Change this to 'class' for classification, otherwise it will be regression
 
 # Load the dataset
-df = pd.read_csv(r'deleteme\dataset_compressible_flow_5M_training_nstep180.csv')
+df = pd.read_csv(r'deleteme\predicted_4.9M_dataset.csv')
+print(df.head())
 
-# Extract features (columns 1-9 and 12) and labels (columns 10 and 11)
-X = df.iloc[:, list(range(9)) + [11]].values
-y = df.iloc[:, 9:12].values
+# Extract features (columns 1-12) and labels (columns 13-15)
+X = df.iloc[:, :12].values
+y = df.iloc[:, 12:15].values
+print(X[0])
+print(y[0])
 
 # Preprocess labels: if the value is non-zero, set it to 1.0
 if task == 'class':

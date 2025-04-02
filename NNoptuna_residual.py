@@ -264,7 +264,7 @@ print(f"Device: {device}")
 task = 'regression'  # Change this to 'class' for classification, otherwise it will be regression
 
 # Load the dataset
-df = pd.read_csv(r'deleteme\dataset_compressible_flow_5M_training_nstep180.csv')
+df = pd.read_csv(r'deleteme\dataset_compressible_flow_5M_B_shear_predicted.csv')
 
 # Extract features (columns 1-9 and 12) and labels (columns 10 and 11)
 X = df.iloc[:, list(range(9)) + [11]].values

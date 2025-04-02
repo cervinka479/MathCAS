@@ -61,19 +61,19 @@ def load_model(model_path, dropout_prob=0.5, task='regression'):
     return model
 
 # Load the dataset
-dataset_path = r'deleteme\test_subset_100K.csv'
+dataset_path = r'deleteme\dataset_compressible_flow_500K_test_nstep180.csv'
 df = pd.read_csv(dataset_path)
 
 # Extract the first 10 data points with features (columns 1-9 and 15) and labels (columns 13 and 14)
-X_test = df.iloc[:, list(range(9)) + [14]].values
+X_test = df.iloc[:, list(range(9)) + [11]].values
 #X_test = df.iloc[:, :9].values
-y_true = df.iloc[:, 12:14].values
+y_true = df.iloc[:, 9:11].values
 
 # Convert to PyTorch tensors
 X_test_tensor = torch.tensor(X_test, dtype=torch.float32)
 
 # Load the trained model
-model_path = r'residual_best_model_4x256.pth'  # Use raw string to handle backslashes
+model_path = r'best_models\.residual_best_model.pth'  # Use raw string to handle backslashes
 dropout_prob = 0.5
 task = 'regression'
 
@@ -110,8 +110,8 @@ v_medae = np.median(abs_errors)  # Median Absolute Error
 v_maxae = np.max(abs_errors)  # Max Absolute Error
 
 print(f"Mean Absolute Percentage Error (MAPE): {v_mape}")
-print(f"Mean Absolute Error (MAE): {v_mae}")
 print(f"Mean Squared Error (MSE): {v_mse}")
+print(f"Mean Absolute Error (MAE): {v_mae}")
 print(f"Median Absolute Error (MedAE): {v_medae}")
 print(f"Max Absolute Error (MaxAE): {v_maxae}")
 
@@ -132,7 +132,7 @@ sr_mae = mean_absolute_error(y_true[:,1], y_pred[:,1])
 sr_mse = mean_squared_error(y_true[:,1], y_pred[:,1])
 
 # Compute Median Absolute Error in a memory-efficient way
-chunk_size = 10000  # Adjust chunk size as needed
+chunk_size = 1000  # Adjust chunk size as needed
 abs_errors = []
 for i in range(0, len(y_true[:,1]), chunk_size):
     chunk_abs_errors = np.abs(y_true[i:i + chunk_size, 1] - y_pred[i:i + chunk_size, 1])
@@ -142,8 +142,8 @@ sr_medae = np.median(abs_errors)  # Median Absolute Error
 sr_maxae = np.max(abs_errors)  # Max Absolute Error
 
 print(f"Mean Absolute Percentage Error (MAPE): {sr_mape}")
-print(f"Mean Absolute Error (MAE): {sr_mae}")
 print(f"Mean Squared Error (MSE): {sr_mse}")
+print(f"Mean Absolute Error (MAE): {sr_mae}")
 print(f"Median Absolute Error (MedAE): {sr_medae}")
 print(f"Max Absolute Error (MaxAE): {sr_maxae}")
 
@@ -154,10 +154,12 @@ v_tmax = np.sqrt(6)
 sr_tmax = np.sqrt(8)
 
 # Create a figure with two subplots (1 row, 2 columns)
+subset_size = 50000  # Adjust the number of points to plot
+indices = np.random.choice(len(y_true), subset_size, replace=False)  # Randomly sample indices
 fig, axes = plt.subplots(1, 2, figsize=(12, 6))  # Adjust figure size as needed
 
 # First subplot: y_true[:, 0] vs. y_pred[:, 0] (using v_tmax)
-axes[0].scatter(y_true[:, 0], y_pred[:, 0], color='blue', s=1, label='Predicted vs True')
+axes[0].scatter(y_true[indices, 0], y_pred[indices, 0], color='blue', s=1, label='Predicted vs True')
 axes[0].plot([0, v_tmax], [0, v_tmax], color='red', linestyle='-')  # Ideal line
 axes[0].plot([0+v_tmax/100, v_tmax+v_tmax/100], [0, v_tmax], color='red', alpha=0.75, linestyle='--')
 axes[0].plot([0, v_tmax], [0+v_tmax/100, v_tmax+v_tmax/100], color='red', alpha=0.75, linestyle='--')
@@ -168,7 +170,7 @@ axes[0].legend()
 axes[0].grid(True)
 
 # Second subplot: y_true[:, 1] vs. y_pred[:, 1] (using sr_tmax)
-axes[1].scatter(y_true[:, 1], y_pred[:, 1], color='green', s=1, label='Predicted vs True')
+axes[1].scatter(y_true[indices, 1], y_pred[indices, 1], color='green', s=1, label='Predicted vs True')
 axes[1].plot([0, sr_tmax], [0, sr_tmax], color='red', linestyle='-')  # Ideal line
 axes[1].plot([0+sr_tmax/100, sr_tmax+sr_tmax/100], [0, sr_tmax], color='red', alpha=0.75, linestyle='--')
 axes[1].plot([0, sr_tmax], [0+sr_tmax/100, sr_tmax+sr_tmax/100], color='red', alpha=0.75, linestyle='--')
@@ -180,4 +182,32 @@ axes[1].grid(True)
 
 # Adjust layout and show the plot
 plt.tight_layout()
+plt.savefig(model_path+" (Residual Predicted vs True).pdf")
+plt.show()
+
+# # # # # # # # # #
+
+fig, axes = plt.subplots(1, 2, figsize=(12, 6))  # Adjust figure size as needed
+
+# Plot true values vs. absolute errors
+absolute_errors = [np.abs(y_true[indices, 0] - y_pred[indices, 0].flatten()), np.abs(y_true[indices, 1] - y_pred[indices, 1].flatten())]
+
+axes[0].scatter(y_true[indices, 0], absolute_errors[0], color='purple', s=1, alpha=0.75, label='Absolute Error vs True Value')  # Make dots smaller with s=1
+
+axes[0].set_xlabel('True Values')
+axes[0].set_ylabel('Absolute Error')
+axes[0].set_title(model_path+" (Residual Vorticity)")
+axes[0].legend()
+axes[0].grid(True)
+
+axes[1].scatter(y_true[indices, 1], absolute_errors[1], color='olive', s=1, alpha=0.75, label='Absolute Error vs True Value')  # Make dots smaller with s=1
+
+axes[1].set_xlabel('True Values')
+axes[1].set_ylabel('Absolute Error')
+axes[1].set_title(model_path+" (Residual Strain-Rate)")
+axes[1].legend()
+axes[1].grid(True)
+
+plt.tight_layout()
+plt.savefig(model_path+" (Residual Absolute Error).pdf")
 plt.show()

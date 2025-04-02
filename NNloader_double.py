@@ -68,15 +68,18 @@ def load_model(model_path, dropout_prob=0.5, task='regression'):
     return model
 
 # Load the dataset
-dataset_path = r'deleteme\test_subset_100K.csv'
+dataset_path = r'deleteme\dataset_compressible_flow_500K_test_nstep180.csv'
 df = pd.read_csv(dataset_path)
 
 # Extract the first 10 data points
 X_test = df.iloc[:, :9].values
-y_true = df.iloc[:, 12:15].values
+#y_true = df.iloc[:, 12:15].values
+y_true = df.iloc[:, 9:11].values
+y_shear = df.iloc[:, 11].values
 
 print(X_test[0])
 print(y_true[0])
+print(y_shear[0])
 
 
 # Convert to PyTorch tensors
@@ -96,10 +99,14 @@ with torch.no_grad():
 print(X1_test_tensor[0])
 print(y_shear_pred[0])
 
+# # # # #
 
+print(y_shear_pred.shape)
+print(y_shear.shape)
 
 # Combine X_test with y_shear_pred to create the input for the residual model
 X2_test = np.hstack((X_test, y_shear_pred))
+#X2_test = np.hstack((X_test, y_shear))
 X2_test_tensor = torch.tensor(X2_test, dtype=torch.float32)
 
 # Load the trained Residual model
@@ -119,6 +126,27 @@ print(y_residual_pred[0])
 y_pred = np.hstack((y_residual_pred, y_shear_pred))
 print(y_pred[0])
 
+# # # # #
+
+correction = False
+
+if correction:
+
+    # Combine X_test with y_pred to create the input for the correction model
+    X3_test = np.hstack((X_test, y_pred))
+    X3_test_tensor = torch.tensor(X3_test, dtype=torch.float32)
+
+    # Load the trained Correction model
+    correction_model_path = r'correction_best_model.pth'
+    dropout_prob = 0.5
+    task = 'regression'
+
+    model = load_model(correction_model_path, dropout_prob, task)
+
+    # Make predictions
+    with torch.no_grad():
+        y_pred = model(X3_test_tensor).numpy()
+
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
 # Print true results and predictions
@@ -136,7 +164,7 @@ v_mae = mean_absolute_error(y_true[:,0], y_pred[:,0])
 v_mse = mean_squared_error(y_true[:,0], y_pred[:,0])
 
 # Compute Median Absolute Error in a memory-efficient way
-chunk_size = 10000  # Adjust chunk size as needed
+chunk_size = 1000  # Adjust chunk size as needed
 abs_errors = []
 for i in range(0, len(y_true[:,0]), chunk_size):
     chunk_abs_errors = np.abs(y_true[i:i + chunk_size, 0] - y_pred[i:i + chunk_size, 0])
@@ -146,8 +174,8 @@ v_medae = np.median(abs_errors)  # Median Absolute Error
 v_maxae = np.max(abs_errors)  # Max Absolute Error
 
 print(f"Mean Absolute Percentage Error (MAPE): {v_mape}")
-print(f"Mean Absolute Error (MAE): {v_mae}")
 print(f"Mean Squared Error (MSE): {v_mse}")
+print(f"Mean Absolute Error (MAE): {v_mae}")
 print(f"Median Absolute Error (MedAE): {v_medae}")
 print(f"Max Absolute Error (MaxAE): {v_maxae}")
 
@@ -178,7 +206,17 @@ sr_medae = np.median(abs_errors)  # Median Absolute Error
 sr_maxae = np.max(abs_errors)  # Max Absolute Error
 
 print(f"Mean Absolute Percentage Error (MAPE): {sr_mape}")
-print(f"Mean Absolute Error (MAE): {sr_mae}")
 print(f"Mean Squared Error (MSE): {sr_mse}")
+print(f"Mean Absolute Error (MAE): {sr_mae}")
 print(f"Median Absolute Error (MedAE): {sr_medae}")
 print(f"Max Absolute Error (MaxAE): {sr_maxae}")
+
+
+# # Combine X_test, y_pred, and y_true into a single DataFrame
+# results_df = pd.DataFrame(np.hstack((X_test, y_pred, y_true)),
+#                           columns=[f'X{i+1}' for i in range(X_test.shape[1])] +
+#                                   [f'y_pred{i+1}' for i in range(y_pred.shape[1])] +
+#                                   [f'y_true{i+1}' for i in range(y_true.shape[1])])
+
+# # Save the DataFrame to a CSV file
+# results_df.to_csv(r'results.csv', index=False)
