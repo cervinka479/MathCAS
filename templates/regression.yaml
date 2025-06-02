@@ -1,7 +1,7 @@
 architecture:
     in_size: 9
     out_size: 1
-    hidden_layers: [64, 48, 32]
+    hidden_layers: [64, 32]
     activation: ReLU
     use_dropout: true
     dropout: 0.5
