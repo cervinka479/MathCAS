@@ -1,1 +1,6 @@
 \venv
+\datasets
+.vscode
+
+__pycache__/
+*.py[cod]

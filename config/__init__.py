@@ -1,6 +1,8 @@
 import yaml
-from typing import Any
+from config.schema import FullConfig
 
-def load_config(config_path: str) -> dict[str, Any]:
+
+
+def load_config(config_path: str) -> FullConfig:
     with open(config_path, 'r') as f:
-        return yaml.safe_load(f)
+        return FullConfig(**yaml.safe_load(f))
