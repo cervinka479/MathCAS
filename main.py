@@ -19,6 +19,6 @@ if __name__ == "__main__":
 
     # Preview the first batch to confirm
     for batch_x, batch_y in train_loader:
-        print("Sample batch X:", batch_x.shape)
-        print("Sample batch Y:", batch_y.shape)
+        print("Sample batch X:", batch_x)
+        print("Sample batch Y:", batch_y)
         break
