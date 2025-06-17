@@ -11,7 +11,7 @@ def nn_build(config_path: str) -> nn.Module:
     return NeuralNetwork(config.architecture)
 
 if __name__ == "__main__":
-    template_path: str = r'templates\regression.yaml'
+    template_path: str = r'templates\experiment1.yaml'
     
     print(nn_build(template_path))
 

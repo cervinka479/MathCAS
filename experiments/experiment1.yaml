@@ -1,0 +1,26 @@
+architecture:
+    template: regression
+    in_size: 9
+    out_size: 1
+    hidden_layers: [64, 32]
+    activation: ReLU
+    use_dropout: true
+    dropout: 0.5
+    final_activation: null
+
+training:
+    learning_rate: 0.001
+    optimizer: Adam
+    loss_function: MSELoss
+    epochs: 100
+    early_stopping: true
+    patience: 10
+
+data:
+    path_to_data: datasets\dataset1.csv
+    num_samples: 40
+    batch_size: 20
+    in_cols: [A11, A21, A31, A12, A22, A32, A13, A23, A33]
+    out_cols: [ResVort, ResStrain, Shear]
+    val_split: 0.1
+    shuffle: false

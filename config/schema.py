@@ -3,6 +3,7 @@ from pydantic import BaseModel
 
 
 class ArchitectureConfig(BaseModel):
+    template: str
     in_size: int
     out_size: int
     hidden_layers: list[int]
