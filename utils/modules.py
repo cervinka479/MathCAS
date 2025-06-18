@@ -1,8 +1,20 @@
-import torch.nn as nn
+from torch import nn, optim
+from typing import Type
 
-def dynamically_get_module(activation: str) -> nn.Module:
+def get_module(module: str) -> Type[nn.Module]:
     try:
-        activation_class: nn.Module = getattr(nn, activation)
+        return getattr(nn, module)
     except AttributeError:
-        raise ValueError(f"Activation '{activation}' is not a valid torch.nn module.")
-    return activation_class
+        raise ValueError(f"Module '{module}' is not a valid torch.nn module.")
+    
+def get_loss_function(name: str) -> nn.Module:
+    try:
+        return getattr(nn, name)()
+    except AttributeError:
+        raise ValueError(f"Loss function '{name}' is not a valid torch.nn loss.")
+
+def get_optimizer(name: str, params, lr: float) -> optim.Optimizer:
+    try:
+        return getattr(optim, name)(params, lr=lr)
+    except AttributeError:
+        raise ValueError(f"Optimizer '{name}' is not a valid torch.optim optimizer.")

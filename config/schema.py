@@ -21,7 +21,7 @@ class TrainingConfig(BaseModel):
 
 class DataConfig(BaseModel):
     path_to_data: str
-    num_samples: int
+    num_samples: int | None = None
     batch_size: int
     in_cols: list[str]
     out_cols: list[str]
@@ -29,6 +29,11 @@ class DataConfig(BaseModel):
     shuffle: bool
 
 class FullConfig(BaseModel):
+    name: str | None = None
+    verbose: bool = True
+    save_logs: bool = True
+    seed: int = 42
+    output_dir: str = "outputs"
     architecture: ArchitectureConfig
     training: TrainingConfig
     data: DataConfig

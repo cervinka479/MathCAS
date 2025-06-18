@@ -1,6 +1,12 @@
+name: regression
+verbose: true
+save_logs: true
+seed: 42
+output_dir: outputs
+
 architecture:
     in_size: 9
-    out_size: 1
+    out_size: 3
     hidden_layers: [64, 32]
     activation: ReLU
     use_dropout: true
@@ -17,8 +23,8 @@ training:
 
 data:
     path_to_data: datasets\dataset1.csv
-    num_samples: 40
-    batch_size: 20
+    num_samples: null
+    batch_size: 5
     in_cols: [A11, A21, A31, A12, A22, A32, A13, A23, A33]
     out_cols: [ResVort, ResStrain, Shear]
     val_split: 0.1

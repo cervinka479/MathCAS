@@ -48,9 +48,9 @@ def split_data(
 
     return TensorSplit(
         in_train=to_tensor(in_train),
-        out_train=to_tensor(out_train, unsqueeze=True),
+        out_train=to_tensor(out_train),
         in_val=to_tensor(in_val),
-        out_val=to_tensor(out_val, unsqueeze=True),
+        out_val=to_tensor(out_val),
     )
 
 def create_dataloaders(
@@ -87,6 +87,3 @@ def prepare_dataloaders(config_path: str) -> tuple[DataLoader, DataLoader]:
         tensor_split.out_val,
         batch_size=config.data.batch_size
     )
-
-if __name__ == "__main__":
-    pass
