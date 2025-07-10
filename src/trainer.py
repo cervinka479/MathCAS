@@ -32,7 +32,10 @@ def train_one_epoch(
     running_loss = 0.0
 
     for batch_x, batch_y in loader:
-        batch_x, batch_y = batch_x.to(device), batch_y.to(device)
+        if running_loss == 0.0:
+            print(f"Batch x device: {batch_x.device}, Batch y device: {batch_y.device}")
+
+        # batch_x, batch_y = batch_x.to(device), batch_y.to(device)
         optimizer.zero_grad()
         outputs = model(batch_x)
         loss = criterion(outputs, batch_y)
@@ -54,7 +57,7 @@ def evaluate(
 
     with torch.no_grad():
         for batch_x, batch_y in loader:
-            batch_x, batch_y = batch_x.to(device), batch_y.to(device)
+            # batch_x, batch_y = batch_x.to(device), batch_y.to(device)
             outputs = model(batch_x)
             loss = criterion(outputs, batch_y)
             running_loss += loss.item()
@@ -73,11 +76,9 @@ def train(config_path: str):
 
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     if config.verbose:
-        print(f"Using device: {device}")
+        logger.info(f"Using device: {device}")
 
     model = NeuralNetwork(config.architecture).to(device)
-    if config.verbose:
-        print(f"Model architecture: {model}")
 
     train_loader, val_loader = prepare_dataloaders(config_path)
 

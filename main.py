@@ -5,5 +5,5 @@ from torch import nn
 from src.trainer import train
 
 if __name__ == "__main__":
-    template_path: str = r'templates\regression.yaml'
+    template_path: str = r'experiment2.yaml'
     train(template_path)

@@ -1,0 +1,74 @@
+2025-06-28 17:07:20,075 | INFO | Using device: cuda
+2025-06-28 17:09:04,824 | INFO | Experiment: experiment1
+2025-06-28 17:09:04,824 | INFO | Model architecture:
+NeuralNetwork(
+  (layers): ModuleList(
+    (0): Linear(in_features=9, out_features=750, bias=True)
+    (1): ReLU()
+    (2): Dropout(p=0.5, inplace=False)
+    (3): Linear(in_features=750, out_features=750, bias=True)
+    (4): ReLU()
+    (5): Dropout(p=0.5, inplace=False)
+    (6): Linear(in_features=750, out_features=750, bias=True)
+    (7): ReLU()
+    (8): Dropout(p=0.5, inplace=False)
+    (9): Linear(in_features=750, out_features=750, bias=True)
+    (10): ReLU()
+    (11): Dropout(p=0.5, inplace=False)
+    (12): Linear(in_features=750, out_features=750, bias=True)
+    (13): ReLU()
+    (14): Dropout(p=0.5, inplace=False)
+    (15): Linear(in_features=750, out_features=750, bias=True)
+    (16): ReLU()
+    (17): Dropout(p=0.5, inplace=False)
+    (18): Linear(in_features=750, out_features=750, bias=True)
+    (19): ReLU()
+    (20): Dropout(p=0.5, inplace=False)
+    (21): Linear(in_features=750, out_features=3, bias=True)
+  )
+)
+2025-06-28 17:09:04,825 | INFO | Training config: learning_rate=2.8357e-05 optimizer='Adam' loss_function='MSELoss' epochs=500 early_stopping=True patience=5
+2025-06-28 17:09:04,825 | INFO | Data config: path_to_data='c:\\Users\\cervinka\\cervinka\\dataset_compressible_flow_60M_training_nstep180.csv' num_samples=50000000 batch_size=81 in_cols=['A11', 'A21', 'A31', 'A12', 'A22', 'A32', 'A13', 'A23', 'A33'] out_cols=['ResVort', 'ResStrain', 'Shear'] val_split=0.1 shuffle=False
+2025-06-28 17:58:50,793 | INFO | Epoch 1/500 | Train Loss: 0.0118 | Val Loss: 0.0372 | Time: 0:49:45
+2025-06-28 18:49:08,069 | INFO | Epoch 2/500 | Train Loss: 0.0072 | Val Loss: 0.0388 | Time: 1:40:03
+2025-06-28 19:39:33,617 | INFO | Epoch 3/500 | Train Loss: 0.0062 | Val Loss: 0.0357 | Time: 2:30:28
+2025-06-28 20:29:48,025 | INFO | Epoch 4/500 | Train Loss: 0.0058 | Val Loss: 0.0334 | Time: 3:20:43
+2025-06-28 21:20:03,803 | INFO | Epoch 5/500 | Train Loss: 0.0055 | Val Loss: 0.0336 | Time: 4:10:58
+2025-06-28 22:10:37,407 | INFO | Epoch 6/500 | Train Loss: 0.0053 | Val Loss: 0.0321 | Time: 5:01:32
+2025-06-28 23:00:58,131 | INFO | Epoch 7/500 | Train Loss: 0.0051 | Val Loss: 0.0322 | Time: 5:51:53
+2025-06-28 23:40:17,428 | INFO | Epoch 8/500 | Train Loss: 0.0050 | Val Loss: 0.0309 | Time: 6:31:12
+2025-06-29 00:13:53,323 | INFO | Epoch 9/500 | Train Loss: 0.0049 | Val Loss: 0.0303 | Time: 7:04:48
+2025-06-29 00:47:29,929 | INFO | Epoch 10/500 | Train Loss: 0.0048 | Val Loss: 0.0291 | Time: 7:38:25
+2025-06-29 01:21:08,579 | INFO | Epoch 11/500 | Train Loss: 0.0047 | Val Loss: 0.0296 | Time: 8:12:03
+2025-06-29 01:54:44,148 | INFO | Epoch 12/500 | Train Loss: 0.0046 | Val Loss: 0.0287 | Time: 8:45:39
+2025-06-29 02:28:20,507 | INFO | Epoch 13/500 | Train Loss: 0.0045 | Val Loss: 0.0279 | Time: 9:19:15
+2025-06-29 03:01:56,608 | INFO | Epoch 14/500 | Train Loss: 0.0045 | Val Loss: 0.0278 | Time: 9:52:51
+2025-06-29 03:35:35,622 | INFO | Epoch 15/500 | Train Loss: 0.0044 | Val Loss: 0.0273 | Time: 10:26:30
+2025-06-29 04:09:11,794 | INFO | Epoch 16/500 | Train Loss: 0.0044 | Val Loss: 0.0279 | Time: 11:00:06
+2025-06-29 04:42:48,428 | INFO | Epoch 17/500 | Train Loss: 0.0043 | Val Loss: 0.0282 | Time: 11:33:43
+2025-06-29 05:16:24,516 | INFO | Epoch 18/500 | Train Loss: 0.0043 | Val Loss: 0.0273 | Time: 12:07:19
+2025-06-29 05:50:01,332 | INFO | Epoch 19/500 | Train Loss: 0.0043 | Val Loss: 0.0277 | Time: 12:40:56
+2025-06-29 06:23:38,634 | INFO | Epoch 20/500 | Train Loss: 0.0042 | Val Loss: 0.0278 | Time: 13:14:33
+2025-06-29 06:57:15,814 | INFO | Epoch 21/500 | Train Loss: 0.0042 | Val Loss: 0.0266 | Time: 13:48:10
+2025-06-29 07:30:53,587 | INFO | Epoch 22/500 | Train Loss: 0.0042 | Val Loss: 0.0276 | Time: 14:21:48
+2025-06-29 08:04:31,149 | INFO | Epoch 23/500 | Train Loss: 0.0042 | Val Loss: 0.0270 | Time: 14:55:26
+2025-06-29 08:38:09,727 | INFO | Epoch 24/500 | Train Loss: 0.0041 | Val Loss: 0.0261 | Time: 15:29:04
+2025-06-29 09:11:46,864 | INFO | Epoch 25/500 | Train Loss: 0.0041 | Val Loss: 0.0265 | Time: 16:02:42
+2025-06-29 09:45:25,112 | INFO | Epoch 26/500 | Train Loss: 0.0041 | Val Loss: 0.0264 | Time: 16:36:20
+2025-06-29 10:19:03,669 | INFO | Epoch 27/500 | Train Loss: 0.0041 | Val Loss: 0.0262 | Time: 17:09:58
+2025-06-29 10:52:42,431 | INFO | Epoch 28/500 | Train Loss: 0.0041 | Val Loss: 0.0260 | Time: 17:43:37
+2025-06-29 11:26:22,171 | INFO | Epoch 29/500 | Train Loss: 0.0041 | Val Loss: 0.0271 | Time: 18:17:17
+2025-06-29 12:00:00,627 | INFO | Epoch 30/500 | Train Loss: 0.0040 | Val Loss: 0.0264 | Time: 18:50:55
+2025-06-29 12:33:39,706 | INFO | Epoch 31/500 | Train Loss: 0.0040 | Val Loss: 0.0261 | Time: 19:24:34
+2025-06-29 13:07:18,368 | INFO | Epoch 32/500 | Train Loss: 0.0040 | Val Loss: 0.0258 | Time: 19:58:13
+2025-06-29 13:41:00,334 | INFO | Epoch 33/500 | Train Loss: 0.0040 | Val Loss: 0.0258 | Time: 20:31:55
+2025-06-29 14:14:41,878 | INFO | Epoch 34/500 | Train Loss: 0.0040 | Val Loss: 0.0254 | Time: 21:05:37
+2025-06-29 14:48:21,086 | INFO | Epoch 35/500 | Train Loss: 0.0040 | Val Loss: 0.0258 | Time: 21:39:16
+2025-06-29 15:22:01,507 | INFO | Epoch 36/500 | Train Loss: 0.0040 | Val Loss: 0.0259 | Time: 22:12:56
+2025-06-29 15:55:40,705 | INFO | Epoch 37/500 | Train Loss: 0.0040 | Val Loss: 0.0256 | Time: 22:46:35
+2025-06-29 16:29:20,353 | INFO | Epoch 38/500 | Train Loss: 0.0040 | Val Loss: 0.0255 | Time: 23:20:15
+2025-06-29 17:02:59,801 | INFO | Epoch 39/500 | Train Loss: 0.0040 | Val Loss: 0.0261 | Time: 23:53:54
+2025-06-29 17:02:59,801 | INFO | Early stopping at epoch 39
+2025-06-29 17:02:59,801 | INFO | Training complete.
+2025-06-29 17:02:59,801 | INFO | Best model at epoch 34 | Train Loss: 0.0040 | Val Loss: 0.0254
+2025-06-29 17:02:59,802 | INFO | Total training time: 23:53:54

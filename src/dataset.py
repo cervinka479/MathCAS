@@ -39,6 +39,8 @@ def split_data(
     shuffle: bool = True
 ) -> TensorSplit:
     
+    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+
     in_train, in_val, out_train, out_val = train_test_split(
         inputs, outputs,
         test_size=val_split,
@@ -47,10 +49,10 @@ def split_data(
     )
 
     return TensorSplit(
-        in_train=to_tensor(in_train),
-        out_train=to_tensor(out_train),
-        in_val=to_tensor(in_val),
-        out_val=to_tensor(out_val),
+        in_train=to_tensor(in_train).to(device),
+        out_train=to_tensor(out_train).to(device),
+        in_val=to_tensor(in_val).to(device),
+        out_val=to_tensor(out_val).to(device)
     )
 
 def create_dataloaders(
@@ -78,6 +80,7 @@ def prepare_dataloaders(config_path: str) -> tuple[DataLoader, DataLoader]:
     config: FullConfig = load_config(config_path)
 
     inputs, outputs = extract_data(config.data)
+    
     tensor_split = split_data(inputs, outputs, config.data.val_split, config.data.shuffle)
 
     return create_dataloaders(

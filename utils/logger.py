@@ -12,7 +12,7 @@ def setup_logger(verbose: bool, log_to_file: bool, log_file: str):
     logger.addHandler(ch)
 
     if log_to_file:
-        fh = logging.FileHandler(log_file)
+        fh = logging.FileHandler(log_file, mode="w")
         fh.setLevel(logging.DEBUG)
         fh.setFormatter(formatter)
         logger.addHandler(fh)
