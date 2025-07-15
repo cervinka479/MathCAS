@@ -9,6 +9,27 @@ from config import load_config
 
 
 
+class FastTensorDataLoader:
+    def __init__(self, *tensors, batch_size=32, shuffle=False):
+        assert all(t.shape[0] == tensors[0].shape[0] for t in tensors)
+        self.tensors = tensors
+        self.dataset_size = tensors[0].shape[0]
+        self.batch_size = batch_size
+        self.shuffle = shuffle
+        self.num_batches = (self.dataset_size + batch_size - 1) // batch_size
+
+    def __iter__(self):
+        if self.shuffle:
+            indices = torch.randperm(self.dataset_size, device=self.tensors[0].device)
+        else:
+            indices = torch.arange(self.dataset_size, device=self.tensors[0].device)
+        for i in range(0, self.dataset_size, self.batch_size):
+            batch_idx = indices[i:i+self.batch_size]
+            yield tuple(t[batch_idx] for t in self.tensors)
+
+    def __len__(self):
+        return self.num_batches
+
 @dataclass
 class TensorSplit:
     in_train: torch.Tensor
@@ -66,24 +87,39 @@ def create_dataloaders(
     train_loader = DataLoader(
         TensorDataset(in_train, out_train),
         batch_size=batch_size,
-        shuffle=True
+        shuffle=True,
+        num_workers=8,
+        pin_memory=True
     )
     
     val_loader = DataLoader(
         TensorDataset(in_val, out_val),
         batch_size=batch_size,
-        shuffle=False
+        shuffle=False,
+        num_workers=8,
+        pin_memory=True
     )
     return train_loader, val_loader
 
-def prepare_dataloaders(config_path: str) -> tuple[DataLoader, DataLoader]:
+def create_fast_dataloaders(
+    in_train: torch.Tensor,
+    out_train: torch.Tensor,
+    in_val: torch.Tensor,
+    out_val: torch.Tensor,
+    batch_size: int
+) -> tuple[FastTensorDataLoader, FastTensorDataLoader]:
+    train_loader = FastTensorDataLoader(in_train, out_train, batch_size=batch_size, shuffle=True)
+    val_loader = FastTensorDataLoader(in_val, out_val, batch_size=batch_size, shuffle=False)
+    return train_loader, val_loader
+
+def prepare_dataloaders(config_path: str) -> tuple[FastTensorDataLoader, FastTensorDataLoader]:
     config: FullConfig = load_config(config_path)
 
     inputs, outputs = extract_data(config.data)
     
     tensor_split = split_data(inputs, outputs, config.data.val_split, config.data.shuffle)
 
-    return create_dataloaders(
+    return create_fast_dataloaders(
         tensor_split.in_train,
         tensor_split.out_train,
         tensor_split.in_val,

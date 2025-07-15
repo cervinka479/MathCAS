@@ -22,7 +22,7 @@ def set_seed(seed: int):
 
 def train_one_epoch(
     model: torch.nn.Module,
-    loader: torch.utils.data.DataLoader,
+    loader, # temporary placeholder for DataLoader
     criterion: torch.nn.Module,
     optimizer: torch.optim.Optimizer,
     device: torch.device
@@ -47,7 +47,7 @@ def train_one_epoch(
 
 def evaluate(
     model: torch.nn.Module,
-    loader: torch.utils.data.DataLoader,
+    loader, # temporary placeholder for DataLoader
     criterion: torch.nn.Module,
     device: torch.device
 ) -> float:

@@ -5,5 +5,5 @@ from torch import nn
 from src.trainer import train
 
 if __name__ == "__main__":
-    template_path: str = r'experiment2.yaml'
+    template_path: str = r'experiments\temporary.yaml'
     train(template_path)

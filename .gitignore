@@ -1,5 +1,7 @@
 \venv
 \datasets
+\experiments
+\outputs
 .vscode
 
 __pycache__/
