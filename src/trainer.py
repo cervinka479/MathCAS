@@ -8,6 +8,7 @@ import numpy as np
 from utils.metrics import format_time
 from utils.modules import get_loss_function, get_optimizer
 from utils.logger import setup_logger
+from utils.profiler import nvtx_range, nvtx_mark
 from config import load_config
 from config.schema import FullConfig
 from src.architecture import NeuralNetwork
@@ -31,17 +32,28 @@ def train_one_epoch(
     model.train()
     running_loss = 0.0
 
-    for batch_x, batch_y in loader:
-        if running_loss == 0.0:
-            print(f"Batch x device: {batch_x.device}, Batch y device: {batch_y.device}")
-
-        # batch_x, batch_y = batch_x.to(device), batch_y.to(device)
-        optimizer.zero_grad()
-        outputs = model(batch_x)
-        loss = criterion(outputs, batch_y)
-        loss.backward()
-        optimizer.step()
-        running_loss += loss.item()
+    nvtx_mark("Training Epoch", color="yellow")
+    for batch_idx, (batch_x, batch_y) in enumerate(loader):
+        if batch_idx < 10:
+            with nvtx_range(f"Batch {batch_idx}", color="red"):
+                with nvtx_range("Move to Device", color="blue"):
+                    batch_x, batch_y = batch_x.to(device), batch_y.to(device)
+                optimizer.zero_grad()
+                with nvtx_range("Forward Pass", color="red"):
+                    outputs = model(batch_x)
+                    loss = criterion(outputs, batch_y)
+                with nvtx_range("Backward Pass", color="red"):
+                    loss.backward()
+                optimizer.step()
+                running_loss += loss.item()
+        else:
+            batch_x, batch_y = batch_x.to(device), batch_y.to(device)
+            optimizer.zero_grad()
+            outputs = model(batch_x)
+            loss = criterion(outputs, batch_y)
+            loss.backward()
+            optimizer.step()
+            running_loss += loss.item()
 
     return running_loss / len(loader)
 
@@ -57,7 +69,7 @@ def evaluate(
 
     with torch.no_grad():
         for batch_x, batch_y in loader:
-            # batch_x, batch_y = batch_x.to(device), batch_y.to(device)
+            batch_x, batch_y = batch_x.to(device), batch_y.to(device)
             outputs = model(batch_x)
             loss = criterion(outputs, batch_y)
             running_loss += loss.item()
