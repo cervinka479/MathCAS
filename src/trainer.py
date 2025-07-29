@@ -34,7 +34,7 @@ def train_one_epoch(
 
     nvtx_mark("Training Epoch", color="yellow")
     for batch_idx, (batch_x, batch_y) in enumerate(loader):
-        if batch_idx < 10:
+        if batch_idx < 5:
             with nvtx_range(f"Batch {batch_idx}", color="red"):
                 with nvtx_range("Move to Device", color="blue"):
                     batch_x, batch_y = batch_x.to(device), batch_y.to(device)
@@ -67,6 +67,7 @@ def evaluate(
     model.eval()
     running_loss = 0.0
 
+    nvtx_mark("Evaluate Epoch", color="yellow")
     with torch.no_grad():
         for batch_x, batch_y in loader:
             batch_x, batch_y = batch_x.to(device), batch_y.to(device)
@@ -90,7 +91,8 @@ def train(config_path: str):
     if config.verbose:
         logger.info(f"Using device: {device}")
 
-    model = NeuralNetwork(config.architecture).to(device)
+    with nvtx_range("NN Creation, Move to Device", color="blue"):
+        model = NeuralNetwork(config.architecture).to(device)
 
     train_loader, val_loader = prepare_dataloaders(config_path)
 

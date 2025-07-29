@@ -6,6 +6,7 @@ from sklearn.model_selection import train_test_split
 from dataclasses import dataclass
 from config.schema import DataConfig, FullConfig
 from config import load_config
+from utils.profiler import nvtx_range
 
 
 
@@ -82,21 +83,22 @@ def create_dataloaders(
     batch_size: int
 ) -> tuple[DataLoader, DataLoader]:
 
-    train_loader = DataLoader(
-        TensorDataset(in_train, out_train),
-        batch_size=batch_size,
-        shuffle=True,
-        num_workers=8,
-        pin_memory=False
-    )
-    
-    val_loader = DataLoader(
-        TensorDataset(in_val, out_val),
-        batch_size=batch_size,
-        shuffle=False,
-        num_workers=8,
-        pin_memory=False
-    )
+    with nvtx_range("Create Dataloaders", color="blue"):
+        train_loader = DataLoader(
+            TensorDataset(in_train, out_train),
+            batch_size=batch_size,
+            shuffle=True,
+            num_workers=8,
+            pin_memory=True
+        )
+        
+        val_loader = DataLoader(
+            TensorDataset(in_val, out_val),
+            batch_size=batch_size,
+            shuffle=False,
+            num_workers=8,
+            pin_memory=True
+        )
     return train_loader, val_loader
 
 def create_fast_dataloaders(
@@ -113,9 +115,11 @@ def create_fast_dataloaders(
 def prepare_dataloaders(config_path: str) -> tuple[DataLoader, DataLoader]:
     config: FullConfig = load_config(config_path)
 
-    inputs, outputs = extract_data(config.data)
+    with nvtx_range("Extract Data", color="blue"):
+        inputs, outputs = extract_data(config.data)
     
-    tensor_split = split_data(inputs, outputs, config.data.val_split, config.data.shuffle)
+    with nvtx_range("Split Data", color="blue"):
+        tensor_split = split_data(inputs, outputs, config.data.val_split, config.data.shuffle)
 
     return create_dataloaders(
         tensor_split.in_train,
