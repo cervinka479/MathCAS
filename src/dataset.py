@@ -1,3 +1,4 @@
+import math
 import pandas as pd
 import torch
 import numpy as np
@@ -112,7 +113,7 @@ def create_fast_dataloaders(
     val_loader = FastTensorDataLoader(in_val, out_val, batch_size=batch_size, shuffle=False)
     return train_loader, val_loader
 
-def prepare_dataloaders(config_path: str) -> tuple[DataLoader, DataLoader]:
+def prepare_dataloaders(config_path: str, epoch: int = 0) -> tuple[DataLoader, DataLoader]:
     config: FullConfig = load_config(config_path)
 
     with nvtx_range("Extract Data", color="blue"):
@@ -121,10 +122,26 @@ def prepare_dataloaders(config_path: str) -> tuple[DataLoader, DataLoader]:
     with nvtx_range("Split Data", color="blue"):
         tensor_split = split_data(inputs, outputs, config.data.val_split, config.data.shuffle)
 
-    return create_dataloaders(
-        tensor_split.in_train,
-        tensor_split.out_train,
+    # Sliding window logic
+    sliding_window = config.data.sliding_window
+    if sliding_window is not None and sliding_window > 0:
+        train_size = tensor_split.in_train.shape[0]
+        window_size = sliding_window
+        num_windows = math.ceil(train_size / window_size)
+        window_idx = epoch % num_windows
+        start = window_idx * window_size
+        end = min(start + window_size, train_size)
+        in_train_window = tensor_split.in_train[start:end]
+        out_train_window = tensor_split.out_train[start:end]
+    else:
+        in_train_window = tensor_split.in_train
+        out_train_window = tensor_split.out_train
+
+    train_loader, val_loader = create_dataloaders(
+        in_train_window,
+        out_train_window,
         tensor_split.in_val,
         tensor_split.out_val,
         batch_size=config.data.batch_size
     )
+    return train_loader, val_loader

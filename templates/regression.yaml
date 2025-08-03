@@ -20,10 +20,13 @@ training:
     epochs: 100
     early_stopping: true
     patience: 10
+    scheduler: ReduceLROnPlateau
+    scheduler_patience: 5
+    scheduler_factor: 0.5
 
 data:
-    path_to_data: datasets\dataset1.csv
-    num_samples: null
+    path_to_data: c:\Users\cervinka\cervinka\dataset_compressible_flow_60M_training_nstep180.csv
+    num_samples: 5000
     batch_size: 5
     in_cols: [A11, A21, A31, A12, A22, A32, A13, A23, A33]
     out_cols: [ResVort, ResStrain, Shear]

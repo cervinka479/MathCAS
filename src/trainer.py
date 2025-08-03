@@ -6,7 +6,7 @@ import random
 import numpy as np
 
 from utils.metrics import format_time
-from utils.modules import get_loss_function, get_optimizer
+from utils.modules import get_loss_function, get_optimizer, get_scheduler
 from utils.logger import setup_logger
 from utils.profiler import nvtx_range, nvtx_mark
 from config import load_config
@@ -94,14 +94,24 @@ def train(config_path: str):
     with nvtx_range("NN Creation, Move to Device", color="blue"):
         model = NeuralNetwork(config.architecture).to(device)
 
-    train_loader, val_loader = prepare_dataloaders(config_path)
-
     criterion = get_loss_function(config.training.loss_function)
     optimizer = get_optimizer(
         config.training.optimizer,
         model.parameters(),
         config.training.learning_rate
     )
+
+    # Scheduler setup
+    scheduler = None
+    if getattr(config.training, "scheduler", None) == "ReduceLROnPlateau":
+        scheduler = get_scheduler(
+            "ReduceLROnPlateau",
+            optimizer,
+            patience=config.training.scheduler_patience or 2,
+            factor=config.training.scheduler_factor or 0.5,
+            threshold=config.training.scheduler_threshold or 1e-4,
+            verbose=True
+        )
 
     logger.info(f"Experiment: {config.name}")
     logger.info(f"Model architecture:\n{model}")
@@ -116,9 +126,14 @@ def train(config_path: str):
     start_time = time.time()
 
     for epoch in range(config.training.epochs):
-
+        
+        train_loader, val_loader = prepare_dataloaders(config_path, epoch=epoch)
         train_loss = train_one_epoch(model, train_loader, criterion, optimizer, device)
         val_loss = evaluate(model, val_loader, criterion, device)
+
+        # Step the scheduler
+        if scheduler is not None:
+            scheduler.step(val_loss)
 
         train_losses.append(train_loss)
         val_losses.append(val_loss)

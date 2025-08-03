@@ -1,4 +1,4 @@
-name: experiment2
+name: dan_test_1500
 verbose: true
 save_logs: true
 seed: 42
@@ -9,8 +9,9 @@ architecture:
     out_size: 3
     hidden_layers: [1500, 1500, 1500, 1500, 1500, 1500, 1500]
     activation: ReLU
-    use_dropout: true
+    use_dropout: false
     dropout: 0.5
+    dropout_inplace: true
     final_activation: null
 
 training:
@@ -20,6 +21,10 @@ training:
     epochs: 500
     early_stopping: true
     patience: 5
+    scheduler: ReduceLROnPlateau
+    scheduler_patience: 5
+    scheduler_factor: 0.5
+    scheduler_threshold: 0.1
 
 data:
     path_to_data: c:\Users\cervinka\cervinka\dataset_compressible_flow_60M_training_nstep180.csv
@@ -29,3 +34,4 @@ data:
     out_cols: [ResVort, ResStrain, Shear]
     val_split: 0.1
     shuffle: false
+    sliding_window: 5000000

@@ -9,8 +9,9 @@ architecture:
     out_size: 3
     hidden_layers: [1500, 1500, 1500, 1500, 1500, 1500, 1500]
     activation: ReLU
-    use_dropout: true
+    use_dropout: false
     dropout: 0.5
+    dropout_inplace: true
     final_activation: null
 
 training:
@@ -20,12 +21,18 @@ training:
     epochs: 5
     early_stopping: true
     patience: 5
+    scheduler: ReduceLROnPlateau
+    scheduler_patience: 5
+    scheduler_factor: 0.5
+    scheduler_threshold: 0.1
+    sliding_window: 5000000
 
 data:
     path_to_data: c:\Users\cervinka\cervinka\dataset_compressible_flow_60M_training_nstep180.csv
-    num_samples: 5000000
+    num_samples: 50000000
     batch_size: 81
     in_cols: [A11, A21, A31, A12, A22, A32, A13, A23, A33]
     out_cols: [ResVort, ResStrain, Shear]
     val_split: 0.1
     shuffle: false
+    # add sliding window setting

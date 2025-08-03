@@ -18,3 +18,9 @@ def get_optimizer(name: str, params, lr: float) -> optim.Optimizer:
         return getattr(optim, name)(params, lr=lr)
     except AttributeError:
         raise ValueError(f"Optimizer '{name}' is not a valid torch.optim optimizer.")
+    
+def get_scheduler(name: str, optimizer, **kwargs):
+    if name == "ReduceLROnPlateau":
+        return optim.lr_scheduler.ReduceLROnPlateau(optimizer, **kwargs)
+    else:
+        raise ValueError(f"Scheduler '{name}' is not supported.")

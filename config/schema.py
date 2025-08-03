@@ -9,6 +9,7 @@ class ArchitectureConfig(BaseModel):
     activation: str
     use_dropout: bool
     dropout: float
+    dropout_inplace: bool = False
     final_activation: str | None
 
 class TrainingConfig(BaseModel):
@@ -18,6 +19,10 @@ class TrainingConfig(BaseModel):
     epochs: int
     early_stopping: bool
     patience: int
+    scheduler: str | None = None
+    scheduler_patience: int | None = None
+    scheduler_factor: float | None = None
+    scheduler_threshold: float | None = None
 
 class DataConfig(BaseModel):
     path_to_data: str
@@ -27,6 +32,7 @@ class DataConfig(BaseModel):
     out_cols: list[str]
     val_split: float
     shuffle: bool
+    sliding_window: int | None = None
 
 class FullConfig(BaseModel):
     name: str | None = None

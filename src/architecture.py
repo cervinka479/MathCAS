@@ -15,7 +15,7 @@ class NeuralNetwork(nn.Module):
             self.layers.append(nn.Linear(current_size, hidden_size))
             self.layers.append(get_module(config.activation)())
             if config.use_dropout:
-                self.layers.append(nn.Dropout(config.dropout))
+                self.layers.append(nn.Dropout(config.dropout, inplace=config.dropout_inplace))
             current_size = hidden_size
         
         self.layers.append(nn.Linear(current_size, config.out_size))
