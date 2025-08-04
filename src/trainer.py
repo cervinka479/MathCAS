@@ -4,6 +4,9 @@ import time
 import pandas as pd
 import random
 import numpy as np
+import hashlib
+import traceback
+from utils.experiment import create_experiment_dir, copy_config
 
 from utils.metrics import format_time
 from utils.modules import get_loss_function, get_optimizer, get_scheduler
@@ -81,18 +84,38 @@ def train(config_path: str):
     config: FullConfig = load_config(config_path)
     set_seed(config.seed)
 
-    # Create output directory
-    os.makedirs(config.output_dir, exist_ok=True)
 
-    log_file = os.path.join(config.output_dir, f"{config.name}.log")
+    # Modular experiment directory and config copy
+    exp_dir = create_experiment_dir(config.output_dir, config.name or "unnamed_experiment")
+    copy_config(config_path, exp_dir)
+
+    log_file = os.path.join(exp_dir, "train.log")
     logger = setup_logger(config.verbose, config.save_logs, log_file)
 
+    # Log config hash for reproducibility
+    try:
+        with open(config_path, 'rb') as f:
+            config_hash = hashlib.md5(f.read()).hexdigest()
+        logger.info(f"Config hash: {config_hash}")
+    except Exception as e:
+        logger.warning(f"Could not compute config hash: {e}")
+
+    # Log hardware/environment info
+    logger.info(f"CUDA available: {torch.cuda.is_available()}")
+    if torch.cuda.is_available():
+        logger.info(f"CUDA device: {torch.cuda.get_device_name(0)}")
+        cuda_version = getattr(torch.version, "cuda", "N/A")  # type: ignore
+        logger.info(f"CUDA version: {cuda_version}")
+
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-    if config.verbose:
-        logger.info(f"Using device: {device}")
+    logger.info(f"Using device: {device}")
 
     with nvtx_range("NN Creation, Move to Device", color="blue"):
         model = NeuralNetwork(config.architecture).to(device)
+
+    # Log model parameter count
+    num_params = sum(p.numel() for p in model.parameters() if p.requires_grad)
+    logger.info(f"Total trainable parameters: {num_params}")
 
     criterion = get_loss_function(config.training.loss_function)
     optimizer = get_optimizer(
@@ -103,7 +126,7 @@ def train(config_path: str):
 
     # Scheduler setup
     scheduler = None
-    if getattr(config.training, "scheduler", None) == "ReduceLROnPlateau":
+    if hasattr(config.training, "scheduler") and config.training.scheduler == "ReduceLROnPlateau":
         scheduler = get_scheduler(
             "ReduceLROnPlateau",
             optimizer,
@@ -125,46 +148,67 @@ def train(config_path: str):
     train_losses, val_losses, elapsed_times = [], [], []
     start_time = time.time()
 
-    for epoch in range(config.training.epochs):
-        
-        train_loader, val_loader = prepare_dataloaders(config_path, epoch=epoch)
-        train_loss = train_one_epoch(model, train_loader, criterion, optimizer, device)
-        val_loss = evaluate(model, val_loader, criterion, device)
+    try:
+        for epoch in range(config.training.epochs):
+            train_loader, val_loader = prepare_dataloaders(config_path, epoch=epoch)
 
-        # Step the scheduler
-        if scheduler is not None:
-            scheduler.step(val_loss)
+            # Log dataset sizes
+            if epoch == 0:
+                try:
+                    train_size = len(train_loader.dataset)  # type: ignore
+                    val_size = len(val_loader.dataset)  # type: ignore
+                except Exception:
+                    train_size = val_size = None
+                logger.info(f"Training samples: {train_size} | Validation samples: {val_size} | Batch size: {config.data.batch_size}")
 
-        train_losses.append(train_loss)
-        val_losses.append(val_loss)
+            train_loss = train_one_epoch(model, train_loader, criterion, optimizer, device)
+            val_loss = evaluate(model, val_loader, criterion, device)
 
-        # Save best model
-        if val_loss < best_val_loss:
-            best_val_loss = val_loss
-            best_epoch = epoch + 1
-            best_train_loss = train_loss
-            torch.save(
-                model.state_dict(),
-                os.path.join(config.output_dir, f"{config.name}_best_model.pth")
+            # Step the scheduler
+            if scheduler is not None:
+                scheduler.step(val_loss)
+
+            train_losses.append(train_loss)
+            val_losses.append(val_loss)
+
+            # Save best model
+            if val_loss < best_val_loss:
+                best_val_loss = val_loss
+                best_epoch = epoch + 1
+                best_train_loss = train_loss
+                torch.save(
+                    model.state_dict(),
+                    os.path.join(exp_dir, "best_model.pt")
+                )
+
+                patience_counter = 0
+            else:
+                patience_counter += 1
+
+            elapsed_time = time.time() - start_time
+            elapsed_times.append(elapsed_time)
+
+            # Log learning rate
+            current_lr = optimizer.param_groups[0]['lr']
+            logger.info(
+                f"Epoch {epoch + 1}/{config.training.epochs} | "
+                f"Train Loss: {train_loss:.4e} | Val Loss: {val_loss:.4e} | "
+                f"LR: {current_lr:.2e} | Time: {format_time(elapsed_time)}"
             )
-            patience_counter = 0
-        else:
-            patience_counter += 1
 
-        elapsed_time = time.time() - start_time
-        elapsed_times.append(elapsed_time)
+            # Log scheduler events (ReduceLROnPlateau)
+            if scheduler is not None and hasattr(scheduler, 'num_bad_epochs') and scheduler.num_bad_epochs == 0 and epoch > 0:
+                logger.info(f"Learning rate reduced to {current_lr:.2e}")
 
-        logger.info(
-            f"Epoch {epoch + 1}/{config.training.epochs} | "
-            f"Train Loss: {train_loss:.4f} | Val Loss: {val_loss:.4f} | "
-            f"Time: {format_time(elapsed_time)}"
-        )
+            if config.training.early_stopping and patience_counter >= config.training.patience:
+                logger.info(f"Early stopping at epoch {epoch + 1}")
+                break
 
-        if config.training.early_stopping and patience_counter >= config.training.patience:
-            logger.info(f"Early stopping at epoch {epoch + 1}")
-            break
-
-    total_time = time.time() - start_time
-    logger.info("Training complete.")
-    logger.info(f"Best model at epoch {best_epoch} | Train Loss: {best_train_loss:.4f} | Val Loss: {best_val_loss:.4f}")
-    logger.info(f"Total training time: {format_time(total_time)}")
+        total_time = time.time() - start_time
+        logger.info("Training complete.")
+        logger.info(f"Best model at epoch {best_epoch} | Train Loss: {best_train_loss:.4e} | Val Loss: {best_val_loss:.4e}")
+        logger.info(f"Total training time: {format_time(total_time)}")
+    except Exception as e:
+        logger.error(f"Exception occurred: {e}")
+        logger.error(traceback.format_exc())
+        raise

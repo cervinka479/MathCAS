@@ -1,5 +1,8 @@
 \venv
-\outputs
+/outputs/*
+!/outputs/.gitkeep
+/experiments/*
+!/experiments/.gitkeep
 .vscode
 
 __pycache__/

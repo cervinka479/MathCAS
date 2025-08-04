@@ -11,6 +11,7 @@ architecture:
     activation: ReLU
     use_dropout: true
     dropout: 0.5
+    dropout_inplace: true
     final_activation: null
 
 training:
@@ -23,12 +24,14 @@ training:
     scheduler: ReduceLROnPlateau
     scheduler_patience: 5
     scheduler_factor: 0.5
+    scheduler_threshold: 0.1
 
 data:
-    path_to_data: c:\Users\cervinka\cervinka\dataset_compressible_flow_60M_training_nstep180.csv
+    path_to_data: path
     num_samples: 5000
     batch_size: 5
     in_cols: [A11, A21, A31, A12, A22, A32, A13, A23, A33]
-    out_cols: [ResVort, ResStrain, Shear]
+    out_cols: [B1, B2, B3]
     val_split: 0.1
     shuffle: false
+    sliding_window: null

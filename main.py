@@ -11,5 +11,5 @@ if __name__ == "__main__":
     if is_profiling_enabled():
         print("NVTX profiling is enabled")
 
-    template_path: str = r'experiments\eda_shear_50M.yaml'
+    template_path: str = r'experiments\eda_residual_true_shear_50M.yaml'
     train(template_path)
