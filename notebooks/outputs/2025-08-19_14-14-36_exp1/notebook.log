@@ -1,0 +1,74 @@
+2025-08-19 14:14:36,180 | INFO | Config hash: 549e7dd113d2d29099a8369ad1613133
+2025-08-19 14:14:36,180 | INFO | CUDA available: True
+2025-08-19 14:14:36,181 | INFO | CUDA device: NVIDIA GeForce RTX 3070
+2025-08-19 14:14:36,182 | INFO | CUDA version: 12.1
+2025-08-19 14:14:36,182 | INFO | Using device: cuda
+2025-08-19 14:14:36,183 | INFO | Total trainable parameters: 2819
+2025-08-19 14:14:36,183 | INFO | Experiment: exp1
+2025-08-19 14:14:36,184 | INFO | Model architecture:
+NeuralNetwork(
+  (layers): ModuleList(
+    (0): Linear(in_features=9, out_features=64, bias=True)
+    (1): ReLU()
+    (2): Linear(in_features=64, out_features=32, bias=True)
+    (3): ReLU()
+    (4): Linear(in_features=32, out_features=3, bias=True)
+  )
+)
+2025-08-19 14:14:36,185 | INFO | Training config: learning_rate=0.001 optimizer='Adam' loss_function='MSELoss' epochs=30 early_stopping=True patience=10 scheduler='ReduceLROnPlateau' scheduler_patience=3 scheduler_factor=0.5 scheduler_threshold=0.01
+2025-08-19 14:14:36,185 | INFO | Data config: path_to_data='c:/Users/cervinka/cervinka/dataset_compressible_flow_60M_training_nstep180.csv' num_samples=5000 batch_size=50 in_cols=['A11', 'A21', 'A31', 'A12', 'A22', 'A32', 'A13', 'A23', 'A33'] out_cols=['Shear'] val_split=0.1 shuffle=False sliding_window=None
+2025-08-19 14:14:36,186 | INFO | Training samples: 4500 | Validation samples: 500 | Batch size: 50
+2025-08-19 14:14:42,215 | INFO | Epoch 1/30 | Train Loss: 8.5302e-01 | Val Loss: 1.2368e-01 | LR: 1.00e-03 | Time: 0:00:05
+2025-08-19 14:14:47,230 | INFO | Epoch 2/30 | Train Loss: 1.2306e-01 | Val Loss: 9.7242e-02 | LR: 1.00e-03 | Time: 0:00:10
+2025-08-19 14:14:47,231 | INFO | Learning rate reduced to 1.00e-03
+2025-08-19 14:14:52,251 | INFO | Epoch 3/30 | Train Loss: 9.7776e-02 | Val Loss: 8.4598e-02 | LR: 1.00e-03 | Time: 0:00:15
+2025-08-19 14:14:52,252 | INFO | Learning rate reduced to 1.00e-03
+2025-08-19 14:14:57,333 | INFO | Epoch 4/30 | Train Loss: 8.4708e-02 | Val Loss: 7.8318e-02 | LR: 1.00e-03 | Time: 0:00:20
+2025-08-19 14:14:57,334 | INFO | Learning rate reduced to 1.00e-03
+2025-08-19 14:15:02,320 | INFO | Epoch 5/30 | Train Loss: 7.9828e-02 | Val Loss: 7.6236e-02 | LR: 1.00e-03 | Time: 0:00:25
+2025-08-19 14:15:02,321 | INFO | Learning rate reduced to 1.00e-03
+2025-08-19 14:15:07,298 | INFO | Epoch 6/30 | Train Loss: 7.6562e-02 | Val Loss: 7.3432e-02 | LR: 1.00e-03 | Time: 0:00:30
+2025-08-19 14:15:07,299 | INFO | Learning rate reduced to 1.00e-03
+2025-08-19 14:15:12,272 | INFO | Epoch 7/30 | Train Loss: 7.4542e-02 | Val Loss: 7.2815e-02 | LR: 1.00e-03 | Time: 0:00:35
+2025-08-19 14:15:17,255 | INFO | Epoch 8/30 | Train Loss: 6.9859e-02 | Val Loss: 6.4161e-02 | LR: 1.00e-03 | Time: 0:00:40
+2025-08-19 14:15:17,256 | INFO | Learning rate reduced to 1.00e-03
+2025-08-19 14:15:22,247 | INFO | Epoch 9/30 | Train Loss: 5.9366e-02 | Val Loss: 5.2076e-02 | LR: 1.00e-03 | Time: 0:00:45
+2025-08-19 14:15:22,248 | INFO | Learning rate reduced to 1.00e-03
+2025-08-19 14:15:27,259 | INFO | Epoch 10/30 | Train Loss: 4.9117e-02 | Val Loss: 4.2936e-02 | LR: 1.00e-03 | Time: 0:00:50
+2025-08-19 14:15:27,260 | INFO | Learning rate reduced to 1.00e-03
+2025-08-19 14:15:32,250 | INFO | Epoch 11/30 | Train Loss: 3.8196e-02 | Val Loss: 3.1467e-02 | LR: 1.00e-03 | Time: 0:00:55
+2025-08-19 14:15:32,251 | INFO | Learning rate reduced to 1.00e-03
+2025-08-19 14:15:37,280 | INFO | Epoch 12/30 | Train Loss: 2.6367e-02 | Val Loss: 2.1239e-02 | LR: 1.00e-03 | Time: 0:01:00
+2025-08-19 14:15:37,280 | INFO | Learning rate reduced to 1.00e-03
+2025-08-19 14:15:42,267 | INFO | Epoch 13/30 | Train Loss: 1.7336e-02 | Val Loss: 1.3550e-02 | LR: 1.00e-03 | Time: 0:01:05
+2025-08-19 14:15:42,268 | INFO | Learning rate reduced to 1.00e-03
+2025-08-19 14:15:47,329 | INFO | Epoch 14/30 | Train Loss: 1.1216e-02 | Val Loss: 9.2775e-03 | LR: 1.00e-03 | Time: 0:01:10
+2025-08-19 14:15:47,329 | INFO | Learning rate reduced to 1.00e-03
+2025-08-19 14:15:52,327 | INFO | Epoch 15/30 | Train Loss: 7.5125e-03 | Val Loss: 7.0094e-03 | LR: 1.00e-03 | Time: 0:01:15
+2025-08-19 14:15:52,327 | INFO | Learning rate reduced to 1.00e-03
+2025-08-19 14:15:57,313 | INFO | Epoch 16/30 | Train Loss: 5.6211e-03 | Val Loss: 6.0653e-03 | LR: 1.00e-03 | Time: 0:01:20
+2025-08-19 14:15:57,313 | INFO | Learning rate reduced to 1.00e-03
+2025-08-19 14:16:02,353 | INFO | Epoch 17/30 | Train Loss: 4.6739e-03 | Val Loss: 6.0604e-03 | LR: 1.00e-03 | Time: 0:01:25
+2025-08-19 14:16:07,338 | INFO | Epoch 18/30 | Train Loss: 4.1649e-03 | Val Loss: 5.6797e-03 | LR: 1.00e-03 | Time: 0:01:30
+2025-08-19 14:16:07,339 | INFO | Learning rate reduced to 1.00e-03
+2025-08-19 14:16:12,340 | INFO | Epoch 19/30 | Train Loss: 3.8796e-03 | Val Loss: 4.8606e-03 | LR: 1.00e-03 | Time: 0:01:35
+2025-08-19 14:16:12,341 | INFO | Learning rate reduced to 1.00e-03
+2025-08-19 14:16:17,345 | INFO | Epoch 20/30 | Train Loss: 3.6772e-03 | Val Loss: 4.7288e-03 | LR: 1.00e-03 | Time: 0:01:40
+2025-08-19 14:16:17,346 | INFO | Learning rate reduced to 1.00e-03
+2025-08-19 14:16:22,315 | INFO | Epoch 21/30 | Train Loss: 3.4761e-03 | Val Loss: 4.5610e-03 | LR: 1.00e-03 | Time: 0:01:45
+2025-08-19 14:16:22,315 | INFO | Learning rate reduced to 1.00e-03
+2025-08-19 14:16:27,267 | INFO | Epoch 22/30 | Train Loss: 3.3572e-03 | Val Loss: 4.7518e-03 | LR: 1.00e-03 | Time: 0:01:50
+2025-08-19 14:16:32,253 | INFO | Epoch 23/30 | Train Loss: 3.2629e-03 | Val Loss: 4.3954e-03 | LR: 1.00e-03 | Time: 0:01:55
+2025-08-19 14:16:32,254 | INFO | Learning rate reduced to 1.00e-03
+2025-08-19 14:16:37,221 | INFO | Epoch 24/30 | Train Loss: 3.1542e-03 | Val Loss: 4.3146e-03 | LR: 1.00e-03 | Time: 0:02:00
+2025-08-19 14:16:37,222 | INFO | Learning rate reduced to 1.00e-03
+2025-08-19 14:16:42,186 | INFO | Epoch 25/30 | Train Loss: 3.0427e-03 | Val Loss: 4.3354e-03 | LR: 1.00e-03 | Time: 0:02:05
+2025-08-19 14:16:47,179 | INFO | Epoch 26/30 | Train Loss: 3.0423e-03 | Val Loss: 4.3419e-03 | LR: 1.00e-03 | Time: 0:02:10
+2025-08-19 14:16:52,193 | INFO | Epoch 27/30 | Train Loss: 2.9315e-03 | Val Loss: 4.0183e-03 | LR: 1.00e-03 | Time: 0:02:15
+2025-08-19 14:16:52,194 | INFO | Learning rate reduced to 1.00e-03
+2025-08-19 14:16:57,206 | INFO | Epoch 28/30 | Train Loss: 2.8344e-03 | Val Loss: 4.0690e-03 | LR: 1.00e-03 | Time: 0:02:20
+2025-08-19 14:17:02,195 | INFO | Epoch 29/30 | Train Loss: 2.8410e-03 | Val Loss: 4.2472e-03 | LR: 1.00e-03 | Time: 0:02:25
+2025-08-19 14:17:07,209 | INFO | Epoch 30/30 | Train Loss: 2.7568e-03 | Val Loss: 4.0806e-03 | LR: 1.00e-03 | Time: 0:02:30
+2025-08-19 14:17:07,210 | INFO | Training complete.
+2025-08-19 14:17:07,211 | INFO | Best model at epoch 27 | Val Loss: 4.0183e-03
+2025-08-19 14:17:07,212 | INFO | Total training time: 0:02:30

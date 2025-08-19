@@ -150,7 +150,7 @@ def train(config_path: str):
 
     try:
         for epoch in range(config.training.epochs):
-            train_loader, val_loader = prepare_dataloaders(config_path, epoch=epoch)
+            train_loader, val_loader = prepare_dataloaders(config.data, epoch=epoch)
 
             # Log dataset sizes
             if epoch == 0:

@@ -9,3 +9,6 @@ __pycache__/
 *.py[cod]
 
 notes.txt
+
+/datasets/*
+!/datasets/.gitkeep

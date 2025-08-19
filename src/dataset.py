@@ -113,17 +113,17 @@ def create_fast_dataloaders(
     val_loader = FastTensorDataLoader(in_val, out_val, batch_size=batch_size, shuffle=False)
     return train_loader, val_loader
 
-def prepare_dataloaders(config_path: str, epoch: int = 0) -> tuple[DataLoader, DataLoader]:
-    config: FullConfig = load_config(config_path)
+def prepare_dataloaders(data_config: DataConfig, epoch: int = 0) -> tuple[DataLoader, DataLoader]:
+    from utils.profiler import nvtx_range
 
     with nvtx_range("Extract Data", color="blue"):
-        inputs, outputs = extract_data(config.data)
-    
+        inputs, outputs = extract_data(data_config)
+
     with nvtx_range("Split Data", color="blue"):
-        tensor_split = split_data(inputs, outputs, config.data.val_split, config.data.shuffle)
+        tensor_split = split_data(inputs, outputs, data_config.val_split, data_config.shuffle)
 
     # Sliding window logic
-    sliding_window = config.data.sliding_window
+    sliding_window = data_config.sliding_window
     if sliding_window is not None and sliding_window > 0:
         train_size = tensor_split.in_train.shape[0]
         window_size = sliding_window
@@ -142,6 +142,6 @@ def prepare_dataloaders(config_path: str, epoch: int = 0) -> tuple[DataLoader, D
         out_train_window,
         tensor_split.in_val,
         tensor_split.out_val,
-        batch_size=config.data.batch_size
+        batch_size=data_config.batch_size
     )
     return train_loader, val_loader
