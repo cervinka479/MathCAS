@@ -12,3 +12,6 @@ notes.txt
 
 /datasets/*
 !/datasets/.gitkeep
+
+/notebooks/outputs/*
+!/notebooks/outputs/.gitkeep
