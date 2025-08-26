@@ -6,8 +6,8 @@ output_dir: outputs
 
 architecture:
     in_size: 9
-    out_size: 3
-    hidden_layers: [1500, 1500, 1500, 1500, 1500, 1500, 1500]
+    out_size: 1
+    hidden_layers: [64, 32]
     activation: ReLU
     use_dropout: false
     dropout: 0.5
@@ -16,23 +16,22 @@ architecture:
 
 training:
     learning_rate: 0.000028357
-    optimizer: Adam
+    optimizer: AdamW
     loss_function: MSELoss
-    epochs: 5
+    epochs: 30
     early_stopping: true
-    patience: 5
+    patience: 10
     scheduler: ReduceLROnPlateau
-    scheduler_patience: 5
+    scheduler_patience: 4
     scheduler_factor: 0.5
     scheduler_threshold: 0.1
-    sliding_window: 5000000
 
 data:
-    path_to_data: c:\Users\cervinka\cervinka\dataset_compressible_flow_60M_training_nstep180.csv
-    num_samples: 50000000
+    path_to_data: datasets\dataset_compressible_flow_60M_training_nstep180.csv
+    num_samples: 5000
     batch_size: 81
     in_cols: [A11, A21, A31, A12, A22, A32, A13, A23, A33]
-    out_cols: [ResVort, ResStrain, Shear]
+    out_cols: [Shear]
     val_split: 0.1
     shuffle: false
-    # add sliding window setting
+    sliding_window: null

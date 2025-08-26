@@ -4,8 +4,8 @@ import time
 import pandas as pd
 import random
 import numpy as np
-import hashlib
 import traceback
+from pathlib import Path
 from utils.experiment import create_experiment_dir, copy_config
 
 from utils.metrics import format_time
@@ -60,7 +60,7 @@ def train_one_epoch(
 
     return running_loss / len(loader)
 
-def evaluate(
+def validate(
     model: torch.nn.Module,
     loader, # temporary placeholder for DataLoader
     criterion: torch.nn.Module,
@@ -70,7 +70,7 @@ def evaluate(
     model.eval()
     running_loss = 0.0
 
-    nvtx_mark("Evaluate Epoch", color="yellow")
+    nvtx_mark("Validate Epoch", color="yellow")
     with torch.no_grad():
         for batch_x, batch_y in loader:
             batch_x, batch_y = batch_x.to(device), batch_y.to(device)
@@ -80,25 +80,20 @@ def evaluate(
 
     return running_loss / len(loader)
 
-def train(config_path: str):
-    config: FullConfig = load_config(config_path)
+def train(config: FullConfig, exp_dir: Path, logger) -> None:
+    """
+    Train a neural network model based on the provided configuration.
+
+    Args:
+        config (FullConfig): The full configuration object containing architecture, training, and data settings.
+        exp_dir (str): Path to the experiment directory for saving models and logs.
+        logger: Logger object for logging training progress and information.
+
+    Returns:
+        None
+    """
+    
     set_seed(config.seed)
-
-
-    # Modular experiment directory and config copy
-    exp_dir = create_experiment_dir(config.output_dir, config.name or "unnamed_experiment")
-    copy_config(config_path, exp_dir)
-
-    log_file = os.path.join(exp_dir, "train.log")
-    logger = setup_logger(config.verbose, config.save_logs, log_file)
-
-    # Log config hash for reproducibility
-    try:
-        with open(config_path, 'rb') as f:
-            config_hash = hashlib.md5(f.read()).hexdigest()
-        logger.info(f"Config hash: {config_hash}")
-    except Exception as e:
-        logger.warning(f"Could not compute config hash: {e}")
 
     # Log hardware/environment info
     logger.info(f"CUDA available: {torch.cuda.is_available()}")
@@ -162,7 +157,7 @@ def train(config_path: str):
                 logger.info(f"Training samples: {train_size} | Validation samples: {val_size} | Batch size: {config.data.batch_size}")
 
             train_loss = train_one_epoch(model, train_loader, criterion, optimizer, device)
-            val_loss = evaluate(model, val_loader, criterion, device)
+            val_loss = validate(model, val_loader, criterion, device)
 
             # Step the scheduler
             if scheduler is not None:
@@ -188,7 +183,7 @@ def train(config_path: str):
             elapsed_time = time.time() - start_time
             elapsed_times.append(elapsed_time)
 
-            # Log learning rate
+            # Log epoch information
             current_lr = optimizer.param_groups[0]['lr']
             logger.info(
                 f"Epoch {epoch + 1}/{config.training.epochs} | "

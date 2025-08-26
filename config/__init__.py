@@ -1,10 +1,11 @@
 import os
 import yaml
 from config.schema import FullConfig
+from pathlib import Path
 
 
 
-def load_config(config_path: str) -> FullConfig:
+def load_config(config_path: Path) -> FullConfig:
     with open(config_path, 'r') as f:
         raw = yaml.safe_load(f)
 
