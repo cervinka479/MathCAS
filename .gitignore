@@ -1,6 +1,8 @@
 \venv
+
 /outputs/*
 !/outputs/.gitkeep
+
 /experiments/*
 !/experiments/.gitkeep
 .vscode
