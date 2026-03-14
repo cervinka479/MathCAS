@@ -33,11 +33,43 @@ Before feeding data into the PyTorch models, the framework includes robust Jupyt
 MathCAS/
 ├── config/             # YAML schema definitions and config loaders
 ├── datasets/           # Directory for tabular data (gitignored)
-├── experiments/        # Auto-generated experiment tracking & model checkpoints
+├── experiments/        # User-defined YAML configuration files for experiments
 ├── figures/            # Exported visualizations and plots
 ├── notebooks/          # Jupyter notebooks for EDA, visualization, and tooling
+├── outputs/            # Auto-generated experiment logs, model checkpoints, and hashed configs
 ├── src/                # Core ML logic (architecture, dataloaders, evaluation)
 ├── templates/          # Base YAML templates for regression/classification
 ├── utils/              # Helpers: logger, NVTX profiler, metric computations
 └── main.py             # Main entry point for the training pipeline
 ```
+
+## 🚀 Quickstart
+
+1. **Clone the repository and install dependencies:**
+
+    ```bash
+    git clone https://github.com/cervinka479/MathCAS.git
+    cd MathCAS
+    pip install -r requirements.txt
+    ```
+
+2. **Prepare your dataset:** Place your tabular data (`.csv`) in the `datasets/` directory.
+
+3. **Configure your experiment:** Edit the `templates/regression.yaml` file to match your dataset's input/output columns and your desired neural network architecture.
+
+4. **Run the training pipeline:**
+
+    ```bash
+    python main.py templates/regression.yaml
+    ```
+
+5. **Check outputs:** Trained weights (`best_model.pt`), logs, hashed configs, and metrics are automatically saved into a uniquely named folder inside the `outputs/` directory.
+
+## 🛠️ Configuration & Advanced Tools
+
+- **Experiment Configuration:** The entire training pipeline is controlled via YAML files. You can easily adjust learning rates, architecture, and data splits without modifying the core codebase.
+- **Analytical Notebooks:** Check out the `notebooks/` directory for advanced evaluation tools, including dying ReLU inspection and cross-experiment performance visualizations.
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
