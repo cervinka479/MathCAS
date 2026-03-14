@@ -38,5 +38,5 @@ if __name__ == "__main__":
 
     train(config, exp_dir, logger)
 
-    eval_data_path: Path = Path(r"C:\Users\cervinka\cervinka\GitHub\MathCAS\datasets\dataset_compressible_flow_5M_test.csv")
+    eval_data_path: Path = Path(__file__).parent / "datasets" / "dataset_compressible_flow_5M_test.csv"
     evaluate(config, exp_dir, eval_data_path)

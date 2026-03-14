@@ -14,7 +14,7 @@ $originalContent = Get-Content $templateFile
 $seedCounter = $startVersion
 foreach ($seed in $seeds) {
     # Přečti originální YAML
-    $content = Get-Content $templateFile
+    $content = $originalContent
     
     # Nahraď seed
     $content = $content -replace "seed: \d+", "seed: $seed"
