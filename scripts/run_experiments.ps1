@@ -1,6 +1,6 @@
 $templateFile = "experiments\2026_02_01\shear_dan_1500.yaml"
-$seeds = @(456, 789, 9999)
-$startVersion = 3
+$seeds = @(9999)
+$startVersion = 5
 
 # Zkontroluj, zda existuje template
 if (-not (Test-Path $templateFile)) {
