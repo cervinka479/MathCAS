@@ -83,7 +83,7 @@ def evaluate(config: FullConfig, exp_dir: Path, eval_data_path: Path) -> None:
 
 def write_results_to_file(config, y_pred, y_true, exp_dir, model, inference_time):
 
-    output_cols = config.data.out_cols  # list of output column names
+    output_cols = config.data.out_cols
 
     results_lines = []
 
@@ -117,7 +117,7 @@ def write_results_to_file(config, y_pred, y_true, exp_dir, model, inference_time
         y_true_col = y_true[:, i]
         y_pred_col = y_pred[:, i]
         squared_errors = (y_true_col - y_pred_col) ** 2
-        worst_indices = np.argsort(squared_errors)[-10:][::-1]  # 10 largest errors, descending
+        worst_indices = np.argsort(squared_errors)[-10:][::-1]
         results_lines.append(f"\ntrue, prediction for output '{col}' (10 worst by squared error):")
         for idx in worst_indices:
             true_val = np.ravel(y_true[idx])[i]

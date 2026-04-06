@@ -39,7 +39,7 @@ class NeuralNetwork(nn.Module):
                     activations[name] = output.detach()
                 hooks.append(layer.register_forward_hook(_hook))
 
-        # Forward pass (no gradients needed)
+        # Forward pass
         self.eval()
         with torch.no_grad():
             self.forward(data)
@@ -51,9 +51,7 @@ class NeuralNetwork(nn.Module):
         # Analyse
         report = {}
         for name, act in activations.items():
-            # act shape: (batch, neurons)
-            # Fraction of batch where each neuron is active (> 0)
-            active_frac = (act > 0).float().mean(dim=0)  # shape: (neurons,)
+            active_frac = (act > 0).float().mean(dim=0)
             dead_mask = active_frac <= threshold
             report[name] = {
                 "total": act.shape[1],

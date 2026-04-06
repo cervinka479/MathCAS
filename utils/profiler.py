@@ -8,7 +8,6 @@ except ImportError:
     nvtx = None
 
 # Global flag to enable/disable NVTX profiling
-# Can be controlled via environment variable or set programmatically
 ENABLE_NVTX = os.getenv('ENABLE_NVTX', 'false').lower() in ('true', '1', 'yes')
 
 @contextlib.contextmanager

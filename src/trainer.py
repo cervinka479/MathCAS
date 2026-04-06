@@ -29,7 +29,7 @@ def set_seed(seed: int):
 
 def train_one_epoch(
     model: torch.nn.Module,
-    loader, # temporary placeholder for DataLoader
+    loader,
     criterion: torch.nn.Module,
     optimizer: torch.optim.Optimizer,
     device: torch.device
@@ -65,7 +65,7 @@ def train_one_epoch(
 
 def validate(
     model: torch.nn.Module,
-    loader, # temporary placeholder for DataLoader
+    loader,
     criterion: torch.nn.Module,
     device: torch.device
 ) -> float:
@@ -98,7 +98,7 @@ def train(config: FullConfig, exp_dir: Path, logger) -> None:
     
     set_seed(config.seed)
 
-    # Log hardware/environment info
+    # Log environment info
     logger.info(f"CUDA available: {torch.cuda.is_available()}")
     if torch.cuda.is_available():
         logger.info(f"CUDA device: {torch.cuda.get_device_name(0)}")
